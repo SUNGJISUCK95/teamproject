@@ -5,3 +5,4 @@ teamproject practice
 2. 권용빈
 3. 조해성
 4. 황동주
+5. 성지석
