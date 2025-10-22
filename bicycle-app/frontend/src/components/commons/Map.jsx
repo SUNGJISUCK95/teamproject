@@ -12,7 +12,7 @@ function Map({ handleClick }) {
 
         const map = new window.kakao.maps.Map(container, options);
 
-        let imageSrc = 'http://localhost:3001/images/marker_green.png';    
+        let imageSrc = 'http://localhost:3000/images/marker_green.png';    
         let imageSize = new window.kakao.maps.Size(15, 15);
         let imageOption = {offset: new window.kakao.maps.Point(0, 0)};
         let markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
