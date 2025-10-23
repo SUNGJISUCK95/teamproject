@@ -11,7 +11,6 @@ import { Terms } from './pages/policies/Terms.jsx';
 import { Privacy } from './pages/policies/Privacy.jsx';
 import { InternalPolicy } from './pages/policies/InternalPolicy.jsx';
 import ScrollToTop from "./components/ScrollToTop.jsx";
-import {ProductHome} from "./pages/ProductHome.jsx";
 import {Products} from "./pages/Products.jsx";
 
 import './styles/commons.css';
@@ -35,8 +34,7 @@ export default function App() {
           <Route path="policies/terms" element={<Terms />} />
           <Route path="/policies/privacy" element={<Privacy />} />
           <Route path="/policies/internalpolicy" element={<InternalPolicy />} />
-          <Route path="producthome" element={<ProductHome />} />
-          <Route path="productMountain" element={<Products />} />
+          <Route path="product" element={<Products />} />
         </Route>
       </Routes>
     </BrowserRouter>

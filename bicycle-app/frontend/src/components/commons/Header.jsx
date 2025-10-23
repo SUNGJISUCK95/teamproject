@@ -18,7 +18,7 @@ export function Header() {
       <nav className={`header-center ${menuOpen ? "open" : ""}`}>
         <ul>
           <li>
-            <NavLink to="/producthome" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/product" onClick={() => setMenuOpen(false)}>
               자전거 구매
             </NavLink>
           </li>
