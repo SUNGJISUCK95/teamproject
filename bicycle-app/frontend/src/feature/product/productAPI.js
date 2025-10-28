@@ -11,3 +11,8 @@ export const getProductList = () => async(dispatch) => {
     const jsonData = await axiosData("/data/mountainData.json");
     return dispatch(createProduct({"products":jsonData}));
 }
+
+// export const getMainProductList = () => async(dispatch) => {
+//     const jsonData = await axiosData("/data/mainData.json");
+//     return dispatch(createProduct({"products":jsonData}));
+// }
