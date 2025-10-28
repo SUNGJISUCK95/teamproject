@@ -35,6 +35,7 @@ export default function App() {
           <Route path="/policies/privacy" element={<Privacy />} />
           <Route path="/policies/internalpolicy" element={<InternalPolicy />} />
           <Route path="product" element={<Products />} />
+          <Route path="products/:category" element={<Products />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import {Link, NavLink, useLocation} from "react-router-dom";
 import { FaHeadset, FaUser, FaBars, FaTimes } from "react-icons/fa";
+import '../../styles/purchaseheader.css';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [purchaseMenuOpen,setPurchaseMenuOpen] = useState(null);
+  const location = useLocation();
 
   return (
-    <header className="header">
+    <header className="header" onMouseLeave={()=>setPurchaseMenuOpen(null)}>
       {/* 좌측 로고 */}
       <div className="header-left">
         <Link to="/" className="logo">
@@ -17,8 +20,14 @@ export function Header() {
       {/* 중앙 메뉴 (데스크톱용) */}
       <nav className={`header-center ${menuOpen ? "open" : ""}`}>
         <ul>
-          <li>
-            <NavLink to="/product" onClick={() => setMenuOpen(false)}>
+          <li onMouseEnter={() => setPurchaseMenuOpen('purchase')}>
+            <NavLink to="/product" onClick={() => setMenuOpen(false)}
+                     // className={() => {
+                     //     const isProductPage = location.pathname.startsWith('/product') ||
+                     //         location.pathname.startsWith('/products');
+                     //     return isProductPage ? 'active' : '';
+                     // }}
+                >
               자전거 구매
             </NavLink>
           </li>
@@ -58,6 +67,17 @@ export function Header() {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
+        {purchaseMenuOpen === 'purchase' && (
+            <div className="submenu-container">
+                <div className="submenu-content">
+                    <Link to="/products/mountain">산악</Link>
+                    <Link to="/products/road">로드</Link>
+                    <Link to="/products/lifestyle">라이프스타일</Link>
+                    <Link to="/products/electric">전기</Link>
+                    <Link to="/products/brand">브랜드</Link>
+                </div>
+            </div>
+        )}
     </header>
   );
 }

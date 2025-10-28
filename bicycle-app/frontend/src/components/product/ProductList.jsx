@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ProductAvatar } from './ProductAvatar.jsx';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductList } from '../../feature/product/productAPI.js';
 import '../../styles/productList.css';
@@ -11,10 +9,8 @@ export function ProductList() {
     const products = useSelector((state) => state.product.products);
 
     useEffect(()=>{
-
         dispatch(getProductList());
     }, [dispatch]);
-    // --- 데이터 정렬 로직 추가 ---
     const sortedProducts = products
         .slice()
         .sort((a, b) => parseInt(a.pid) - parseInt(b.pid));
@@ -35,7 +31,6 @@ export function ProductList() {
                     </Link>
                 )
             )}
-            {sortedProducts.length === 0 && <p>상품 목록을 불러오는 중...</p>}
         </div>
     );
 }
