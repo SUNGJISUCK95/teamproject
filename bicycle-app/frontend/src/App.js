@@ -12,6 +12,7 @@ import { Privacy } from './pages/policies/Privacy.jsx';
 import { InternalPolicy } from './pages/policies/InternalPolicy.jsx';
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import {Products} from "./pages/Products.jsx";
+import {ProductDetail} from "./pages/ProductDetail.jsx";
 
 import './styles/commons.css';
 import './styles/home.css';
@@ -34,8 +35,8 @@ export default function App() {
           <Route path="policies/terms" element={<Terms />} />
           <Route path="/policies/privacy" element={<Privacy />} />
           <Route path="/policies/internalpolicy" element={<InternalPolicy />} />
-          <Route path="product" element={<Products />} />
           <Route path="products/:category" element={<Products />} />
+          <Route path="products/:category/:pid" element={<ProductDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>
