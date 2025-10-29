@@ -8,7 +8,7 @@
 import '../styles/signup.css';
 import React, {useState} from 'react'
 
-import '@coreui/coreui/dist/css/coreui.min.css';// 이 CSS가 있어야 작동
+//import '@coreui/coreui/dist/css/coreui.min.css'; // 이 CSS가 있어야 작동
 import { CCol, CFormInput, CFormSelect, CRow } from '@coreui/react' // npm install @coreui/react로 설치
 
 
