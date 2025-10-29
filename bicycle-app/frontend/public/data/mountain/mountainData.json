@@ -1,4 +1,5 @@
 [
+
     {
         "pid" : "1",
         "category" : "mountain",
@@ -39,20 +40,6 @@
             "29 알로이 XC 하드테일 프레임, QR (사이즈: S/M/L)",
             "29 SR선투어 [XCM]스틸 스티어러, 코일 스프링, QR (트래블:100 mm, 리모트 레버)",
             "시마노 [DEORE] 12단 변속시스템 (1x12)"                    
-        ]
-    },
-    {
-        "pid" : "3",
-        "category" : "mountain",
-        "image" : "/bicycleimages/mountain/29inch/29-BULLET-FX-90_GALAXY-BLUE-1.png",
-        "name" : "29 불렛 FX 90",
-        "price" : 7990000,
-        "color" : "갤럭시 블루 그린",
-        "subInfo" : "첼로의 강력한 퍼포먼스로 최고의 주행력을 선사하는 올마운틴 전기자전거 모델",
-        "description" : [
-            "29 알로이 XC 하드테일 프레임, QR (사이즈: S/M/L)",
-            "29 락샥 [ZEB 셀렉트+] 에어스프링",
-            "보쉬 [POWER TUBE 750] 750Wh"                    
         ]
     },
     {
@@ -192,7 +179,7 @@
         "description" : [
             "29 알로이 보쉬 eBike 시스템 올마운틴 프레임",
             "29 락샥 [ZEB 셀렉트+] 에어스프링",
-            "보쉬 [POWER TUBE 750] 750Wh"                    
+            "보쉬 [POWER TUBE 750] 750Wh"
         ]
     },
     {
@@ -206,7 +193,7 @@
         "description" : [
             "29 알로이 보쉬 eBike 시스템 올마운틴 프레임",
             "29 락샥 [ZEB 셀렉트+] 에어스프링",
-            "보쉬 [POWER TUBE 750] 750Wh"                    
+            "보쉬 [POWER TUBE 750] 750Wh"
         ]
     },
     {
@@ -220,7 +207,7 @@
         "description" : [
             "29 알로이 보쉬 eBike 시스템 올마운틴 프레임",
             "29 락샥 [ZEB 셀렉트+] 에어스프링",
-            "보쉬 [POWER TUBE 750] 750Wh"                    
+            "보쉬 [POWER TUBE 750] 750Wh"
         ]
     }
 ]
