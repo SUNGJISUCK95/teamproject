@@ -27,6 +27,12 @@ dependencies {
     compileOnly("org.projectlombok:lombok:1.18.42")
     annotationProcessor("org.projectlombok:lombok:1.18.42")
 
+    //security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    
+    //카톡 접속용 디펜던시
+    implementation 'com.google.code.gson:gson:2.8.7'
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
