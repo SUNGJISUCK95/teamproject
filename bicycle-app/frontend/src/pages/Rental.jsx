@@ -4,7 +4,7 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk'
 import { Maps } from '../components/rental/Maps.jsx';
 import { addData } from '../feature/rental/rentalMarkerSlice.js';
 import { showMarkerAPI } from '../feature/rental/rentalMarkerAPI.js';
-import '../styles/reset.css';
+// import '../styles/reset.css';
 
 
 const Rantal = ({center, ...restProps}) => {
