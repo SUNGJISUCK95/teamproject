@@ -17,7 +17,7 @@ import {ProductDetail} from "./pages/ProductDetail.jsx";
 import './styles/commons.css';
 import './styles/home.css';
 import './styles/travel.css'
-import './styles/maps.css'
+import './styles/rental.css'
 
 export default function App() {
   return (
