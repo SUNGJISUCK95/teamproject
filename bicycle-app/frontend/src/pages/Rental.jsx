@@ -4,7 +4,6 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk'
 import { Maps } from '../components/rental/Maps.jsx';
 import { addData } from '../feature/rental/rentalMarkerSlice.js';
 import { showMarkerAPI } from '../feature/rental/rentalMarkerAPI.js';
-import '../styles/reset.css';
 
 
 const Rantal = ({center, ...restProps}) => {
@@ -53,7 +52,7 @@ const Rantal = ({center, ...restProps}) => {
   return (
     <div style={{ display: "flex", justifyContent: "flex-end" }}>
       <Maps data={selectedMarker} onClose={() => { setSelectedMarker(null) }} />
-      <Map center={latLon} style={{width:"100%", height: "100vh"}}>
+      <Map center={latLon} style={{width:"100%", height: "calc(100vh - 52px)"}}>
         {maps && maps.map((station, index) => {
           return <MapMarker
             key={`${station.id}-${index}`}
