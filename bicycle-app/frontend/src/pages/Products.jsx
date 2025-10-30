@@ -1,15 +1,22 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { ProductList } from '../components/product/ProductList.jsx';
-import {useDispatch, useSelector} from "react-redux";
+import {Link, NavLink} from "react-router-dom";
+import {FaBars, FaHeadset, FaTimes, FaUser} from "react-icons/fa";
 
 export function Products() {
-    const { category } = useParams();
-
     return (
         <div className='content'>
-            <h3 className='all-products-title'>{category || 'All Products'}</h3>
-            <ProductList category={category}/>
+            <header className="header">
+                <nav>
+                    <a href="productMountain">산악</a>
+                    <a href="#">로드</a>
+                    <a href="#">라이프스타일</a>
+                    <a href="#">전기</a>
+                    <a href="#">브랜드</a>
+                </nav>
+            </header>
+            <h3 className='all-products-title'>All Products</h3>
+            <ProductList />
         </div>
     );
 }

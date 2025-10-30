@@ -1,16 +1,13 @@
 import React from 'react';
-import { createProduct, setProduct } from './productSlice.js';
+import { createProduct, filterProduct } from './productSlice.js';
 import { axiosData } from '../../utils/dataFetch.js';
 
-export const getProduct = (category,pid) => async(dispatch) => {
-    const jsonData = await axiosData(`/data/${category}/${category}Data.json`);
-
-    const foundProduct = jsonData.find(item => item.pid.toString() === pid.toString());
-
-    dispatch(setProduct(foundProduct));
+export const getProduct = (pid) => async(dispatch) => {
+    // dispatch(filterProduct(pid));
+    dispatch(filterProduct({"pid": pid}));
 }
 
-export const getProductList = (category) => async(dispatch) => {
-    const jsonData = await axiosData(`/data/${category}/${category}Data.json`);
+export const getProductList = () => async(dispatch) => {
+    const jsonData = await axiosData("/data/mountainData.json");
     return dispatch(createProduct({"products":jsonData}));
 }

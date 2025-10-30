@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './pages/Layout.jsx';
 import { Home } from './pages/Home.jsx';
 import { Travel } from './pages/Travel.jsx';
-import Rental from './pages/Rental.jsx';
+import { Rental } from './pages/Rental.jsx';
 import { Support } from './pages/Support.jsx';
 import { Login } from './pages/Login.jsx';
 import { Auth } from './pages/Auth.jsx';
@@ -12,12 +12,11 @@ import { Privacy } from './pages/policies/Privacy.jsx';
 import { InternalPolicy } from './pages/policies/InternalPolicy.jsx';
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import {Products} from "./pages/Products.jsx";
-import {ProductDetail} from "./pages/ProductDetail.jsx";
 
 import './styles/commons.css';
 import './styles/home.css';
-import './styles/travel.css'
-import './styles/maps.css'
+import './styles/travel.css';
+import './styles/rental.css';
 
 export default function App() {
   return (
@@ -35,8 +34,7 @@ export default function App() {
           <Route path="policies/terms" element={<Terms />} />
           <Route path="/policies/privacy" element={<Privacy />} />
           <Route path="/policies/internalpolicy" element={<InternalPolicy />} />
-          <Route path="products/:category" element={<Products />} />
-          <Route path="products/:category/:pid" element={<ProductDetail />} />
+          <Route path="product" element={<Products />} />
         </Route>
       </Routes>
     </BrowserRouter>

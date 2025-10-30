@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FaQuestionCircle } from "react-icons/fa";
-import { getChatbotResponse } from "../api/chatbot"; // 👈 챗봇
 import "../styles/support.css";
 
 export function Support() {
@@ -12,7 +11,6 @@ export function Support() {
     { sender: "bot", text: "안녕하세요 😊 무엇을 도와드릴까요?" },
   ]);
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false); // 로딩 표시용
 
   // Footer에서 전달된 탭 초기화
   useEffect(() => {
@@ -20,17 +18,32 @@ export function Support() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.state]);
 
-  const handleSend = async () => {
+  // 간단한 자동응답 규칙
+  const handleBotResponse = (userInput) => {
+    const lower = userInput.toLowerCase();
+    if (lower.includes("a/s") || lower.includes("as"))
+      return "A/S 관련 문의는 고객센터 > A/S 안내 탭을 참고해주세요.";
+    if (lower.includes("자료") || lower.includes("다운로드"))
+      return "자료실 탭에서 관련 문서를 다운로드할 수 있습니다.";
+    if (lower.includes("문의") || lower.includes("상담"))
+      return "문의사항은 고객센터 페이지 하단의 연락처를 이용해주세요.";
+    if (lower.includes("운영시간"))
+      return "고객센터 운영시간은 평일 09:00 ~ 18:00 입니다.";
+    return "죄송합니다. 그 부분은 아직 학습되지 않았어요 😅";
+  };
+
+  const handleSend = () => {
     if (!input.trim()) return;
 
     const newMessage = { sender: "user", text: input };
     setMessages((prev) => [...prev, newMessage]);
-    setInput("");
-    setLoading(true);
 
-    const reply = await getChatbotResponse(input);
-    setMessages((prev) => [...prev, { sender: "bot", text: reply }]);
-    setLoading(false);
+    setTimeout(() => {
+      const reply = handleBotResponse(input);
+      setMessages((prev) => [...prev, { sender: "bot", text: reply }]);
+    }, 600);
+
+    setInput("");
   };
 
   return (
@@ -77,6 +90,11 @@ export function Support() {
         </div>
       </div>
 
+      {/* 💬 챗봇 아이콘 버튼 */}
+      {/* <button className="chatbot-toggle" onClick={() => setShowChatbot(true)}>
+        <FaQuestionCircle size={30} />
+      </button> */}
+
       {/* 챗봇 팝업 */}
       {showChatbot && (
         <div className="chatbot-popup">
@@ -94,7 +112,6 @@ export function Support() {
                   {msg.text}
                 </div>
               ))}
-              {loading && <div className="chat-msg bot">⌛ 답변을 작성 중입니다...</div>}
             </div>
 
             <div className="chatbot-input">
@@ -105,9 +122,7 @@ export function Support() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
               />
-              <button onClick={handleSend} disabled={loading}>
-                {loading ? "응답 중..." : "전송"}
-              </button>
+              <button onClick={handleSend}>전송</button>
             </div>
           </div>
         </div>
