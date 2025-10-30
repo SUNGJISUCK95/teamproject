@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FaQuestionCircle } from "react-icons/fa";
 import { getChatbotResponse } from "../api/chatbot"; // 👈 챗봇
@@ -13,7 +13,8 @@ export function Support() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false); // 로딩 표시용
-
+  const chatBodyRef = useRef(null); // 👇 스크롤 위치 조절용 ref
+  
   // Footer에서 전달된 탭 초기화
   useEffect(() => {
     if (location.state?.tab) setActiveTab(location.state.tab);
@@ -32,6 +33,13 @@ export function Support() {
     setMessages((prev) => [...prev, { sender: "bot", text: reply }]);
     setLoading(false);
   };
+
+  // ✅ 새 메시지가 추가될 때마다 스크롤을 맨 아래로
+  useEffect(() => {
+    if (chatBodyRef.current) {
+      chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   return (
     <div className="support-page">
@@ -73,7 +81,7 @@ export function Support() {
         <p>평일 오전 9시 ~ 오후 6시</p>
         <p>토요일, 일요일, 공휴일 휴무</p>
         <div className="support-buttons">
-          <button onClick={() => setShowChatbot(true)}>1:1 문의하기</button>
+          <button onClick={() => setShowChatbot(true)}>챗봇 상담</button>
         </div>
       </div>
 
@@ -88,7 +96,7 @@ export function Support() {
               </button>
             </div>
 
-            <div className="chatbot-body">
+            <div className="chatbot-body" ref={chatBodyRef}>
               {messages.map((msg, idx) => (
                 <div key={idx} className={`chat-msg ${msg.sender}`}>
                   {msg.text}
@@ -106,7 +114,7 @@ export function Support() {
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
               />
               <button onClick={handleSend} disabled={loading}>
-                {loading ? "응답 중..." : "전송"}
+                {loading ? "응답 중" : "전송"}
               </button>
             </div>
           </div>
@@ -181,7 +189,12 @@ function ASInfo() {
     <div className="as-section">
       <div className="as-div main">
         <div className="as-img-box">
-          <img src="/images/as_process_pc.jpg" alt="as process" />
+          <picture>
+            {/* 모바일 우선 */}
+            <source srcSet="/images/as_process_mobile.jpg" media="(max-width: 768px)" />
+            {/* 기본(PC) */}
+            <img src="/images/as_process_pc.jpg" alt="A/S 진행 절차" />
+          </picture>
         </div>
         <ul>
           <li>1. 구입 대리점에서 A/S 접수</li>
@@ -211,7 +224,10 @@ function ASInfo() {
         <p className="as-title">3. 품질보증 신청방법</p>
         <p className="as-desc">제품의 하자 및 제품 이상 발생시에는 1차 구매하신 대리점으로 A/S신청 및 문의 바랍니다.</p>
         <div className="as-img-box">
-          <img src="/images/as_apply_pc.jpg" alt="as process" />
+          <picture>
+            <source srcSet="/images/as_apply_mobile.jpg" media="(max-width: 768px)" />
+            <img src="/images/as_apply_pc.jpg" alt="A/S 신청 방법" />
+          </picture>
         </div>
       </div>
       <div className="as-div">
