@@ -419,6 +419,7 @@
   line-height: 1.4;
   font-size: 0.9rem;
   word-wrap: break-word;
+  text-align: left;
 }
 
 .chat-msg.bot {

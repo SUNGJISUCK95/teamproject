@@ -1,26 +1,72 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FaQuestionCircle } from "react-icons/fa";
-import { getChatbotResponse } from "../api/chatbot"; // 👈 챗봇
+import { getChatbotResponse } from "../api/chatbot.js"; // 👈 챗봇 API
 import "../styles/support.css";
 
 export function Support() {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState("faq");
   const [showChatbot, setShowChatbot] = useState(false);
-  const [messages, setMessages] = useState([
-    { sender: "bot", text: "안녕하세요 😊 무엇을 도와드릴까요?" },
-  ]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false); // 로딩 표시용
-  const chatBodyRef = useRef(null); // 👇 스크롤 위치 조절용 ref
-  
+  const [messages, setMessages] = useState(() => {
+    // localStorage -> sessionStorage 변경 시 브라우저를 닫으면 메시지 초기화
+    const saved = localStorage.getItem("chatMessages");
+    return saved
+      ? JSON.parse(saved)
+      : [{ sender: "bot", text: "안녕하세요 😊 무엇을 도와드릴까요?" }];
+  });
+  const [input, setInput] = useState(() => localStorage.getItem("chatInput") || "");
+  const [loading, setLoading] = useState(false);
+  const [scrollPos, setScrollPos] = useState(() => Number(localStorage.getItem("chatScroll")) || 0);
+  const chatBodyRef = useRef(null);
+
   // Footer에서 전달된 탭 초기화
   useEffect(() => {
     if (location.state?.tab) setActiveTab(location.state.tab);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.state]);
 
+  // ✅ 메시지 저장
+  useEffect(() => {
+    localStorage.setItem("chatMessages", JSON.stringify(messages));
+  }, [messages]);
+
+  // ✅ 입력 중 내용 저장
+  useEffect(() => {
+    localStorage.setItem("chatInput", input);
+  }, [input]);
+
+  // ✅ 스크롤 위치 저장
+  useEffect(() => {
+    localStorage.setItem("chatScroll", scrollPos);
+  }, [scrollPos]);
+
+  // ✅ 챗봇 닫을 때 스크롤 저장
+  const handleCloseChatbot = () => {
+    if (chatBodyRef.current) {
+      const pos = chatBodyRef.current.scrollTop;
+      setScrollPos(pos);
+      localStorage.setItem("chatScroll", pos);
+    }
+    setShowChatbot(false);
+  };
+
+  // ✅ 챗봇 다시 열면 스크롤 복원
+  useEffect(() => {
+    if (showChatbot && chatBodyRef.current) {
+      const savedPos = Number(localStorage.getItem("chatScroll")) || 0;
+      chatBodyRef.current.scrollTo({ top: savedPos, behavior: "smooth" });
+    }
+  }, [showChatbot]);
+
+  // ✅ 새 메시지 추가 시 맨 아래로 스크롤
+  useEffect(() => {
+    if (chatBodyRef.current) {
+      chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  // ✅ 메시지 전송
   const handleSend = async () => {
     if (!input.trim()) return;
 
@@ -33,13 +79,6 @@ export function Support() {
     setMessages((prev) => [...prev, { sender: "bot", text: reply }]);
     setLoading(false);
   };
-
-  // ✅ 새 메시지가 추가될 때마다 스크롤을 맨 아래로
-  useEffect(() => {
-    if (chatBodyRef.current) {
-      chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
-    }
-  }, [messages]);
 
   return (
     <div className="support-page">
@@ -91,7 +130,7 @@ export function Support() {
           <div className="chatbot-window">
             <div className="chatbot-header">
               <h4>고객센터 챗봇</h4>
-              <button className="close-btn" onClick={() => setShowChatbot(false)}>
+              <button className="close-btn" onClick={handleCloseChatbot}>
                 ✕
               </button>
             </div>
@@ -102,7 +141,9 @@ export function Support() {
                   {msg.text}
                 </div>
               ))}
-              {loading && <div className="chat-msg bot">⌛ 답변을 작성 중입니다...</div>}
+              {loading && (
+                <div className="chat-msg bot loading">⌛ 답변을 작성 중입니다...</div>
+              )}
             </div>
 
             <div className="chatbot-input">
