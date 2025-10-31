@@ -38,7 +38,7 @@ public class ChatbotService {
             result.put("reply", "A/S는 구매일로부터 1년간 무상 제공됩니다. 자세한 내용은 고객센터로 문의해주세요 ☎ 02-1234-5678");
             return result;
         }
-        if (containsAny(lower, "영업시간", "운영시간", "문의")) {
+        if (containsAny(lower, "영업시간", "운영시간", "문의", "고객센터")) {
             result.put("reply", "고객센터 운영시간은 평일 오전 9시~오후 6시입니다. (토·일·공휴일 휴무)");
             return result;
         }

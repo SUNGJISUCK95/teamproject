@@ -270,7 +270,7 @@
 }
 
 /* 반응형 */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .resources-section {
     padding: 20px 10px;
   }
@@ -299,6 +299,8 @@
 
 .support-label {
   color: #777;
+  font-size: 28px;
+  margin-bottom: 40px;
 }
 
 .support-buttons {
@@ -327,8 +329,8 @@
 =========================== */
 .chatbot-popup {
   position: fixed;
-  bottom: 80px;
-  right: 40px;
+  bottom: 40px;
+  right: 120px;
   z-index: 2000;
   width: 340px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -336,6 +338,14 @@
   background: #fff;
   overflow: hidden;
   animation: fadeInUp 0.3s ease;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .chatbot-popup {
+    bottom: 80px;
+    right: 20px;
+  }
 }
 
 @keyframes fadeInUp {
@@ -395,6 +405,8 @@
   gap: 6px;
   overflow-y: auto;
   background: #fafafa;
+  max-height: 400px;
+  scroll-behavior: smooth; /* 👈 자동 스크롤 부드럽게 */
 }
 
 /* ===========================
@@ -455,6 +467,14 @@
 
 .chatbot-input button:hover {
   background: #0056b3;
+}
+
+/* ✅ 비활성화 상태 스타일 */
+.chatbot-input button:disabled {
+  background-color: #ccc;      /* 회색 배경 */
+  color: #666;                 /* 흐린 글자색 */
+  cursor: not-allowed;         /* 클릭 불가 커서 */
+  opacity: 0.8;                /* 살짝 투명도 */
 }
 
 /* ===========================

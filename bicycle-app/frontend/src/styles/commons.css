@@ -270,7 +270,7 @@
   transform: translateY(-3px);
 }
 
-/* 💻 태블릿 (768px~1024px) → 2열 구조 */
+/* 💻 태블릿 (769px~1024px) → 2열 구조 */
 @media (max-width: 1024px) {
   .footer {
     padding: 40px 40px 20px;
@@ -297,8 +297,8 @@
   }
 }
 
-/* 📱 모바일 (767px 이하) → 세로 1열 */
-@media (max-width: 767px) {
+/* 📱 모바일 (768px 이하) → 세로 1열 */
+@media (max-width: 768px) {
   .footer {
     padding: 40px 20px 20px;
   }
