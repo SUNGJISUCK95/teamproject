@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {Link, NavLink, useLocation} from "react-router-dom";
-import { FaHeadset, FaUser, FaBars, FaTimes } from "react-icons/fa";
+import {FaHeadset, FaUser, FaBars, FaTimes, FaCartArrowDown} from "react-icons/fa";
 import '../../styles/purchaseheader.css';
 
 export function Header() {
@@ -40,6 +40,10 @@ export function Header() {
 
             {/* 우측 메뉴 */}
             <div className="header-right">
+                <NavLink to="/cart" className="icon-link">
+                    <FaCartArrowDown className="icon" />
+                    <span className="text">장바구니</span>
+                </NavLink>
                 <NavLink to="/support" className="icon-link">
                     <FaHeadset className="icon" />
                     <span className="text">고객센터</span>
