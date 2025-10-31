@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {getProduct} from "../feature/product/productAPI.js";
 import {ImageList} from "../components/commons/ImageList.jsx";
+import {addCart} from "../feature/cart/cartAPI.js";
 import '../styles/product/productdetail.css';
 
 export function ProductDetail() {
@@ -11,17 +12,26 @@ export function ProductDetail() {
     const dispatch = useDispatch();
     const product = useSelector((state) => state.product.product);
     const imgList = useSelector((state) => state.product.imgList);
-
-
-    // const [tabName, setTabName] = useState('detail');
-    // const tabLabels = ['DETAIL', 'REVIEW', 'Q&A', 'RETURN & DELIVERY'];
-    // const tabEventNames = ['detail', 'review', 'qna', 'return'];
+    const cartList = useSelector((state)=>state.cart.cartList);
 
     useEffect(()=> {
         if (category && pid) {
             dispatch(getProduct(category, pid));
         }
-            }, [dispatch, category, pid]);
+    }, [dispatch, category, pid]);
+
+    const handleFindStore = () => {
+        navigate("/location");
+    }
+    const goToCart = () => {
+        alert("장바구니에 해당 제품이 담겼습니다.")
+        dispatch(addCart(product));
+    }
+
+    const goToPurchase = () => {
+        navigate("/cart")
+        // dispatch(addCart(product));
+    }
 
     return (
         <div className="product-detail-container">
@@ -56,10 +66,10 @@ export function ProductDetail() {
                         </button>
                     </li>
                     <li className='button-wrapper product-action-buttons'>
-                        <button type="button" className="action-button add-to-cart">
+                        <button type="button" className="action-button add-to-cart" onClick={goToCart}>
                             장바구니
                         </button>
-                        <button type="button" className="action-button buy-now">
+                        <button type="button" className="action-button buy-now" onClick={goToPurchase}>
                             구매
                         </button>
                     </li>
@@ -80,18 +90,19 @@ export function ProductDetail() {
 
                     {/* 사이즈 / 대리점 찾기 버튼 */}
                     <li className='button-wrapper stack'>
-                        <button type="button" className="spec-button store">대리점 찾기</button>
+                        <button type="button" className="spec-button store"
+                                onClick={handleFindStore}>대리점 찾기</button>
                     </li>
                 </ul>
             </div>
 
             <div className="tab-content">
-                    <div className="tab-pane-detail">
-                        <h3>DETAIL</h3>
-                        <img src={product.image} alt={product.name} className="main-image"/>
-                        <ImageList  className="product-detail-thumbnails"
-                                    imgList={imgList}/>
-                    </div>
+                <div className="tab-pane-detail">
+                    <h3>DETAIL</h3>
+                    <img src={product.image} alt={product.name} className="main-image"/>
+                    <ImageList  className="product-detail-thumbnails"
+                                imgList={imgList}/>
+                </div>
             </div>
         </div>
     );
