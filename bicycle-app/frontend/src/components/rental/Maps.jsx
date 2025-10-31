@@ -20,8 +20,8 @@ export function Maps({ data, onClose }) {
                 />
                 <ul className='map_marker_data_info_list'>
                     <li>
-                        <span>위도: {data.latitude}</span>
-                        <span>경도: {data.longitude}</span>
+                        <span>위도: <em>{data.latitude}</em></span>
+                        <span>경도: <em>{data.longitude}</em></span>
                     </li>
                     <li>
                         <span>자전거 수: {data.free_bikes}</span>
@@ -33,7 +33,7 @@ export function Maps({ data, onClose }) {
                 </ul>
                 <form>
                     <button type='button' className='boarding' onClick={() => setPaymentModalOpen(true)}>대여하기</button>
-                    <button className='map_marker_data_info_closs' onClick={onClose}>Close</button>
+                    <button className='map_marker_data_info_closs' onClick={onClose}>닫기</button>
                 </form>
                 {isPaymentModalOpen && (
                     <RentalPayment
