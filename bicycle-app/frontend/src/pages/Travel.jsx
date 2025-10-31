@@ -21,7 +21,7 @@ export function Travel() {
 
     // console.log(travelMenuList);
     // console.log(travelFoodList);
-    console.log(travelFoodDetailList);
+//     console.log(travelFoodDetailList);
     // console.log(travelWalkList);
 
     const [number, setNumber] = useState(3);
@@ -110,7 +110,8 @@ export function Travel() {
                           <div className='food-list'>
                             {travelFoodList && travelFoodList.map((rowArray, idx) =>
                                 { return rowArray && rowArray.map((travelFood, idx) =>          
-                                  <TravelFood pid={travelFood.pid} name={travelFood.name} like={travelFood.like} tag={travelFood.tag} image1={travelFood.image1} image2={travelFood.image2} image3={travelFood.image3} description={travelFood.description} handleDetail={handleDetail} type="food" /> 
+                                    /** TravelFood를 TravelFoodList인 컴포넌트(<TravelFoodList>)를 생성하여 그 안에 넣어서 말하자면 한번 더 컴포넌트화 햇어야한다. 그래야 Travel.jsx도 보기 편하고 교체가 수월하다.  */
+                                  <TravelFood pid={travelFood.pid} name={travelFood.name} like={travelFood.like} tag={travelFood.tag} image1={travelFood.image1} image2={travelFood.image2} image3={travelFood.image3} description={travelFood.description} handleDetail={handleDetail} type="food" />
                                )}
                             )}                              
                           </div>
