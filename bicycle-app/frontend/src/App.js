@@ -18,6 +18,8 @@ import './styles/commons.css';
 import './styles/home.css';
 import './styles/travel.css';
 import './styles/rental.css';
+import {StoreLocation} from "./pages/StoreLocation.jsx";
+import {Cart} from "./pages/Cart.jsx";
 
 export default function App() {
   return (
@@ -37,6 +39,8 @@ export default function App() {
           <Route path="/policies/internalpolicy" element={<InternalPolicy />} />
           <Route path="products/:category" element={<Products />} />
           <Route path="products/:category/:pid" element={<ProductDetail />} />
+          <Route path="location" element={<StoreLocation/>}/>
+          <Route path="/cart" element={<Cart/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
