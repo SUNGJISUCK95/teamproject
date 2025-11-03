@@ -24,8 +24,8 @@ function Map({ handleClick }) {
               window.kakao.maps.load(() => {
                 const container = document.getElementById("map");
                 const options = {
-                  center: new window.kakao.maps.LatLng(33.450701, 126.570667), // 중심 좌표
-                  level: 3,
+                  center: new window.kakao.maps.LatLng(36.5, 127.8), // 남한 중심
+                  level: 12 // 줌 레벨
                 };
 
                 const map = new window.kakao.maps.Map(container, options);
@@ -41,7 +41,7 @@ function Map({ handleClick }) {
                 const markers = [];
                 let activeOverlay = null;
 
-                data.forEach(({ lat, lng, type }) => {
+                data.forEach(({ mname, lat, lng, type }) => {
                   const markerPosition = new window.kakao.maps.LatLng(lat, lng);
 
                   const marker = new window.kakao.maps.Marker({
@@ -49,12 +49,12 @@ function Map({ handleClick }) {
                     image: greenMarkerImage,
                     map: map,
                   });
-
+  
                   // 오버레이 내용
                   const content = `
                     <div class="map-marker-overlay-box" >
                         <ul class="map-marker-overlay">
-                          <li class="map-marker-title" ><span>구의야구공원</span></li>
+                          <li class="map-marker-title" ><span>${mname}</span></li>
                           <li class="map-marker-link" ><a href="https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=97fc93d4-e259-4a38-bdb1-45bfcb8691ba" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
                         </ul>
                     </div>

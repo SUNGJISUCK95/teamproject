@@ -15,15 +15,15 @@
   --color-white: #fff;
 }
 
-/* .header {
+.header {
     width: 100%;
     margin: auto;
-} */
+}
 
 /**
   travel
 */
-/*.content {
+.content {
   width: 100%;
 }
 
@@ -35,63 +35,39 @@
 }
 
 .travel-left {
-  display: none;
-  width: 35%;
+  width: 30%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .travel-left-menus {
   width: 100%;
   height: 40px;
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  transition: top 0.5s ease;
 }
 
 .travel-left-detail {
   width: 100%;
-  height: 660px;
+  height: calc(100vh - 95px);
+  top: 40px;
+  left: -40rem;
+  transition: left 0.5s ease;
   overflow: hidden;
   overflow: auto;
+  position: absolute;  
+  background-color: var(--color-white);  
+  border-radius: 1rem;
+  box-shadow: 1px 0px 4px gray;
 }
 
 .travel-map {
   width: 100%;
-  width: 45%;
   height: calc(100vh - 55px);
-}
-
-#map {
-  width: 100%;
-  height: 100%;
-}*/
-
-.travel-outer {
-  width: 100%;
-}
-
-.center-layout {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-}
-
-.travel-left {
-  width: 35%;
-}
-
-.travel-left-menus {
-  width: 100%;
-  height: 40px;
-}
-
-.travel-left-detail {
-  width: 100%;
-  height: 660px;
-  overflow: hidden;
-  overflow: auto;
-}
-
-.travel-map {
-  width: 55%;
-  height: 700px;
 }
 
 #map {
@@ -100,16 +76,28 @@
 }
 
 .travel-menu {
-  padding: 0.3rem;
+  padding: 0.4rem 0.8rem;
   margin: 0.3rem;
   border-radius: 0.7rem;
   background-color: white;
-  border: 1px solid gray;
+  border: none;
   user-select: none;
+  cursor: pointer;  
+  font-weight: 500;
+  box-shadow: 0px 1px 4px gray;
 }
 
 .travel-menu:hover {
-  background-color: lightgray;
+  color: var(--color-white);
+  background-color: var(--color-blue);
+}
+
+.fa-utensils { /*음식 이모지*/
+  color: orangered;
+}
+
+.fa-shoe-prints {
+  color: brown;
 }
 
 /**
@@ -118,6 +106,7 @@
 .food-list-item {
   list-style-type: none;
   margin-top: 1rem;
+  padding-left: 1rem;
 }
 
 .food-list-item:hover {
@@ -140,6 +129,7 @@
 }
 
 .food-image {
+  user-select: none;
   width:150px;
   height:150px;
   margin: 0.3rem;
@@ -157,6 +147,12 @@
 .walk-list-item {
   list-style-type: none;
   margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+.walk-list-item:hover {
+  background-color: lightgray;
+  cursor: pointer;
 }
 
 .walk-title {
@@ -175,6 +171,7 @@
 }
 
 .walk-image {
+  user-select: none;
   width:150px;
   height:150px;
   margin: 0.3rem;
@@ -187,11 +184,13 @@
 }
 
 .map-marker-overlay-box {
+  display: inline-block; /* 글자 크기만큼만 박스 넓이를 맞춤 */
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 4px gray;
-  width: 150px;
+  padding-left: 1.5rem;
   height: 40px;
+  white-space: nowrap; /* 글자가 한 줄로 나오도록 방지 */
 }
 
 .map-marker-overlay {
@@ -206,12 +205,13 @@
 
 .map-marker-title {
   width: 70%;
+  padding-right: 1.5rem;
 }
 
 .map-marker-link {
-  width: 30%;
+  width: 3rem;
   height: 100%;
-  background-color: #e63946;
+  background-color: var(--color-blue);
   border-radius: 0 10px 10px 0;;
   color: white;
   text-decoration: none;
@@ -225,7 +225,7 @@
 }
 
 .map-marker-link:hover {
-  background-color: #c51f2b;
+  background-color: #015b9b;
 }
 
 
@@ -239,7 +239,7 @@
   background-color: gray;
   opacity: 0.7;
   display: none;
-  z-index: 1;
+  z-index: 11;
 }
 
 .travel-detail {
@@ -254,7 +254,8 @@
   overflow: hidden;
   overflow: auto;
   display: none;
-  z-index: 2;
+  border-radius: 1rem;
+  z-index: 12;
 }
 
 .detail-close-box {
@@ -264,8 +265,12 @@
 
 .detail-close-button {
   position: absolute;
-  top: -20px;
+  top: 0;
   right: 0;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 .detail-top {
@@ -362,6 +367,9 @@
 .detail-title-address-button,
 .detail-title-time-button{
   margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 .detail-title-support {
@@ -392,10 +400,13 @@
 
 .detail-menu-more {
   font-size: 13px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
-.detail-menu-more span,
-.detail-image-more span{
+.detail-menu-more i,
+.detail-image-more i{
   color: gray;
 }
 
@@ -451,6 +462,9 @@
 
 .detail-image-more{
   font-size: 15px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 .detail-review {
