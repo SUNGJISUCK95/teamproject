@@ -3,18 +3,65 @@
   */
 * {
     box-sizing: border-box;
+    font-family: "Open Sans";
+    list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.header {
+:root {
+  --color-black: #333;
+  --color-blue: #0077cc;
+  --color-white: #fff;
+}
+
+/* .header {
     width: 100%;
     margin: auto;
-}
+} */
 
 /**
   travel
 */
+/*.content {
+  width: 100%;
+}
+
+.center-layout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.travel-left {
+  display: none;
+  width: 35%;
+}
+
+.travel-left-menus {
+  width: 100%;
+  height: 40px;
+}
+
+.travel-left-detail {
+  width: 100%;
+  height: 660px;
+  overflow: hidden;
+  overflow: auto;
+}
+
+.travel-map {
+  width: 100%;
+  width: 45%;
+  height: calc(100vh - 55px);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}*/
+
 .travel-outer {
   width: 100%;
 }
@@ -140,7 +187,7 @@
 }
 
 .map-marker-overlay-box {
-  background-color: white; 
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 4px gray;
   width: 150px;
@@ -150,25 +197,25 @@
 .map-marker-overlay {
   width: 100%;
   height: 100%;
-  list-style: none;           
-  display: flex;  
-  align-items: center;             
+  list-style: none;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  text-align: center;  
+  text-align: center;
 }
 
 .map-marker-title {
-  width: 100%;
+  width: 70%;
 }
 
 .map-marker-link {
-  width: 30%;    
-  height: 100%;               
-  background-color: #e63946;  
+  width: 30%;
+  height: 100%;
+  background-color: #e63946;
   border-radius: 0 10px 10px 0;;
   color: white;
-  text-decoration: none; 
-  padding-top: 7px;      
+  text-decoration: none;
+  padding-top: 7px;
   transition: background-color 0.2s;
 }
 
@@ -178,7 +225,7 @@
 }
 
 .map-marker-link:hover {
-  background-color: #c51f2b;  
+  background-color: #c51f2b;
 }
 
 
@@ -203,6 +250,7 @@
   background-color: var(--color-white);
   width: 80%;
   height: 90%;
+  padding: 20px;
   overflow: hidden;
   overflow: auto;
   display: none;
@@ -216,20 +264,20 @@
 
 .detail-close-button {
   position: absolute;
-  top: 0;
+  top: -20px;
   right: 0;
 }
 
 .detail-top {
   display: flex;
-  align-items: center;             
-  justify-content:space-around ;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 10px;
 }
 
 .detail-title{
-  width: 45%;
-  border: 1px solid red;
+  width: 50%;
+  /* border: 1px solid red; */
 }
 
 .detail-title-image {
@@ -272,11 +320,11 @@
 }
 
 .detail-title-likeNum,
-.detail-title-reviewNum, 
+.detail-title-reviewNum,
 .detail-title-likeScore {
   margin-left: 10px;
 }
-.detail-title-location{  
+.detail-title-location{
   color: gray;
 }
 
@@ -288,7 +336,7 @@
 .detail-title-likeNum {
   font-size: 22px;
 
-  
+
 }
 
 .detail-title-reviewNum {
@@ -301,11 +349,177 @@
   font-size: 20px;
 }
 
-.detail-title-address {
+.detail-title-address-box,
+.detail-title-time-box,
+.detail-title-phone-box,
+.detail-title-tag-box,
+.detail-title-other-box,
+.detail-title-support-box{
   margin-top: 10px;
+  font-size: 15px;
+}
+
+.detail-title-address-button,
+.detail-title-time-button{
+  margin-left: 10px;
+}
+
+.detail-title-support {
+  color: gray;
 }
 
 .detail-menu {
   width: 45%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+}
+
+.detail-menu-title,
+.detail-image-title,
+.detail-review-title {
+  font-size: 24px;
+}
+
+.detail-menu-item {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.detail-menu-more-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.detail-menu-more {
+  font-size: 13px;
+}
+
+.detail-menu-more span,
+.detail-image-more span{
+  color: gray;
+}
+
+.detail-image {
+  margin-top: 20px;
+  /* border: 1px solid green; */
+}
+
+.detail-image-title span {
+  color: var(--color-blue);
+}
+
+.detail-image-button-box {
+  margin-top: 10px;
+}
+
+.detail-image-button {
+  margin-left: 10px;
+  font-size: 15px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.7rem;
+  background-color: var(--color-white);
+  border: 1px solid lightgrey;
+  user-select: none;
+  cursor: pointer;
+}
+
+.detail-image-button:nth-child(1){
+   margin-left: 0;
+   background-color: var(--color-blue);
+   color: white;
+   border: 1px solid var(--color-blue);
+}
+
+.detail-image-box {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.detail-view-image {
+  width: 214px;
+  height: 214px;
+  border-radius: 15px;
+}
+
+.detail-image-more-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.detail-image-more{
+  font-size: 15px;
+}
+
+.detail-review {
+  margin-top: 30px;
+}
+
+.detail-review-button-box {
+  margin-top: 10px;
+}
+
+.detail-review-button {
+  margin-left: 10px;
+  padding: 0.3rem;
+  border-radius: 0.7rem;
+  background-color: var(--color-white);
+  border: 1px solid lightgrey;
+  user-select: none;
+  cursor: pointer;
+}
+
+.detail-review-button:nth-child(1) {
+  margin-left: 0;
+  color: var(--color-blue);
+  border: 1px solid var(--color-blue);
+}
+
+.detail-review-box {
+  margin-top: 10px;
+  padding: 15px;
+  border: 1px solid lightgray;
+}
+
+.detail-review-profile {
+  display: flex;
+}
+
+.detail-review-user-image {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.detail-review-info{
+  margin-left: 10px;
+}
+
+.detail-review-user-id {
+  font-size: 18px;
+}
+
+.detail-review-user-like,
+.detail-review-user-stats {
+  font-size: 14px;
+  color: gray;
+}
+
+.detail-review-image-box {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 10px;
+}
+
+.detail-review-image {
+  width: 148px;
+  height: 148px;
+  border-radius: 10px;
+}
+
+.detail-review-date {
+  margin-top: 10px;
 }
