@@ -19,7 +19,7 @@ public class JdbcTemplateMapRepository implements  MapRepository{
     @Override
     public List<Map> findAll() {
         System.out.println("repository ==> ");
-        String sql = "select mid, lat, lng, type from marker";
+        String sql = "select mname, mid, lat, lng, type from marker";
         //trim()은 공백을 제거해줌 (as로 컬럼명 따로 지정해줘야 사용가능)
         List<Map> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Map.class));
 

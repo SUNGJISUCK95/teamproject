@@ -16,12 +16,11 @@ export function TravelDetail({
                                 review,
                                 description,
                                 handleDetail,
-                                type}) {
+                                }) {
                                     console.log(review);
 
     return(
-        <>
-            <li className="detail-close-box"><button className="detail-close-button" onClick={() => handleDetail(type)}>닫기X</button></li>
+        <>            
             <div className="detail-top">
                 <ul className="detail-title">
                     <li className="detail-title-image-box">
@@ -47,13 +46,13 @@ export function TravelDetail({
                     <li className="detail-title-address-box">
                         <i class="fa-solid fa-location-dot"></i>
                         <span className="detail-title-address"> {address}</span>
-                        <button className="detail-title-address-button">지번 ▼</button>
+                        <button className="detail-title-address-button">지번 <i class="fa-solid fa-chevron-down"></i></button>
                         {/*{localAddress}*/}
                     </li>
                     <li className="detail-title-time-box">
                         <i class="fa-solid fa-clock"></i>
                         <span className="detail-title-time"> 영업시간: {businessHouers} 라스트 오더: {lastOrder}</span>
-                        <button className="detail-title-time-button"> 전체 영업시간 정보 ▼</button>
+                        <button className="detail-title-time-button"> 전체 영업시간 정보 <i class="fa-solid fa-chevron-down"></i></button>
                     </li>                                                                                                        {/*businessHouers 하고 lastOrder*/}
                     <li className="detail-title-phone-box">
                         <i class="fa-solid fa-book"></i>
@@ -80,7 +79,7 @@ export function TravelDetail({
                     <li className="detail-menu-item">메뉴2---가격</li>
                     <li className="detail-menu-item">메뉴3---가격</li>
                     <li className="detail-menu-more-box">
-                        <button className="detail-menu-more">메뉴 모두 보기<span> ▼</span></button>
+                        <button className="detail-menu-more">메뉴 모두 보기 <i class="fa-solid fa-chevron-down"></i></button>
                     </li>
                 </ul>
             </div>
@@ -109,7 +108,7 @@ export function TravelDetail({
                     <img className="detail-view-image" src={image3}/>
                 </li>
                 <li className="detail-image-more-box">
-                    <button className="detail-image-more">사진 더보기 <span>▼</span></button>
+                    <button className="detail-image-more">사진 더보기 <i class="fa-solid fa-chevron-down"></i></button>
                 </li>
             </ul>
 
