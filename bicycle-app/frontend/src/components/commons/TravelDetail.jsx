@@ -14,6 +14,7 @@ export function TravelDetail({
                                 tag,
                                 other,
                                 review,
+                                description,
                                 handleDetail,
                                 type}) {
                                     console.log(review);
