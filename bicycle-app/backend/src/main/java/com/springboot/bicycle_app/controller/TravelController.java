@@ -1,6 +1,7 @@
 package com.springboot.bicycle_app.controller;
 
 import com.springboot.bicycle_app.dto.Travel;
+import com.springboot.bicycle_app.dto.TravelDetail;
 import com.springboot.bicycle_app.service.TravelService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,13 @@ public class TravelController {
 
     @GetMapping("/food")
     public List<Travel> food(){
-        System.out.println("controller ==> ");
+        // System.out.println("controller ==> ");
         return travelService.findFood();
+    }
+
+    @GetMapping("/foodDetail")
+    public List<TravelDetail> foodDetail(){
+        System.out.println("controller ==> ");
+        return travelService.findFoodDetail();
     }
 }

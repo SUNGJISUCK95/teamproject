@@ -16,34 +16,43 @@ export function Travel() {
     const travelMenuList = useSelector((state) => state.travelMenu.travelMenuList);
     // const travelFoodList = useSelector((state) => state.travelFood.travelFoodList);
     const travelWalkList = useSelector((state) => state.travelWalk.travelWalkList);
-    const travelFoodDetailList = useSelector((state) => state.travelFood.travelFoodDetailList);
+    // const travelFoodDetailList = useSelector((state) => state.travelFood.travelFoodDetailList);
     // const travelWalkDetailList = useSelector((state) => state.travelWalkDetail.travelWalkDetailList);
  
     const [travelFoodList, setTravelFoodList] = useState([]);
+    const [travelFoodDetailList, setTravelFoodDetailList] = useState([]);
     const [number, setNumber] = useState(3);
 
     useEffect(() => {
-            dispatch(getTravelMenuList(number));
-            // dispatch(getTravelFoodList(number));      
-            dispatch(getTravelWalkList(number));
-            dispatch(getTravelFoodDetailList(number));
-            // dispatch(getTravelWalkDetailList(number));
+      dispatch(getTravelMenuList(number));
+      // dispatch(getTravelFoodList(number));      
+      dispatch(getTravelWalkList(number));
+      // dispatch(getTravelFoodDetailList(number));
+      // dispatch(getTravelWalkDetailList(number));
 
-            async function fetchData() {
-              const data = await getTravelFoodList(number); 
-              console.log(data); 
-              setTravelFoodList(data); 
-            }
-            fetchData();
+      async function fetchData() {
+        const data = await getTravelFoodList(number); 
+        // console.log(data); 
+        setTravelFoodList(data); 
+      }   
+      fetchData();            
     }, [number]);
 
-    console.log(travelFoodList);
+    useEffect(() => {
+      async function fetchDetailData() {
+        const detailData = await getTravelFoodDetailList(number); 
+        console.log(detailData); 
+        setTravelFoodDetailList(detailData); 
+      }
+      fetchDetailData();
+    }, []);
+    console.log(travelFoodDetailList);
 
     // 버튼들 보이기/숨기기 상태 관리
     const [showMenus, setShowMenus] = useState(false);
     const [showFoods, setShowFoods] = useState(false);
     const [showWalks, setShowWalks] = useState(false);
-    const [selectedPid, setSelectedPid] = useState(null); //클릭된 pid 저장
+    const [selectedFid, setSelectedFid] = useState(null); //클릭된 pid 저장
 
     const handleClick = (type) => {
         const travel_left_menus = document.querySelector('.travel-left-menus');
@@ -68,14 +77,14 @@ export function Travel() {
 
     }
 
-    const handleDetail = (type, pid = null) => {
+    const handleDetail = (type, fid = null) => {
       const detail_back = document.getElementById("travel_detail_back");
       const detail = document.getElementById("travel_detail");
 
       // 상세 정보창 출력
       if(detail && type === "food" || type === "walk") {
-        if (pid) {
-          setSelectedPid(pid);
+        if (fid) {
+          setSelectedFid(fid);
         }
         detail_back.style.display = "block";
         detail.style.display = "block";
@@ -85,19 +94,20 @@ export function Travel() {
       if(detail && type === "close"){
         detail_back.style.display = "none";
         detail.style.display = "none";
-        setSelectedPid(null);
+        setSelectedFid(null);
       }
 
     }
 
     //선택된 pid에 맞는 상세 데이터 찾기
     let selectedDetail;
-    if (travelFoodDetailList) {
-      const flatList = travelFoodDetailList.flat();  // 2차원 배열일 수도 있으니까 평탄화
-      selectedDetail = flatList.find(item => item.pid === selectedPid);
+    if (Array.isArray(travelFoodDetailList)) {
+      selectedDetail = travelFoodDetailList.find(item => item.did === selectedFid);
     } else {
-      selectedDetail = undefined; // travelFoodDetailList가 없으면 그냥 undefined
+      selectedDetail = undefined;
     }
+    console.log(selectedDetail);
+    
 
     return(
         <div className="content">
