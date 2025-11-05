@@ -95,8 +95,16 @@
   color: var(--color-black);
 }
 
+/* 💻 반응형: 태블릿 스타일 */
+@media (max-width: 1023px) {
+  /* 고객센터/로그인 텍스트 숨기고 아이콘만 표시 */
+  .icon-link .text {
+    display: none;
+  }
+}
+
 /* 반응형: 모바일 스타일 */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header {
     padding: 10px 20px;
   }
@@ -129,11 +137,6 @@
   /* 햄버거 버튼 표시 */
   .menu-btn {
     display: block;
-  }
-
-  /* 고객센터/로그인 텍스트 숨기고 아이콘만 표시 */
-  .icon-link .text {
-    display: none;
   }
 }
 
@@ -270,8 +273,8 @@
   transform: translateY(-3px);
 }
 
-/* 💻 태블릿 (769px~1024px) → 2열 구조 */
-@media (max-width: 1024px) {
+/* 💻 태블릿 (768px~1023px) → 2열 구조 */
+@media (min-width: 768px) and (max-width: 1023px) {
   .footer {
     padding: 40px 40px 20px;
   }
@@ -297,8 +300,8 @@
   }
 }
 
-/* 📱 모바일 (768px 이하) → 세로 1열 */
-@media (max-width: 768px) {
+/* 📱 모바일 (767px 이하) → 세로 1열 */
+@media (max-width: 767px) {
   .footer {
     padding: 40px 20px 20px;
   }
