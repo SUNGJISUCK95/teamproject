@@ -72,7 +72,7 @@ export function Header() {
                         <Link to="/products/road">로드</Link>
                         <Link to="/products/lifestyle">라이프스타일</Link>
                         <Link to="/products/electric">전기</Link>
-                        {/*<Link to="/products/brand">브랜드</Link>*/}
+                        <Link to="/compare">비교하기</Link>
                     </div>
                 </div>
             )}
