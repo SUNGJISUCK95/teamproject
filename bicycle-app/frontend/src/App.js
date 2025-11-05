@@ -19,6 +19,8 @@ import './styles/travel.css';
 import './styles/rental.css';
 import {StoreLocation} from "./pages/StoreLocation.jsx";
 import {Cart} from "./pages/Cart.jsx";
+import {ComparedProduct} from "./pages/ComparedProduct.jsx";
+import {CheckoutInfo} from "./pages/CheckoutInfo.jsx";
 
 export default function App() {
   return (
@@ -40,6 +42,8 @@ export default function App() {
           <Route path="products/:category/:pid" element={<ProductDetail />} />
           <Route path="location" element={<StoreLocation/>}/>
           <Route path="cart" element={<Cart/>}/>
+          <Route path="compare" element={<ComparedProduct/>}/>
+          <Route path="checkout" element={<CheckoutInfo/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

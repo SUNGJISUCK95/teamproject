@@ -8,6 +8,7 @@ import mapSlice from '../feature/map/mapSlice.js';
 import productSlice  from '../feature/product/productSlice.js'
 import cartSlice from "../feature/cart/cartSlice.js";
 import rentalSlice from "../feature/rental/rentalMarkerSlice.js";
+import compareSlice from "../feature/compare/compareSlice.js";
 
 //액션 로깅 처리 담당 미들웨어
 const myLoggerMiddlware = (store) => (next) => (action) => {
@@ -30,6 +31,7 @@ export const store = configureStore({
     travelFood : travelFoodSlice,
     travelWalk : travelWalkSlice,
     rentalData : rentalSlice,
+    compare: compareSlice
   },
   middleware: (getDefaultMiddleware) =>
               getDefaultMiddleware()
