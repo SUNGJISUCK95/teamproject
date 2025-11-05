@@ -383,3 +383,29 @@ ON f.fname = jt.fname;
 /***************************************************
 	     여행지 추천: travel_food_detail 관련 테이블 (끝)
 ****************************************************/
+
+
+/*********************************************
+	     회원정보 테이블 : userinfo 테이블
+*********************************************/
+use bicycle;
+select database();
+show tables;
+select * from userinfo;
+desc userinfo;
+
+create table userinfo(
+	unum 		int				auto_increment primary key,
+    uid   		varchar(30) not null,
+    upass		varchar(30) not null,
+    uname	    varchar(50) not null,
+    uage		int not null,
+    ugender		varchar(10) not null,
+    uaddress	varchar(100) not null,
+    uemail	varchar(100) default null,
+    uphone	varchar(100) default null
+);
+
+insert into userinfo(uid, upass, uname, uage, ugender, uaddress, uemail, uphone)
+value ("test12345",12345,"테스터2",1001,"여성","서울 강남구 강남대로78길 8 한국빌딩 4F, 404호","abcde@naver.com","010-1234-5678"),
+("test1234",1234,"테스터",100,"남성","서울 강남구 강남대로78길 8 한국빌딩 4F, 404호","abcd@naver.com","010-1234-5678");
