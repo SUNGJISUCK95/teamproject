@@ -43,9 +43,9 @@ export const fetchData = async(url) => {
  */
 
 export const axiosGet = async (url) => {
-    console.log("url => ", url);
+//    console.log("url => ", url);
     const response = await axios.get(url);
-    console.log(response);
+//    console.log(response);
 
 //    위 방식 또는
 //    const response = await axios({

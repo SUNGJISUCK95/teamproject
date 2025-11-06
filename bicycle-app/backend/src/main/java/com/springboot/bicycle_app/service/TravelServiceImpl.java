@@ -1,6 +1,8 @@
 package com.springboot.bicycle_app.service;
 
 import com.springboot.bicycle_app.dto.Travel;
+import com.springboot.bicycle_app.dto.TravelHotel;
+import com.springboot.bicycle_app.dto.TravelRepair;
 import com.springboot.bicycle_app.dto.TravelDetail;
 import com.springboot.bicycle_app.repository.TravelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,22 @@ public class TravelServiceImpl implements TravelService{
     }
 
     @Override
+    public List<TravelHotel> findHotel(){
+//         System.out.println("service findHotel ==> ");
+        List<TravelHotel> list = travelRepository.findHotel();
+        return list;
+    }
+
+    @Override
+    public List<TravelRepair> findRepair(){
+        System.out.println("service findRepair ==> ");
+        List<TravelRepair> list = travelRepository.findRepair();
+        return list;
+    }
+
+    @Override
     public List<TravelDetail> findFoodDetail(){
-        System.out.println("service ==> ");
+//        System.out.println("service ==> ");
         List<TravelDetail> list = travelRepository.findFoodDetail();
         return list;
     }

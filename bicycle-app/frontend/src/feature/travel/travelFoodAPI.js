@@ -13,9 +13,9 @@ export const getTravelFoodList = async (number) => {
 
 export const getTravelFoodDetailList = async (number) => {
     const url = "/travel/foodDetail"; //DB 경우
-    console.log("url => ", url);
+//    console.log("url => ", url);
     const jsonData = await axiosGet(url);
-    console.log("json => ", jsonData);
+//    console.log("json => ", jsonData);
 
     return jsonData;
 }

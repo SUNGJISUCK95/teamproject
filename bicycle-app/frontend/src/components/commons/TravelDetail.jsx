@@ -3,11 +3,12 @@ export function TravelDetail({
                                 image1, 
                                 image2, 
                                 image3, 
-                                name, 
+                                fname,
                                 location, 
                                 food, 
-                                like,
-                                address, 
+                                flike,
+                                address,
+                                localAddress,
                                 businessHouers, 
                                 lastOrder, 
                                 phone, 
@@ -19,6 +20,21 @@ export function TravelDetail({
                                 }) {
                                     console.log(review);
 
+
+     const handleLike = (type) => {
+        const travel_left_menus = document.querySelector('.fa-bookmark');
+
+
+     }
+
+     const handleAddress = () => {
+          const address_title = document.querySelector('.detail-title-localAddress-title');
+          const address = document.querySelector('.detail-title-localAddress');
+
+          address_title.style.display = "block";
+          address.style.display = "block";
+     }
+
     return(
         <>            
             <div className="detail-top">
@@ -29,25 +45,101 @@ export function TravelDetail({
                         <img className="detail-title-image" src={image3}/>
                     </li>
                     <li className="detail-title-name-box" >
-                        <span className="detail-title-name">{name}</span>
-                        <button className="detail-title-save"><i class="fa-regular fa-bookmark"></i> 저장</button>
+                        <span className="detail-title-name">{fname}</span>
+                        <button className="detail-title-save" onClick={() => handleLike()}><i className="fa-regular fa-bookmark"></i> 저장</button>
                         <button className="detail-title-share"><i class="fa-regular fa-share-from-square"></i> 공유</button>
                     </li>
                     <li className="detail-title-location" >{location} | {food}</li>
                     {/* <i class="fa-solid fa-star"></i> 이게 색별 <i class="fa-regular fa-star"></i> 이게 빈별*/}
                     <li className="detail-title-like-box" >
-                        <span className="detail-title-like" >{like}</span>
-                        <span className="detail-title-likeNum" >별점점수</span >
-                        {/*여긴 별 개수 체크해서 계산*/}
+                        { <span>
+                          {
+                            flike < 2 ? (
+                                <>
+                                  <span className="detail-title-like" >
+                                      <i className="fa-solid fa-star"></i>
+                                  </span>
+                                </>
+                              ) :
+                            flike < 3 ? (
+                                <>
+                                  <span className="detail-title-like" >
+                                      <i className="fa-solid fa-star"></i>
+                                      <i className="fa-solid fa-star"></i>
+                                  </span>
+                                </>
+                              ) :
+                            flike < 4 ? (
+                                <>
+                                  <span className="detail-title-like" >
+                                      <i className="fa-solid fa-star"></i>
+                                      <i className="fa-solid fa-star"></i>
+                                      <i className="fa-solid fa-star"></i>
+                                  </span>
+                                </>
+                              ) :
+                            flike < 5 ? (
+                                <>
+                                  <span className="detail-title-like" >
+                                      <i className="fa-solid fa-star"></i>
+                                      <i className="fa-solid fa-star"></i>
+                                      <i className="fa-solid fa-star"></i>
+                                      <i className="fa-solid fa-star"></i>
+                                  </span>
+                                </>
+                              ) :
+                            (
+                                <>
+                                   <span className="detail-title-like" >
+                                       <i className="fa-solid fa-star"></i>
+                                       <i className="fa-solid fa-star"></i>
+                                       <i className="fa-solid fa-star"></i>
+                                       <i className="fa-solid fa-star"></i>
+                                       <i className="fa-solid fa-star"></i>
+                                   </span>
+                                </>
+                            )
+                          }
+                        </span> }
+                        { <span>
+                          {
+                            flike < 2 ? (
+                                <>
+                                  <span className="detail-title-likeNum" >1.0</span>
+                                </>
+                              ) :
+                            flike < 3 ? (
+                                <>
+                                  <span className="detail-title-likeNum" >2.0</span>
+                                </>
+                              ) :
+                            flike < 4 ? (
+                                <>
+                                  <span className="detail-title-likeNum" >3.0</span>
+                                </>
+                              ) :
+                            flike < 5 ? (
+                                <>
+                                  <span className="detail-title-likeNum" >4.0</span>
+                                </>
+                              ) :
+                            (
+                                <>
+                                  <span className="detail-title-likeNum" >5.0</span>
+                                </>
+                            )
+                          }
+                        </span> }
                         <span className="detail-title-reviewNum" >몇명평가</span>
                         {/*여긴 리뷰개수 카운트 */}
                         <span className="detail-title-likeScore" >87점</span></li>
-                        {/*여기도 별점으로 계산 */}
                     <li className="detail-title-address-box">
                         <i class="fa-solid fa-location-dot"></i>
                         <span className="detail-title-address"> {address}</span>
-                        <button className="detail-title-address-button">지번 <i class="fa-solid fa-chevron-down"></i></button>
-                        {/*{localAddress}*/}
+                        <button className="detail-title-address-button" onClick={handleAddress}>지번 <i class="fa-solid fa-chevron-down"></i></button>
+                    </li>
+                    <li className="detail-title-localAddress-box">
+                        <span className="detail-title-localAddress-title">지번</span><span className="detail-title-localAddress"> {localAddress}</span>
                     </li>
                     <li className="detail-title-time-box">
                         <i class="fa-solid fa-clock"></i>
