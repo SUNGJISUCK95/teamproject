@@ -2,12 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState, useRef } from 'react';
 import { TravelMenu } from "../components/commons/TravelMenu.jsx";
 import { TravelFood } from "../components/commons/TravelFood.jsx";
-import { TravelWalk } from "../components/commons/TravelWalk.jsx";
+import { TravelHotel } from "../components/commons/TravelHotel.jsx";
+import { TravelRepair } from "../components/commons/TravelRepair.jsx";
 import { TravelDetail } from "../components/commons/TravelDetail.jsx";
 import Map from '../components/commons/Map.jsx';
 import { getTravelMenuList } from '../feature/travel/travelMenuAPI.js';
 import { getTravelFoodList } from '../feature/travel/travelFoodAPI.js';
-import { getTravelWalkList } from '../feature/travel/travelWalkAPI.js';
+import { getTravelHotelList } from '../feature/travel/travelWalkAPI.js';
+import { getTravelRepairList } from '../feature/travel/travelRepairAPI.js';
 import { getTravelFoodDetailList } from '../feature/travel/travelFoodAPI.js';
 // import { getTravelWalkDetailList } from '../feature/travel/travelWalkAPI.js';
 
@@ -15,48 +17,65 @@ export function Travel() {
     const dispatch = useDispatch();
     const travelMenuList = useSelector((state) => state.travelMenu.travelMenuList);
     // const travelFoodList = useSelector((state) => state.travelFood.travelFoodList);
-    const travelWalkList = useSelector((state) => state.travelWalk.travelWalkList);
+    // const travelHotelList = useSelector((state) => state.travelWalk.travelWalkList);
     // const travelFoodDetailList = useSelector((state) => state.travelFood.travelFoodDetailList);
     // const travelWalkDetailList = useSelector((state) => state.travelWalkDetail.travelWalkDetailList);
  
     const [travelFoodList, setTravelFoodList] = useState([]);
+    const [travelHotelList, setTravelHotelList] = useState([]);
+    const [travelRepairList, setTravelRepairList] = useState([]);
     const [travelFoodDetailList, setTravelFoodDetailList] = useState([]);
     const [number, setNumber] = useState(3);
 
     useEffect(() => {
       dispatch(getTravelMenuList(number));
       // dispatch(getTravelFoodList(number));      
-      dispatch(getTravelWalkList(number));
+      // dispatch(getTravelWalkList(number));
       // dispatch(getTravelFoodDetailList(number));
       // dispatch(getTravelWalkDetailList(number));
 
-      async function fetchData() {
+      async function fetchFoodData() {
         const data = await getTravelFoodList(number); 
         // console.log(data); 
         setTravelFoodList(data); 
       }   
-      fetchData();            
+      fetchFoodData();
+
+      async function fetchHotelData() {
+        const dataHotel = await getTravelHotelList(number);
+//         console.log(dataHotel);
+        setTravelHotelList(dataHotel);
+      }
+      fetchHotelData();
+
+      async function fetchRepairData() {
+        const dataRepair = await getTravelRepairList(number);
+//         console.log(dataRepair);
+        setTravelRepairList(dataRepair);
+      }
+      fetchRepairData();
     }, [number]);
 
     useEffect(() => {
       async function fetchDetailData() {
         const detailData = await getTravelFoodDetailList(number); 
-        console.log(detailData); 
+//         console.log(detailData);
         setTravelFoodDetailList(detailData); 
       }
       fetchDetailData();
     }, []);
-    console.log(travelFoodDetailList);
+//     console.log(travelFoodDetailList);
 
     // 버튼들 보이기/숨기기 상태 관리
     const [showMenus, setShowMenus] = useState(false);
     const [showFoods, setShowFoods] = useState(false);
     const [showWalks, setShowWalks] = useState(false);
+    const [showRepairs, setShowRepairs] = useState(false);
     const [selectedFid, setSelectedFid] = useState(null); //클릭된 pid 저장
 
     const handleClick = (type) => {
         const travel_left_menus = document.querySelector('.travel-left-menus');
-        const travel_left_Detail = document.querySelector('.travel-left-detail');
+        const travel_left_detail = document.querySelector('.travel-left-detail');
 
         // 마커 클릭 시 버튼 출력
         if(type === "coord"){
@@ -68,11 +87,19 @@ export function Travel() {
         if(type === "food") {
           setShowFoods(true);
           setShowWalks(false);
-          travel_left_Detail.style.left = "0";
-        }else if(type === "walk"){
-          setShowWalks(true);
+          setShowRepairs(false);
+          travel_left_detail.style.left = "0";
+        }else if(type === "hotel"){
           setShowFoods(false);
-          travel_left_Detail.style.left = "0";
+          setShowWalks(true);
+          setShowRepairs(false);
+          travel_left_detail.style.left = "0";
+        }
+        else if(type === "repair"){
+          setShowFoods(false);
+          setShowWalks(false);
+          setShowRepairs(true);
+          travel_left_detail.style.left = "0";
         }
 
     }
@@ -82,7 +109,7 @@ export function Travel() {
       const detail = document.getElementById("travel_detail");
 
       // 상세 정보창 출력
-      if(detail && type === "food" || type === "walk") {
+      if(detail && type === "food" || type === "hotel") {
         if (fid) {
           setSelectedFid(fid);
         }
@@ -99,6 +126,13 @@ export function Travel() {
 
     }
 
+    const handleMapGoBack = () => {
+      const travel_left_detail = document.querySelector(".travel-left-detail");
+      if(travel_left_detail) {
+        travel_left_detail.style.left = "-40rem";
+      }
+    }
+
     //선택된 pid에 맞는 상세 데이터 찾기
     let selectedDetail;
     if (Array.isArray(travelFoodDetailList)) {
@@ -106,7 +140,7 @@ export function Travel() {
     } else {
       selectedDetail = undefined;
     }
-    console.log(selectedDetail);
+//     console.log(selectedDetail);
     
 
     return(
@@ -152,17 +186,50 @@ export function Travel() {
                         )}
                         {showWalks && (
                           <ul className='walk-list'>
-                            {travelWalkList && travelWalkList.map((rowArray, idx) =>
-                                { return rowArray && rowArray.map((travelWalk, idx) =>          
-                                  <TravelWalk pid={travelWalk.pid} name={travelWalk.name} like={travelWalk.like} distance={travelWalk.distance} image1={travelWalk.image1} image2={travelWalk.image2} image3={travelWalk.image3} description={travelWalk.description} handleDetail={handleDetail} type="walk" /> 
-                               )}
+                            {travelHotelList && travelHotelList.map((travelHotel, idx) =>
+                                  <TravelHotel pid={travelHotel.hid}
+                                               hname={travelHotel.hname}
+                                               hlike={travelHotel.hlike}
+                                               score={travelHotel.score}
+                                               evaluation={travelHotel.evaluation}
+                                               tag={travelHotel.tag}
+                                               image1={travelHotel.image1}
+                                               image2={travelHotel.image2}
+                                               image3={travelHotel.image3}
+                                               fullImage1={travelHotel.fullImage1}
+                                               fullImage2={travelHotel.fullImage2}
+                                               fullImage3={travelHotel.fullImage3}
+                                               description={travelHotel.description}
+                                               handleDetail={handleDetail}
+                                               type="hotel" />
                             )}    
+                          </ul>
+                        )}
+                        {showRepairs && (
+                          <ul className='repair-list'>
+                            {travelRepairList && travelRepairList.map((travelRepair, idx) =>
+                                  <TravelRepair pid={travelRepair.hid}
+                                               rname={travelRepair.rname}
+                                               rlike={travelRepair.rlike}
+                                               score={travelRepair.score}
+                                               evaluation={travelRepair.evaluation}
+                                               tag={travelRepair.tag}
+                                               image1={travelRepair.image1}
+                                               image2={travelRepair.image2}
+                                               image3={travelRepair.image3}
+                                               fullImage1={travelRepair.fullImage1}
+                                               fullImage2={travelRepair.fullImage2}
+                                               fullImage3={travelRepair.fullImage3}
+                                               description={travelRepair.description}
+                                               handleDetail={handleDetail}
+                                               type="repair" />
+                            )}
                           </ul>
                         )}
                     </div>
                 </div>
                 <div className="travel-map">
-                    <Map handleClick={handleClick} />                    
+                    <Map handleClick={handleClick} handleMapGoBack={handleMapGoBack}/>
                 </div>
                 <div id="travel_detail_back" className="travel-detail-back" />
                 <div id="travel_detail" className="travel-detail">
@@ -174,11 +241,12 @@ export function Travel() {
                                       image1={selectedDetail.image1}
                                       image2={selectedDetail.image2}
                                       image3={selectedDetail.image3}
-                                      name={selectedDetail.name}
+                                      fname={selectedDetail.fname}
                                       location={selectedDetail.location}
                                       food={selectedDetail.food}
-                                      like={selectedDetail.like}
-                                      address={selectedDetail.address} 
+                                      flike={selectedDetail.flike}
+                                      address={selectedDetail.address}
+                                      localAddress={selectedDetail.localAddress}
                                       businessHouers={selectedDetail.businessHouers} 
                                       lastOrder={selectedDetail.lastOrder}
                                       phone={selectedDetail.phone}

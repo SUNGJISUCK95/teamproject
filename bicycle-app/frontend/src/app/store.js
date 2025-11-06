@@ -12,9 +12,9 @@ import compareSlice from "../feature/compare/compareSlice.js";
 
 //액션 로깅 처리 담당 미들웨어
 const myLoggerMiddlware = (store) => (next) => (action) => {
-  console.log("dispatch :: ", action);
+//  console.log("dispatch :: ", action);
   const result = next(action);
-  console.log("next action :: ", store.getState());
+//  console.log("next action :: ", store.getState());
 
   return result;
 }

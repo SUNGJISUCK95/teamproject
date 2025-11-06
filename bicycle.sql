@@ -173,6 +173,130 @@ from
     
 select * from travel_food;
 
+/** 숙소 테이블 생성 : travel_hotel */
+DROP TABLE travel_hotel;
+create table travel_hotel(
+	hid			int				auto_increment primary key,
+    hname   	varchar(30) not null,
+    hlike		DECIMAL(4,1),
+    score	    int,
+    evaluation	varchar(10),
+    tag			json,  
+    image1		varchar(100),
+    image2		varchar(100),
+    image3		varchar(100),
+    fullImage1	varchar(100),
+    fullImage2	varchar(100),
+    fullImage3	varchar(100),
+    description	varchar(300)
+);
+
+desc travel_hotel;
+select * from travel_hotel;
+select hname, hlike, score, evaluation, tag, image1, image2, image3, fullImage1, fullImage2, fullImage3, description from travel_hotel;
+
+show variables like 'secure_file_priv';
+
+-- json 파일의 travel_food 정보 매핑
+insert into travel_hotel(hname, hlike, score, evaluation, tag, image1, image2, image3, fullImage1, fullImage2, fullImage3, description)
+select 
+	jt.hname,
+    jt.hlike,
+    jt.score,
+    jt.evaluation,
+    jt.tag,
+    jt.image1,
+    jt.image2,
+    jt.image3,
+    jt.fullImage1,
+    jt.fullImage2,
+    jt.fullImage3,
+    jt.description
+from
+	json_table(
+		cast(load_file('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelWalks.json') 
+				AS CHAR CHARACTER SET utf8mb4 ),
+		'$[*]' COLUMNS (
+			 hname   		varchar(30) 	PATH '$.hname', 
+			 hlike   		DECIMAL(4,1) 	PATH '$.hlike',
+			 score   		int 			PATH '$.score',
+			 evaluation		varchar(10) 	PATH '$.evaluation',
+             tag           	json 			PATH '$.tag',  
+             image1        	varchar(100)	PATH '$.image1',  
+             image2        	varchar(100)	PATH '$.image2',  
+             image3        	varchar(100)	PATH '$.image3',  
+             fullImage1    	varchar(100)	PATH '$.fullImage1',  
+             fullImage2    	varchar(100)	PATH '$.fullImage2',  
+             fullImage3    	varchar(100)	PATH '$.fullImage3',  
+             description    varchar(300)	PATH '$.description'  
+		   )   
+    ) as jt ;
+    
+select * from travel_hotel;
+
+
+/** 수리 테이블 생성 : travel_repair */
+DROP TABLE travel_repair;
+create table travel_repair(
+	rid			int				auto_increment primary key,
+    rname   	varchar(30) not null,
+    `rlike`		DECIMAL(4,1),
+    score	    int,
+    evaluation	varchar(10),
+    tag			json,  
+    image1		varchar(100),
+    image2		varchar(100),
+    image3		varchar(100),
+    fullImage1	varchar(100),
+    fullImage2	varchar(100),
+    fullImage3	varchar(100),
+    description	varchar(300)
+);
+
+desc travel_repair;
+select * from travel_repair;
+select rname, `rlike`, score, evaluation, tag, image1, image2, image3, fullImage1, fullImage2, fullImage3, description from travel_repair;
+
+show variables like 'secure_file_priv';
+
+-- json 파일의 travel_food 정보 매핑
+insert into travel_repair(rname, `rlike`, score, evaluation, tag, image1, image2, image3, fullImage1, fullImage2, fullImage3, description)
+select 
+	jt.rname,
+    jt.rlike,
+    jt.score,
+    jt.evaluation,
+    jt.tag,
+    jt.image1,
+    jt.image2,
+    jt.image3,
+    jt.fullImage1,
+    jt.fullImage2,
+    jt.fullImage3,
+    jt.description
+from
+	json_table(
+		cast(load_file('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelRepairs.json') 
+				AS CHAR CHARACTER SET utf8mb4 ),
+		'$[*]' COLUMNS (
+			 rname   		varchar(30) 	PATH '$.rname', 
+			 `rlike`   		DECIMAL(4,1) 	PATH '$.rlike',
+			 score   		int 			PATH '$.score',
+			 evaluation		varchar(10) 	PATH '$.evaluation',
+             tag           	json 			PATH '$.tag',  
+             image1        	varchar(100)	PATH '$.image1',  
+             image2        	varchar(100)	PATH '$.image2',  
+             image3        	varchar(100)	PATH '$.image3',  
+             fullImage1    	varchar(100)	PATH '$.fullImage1',  
+             fullImage2    	varchar(100)	PATH '$.fullImage2',  
+             fullImage3    	varchar(100)	PATH '$.fullImage3',  
+             description    varchar(300)	PATH '$.description'  
+		   )   
+    ) as jt ;
+    
+select * from travel_repair;
+
+
 /*********************************************
 	     여행지 추천: travel 관련 테이블 (끝)
 *********************************************/

@@ -1,6 +1,8 @@
 package com.springboot.bicycle_app.controller;
 
 import com.springboot.bicycle_app.dto.Travel;
+import com.springboot.bicycle_app.dto.TravelHotel;
+import com.springboot.bicycle_app.dto.TravelRepair;
 import com.springboot.bicycle_app.dto.TravelDetail;
 import com.springboot.bicycle_app.service.TravelService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +28,21 @@ public class TravelController {
         return travelService.findFood();
     }
 
+    @GetMapping("/hotel")
+    public List<TravelHotel> hotel(){
+//         System.out.println("controller ==> ");
+        return travelService.findHotel();
+    }
+
+    @GetMapping("/repair")
+    public List<TravelRepair> repair(){
+        System.out.println("controller ==> ");
+        return travelService.findRepair();
+    }
+
     @GetMapping("/foodDetail")
     public List<TravelDetail> foodDetail(){
-        System.out.println("controller ==> ");
+//        System.out.println("controller ==> ");
         return travelService.findFoodDetail();
     }
 }

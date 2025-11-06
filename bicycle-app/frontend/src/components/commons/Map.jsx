@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getMarkerList } from '../../feature/map/mapAPI.js';
 
-function Map({ handleClick }) {
+function Map({ handleClick, handleMapGoBack  }) {
   const dispatch = useDispatch();
   const markerList = useSelector((state) => state.map.markerList);
 
   const [number, setNumber] = useState(3);
+  const mapRef = useRef(null); // 지도 객체 저장용
+  const defaultCenter = useRef({ lat: 36.5, lng: 127.8 }); // 중심좌표(남한)
 
   useEffect(() => {
 //    안될때 값확인 1
@@ -23,12 +25,16 @@ function Map({ handleClick }) {
             if (window.kakao && window.kakao.maps) {
               window.kakao.maps.load(() => {
                 const container = document.getElementById("map");
-                const options = {
-                  center: new window.kakao.maps.LatLng(36.5, 127.8), // 남한 중심
-                  level: 12 // 줌 레벨
-                };
+                const centerLatLng = new window.kakao.maps.LatLng(
+                    defaultCenter.current.lat,
+                    defaultCenter.current.lng
+                  );
 
-                const map = new window.kakao.maps.Map(container, options);
+                  const map = new window.kakao.maps.Map(container, {
+                    center: centerLatLng,
+                    level: 12
+                  });
+                mapRef.current = map; // 지도 객체 저장
 
                 const greenMarkerSrc  = 'http://localhost:3000/images/marker_green.png';
                 const redMarkerSrc = 'http://localhost:3000/images/marker_red.png';
@@ -78,6 +84,25 @@ function Map({ handleClick }) {
                     customOverlay.setMap(map);
                     activeOverlay = customOverlay;
 
+
+                    // 지도 확대
+                    const currentLevel = map.getLevel();
+                    if (currentLevel > 5) {
+                      map.setLevel(currentLevel - 7);
+                    }
+
+                    // 마커 중심으로 이동
+                    const moveLatLon = new window.kakao.maps.LatLng(
+                      lat - 0.001, // 위로 살짝 올리기
+                      lng
+                    );
+                    map.panTo(moveLatLon);
+
+                    const goback_btn = document.querySelector(".goback-button");
+                    if (goback_btn) {
+                      goback_btn.style.top = "0.3rem";
+                    }
+
                     handleClick(type);
 
                   });
@@ -100,10 +125,31 @@ function Map({ handleClick }) {
 
   }, [number]);
 
+  const handleGoBack = () => {
+     if (mapRef.current) {
+       const centerLatLng = new window.kakao.maps.LatLng(
+         defaultCenter.current.lat,
+         defaultCenter.current.lng
+       );
+
+       mapRef.current.panTo(centerLatLng);
+       mapRef.current.setLevel(12);
+
+       const goback_btn = document.querySelector(".goback-button");
+       if (goback_btn) {
+         goback_btn.style.top = "-3rem";
+       }
+     }
+
+     if(handleGoBack) {
+         handleMapGoBack();
+     }
+  }
 
   return (
     <>
       <div className="map" id="map"></div>
+      <div className="goback-button" id="" onClick={handleGoBack} ><i class="fa-solid fa-backward-step"></i></div>
     </>
   );
 }

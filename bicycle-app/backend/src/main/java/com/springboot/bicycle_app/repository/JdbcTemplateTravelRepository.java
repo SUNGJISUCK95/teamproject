@@ -1,6 +1,8 @@
 package com.springboot.bicycle_app.repository;
 
 import com.springboot.bicycle_app.dto.Travel;
+import com.springboot.bicycle_app.dto.TravelHotel;
+import com.springboot.bicycle_app.dto.TravelRepair;
 import com.springboot.bicycle_app.dto.TravelDetail;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -45,8 +47,62 @@ public class JdbcTemplateTravelRepository implements TravelRepository{
     }
 
     @Override
+    public List<TravelHotel> findHotel() {
+//         System.out.println("repository findHotel ==> ");
+
+        String sql = """
+                        select 
+                            hid,
+                            hname, 
+                            hlike, 
+                            score, 
+                            evaluation, 
+                            tag, 
+                            image1, 
+                            image2,
+                            image3,
+                            fullImage1,
+                            fullImage2,
+                            fullImage3,
+                            description
+                        from travel_hotel
+                    """;
+        //trim()은 공백을 제거해줌 (as로 컬럼명 따로 지정해줘야 사용가능)
+        List<TravelHotel> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(TravelHotel.class));
+
+        return list;
+    }
+
+    @Override
+    public List<TravelRepair> findRepair() {
+        System.out.println("repository findRepair ==> ");
+
+        String sql = """
+                        select 
+                            rid,
+                            rname, 
+                            `rlike`, 
+                            score, 
+                            evaluation, 
+                            tag, 
+                            image1, 
+                            image2,
+                            image3,
+                            fullImage1,
+                            fullImage2,
+                            fullImage3,
+                            description
+                        from travel_repair
+                    """;
+        //trim()은 공백을 제거해줌 (as로 컬럼명 따로 지정해줘야 사용가능)
+        List<TravelRepair> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(TravelRepair.class));
+
+        return list;
+    }
+
+    @Override
     public List<TravelDetail> findFoodDetail() {
-        System.out.println("repository ==> ");
+//        System.out.println("repository ==> ");
     
         String sql = """
                         SELECT 
