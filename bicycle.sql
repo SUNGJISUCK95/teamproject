@@ -1,8 +1,6 @@
 /******************************************************
 	bicycle DB 초기 세팅 - 강기종
 ******************************************************/
--- 0) bicycle DB 생성(show databases; -> DB 목록에 bicycle가 없을 시에 실행)
-CREATE DATABASE bicycle CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 -- 1) 서버 안의 모든 데이터베이스 목록 보기
 show databases;
 -- 2) 사용할 데이터베이스 선택
@@ -11,7 +9,7 @@ use bicycle;
 select database();
 -- 4) 테이블 목록 확인
 show tables;
-
+-- drop tables chatbot_faq;
 /******************************************************
 	챗봇 FAQ 테이블 생성 - 강기종
 ******************************************************/
@@ -43,7 +41,7 @@ select database();
 show tables;
 
 /*********************************************
-	     여행지 추천: marker 관련 테이블
+	     여행지 추천: travel 관련 테이블
 *********************************************/
 
 /** 마커 테이블 생성 : marker */
@@ -92,14 +90,6 @@ insert into marker(mname, lat, lng, mlink, type) values("춘천 공지천", 37.8
 -- mysql에서 json, csv, excel... 데이터 파일을 업로드 하는 경로
 show variables like 'secure_file_priv';
 
-/*********************************************
-	     여행지 추천: marker 관련 테이블 (끝)
-*********************************************/
-
-/*********************************************
-	     여행지 추천: travel 관련 테이블
-*********************************************/
-
 /** 맛집 테이블 생성 : travel_food */
 --  private String fname;
 --     private Double flike;
@@ -136,7 +126,7 @@ select fname, flike, score, evaluation, tag, image1, image2, image3, fullImage1,
 
 show variables like 'secure_file_priv';
 
--- json 파일의 travel_food 정보 매핑
+-- json 파일의 detailinfo 정보 매핑
 insert into travel_food(fname, flike, score, evaluation, tag, image1, image2, image3, fullImage1, fullImage2, fullImage3, description)
 select 
 	jt.fname,
@@ -173,216 +163,7 @@ from
     
 select * from travel_food;
 
-/*********************************************
-	     여행지 추천: travel 관련 테이블 (끝)
-*********************************************/
 
-/***************************************************
-	     여행지 추천: travel_food_detail 관련 테이블
-****************************************************/
-/** 맛집 상세페이지 테이블 생성 : travel_food_detail */
---     private int did;
--- 	   private String fname;
---     private Double flike;
---     private List<String> tag;
---     private String location;
---     private String food;
---     private String address;
---     private String localAddress;
---     private String businessHouers;
---     private String lastOrder;
---     private String phone;
---     private List<String> other;
---     private List<TravelDetailMenu> menu;
---     private String image1;
---     private String image2;
---     private String image3;
---     private List<TravelDetailReview> review;
-DROP TABLE IF EXISTS travel_food_detail_menu;
-DROP TABLE IF EXISTS travel_food_detail_review;
-DROP TABLE IF EXISTS travel_food_detail;
-
-create table travel_food_detail(
-	did					int				auto_increment primary key,
-    fname   			varchar(30) not null,
-    flike				DECIMAL(4,1),
-    tag	    			json,
-    location			varchar(100),
-    food				varchar(100), 
-    address				varchar(100),
-    localAddress		varchar(100),
-    businessHouers		varchar(100),
-    lastOrder			varchar(100),
-    phone				varchar(100),
-    other				json,
-    menu				json,
-    image1				varchar(100),
-    image2				varchar(100),
-    image3				varchar(100),
-    review				json
-);
-
-desc travel_food_detail;
-select * from travel_food_detail;
-
--- json 파일의 travel_food_detail 정보 매핑
-INSERT INTO travel_food_detail(fname, flike, tag, location, food, address, localAddress, businessHouers, lastOrder, phone, other, image1, image2, image3) -- menu, , review
-SELECT
-    jt.fname,
-    jt.flike,
-    jt.tag,
-    jt.location,
-    jt.food,
-    jt.address,
-    jt.localAddress,
-    jt.businessHouers,
-    jt.lastOrder,
-    jt.phone,
-    jt.other,
-    -- jt.menu, -- 원래 이부분 사라져야함
-    jt.image1,
-    jt.image2,
-    jt.image3-- ,
-    -- jt.review -- 원래 이부분 사라져야함
-FROM JSON_TABLE(
-    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodDetails.json') AS CHAR CHARACTER SET utf8mb4),
-    '$[*]' COLUMNS (
-        fname            VARCHAR(30) PATH '$.fname',
-        flike            DECIMAL(4,1) PATH '$.flike',
-        tag              JSON PATH '$.tag',
-        location         VARCHAR(100) PATH '$.location',
-        food             VARCHAR(100) PATH '$.food',
-        address          VARCHAR(100) PATH '$.address',
-        localAddress     VARCHAR(100) PATH '$.localAddress',
-        businessHouers   VARCHAR(100) PATH '$.businessHouers',
-        lastOrder        VARCHAR(100) PATH '$.lastOrder',
-        phone            VARCHAR(100) PATH '$.phone',
-        other            JSON PATH '$.other',
-		-- menu			 JSON PATH '$.menu', -- 원래 이부분 사라져야함
-        image1           VARCHAR(100) PATH '$.image1',
-        image2           VARCHAR(100) PATH '$.image2',
-        image3           VARCHAR(100) PATH '$.image3'-- ,
-        -- review			 JSON PATH '$.review' -- 원래 이부분 사라져야함
-    )
-) AS jt;
-
-/** 맛집 상세페이지 메뉴 테이블 생성 : travel_food_detail_menu */
--- private String mname;
--- private String price;
-create table travel_food_detail_menu(
-    mid     int auto_increment primary key,
-    did     int,               -- 어느 음식점의 메뉴인지 연결용 FK 추가
-    mname   varchar(100),
-    price   varchar(100),
-    foreign key (did) references travel_food_detail(did) on delete cascade
-);
-
-desc travel_food_detail_menu;
-select * from travel_food_detail_menu;
-
--- json 파일의 travel_food_detail_menu 정보 매핑
-INSERT INTO travel_food_detail_menu(did, mname, price)
-SELECT 
-    f.did,
-    m.mname,
-    m.price
-FROM
-    travel_food_detail AS f
-JOIN
-    JSON_TABLE(
-        CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodDetails.json') AS CHAR CHARACTER SET utf8mb4),
-        '$[*]' COLUMNS (
-            fname VARCHAR(100) PATH '$.fname',
-            menu JSON PATH '$.menu'
-        )
-    ) AS jt
-JOIN
-    JSON_TABLE(
-        jt.menu,
-        '$[*]' COLUMNS (
-            mname VARCHAR(100) PATH '$.mname',
-            price VARCHAR(100) PATH '$.price'
-        )
-    ) AS m
-ON f.fname = jt.fname;
-
-/** 맛집 상세페이지 리뷰 테이블 생성 : travel_food_detail_review */
---     private String userProfile;
---     private String userId;
---     private String userLike;
---     private String userTotalReview;
---     private String userFllowers;
---     private String reviewImage;
---     private String reviewDate;
---     private String reviewDescription;
-create table travel_food_detail_review(
-    rid                 int auto_increment primary key,
-    did                 int,  -- 어느 음식점 리뷰인지 연결
-    userProfile         varchar(100),
-    userId              varchar(100),
-    userLike            varchar(100),
-    userTotalReview     varchar(100),
-    userFllowers        varchar(100),
-    reviewImage         varchar(100),
-    reviewDate          varchar(100),
-    reviewDescription   varchar(300),
-    foreign key (did) references travel_food_detail(did) on delete cascade
-);
-
-desc travel_food_detail_review;
-select * from travel_food_detail_review;
-
--- json 파일의 travel_food_detail_review 정보 매핑
-INSERT INTO travel_food_detail_review(
-    did,
-    userProfile,
-    userId,
-    userLike,
-    userTotalReview,
-    userFllowers,
-    reviewImage,
-    reviewDate,
-    reviewDescription
-)
-SELECT
-    f.did,
-    r.userProfile,
-    r.userId,
-    r.userLike,
-    r.userTotalReview,
-    r.userFllowers,
-    r.reviewImage,
-    r.reviewDate,
-    r.reviewDescription
-FROM
-    travel_food_detail AS f
-JOIN
-    JSON_TABLE(
-        CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodDetails.json') AS CHAR CHARACTER SET utf8mb4),
-        '$[*]' COLUMNS (
-            fname VARCHAR(100) PATH '$.fname',
-            review JSON PATH '$.review'
-        )
-    ) AS jt
-JOIN
-    JSON_TABLE(
-        jt.review,
-        '$[*]' COLUMNS (
-            userProfile       VARCHAR(100) PATH '$.userProfile',
-            userId            VARCHAR(100) PATH '$.userId',
-            userLike          VARCHAR(100) PATH '$.userLike',
-            userTotalReview   VARCHAR(100) PATH '$.userTotalReview',
-            userFllowers      VARCHAR(100) PATH '$.userFllowers',
-            reviewImage       VARCHAR(100) PATH '$.reviewImage',
-            reviewDate        VARCHAR(100) PATH '$.reviewDate',
-            reviewDescription VARCHAR(300) PATH '$.reviewDescription'
-        )
-    ) AS r
-ON f.fname = jt.fname;
-
-/***************************************************
-	     여행지 추천: travel_food_detail 관련 테이블 (끝)
-****************************************************/
 
 
 /*********************************************

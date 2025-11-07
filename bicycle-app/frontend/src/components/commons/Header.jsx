@@ -52,9 +52,9 @@ export function Header() {
                     <FaUser className="icon" />
                     <span className="text">로그인</span>
                 </NavLink>
-                <button className="search-btn">
+                {/* <button className="search-btn">
                     <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
+                </button> */}
 
                 {/* 햄버거 버튼 (모바일용) */}
                 <button
