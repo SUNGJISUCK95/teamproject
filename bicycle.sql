@@ -1,6 +1,8 @@
 /******************************************************
 	bicycle DB 초기 세팅 - 강기종
 ******************************************************/
+-- 0) bicycle DB 생성(show databases; -> DB 목록에 bicycle가 없을 시에 실행)
+CREATE DATABASE bicycle CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 -- 1) 서버 안의 모든 데이터베이스 목록 보기
 show databases;
 -- 2) 사용할 데이터베이스 선택
