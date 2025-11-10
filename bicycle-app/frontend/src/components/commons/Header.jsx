@@ -64,12 +64,12 @@ export function Header() {
                                 </div>
                             )}
                         </li>
-                        <li className="desktop-only" onMouseEnter={() => setPurchaseMenuOpen(null)}>
+                        <li onMouseEnter={() => setPurchaseMenuOpen(null)}>
                             <NavLink to="/rental" onClick={closeAllMenus}>
                                 자전거 대여
                             </NavLink>
                         </li>
-                        <li className="desktop-only" onMouseEnter={() => setPurchaseMenuOpen(null)}>
+                        <li onMouseEnter={() => setPurchaseMenuOpen(null)}>
                             <NavLink to="/travel" onClick={closeAllMenus}>
                                 여행지 추천
                             </NavLink>
