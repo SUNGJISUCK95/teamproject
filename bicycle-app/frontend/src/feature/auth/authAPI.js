@@ -17,12 +17,11 @@ export const getLogin = (formData,param) => async(dispatch) => {
     {
         const url = "/auth/login";
         const result = await axiosPost(url,formData); //axios라 await 안걸면 promise pending이 뜰 수 있다.
-        console.log("result :: ", result);
         if(result.login)
         {
             await refreshCsrfToken();
             //"로그인 성공"
-            dispatch(login({"userId":formData.id}));
+            dispatch(login({"userId":result.userId}));
 
             //장바구니 갯수를 카운트하는 함수 호출
 //            const count = await getCartCount(formData.id);
