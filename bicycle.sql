@@ -393,7 +393,8 @@ FROM JSON_TABLE(
 
 
 /*********************************************
-	     회원정보 테이블 : userinfo 테이블
+	     회원정보 테이블 : userinfo 테이블 
+			251110 수정 - 패스워드 길이 문제로 인하여 테이블 삭제 및 생성, 데이터 삽입을 요청드립니다.
 *********************************************/
 use bicycle;
 select database();
@@ -401,10 +402,12 @@ show tables;
 select * from userinfo;
 desc userinfo;
 
+drop table userinfo;
+
 create table userinfo(
 	unum 		int				auto_increment primary key,
     uid   		varchar(30) not null,
-    upass		varchar(30) not null,
+    upass		varchar(100) not null,
     uname	    varchar(50) not null,
     uage		int not null,
     ugender		varchar(10) not null,
@@ -414,5 +417,6 @@ create table userinfo(
 );
 
 insert into userinfo(uid, upass, uname, uage, ugender, uaddress, uemail, uphone)
-value ("test12345",12345,"테스터2",1001,"여성","서울 강남구 강남대로78길 8 한국빌딩 4F, 404호","abcde@naver.com","010-1234-5678"),
-("test1234",1234,"테스터",100,"남성","서울 강남구 강남대로78길 8 한국빌딩 4F, 404호","abcd@naver.com","010-1234-5678");
+value (
+"test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
+);
