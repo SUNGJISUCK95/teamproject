@@ -13,6 +13,7 @@ public class UserInfoDto {
     private String uaddress;
     private String uemail;
     private String uphone;
+    private boolean socialDupl;
 
     public UserInfoDto(){}
     public UserInfoDto(String uid, String upass) {
