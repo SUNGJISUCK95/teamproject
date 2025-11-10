@@ -332,14 +332,12 @@ create table travel_food_detail(
     food				varchar(100), 
     address				varchar(100),
     local_address		varchar(100),
-    business_houers		varchar(100),
-    last_order			varchar(100),
+    business			json,
     phone				varchar(100),
     other				json,
     menu				json,
-    image1				varchar(100),
-    image2				varchar(100),
-    image3				varchar(100),
+    main_images			json,
+    image_list			json,
     review				json
 );
 
@@ -347,7 +345,7 @@ desc travel_food_detail;
 select * from travel_food_detail;
 
 -- json 파일의 travel_food_detail 정보 매핑
-INSERT INTO travel_food_detail(fname, flike, tag, location, food, address, local_address, business_houers, last_order, phone, other, menu, image1, image2, image3, review)
+INSERT INTO travel_food_detail(fname, flike, tag, location, food, address, local_address, business, phone, other, menu, main_images, image_list, review)
 SELECT
     jt.fname,
     jt.flike,
@@ -356,14 +354,12 @@ SELECT
     jt.food,
     jt.address,
     jt.local_address,
-    jt.business_houers,
-    jt.last_order,
+    jt.business,
     jt.phone,
     jt.other,
     jt.menu,
-    jt.image1,
-    jt.image2,
-    jt.image3,
+    jt.main_images,
+    jt.image_list,
     jt.review
 FROM JSON_TABLE(
     CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodDetails.json') AS CHAR CHARACTER SET utf8mb4),
@@ -375,14 +371,12 @@ FROM JSON_TABLE(
         food             VARCHAR(100) PATH '$.food',
         address          VARCHAR(100) PATH '$.address',
         local_address    VARCHAR(100) PATH '$.localAddress',
-        business_houers  VARCHAR(100) PATH '$.businessHouers',
-        last_order       VARCHAR(100) PATH '$.lastOrder',
+        business		 JSON PATH '$.business',
         phone            VARCHAR(100) PATH '$.phone',
         other            JSON PATH '$.other',
 		menu			 JSON PATH '$.menu', 
-        image1           VARCHAR(100) PATH '$.image1',
-        image2           VARCHAR(100) PATH '$.image2',
-        image3           VARCHAR(100) PATH '$.image3',
+        main_images      JSON PATH '$.mainImages',
+        image_list       JSON PATH '$.imageList',
         review			 JSON PATH '$.review'
     )
 ) AS jt;
