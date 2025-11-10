@@ -1,15 +1,15 @@
 package com.springboot.bicycle_app.service;
 
-import com.springboot.bicycle_app.dto.Travel;
-import com.springboot.bicycle_app.dto.TravelHotel;
-import com.springboot.bicycle_app.dto.TravelRepair;
-import com.springboot.bicycle_app.dto.TravelDetail;
+import com.springboot.bicycle_app.dto.travel.TravelFoodDto;
+import com.springboot.bicycle_app.dto.travel.TravelHotelDto;
+import com.springboot.bicycle_app.dto.travel.TravelRepairDto;
+import com.springboot.bicycle_app.dto.travel.TravelFoodDetailDto;
 
 import java.util.List;
 
 public interface TravelService {
-    List<Travel> findFood();
-    List<TravelHotel> findHotel();
-    List<TravelRepair> findRepair();
-    List<TravelDetail> findFoodDetail();
+    List<TravelFoodDto> findFood();
+    List<TravelHotelDto> findHotel();
+    List<TravelRepairDto> findRepair();
+    TravelFoodDetailDto findFoodDetail(int did);
 }

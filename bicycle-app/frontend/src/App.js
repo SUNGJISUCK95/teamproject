@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './pages/Layout.jsx';
 import { Home } from './pages/Home.jsx';
-import { Travel } from './pages/Travel.jsx';
+import { Travel } from './pages/travel/Travel.jsx';
 import Rental from './pages/Rental.jsx';
 import { Support } from './pages/Support.jsx';
 import { Login } from './pages/Login.jsx';

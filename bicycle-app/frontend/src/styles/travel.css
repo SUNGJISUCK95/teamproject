@@ -175,6 +175,11 @@
   font-size: 13px;
 }
 
+.fa-nostar {
+  color: gray;
+  font-size: 13px;
+}
+
 .food-title-evaluation {
   color: gray;
 }
@@ -216,35 +221,35 @@
 }
 
 /**
-  walk
+  hotel
 */
-.walk-list-item {
+.hotel-list-item {
   list-style-type: none;
   margin-top: 1rem;
   padding-left: 1rem;
 }
 
-.walk-list-item:hover {
+.hotel-list-item:hover {
   background-color: lightgray;
   cursor: pointer;
 }
 
-.walk-title {
+.hotel-title {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 0.3rem;
   cursor: pointer;
 }
 
-.walk-title span {
+.hotel-title span {
   color: gray;
 }
 
-.walk-tag {
+.hotel-tag {
   margin-bottom: 0.3rem;
 }
 
-.walk-image {
+.hotel-image {
   user-select: none;
   width:150px;
   height:150px;
@@ -253,7 +258,7 @@
   cursor: pointer;
 }
 
-.walk-description {
+.hotel-description {
 
 }
 
@@ -485,8 +490,25 @@
 }
 
 .detail-menu-item {
+  display: flex;
+  align-items: center;
   font-size: 18px;
   margin-top: 10px;
+}
+
+.detail-menu-item-name {
+  white-space: nowrap;
+}
+
+.detail-menu-item-price {
+  white-space: nowrap;
+}
+
+.detail-menu-item-dash {
+  flex-grow: 1;
+  border-bottom: 1px dashed #999;  /* ← 여기서 줄 느낌으로 표시 */
+  margin: 0 8px;
+  height: 1px;
 }
 
 .detail-menu-more-box {

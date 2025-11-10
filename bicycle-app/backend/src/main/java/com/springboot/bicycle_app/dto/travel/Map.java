@@ -1,4 +1,4 @@
-package com.springboot.bicycle_app.dto;
+package com.springboot.bicycle_app.dto.travel;
 
 import lombok.Data;
 
