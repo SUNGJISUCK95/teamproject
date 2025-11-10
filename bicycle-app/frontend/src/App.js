@@ -22,7 +22,15 @@ import {Cart} from "./pages/Cart.jsx";
 import {ComparedProduct} from "./pages/ComparedProduct.jsx";
 import {CheckoutInfo} from "./pages/CheckoutInfo.jsx";
 
+import { useEffect } from 'react';
+import { createCsrfToken} from './feature/csrf/manageCsrfToken.js';
+
 export default function App() {
+
+    useEffect(()=>{
+        createCsrfToken();
+    },[])
+
   return (
     <BrowserRouter>
     <ScrollToTop />
