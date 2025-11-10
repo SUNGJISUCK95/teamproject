@@ -1,9 +1,9 @@
 package com.springboot.bicycle_app.repository;
 
-import com.springboot.bicycle_app.dto.Travel;
-import com.springboot.bicycle_app.dto.TravelHotel;
-import com.springboot.bicycle_app.dto.TravelRepair;
-import com.springboot.bicycle_app.dto.TravelDetail;
+import com.springboot.bicycle_app.dto.travel.TravelFoodDto;
+import com.springboot.bicycle_app.dto.travel.TravelHotelDto;
+import com.springboot.bicycle_app.dto.travel.TravelRepairDto;
+import com.springboot.bicycle_app.dto.travel.TravelFoodDetailDto;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -20,7 +20,7 @@ public class JdbcTemplateTravelRepository implements TravelRepository{
     }
 
     @Override
-    public List<Travel> findFood() {
+    public List<TravelFoodDto> findFood() {
         // System.out.println("repository ==> ");
     
         String sql = """
@@ -41,13 +41,13 @@ public class JdbcTemplateTravelRepository implements TravelRepository{
                         from travel_food
                     """;
         //trim()은 공백을 제거해줌 (as로 컬럼명 따로 지정해줘야 사용가능)
-        List<Travel> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Travel.class));
+        List<TravelFoodDto> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(TravelFoodDto.class));
 
         return list;
     }
 
     @Override
-    public List<TravelHotel> findHotel() {
+    public List<TravelHotelDto> findHotel() {
 //         System.out.println("repository findHotel ==> ");
 
         String sql = """
@@ -68,13 +68,13 @@ public class JdbcTemplateTravelRepository implements TravelRepository{
                         from travel_hotel
                     """;
         //trim()은 공백을 제거해줌 (as로 컬럼명 따로 지정해줘야 사용가능)
-        List<TravelHotel> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(TravelHotel.class));
+        List<TravelHotelDto> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(TravelHotelDto.class));
 
         return list;
     }
 
     @Override
-    public List<TravelRepair> findRepair() {
+    public List<TravelRepairDto> findRepair() {
         System.out.println("repository findRepair ==> ");
 
         String sql = """
@@ -95,41 +95,41 @@ public class JdbcTemplateTravelRepository implements TravelRepository{
                         from travel_repair
                     """;
         //trim()은 공백을 제거해줌 (as로 컬럼명 따로 지정해줘야 사용가능)
-        List<TravelRepair> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(TravelRepair.class));
+        List<TravelRepairDto> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(TravelRepairDto.class));
 
         return list;
     }
 
-    @Override
-    public List<TravelDetail> findFoodDetail() {
-//        System.out.println("repository ==> ");
+//     @Override
+//     public List<TravelFoodDetailDto> findFoodDetail() {
+// //        System.out.println("repository ==> ");
     
-        String sql = """
-                        SELECT 
-                            did,
-                            fname,
-                            flike,
-                            tag,
-                            location,
-                            food,
-                            address,
-                            localAddress,
-                            businessHouers,
-                            lastOrder,
-                            phone,
-                            other,
-                            menu,
-                            image1,
-                            image2,
-                            image3,
-                            review
-                        FROM travel_food_detail
-                    """;
-        //trim()은 공백을 제거해줌 (as로 컬럼명 따로 지정해줘야 사용가능)
-        List<TravelDetail> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(TravelDetail.class));
+//         String sql = """
+//                         SELECT 
+//                             did,
+//                             fname,
+//                             flike,
+//                             tag,
+//                             location,
+//                             food,
+//                             address,
+//                             localAddress,
+//                             businessHouers,
+//                             lastOrder,
+//                             phone,
+//                             other,
+//                             menu,
+//                             image1,
+//                             image2,
+//                             image3,
+//                             review
+//                         FROM travel_food_detail
+//                     """;
+//         //trim()은 공백을 제거해줌 (as로 컬럼명 따로 지정해줘야 사용가능)
+//         List<TravelDetail> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(TravelDetail.class));
 
-        return list;
-    }
+//         return list;
+//     }
     
     // @Override
     // public List<TravelDetail> findFoodDetail() {

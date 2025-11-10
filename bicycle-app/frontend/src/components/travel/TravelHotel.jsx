@@ -1,6 +1,6 @@
-export function TravelRepair({pid,
-                            rname,
-                            rlike,
+export function TravelHotel({hid,
+                            hname,
+                            hlike,
                             score,
                             evaluation,
                             tag,
@@ -14,11 +14,11 @@ export function TravelRepair({pid,
                             handleDetail,
                             type}) {
     return(
-        <div className='food-list-item' onClick={() => {handleDetail(type, pid)}}>
+        <div className='food-list-item' onClick={() => {handleDetail(type, hid)}}>
           <ul className="food-title-box">
             <li className="food-title">
-              <span className="food-title-fid">{pid}. </span>
-              <span className="food-title-fname">{rname}</span>
+              <span className="food-title-fid">{hid}. </span>
+              <span className="food-title-fname">{hname}</span>
             </li>
             <li>
               <span className="food-title-score">{score}</span><span>점</span>
@@ -56,7 +56,7 @@ export function TravelRepair({pid,
                 }
               </span> */}
 
-              <span className="food-title-flike"><i className="fa-solid fa-star"></i> {rlike}</span>
+              <span className="food-title-flike"><i className="fa-solid fa-star"></i> {hlike}</span>
               <span className="food-title-evaluation">({evaluation}명)</span>
             </li>
           </ul>

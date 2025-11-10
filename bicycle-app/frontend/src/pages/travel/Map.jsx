@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getMarkerList } from '../../feature/map/mapAPI.js';
+import { getMarkerList } from '../../feature/travel/mapAPI.js';
 
-function Map({ handleClick, handleMapGoBack  }) {
+function Map({ handleMenuClick, handleMapGoBack  }) {
   const dispatch = useDispatch();
   const markerList = useSelector((state) => state.map.markerList);
 
@@ -103,7 +103,7 @@ function Map({ handleClick, handleMapGoBack  }) {
                       goback_btn.style.top = "0.3rem";
                     }
 
-                    handleClick(type);
+                    handleMenuClick(type);
 
                   });
                   markers.push(marker);

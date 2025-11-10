@@ -1,24 +1,24 @@
-export function TravelHotel({pid,
-                            hname,
-                            hlike,
-                            score,
-                            evaluation,
-                            tag,
-                            image1,
-                            image2,
-                            image3,
-                            fullImage1,
-                            fullImage2,
-                            fullImage3,
-                            description,
-                            handleDetail,
-                            type}) {
+export function TravelRepair({rid,
+                              rname,
+                              rlike,
+                              score,
+                              evaluation,
+                              tag,
+                              image1,
+                              image2,
+                              image3,
+                              fullImage1,
+                              fullImage2,
+                              fullImage3,
+                              description,
+                              handleDetail,
+                              type}) {
     return(
-        <div className='food-list-item' onClick={() => {handleDetail(type, pid)}}>
+        <div className='food-list-item' onClick={() => {handleDetail(type, rid)}}>
           <ul className="food-title-box">
             <li className="food-title">
-              <span className="food-title-fid">{pid}. </span>
-              <span className="food-title-fname">{hname}</span>
+              <span className="food-title-fid">{rid}. </span>
+              <span className="food-title-fname">{rname}</span>
             </li>
             <li>
               <span className="food-title-score">{score}</span><span>점</span>
@@ -56,7 +56,7 @@ export function TravelHotel({pid,
                 }
               </span> */}
 
-              <span className="food-title-flike"><i className="fa-solid fa-star"></i> {hlike}</span>
+              <span className="food-title-flike"><i className="fa-solid fa-star"></i> {rlike}</span>
               <span className="food-title-evaluation">({evaluation}명)</span>
             </li>
           </ul>

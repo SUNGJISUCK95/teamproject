@@ -1,4 +1,4 @@
-export function TravelFood({pid, 
+export function TravelFood({fid, 
                             fname, 
                             flike, 
                             score, 
@@ -14,10 +14,10 @@ export function TravelFood({pid,
                             handleDetail, 
                             type}) {
     return(
-        <div className='food-list-item' onClick={() => {handleDetail(type, pid)}}>
+        <div className='food-list-item' onClick={() => {handleDetail(type, fid)}}>
           <ul className="food-title-box">
             <li className="food-title">
-              <span className="food-title-fid">{pid}. </span>
+              <span className="food-title-fid">{fid}. </span>
               <span className="food-title-fname">{fname}</span> 
             </li>
             <li>
