@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate  } from "react-router-dom";
 import { FAQ } from "./support/Faq.jsx";
 import { ASInfo } from "./support/ASInfo.jsx";
 import { Resources } from "./support/Resources.jsx";
@@ -8,6 +8,7 @@ import "../styles/support.css";
 
 export function Support() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("faq");
   const [showChatbot, setShowChatbot] = useState(false);
 
@@ -15,6 +16,20 @@ export function Support() {
     if (location.state?.tab) setActiveTab(location.state.tab);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.state]);
+
+  // ✅ 챗봇 열기 함수
+  const openChatbot = () => {
+    setShowChatbot(true);
+    // 🔵 전역 이벤트 발생
+    window.dispatchEvent(new CustomEvent("chatbotToggle", { detail: true }));
+  };
+
+  // ✅ 챗봇 닫기 함수
+  const closeChatbot = () => {
+    setShowChatbot(false);
+    // 🔵 전역 이벤트 발생
+    window.dispatchEvent(new CustomEvent("chatbotToggle", { detail: false }));
+  };
 
   return (
     <div className="support-page">
@@ -56,11 +71,12 @@ export function Support() {
         <p>평일 오전 9시 ~ 오후 6시</p>
         <p>토요일, 일요일, 공휴일 휴무</p>
         <div className="support-buttons">
-          <button onClick={() => setShowChatbot(true)}>챗봇 상담</button>
+           <button onClick={openChatbot}>챗봇 상담</button>
         </div>
       </div>
 
-      {showChatbot && <Chatbot onClose={() => setShowChatbot(false)} />}
+      {/* Chatbot 팝업 */}
+      {showChatbot && <Chatbot onClose={closeChatbot} />}
     </div>
   );
 }
