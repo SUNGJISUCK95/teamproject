@@ -56,3 +56,11 @@ export const axiosGet = async (url) => {
 
     return response.data;
 }
+
+/**
+ * axiosPost 함수를 이용한 백엔드 연동 처리
+ */
+export const axiosPost = async(url, formData) => {
+    const response = await axios.post(url, formData, {"Content-Type" : "application/json"});
+    return response.data;
+}
