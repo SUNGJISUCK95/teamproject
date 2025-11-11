@@ -2,63 +2,61 @@ import { useEffect, useRef } from "react";
 // 1. (중요) ANONYMOUS를 다시 임포트합니다.
 import { loadTossPayments, ANONYMOUS } from "@tosspayments/tosspayments-sdk";
 
-// 2. (⭐️⭐️⭐️ 핵심 ⭐️⭐️⭐️)
-//     우리가 발급받은 test_ck_... 키가 아닌,
-//     공식 문서 예제에 있던 '문서용 공개 키'를 사용합니다.
+// 2. 공식 문서 예제에 있던 '문서용 공개 키'를 사용합니다.
 const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
 
-export function CheckoutPayment({ totalPrice }) {
-    // 3. 결제 위젯 인스턴스를 저장할 ref (예제 코드와 동일)
+export function CheckoutPayment({ totalPrice, cartList }) {
     const widgetRef = useRef(null);
+    const paymentMethodsWidgetRef = useRef(null);
+    const agreementWidgetRef = useRef(null);
 
+    // useEffect (위젯 렌더링) 부분은 변경할 필요가 없습니다.
     useEffect(() => {
-        // 4. (중요) Redux에서 totalPrice가 정상적으로 로드된 후(0원 초과) 위젯을 초기화합니다.
         if (totalPrice <= 0) return;
 
-        // 5. 비동기 함수로 SDK를 로드합니다. (예제 코드와 동일)
         const initializeWidget = async () => {
             try {
                 const tossPayments = await loadTossPayments(clientKey);
-
-                // 6. (중요) 'payment()'가 아닌 'widgets()' 메소드를 사용합니다.
-                //    비회원(ANONYMOUS) 기준으로 생성.
                 const widgets = tossPayments.widgets({
                     customerKey: ANONYMOUS,
                 });
-
-                // 7. 위젯 인스턴스를 ref에 저장
                 widgetRef.current = widgets;
 
-                // 8. (중요) 결제 금액 설정
                 await widgets.setAmount({
                     currency: "KRW",
                     value: totalPrice,
                 });
 
-                // 9. (중요) 결제 UI 렌더링
-                await widgets.renderPaymentMethods({
-                    selector: "#payment-methods", // UI가 렌더링될 DOM
+                const paymentMethodsWidget = await widgets.renderPaymentMethods({
+                    selector: "#payment-methods",
                     variantKey: "DEFAULT",
                 });
+                paymentMethodsWidgetRef.current = paymentMethodsWidget;
 
-                // 10. (중요) 약관 UI 렌더링
-                await widgets.renderAgreement({
-                    selector: "#payment-agreement", // 약관이 렌더링될 DOM
+                const agreementWidget = await widgets.renderAgreement({
+                    selector: "#payment-agreement",
                     variantKey: "DEFAULT",
                 });
+                agreementWidgetRef.current = agreementWidget;
 
             } catch (error) {
-                // (이전 에러가 여기서 발생했었습니다)
                 console.error("Error initializing widgets:", error);
             }
         };
 
         initializeWidget();
-
-        // 11. totalPrice가 변경될 때마다 위젯의 금액을 다시 설정합니다.
+        return () => {
+            if (paymentMethodsWidgetRef.current) {
+                paymentMethodsWidgetRef.current.cleanup();
+            }
+            if (agreementWidgetRef.current) {
+                agreementWidgetRef.current.cleanup();
+            }
+        };
     }, [totalPrice]);
 
-    // 12. "결제하기" 버튼 클릭 시 실행될 함수
+
+    // ⭐️ 2. "결제하기" 버튼 클릭 시 실행될 함수
     const handlePayment = async () => {
         const widgets = widgetRef.current;
 
@@ -67,11 +65,30 @@ export function CheckoutPayment({ totalPrice }) {
             return;
         }
 
+        // ⭐️ 3. cartList를 기반으로 동적 orderName 생성
+        let formattedOrderName = "주문 상품"; // 기본값
+
+        // (cartList가 있고, 상품이 1개 이상일 때)
+        if (cartList && cartList.length > 0) {
+            // 💡 중요: cartList[0].name을 사용합니다.
+            //    만약 상품명 속성이 .name이 아니라 .productName 등이라면 이 부분을 수정하세요.
+            const firstItemName = cartList[0].name;
+            const remainingItemsCount = cartList.length - 1;
+
+            if (remainingItemsCount > 0) {
+                formattedOrderName = `${firstItemName} 외 ${remainingItemsCount}건`;
+            } else {
+                formattedOrderName = firstItemName;
+            }
+        }
+
         try {
-            // 13. (중요) 'widgets.requestPayment'를 호출합니다.
             await widgets.requestPayment({
                 orderId: `practice-order-${new Date().getTime()}`,
-                orderName: "연습 프로젝트 상품",
+
+                // ⭐️ 4. 생성된 주문명을 사용합니다.
+                orderName: formattedOrderName,
+
                 successUrl: `${window.location.origin}/checkout/success`,
                 failUrl: `${window.location.origin}/checkout/fail`,
             });
@@ -105,12 +122,9 @@ export function CheckoutPayment({ totalPrice }) {
             </div>
 
             {/* --- ⭐️ 1. 토스 결제 수단 UI가 렌더링될 곳 ⭐️ --- */}
-            {/* 9번 `renderPaymentMethods`의 selector와 일치해야 합니다. */}
             <div id="payment-methods" />
 
             {/* --- ⭐️ 2. 토스 약관 동의 UI가 렌더링될 곳 ⭐️ --- */}
-            {/* 10번 `renderAgreement`의 selector와 일치해야 합니다. */}
-            {/* (중요) 기존에 있던 자체 'agreement-section' div는 제거합니다. */}
             <div id="payment-agreement" />
 
             {/* --- ⭐️ 3. '결제하기' 버튼 ⭐️ --- */}

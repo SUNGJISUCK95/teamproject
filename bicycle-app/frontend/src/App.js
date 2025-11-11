@@ -24,6 +24,8 @@ import {CheckoutInfo} from "./pages/CheckoutInfo.jsx";
 
 import { useEffect } from 'react';
 import { createCsrfToken} from './feature/csrf/manageCsrfToken.js';
+import {SuccessPage} from "./pages/SuccessPage.jsx";
+import {FailPage} from "./pages/FailPage.jsx";
 
 export default function App() {
 
@@ -53,6 +55,8 @@ export default function App() {
           <Route path="cart" element={<Cart/>}/>
           <Route path="compare" element={<ComparedProduct/>}/>
           <Route path="checkout" element={<CheckoutInfo/>}/>
+          <Route path="checkout/success" element={<SuccessPage/>}/>
+          <Route path="checkout/fail" element={<FailPage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
