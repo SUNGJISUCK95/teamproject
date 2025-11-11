@@ -43,9 +43,9 @@ export const fetchData = async(url) => {
  */
 
 export const axiosGet = async (url) => {
-    console.log("url => ", url);
+//    console.log("url => ", url);
     const response = await axios.get(url);
-    console.log(response);
+//    console.log(response);
 
 //    위 방식 또는
 //    const response = await axios({
@@ -58,9 +58,21 @@ export const axiosGet = async (url) => {
 }
 
 /**
+<<<<<<< HEAD
  * axiosPost 함수를 이용한 백엔드 연동 처리
  */
-export const axiosPost = async(url, formData) => {
-    const response = await axios.post(url, formData, {"Content-Type" : "application/json"});
+
+export const axiosPost = async (url, formData) => { //axios는 json()으로 파싱작업 필요없음 (자동으로 해줌)
+//    const response = await axios.post(url, 데이터, 환경설정);
+    const response = await axios.post(url, formData, {"Content-Type": "application/json"});
+//    console.log(response);
+
+//    위 방식 또는
+//    const response = await axios({
+//        method:"POST",
+//        url: url,
+//        headers: { "Content-Type": "application/json" },
+//        data: formData
+//    })
     return response.data;
 }

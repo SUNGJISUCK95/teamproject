@@ -1,21 +1,57 @@
 import { login, logout,socialLogin } from './authSlice.js';
 import { validateFormCheck,axiosPost } from "../../utils/validate.js";
 import { useDaumPostcodePopup } from 'react-daum-postcode'; // 주소 찾기 관련 import
+import { refreshCsrfToken} from '../csrf/manageCsrfToken.js';
+import { useNavigate } from "react-router-dom";
+// export const getLogin = (formData, param) => async(dispatch) => {
+//     if(validateFormCheck(param)) {
+//         if("test" === formData.id && "1234" === formData.pass) {
+//             dispatch(login({"userId": formData.id}));
+//             return true;
+//         }
+//     }
+//     return false;
+// }
 
-export const getLogin = (formData, param) => async(dispatch) => {
-    if(validateFormCheck(param)) {
-        if("test" === formData.id && "1234" === formData.pass) {
-            dispatch(login({"userId": formData.id}));
+export const getLogin = (formData,param) => async(dispatch) => {
+    if(validateFormCheck(param))
+    {
+        const url = "/auth/login";
+        const result = await axiosPost(url,formData); //axios라 await 안걸면 promise pending이 뜰 수 있다.
+        if(result.login)
+        {
+            await refreshCsrfToken();
+            //"로그인 성공"
+            dispatch(login({"userId":result.userId}));
+
+            //장바구니 갯수를 카운트하는 함수 호출
+//            const count = await getCartCount(formData.id);
+            // dispatch(getCartCount(formData.id)) -해제 예정
             return true;
         }
     }
     return false;
 }
 
+
+// export const getLogout = () => async(dispatch) => {
+//     dispatch(logout());
+//     return true;
+// }
+
 export const getLogout = () => async(dispatch) => {
-    dispatch(logout());
-    return true;
+    const url = "/auth/logout";
+    console.log("aaaaaaaaaaaaaalogoutbbbbbbbbbbbbbbb")
+    const result = await axiosPost(url, {});
+    if(result) {
+        await refreshCsrfToken();
+        dispatch(logout());
+        // dispatch(resetCartCount());
+    }
+
+    return result;
 }
+
 
 //Auth.jsx 사용
 /*
@@ -27,7 +63,14 @@ export const getsocialtoken=(token_json,social) => async(dispatch) =>{
     const url = "/auth/token";
     const authtoken = await axiosPost(url,json_code);
     console.log("token : ",authtoken)
-    dispatch(socialLogin({"token":authtoken,"social":social}));   
+    if(authtoken.socialDupl){//true면 아이디 있는거, false면 없는거
+
+    }
+    else{//전달받은 내용을 저장하고, 그걸 이용해서 가입시키기.
+        // const navigate=useNavigate()순서 문제로
+        // navigate('/socialsignUp')얘네 둘은 에러 생김
+    }
+    // dispatch(socialLogin({"token":authtoken,"social":social}));테스트를 위해 임시 차단
 }
 
 //SignUp.jsx 사용

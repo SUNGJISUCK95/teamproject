@@ -517,15 +517,13 @@
   background-color: #0077cc;
   color: white;
   text-decoration: none;
+  border: none;
   border-radius: 10px;
   font-size: 0.9rem;
   transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
 .chatbot-link-btn:hover {
   background-color: #005fa3;
-}
-
-.chatbot-link-btn i {
-  font-size: 0.75rem;
 }

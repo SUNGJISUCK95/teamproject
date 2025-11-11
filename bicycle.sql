@@ -119,25 +119,25 @@ create table travel_food(
     fname   	varchar(30) not null,
     flike		DECIMAL(4,1),
     score	    int,
-    evaluation	varchar(10),
+    evaluation	int,
     tag			json,  
     image1		varchar(100),
     image2		varchar(100),
     image3		varchar(100),
-    fullImage1	varchar(100),
-    fullImage2	varchar(100),
-    fullImage3	varchar(100),
+    full_image1	varchar(100),
+    full_image2	varchar(100),
+    full_image3	varchar(100),
     description	varchar(300)
 );
 
 desc travel_food;
 select * from travel_food;
-select fname, flike, score, evaluation, tag, image1, image2, image3, fullImage1, fullImage2, fullImage3, description from travel_food;
+select fname, flike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description from travel_food;
 
 show variables like 'secure_file_priv';
 
 -- json 파일의 travel_food 정보 매핑
-insert into travel_food(fname, flike, score, evaluation, tag, image1, image2, image3, fullImage1, fullImage2, fullImage3, description)
+insert into travel_food(fname, flike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
 select 
 	jt.fname,
     jt.flike,
@@ -147,9 +147,9 @@ select
     jt.image1,
     jt.image2,
     jt.image3,
-    jt.fullImage1,
-    jt.fullImage2,
-    jt.fullImage3,
+    jt.full_image1,
+    jt.full_image2,
+    jt.full_image3,
     jt.description
 from
 	json_table(
@@ -159,19 +159,143 @@ from
 			 fname   		varchar(30) 	PATH '$.fname', 
 			 flike   		DECIMAL(4,1) 	PATH '$.flike',
 			 score   		int 			PATH '$.score',
-			 evaluation		varchar(10) 	PATH '$.evaluation',
+			 evaluation		int			 	PATH '$.evaluation',
              tag           	json 			PATH '$.tag',  
              image1        	varchar(100)	PATH '$.image1',  
              image2        	varchar(100)	PATH '$.image2',  
              image3        	varchar(100)	PATH '$.image3',  
-             fullImage1    	varchar(100)	PATH '$.fullImage1',  
-             fullImage2    	varchar(100)	PATH '$.fullImage2',  
-             fullImage3    	varchar(100)	PATH '$.fullImage3',  
+             full_image1   	varchar(100)	PATH '$.fullImage1',  
+             full_image2   	varchar(100)	PATH '$.fullImage2',  
+             full_image3  	varchar(100)	PATH '$.fullImage3',  
              description    varchar(300)	PATH '$.description'  
 		   )   
     ) as jt ;
     
 select * from travel_food;
+
+/** 숙소 테이블 생성 : travel_hotel */
+DROP TABLE travel_hotel;
+create table travel_hotel(
+	hid			int				auto_increment primary key,
+    hname   	varchar(30) not null,
+    hlike		DECIMAL(4,1),
+    score	    int,
+    evaluation	int,
+    tag			json,  
+    image1		varchar(100),
+    image2		varchar(100),
+    image3		varchar(100),
+    full_image1	varchar(100),
+    full_image2	varchar(100),
+    full_image3	varchar(100),
+    description	varchar(300)
+);
+
+desc travel_hotel;
+select * from travel_hotel;
+select hname, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description from travel_hotel;
+
+show variables like 'secure_file_priv';
+
+-- json 파일의 travel_food 정보 매핑
+insert into travel_hotel(hname, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+select 
+	jt.hname,
+    jt.hlike,
+    jt.score,
+    jt.evaluation,
+    jt.tag,
+    jt.image1,
+    jt.image2,
+    jt.image3,
+    jt.full_image1,
+    jt.full_image2,
+    jt.full_image3,
+    jt.description
+from
+	json_table(
+		cast(load_file('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelHotels.json') 
+				AS CHAR CHARACTER SET utf8mb4 ),
+		'$[*]' COLUMNS (
+			 hname   			varchar(30) 	PATH '$.hname', 
+			 hlike   			DECIMAL(4,1) 	PATH '$.hlike',
+			 score   			int 			PATH '$.score',
+			 evaluation			int 			PATH '$.evaluation',
+             tag           		json 			PATH '$.tag',  
+             image1        		varchar(100)	PATH '$.image1',  
+             image2        		varchar(100)	PATH '$.image2',  
+             image3        		varchar(100)	PATH '$.image3',  
+             full_image1    	varchar(100)	PATH '$.fullImage1',  
+             full_image2    	varchar(100)	PATH '$.fullImage2',  
+             full_image3    	varchar(100)	PATH '$.fullImage3',  
+             description    varchar(300)	PATH '$.description'  
+		   )   
+    ) as jt ;
+    
+select * from travel_hotel;
+
+
+/** 수리 테이블 생성 : travel_repair */
+DROP TABLE travel_repair;
+create table travel_repair(
+	rid			int				auto_increment primary key,
+    rname   	varchar(30) not null,
+    `rlike`		DECIMAL(4,1),
+    score	    int,
+    evaluation	int,
+    tag			json,  
+    image1		varchar(100),
+    image2		varchar(100),
+    image3		varchar(100),
+    full_image1	varchar(100),
+    full_image2	varchar(100),
+    full_image3	varchar(100),
+    description	varchar(300)
+);
+
+desc travel_repair;
+select * from travel_repair;
+select rname, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description from travel_repair;
+
+show variables like 'secure_file_priv';
+
+-- json 파일의 travel_food 정보 매핑
+insert into travel_repair(rname, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+select 
+	jt.rname,
+    jt.rlike,
+    jt.score,
+    jt.evaluation,
+    jt.tag,
+    jt.image1,
+    jt.image2,
+    jt.image3,
+    jt.full_image1,
+    jt.full_image2,
+    jt.full_image3,
+    jt.description
+from
+	json_table(
+		cast(load_file('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelRepairs.json') 
+				AS CHAR CHARACTER SET utf8mb4 ),
+		'$[*]' COLUMNS (
+			 rname   		varchar(30) 	PATH '$.rname', 
+			 `rlike`   		DECIMAL(4,1) 	PATH '$.rlike',
+			 score   		int 			PATH '$.score',
+			 evaluation		int	 			PATH '$.evaluation',
+             tag           	json 			PATH '$.tag',  
+             image1        	varchar(100)	PATH '$.image1',  
+             image2        	varchar(100)	PATH '$.image2',  
+             image3        	varchar(100)	PATH '$.image3',  
+             full_image1    varchar(100)	PATH '$.fullImage1',  
+             full_image2    varchar(100)	PATH '$.fullImage2',  
+             full_image3    varchar(100)	PATH '$.fullImage3',  
+             description    varchar(300)	PATH '$.description'  
+		   )   
+    ) as jt ;
+    
+select * from travel_repair;
+
 
 /*********************************************
 	     여행지 추천: travel 관련 테이블 (끝)
@@ -198,10 +322,7 @@ select * from travel_food;
 --     private String image2;
 --     private String image3;
 --     private List<TravelDetailReview> review;
-DROP TABLE IF EXISTS travel_food_detail_menu;
-DROP TABLE IF EXISTS travel_food_detail_review;
-DROP TABLE IF EXISTS travel_food_detail;
-
+DROP TABLE travel_food_detail;
 create table travel_food_detail(
 	did					int				auto_increment primary key,
     fname   			varchar(30) not null,
@@ -210,15 +331,13 @@ create table travel_food_detail(
     location			varchar(100),
     food				varchar(100), 
     address				varchar(100),
-    localAddress		varchar(100),
-    businessHouers		varchar(100),
-    lastOrder			varchar(100),
+    local_address		varchar(100),
+    business			json,
     phone				varchar(100),
     other				json,
     menu				json,
-    image1				varchar(100),
-    image2				varchar(100),
-    image3				varchar(100),
+    main_images			json,
+    image_list			json,
     review				json
 );
 
@@ -226,7 +345,7 @@ desc travel_food_detail;
 select * from travel_food_detail;
 
 -- json 파일의 travel_food_detail 정보 매핑
-INSERT INTO travel_food_detail(fname, flike, tag, location, food, address, localAddress, businessHouers, lastOrder, phone, other, image1, image2, image3) -- menu, , review
+INSERT INTO travel_food_detail(fname, flike, tag, location, food, address, local_address, business, phone, other, menu, main_images, image_list, review)
 SELECT
     jt.fname,
     jt.flike,
@@ -234,16 +353,14 @@ SELECT
     jt.location,
     jt.food,
     jt.address,
-    jt.localAddress,
-    jt.businessHouers,
-    jt.lastOrder,
+    jt.local_address,
+    jt.business,
     jt.phone,
     jt.other,
-    -- jt.menu, -- 원래 이부분 사라져야함
-    jt.image1,
-    jt.image2,
-    jt.image3-- ,
-    -- jt.review -- 원래 이부분 사라져야함
+    jt.menu,
+    jt.main_images,
+    jt.image_list,
+    jt.review
 FROM JSON_TABLE(
     CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodDetails.json') AS CHAR CHARACTER SET utf8mb4),
     '$[*]' COLUMNS (
@@ -253,132 +370,16 @@ FROM JSON_TABLE(
         location         VARCHAR(100) PATH '$.location',
         food             VARCHAR(100) PATH '$.food',
         address          VARCHAR(100) PATH '$.address',
-        localAddress     VARCHAR(100) PATH '$.localAddress',
-        businessHouers   VARCHAR(100) PATH '$.businessHouers',
-        lastOrder        VARCHAR(100) PATH '$.lastOrder',
+        local_address    VARCHAR(100) PATH '$.localAddress',
+        business		 JSON PATH '$.business',
         phone            VARCHAR(100) PATH '$.phone',
         other            JSON PATH '$.other',
-		-- menu			 JSON PATH '$.menu', -- 원래 이부분 사라져야함
-        image1           VARCHAR(100) PATH '$.image1',
-        image2           VARCHAR(100) PATH '$.image2',
-        image3           VARCHAR(100) PATH '$.image3'-- ,
-        -- review			 JSON PATH '$.review' -- 원래 이부분 사라져야함
+		menu			 JSON PATH '$.menu', 
+        main_images      JSON PATH '$.mainImages',
+        image_list       JSON PATH '$.imageList',
+        review			 JSON PATH '$.review'
     )
 ) AS jt;
-
-/** 맛집 상세페이지 메뉴 테이블 생성 : travel_food_detail_menu */
--- private String mname;
--- private String price;
-create table travel_food_detail_menu(
-    mid     int auto_increment primary key,
-    did     int,               -- 어느 음식점의 메뉴인지 연결용 FK 추가
-    mname   varchar(100),
-    price   varchar(100),
-    foreign key (did) references travel_food_detail(did) on delete cascade
-);
-
-desc travel_food_detail_menu;
-select * from travel_food_detail_menu;
-
--- json 파일의 travel_food_detail_menu 정보 매핑
-INSERT INTO travel_food_detail_menu(did, mname, price)
-SELECT 
-    f.did,
-    m.mname,
-    m.price
-FROM
-    travel_food_detail AS f
-JOIN
-    JSON_TABLE(
-        CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodDetails.json') AS CHAR CHARACTER SET utf8mb4),
-        '$[*]' COLUMNS (
-            fname VARCHAR(100) PATH '$.fname',
-            menu JSON PATH '$.menu'
-        )
-    ) AS jt
-JOIN
-    JSON_TABLE(
-        jt.menu,
-        '$[*]' COLUMNS (
-            mname VARCHAR(100) PATH '$.mname',
-            price VARCHAR(100) PATH '$.price'
-        )
-    ) AS m
-ON f.fname = jt.fname;
-
-/** 맛집 상세페이지 리뷰 테이블 생성 : travel_food_detail_review */
---     private String userProfile;
---     private String userId;
---     private String userLike;
---     private String userTotalReview;
---     private String userFllowers;
---     private String reviewImage;
---     private String reviewDate;
---     private String reviewDescription;
-create table travel_food_detail_review(
-    rid                 int auto_increment primary key,
-    did                 int,  -- 어느 음식점 리뷰인지 연결
-    userProfile         varchar(100),
-    userId              varchar(100),
-    userLike            varchar(100),
-    userTotalReview     varchar(100),
-    userFllowers        varchar(100),
-    reviewImage         varchar(100),
-    reviewDate          varchar(100),
-    reviewDescription   varchar(300),
-    foreign key (did) references travel_food_detail(did) on delete cascade
-);
-
-desc travel_food_detail_review;
-select * from travel_food_detail_review;
-
--- json 파일의 travel_food_detail_review 정보 매핑
-INSERT INTO travel_food_detail_review(
-    did,
-    userProfile,
-    userId,
-    userLike,
-    userTotalReview,
-    userFllowers,
-    reviewImage,
-    reviewDate,
-    reviewDescription
-)
-SELECT
-    f.did,
-    r.userProfile,
-    r.userId,
-    r.userLike,
-    r.userTotalReview,
-    r.userFllowers,
-    r.reviewImage,
-    r.reviewDate,
-    r.reviewDescription
-FROM
-    travel_food_detail AS f
-JOIN
-    JSON_TABLE(
-        CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodDetails.json') AS CHAR CHARACTER SET utf8mb4),
-        '$[*]' COLUMNS (
-            fname VARCHAR(100) PATH '$.fname',
-            review JSON PATH '$.review'
-        )
-    ) AS jt
-JOIN
-    JSON_TABLE(
-        jt.review,
-        '$[*]' COLUMNS (
-            userProfile       VARCHAR(100) PATH '$.userProfile',
-            userId            VARCHAR(100) PATH '$.userId',
-            userLike          VARCHAR(100) PATH '$.userLike',
-            userTotalReview   VARCHAR(100) PATH '$.userTotalReview',
-            userFllowers      VARCHAR(100) PATH '$.userFllowers',
-            reviewImage       VARCHAR(100) PATH '$.reviewImage',
-            reviewDate        VARCHAR(100) PATH '$.reviewDate',
-            reviewDescription VARCHAR(300) PATH '$.reviewDescription'
-        )
-    ) AS r
-ON f.fname = jt.fname;
 
 /***************************************************
 	     여행지 추천: travel_food_detail 관련 테이블 (끝)
@@ -386,7 +387,8 @@ ON f.fname = jt.fname;
 
 
 /*********************************************
-	     회원정보 테이블 : userinfo 테이블
+	     회원정보 테이블 : userinfo 테이블 
+			251110 수정 - 패스워드 길이 문제로 인하여 테이블 삭제 및 생성, 데이터 삽입을 요청드립니다.
 *********************************************/
 use bicycle;
 select database();
@@ -394,10 +396,12 @@ show tables;
 select * from userinfo;
 desc userinfo;
 
+drop table userinfo;
+
 create table userinfo(
 	unum 		int				auto_increment primary key,
     uid   		varchar(30) not null,
-    upass		varchar(30) not null,
+    upass		varchar(100) not null,
     uname	    varchar(50) not null,
     uage		int not null,
     ugender		varchar(10) not null,
@@ -407,5 +411,6 @@ create table userinfo(
 );
 
 insert into userinfo(uid, upass, uname, uage, ugender, uaddress, uemail, uphone)
-value ("test12345",12345,"테스터2",1001,"여성","서울 강남구 강남대로78길 8 한국빌딩 4F, 404호","abcde@naver.com","010-1234-5678"),
-("test1234",1234,"테스터",100,"남성","서울 강남구 강남대로78길 8 한국빌딩 4F, 404호","abcd@naver.com","010-1234-5678");
+value (
+"test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
+);

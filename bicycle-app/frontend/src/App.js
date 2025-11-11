@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './pages/Layout.jsx';
 import { Home } from './pages/Home.jsx';
-import { Travel } from './pages/Travel.jsx';
+import { Travel } from './pages/travel/Travel.jsx';
 import Rental from './pages/Rental.jsx';
 import { Support } from './pages/Support.jsx';
 import { Login } from './pages/Login.jsx';
@@ -22,7 +22,15 @@ import {Cart} from "./pages/Cart.jsx";
 import {ComparedProduct} from "./pages/ComparedProduct.jsx";
 import {CheckoutInfo} from "./pages/CheckoutInfo.jsx";
 
+import { useEffect } from 'react';
+import { createCsrfToken} from './feature/csrf/manageCsrfToken.js';
+
 export default function App() {
+
+    useEffect(()=>{
+        createCsrfToken();
+    },[])
+
   return (
     <BrowserRouter>
     <ScrollToTop />
@@ -34,7 +42,8 @@ export default function App() {
           <Route path="support" element={<Support />} />
           <Route path="login" element={<Login />} />
           <Route path="auth" element={<Auth />} />   
-          <Route path="signUp" element={<SignUp />} />          
+          <Route path="signUp" element={<SignUp />} /> 
+          <Route path="socialsignUp" element={<SignUp excludeItems={['social']} />} />             
           <Route path="policies/terms" element={<Terms />} />
           <Route path="policies/privacy" element={<Privacy />} />
           <Route path="policies/internalpolicy" element={<InternalPolicy />} />
