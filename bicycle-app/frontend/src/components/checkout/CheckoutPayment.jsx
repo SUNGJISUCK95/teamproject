@@ -40,7 +40,7 @@ export function CheckoutPayment({ totalPrice, cartList }) {
                 agreementWidgetRef.current = agreementWidget;
 
             } catch (error) {
-                console.error("Error initializing widgets:", error);
+                console.error("Error initializing widgets:", error); //
             }
         };
 
@@ -93,7 +93,7 @@ export function CheckoutPayment({ totalPrice, cartList }) {
                 failUrl: `${window.location.origin}/checkout/fail`,
             });
         } catch (error) {
-            console.error("Payment error:", error);
+            console.error("Payment error:", error); //
             alert(`결제 중 오류가 발생했습니다: ${error.message}`);
         }
     };
