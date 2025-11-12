@@ -17,7 +17,7 @@ public class StoreController {
     public StoreController(StoreService storeService){
         this.storeService = storeService;
     }
-    @GetMapping("/location")
+    @GetMapping("")
     public List<StoreDto> getStore(){
         return storeService.findAll();
     }

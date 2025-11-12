@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
         this.jpaProductRepository = jpaProductRepository;
     }
     @Override
-    public ProductDto findByCategoryAndPid(String category, Long pid){
+    public ProductDto findByCategoryAndPid(String category, String pid){
         Product entity = jpaProductRepository.findByCategoryAndPid(category, pid);
         return new ProductDto(entity);
     }
@@ -27,7 +27,9 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductDto> findByCategory(String category){
         List<ProductDto> plist = new ArrayList<>();
+//        System.out.println("2222");
         List<Product> list =jpaProductRepository.findByCategory(category);
+//        System.out.println("3333" + list);
         list.forEach(product -> plist.add(new ProductDto(product)));
         return plist;
     }

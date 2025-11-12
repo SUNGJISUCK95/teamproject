@@ -1,13 +1,19 @@
 package com.springboot.bicycle_app.entity.purchase;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.List;
 
 @Entity
 @Table(name = "product")
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
 public class Product {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +31,7 @@ public class Product {
     private String color;
     @Column(length = 150)
     private String subinfo;
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "json")
     private List<String> description;
 }
