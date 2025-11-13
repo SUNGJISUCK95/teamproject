@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface JpaCartRepository extends JpaRepository<Cart, Long> {
@@ -37,9 +38,10 @@ public interface JpaCartRepository extends JpaRepository<Cart, Long> {
 //    Cart save(Cart cart);
     @Transactional
     @Modifying
-    @Query("UPDATE Cart c SET c.checked = !c.checked where c.cid = :cid")
+    @Query("UPDATE Cart c SET c.checked = NOT c.checked where c.cid = :cid")
     int toggleCheck(@Param("cid") long cid);
-
+    @Query("SELECT c FROM Cart c WHERE c.user.unum = :unum AND c.product.product_id = :productId")
+    Optional<Cart> findByUnumAndProductId(@Param("unum") int unum, @Param("productId") long productId);
 
 
 }
