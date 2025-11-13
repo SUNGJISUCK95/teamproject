@@ -51,11 +51,18 @@ export const showCart = () => async (dispatch) => {
 }
 
 export const addCart = (pid, category) => async (dispatch) => {
-    // dispatch(addCartItem({"cartItem":{"pid":pid, "category":category, "qty":1}}));
-    // dispatch(updateCartCount());
     try {
+        const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+        if (!loginInfo || !loginInfo.userId) {
+            alert("로그인이 필요합니다.");
+            // navigate("/login");
+            return;
+        }
+        const { userId } = loginInfo;
+
         const url = "/cart/add";
-        const data = {"product_id": pid, "category": category, "qty": 1, "checked":true};
+        const data = {"product_id": pid, "category": category, "qty": 1, "checked":true, "unum": userId};
+
         await axiosPost(url, data);
         alert("상품이 추가되었습니다!");
         dispatch(showCart());
