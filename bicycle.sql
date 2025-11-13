@@ -402,6 +402,68 @@ FROM JSON_TABLE(
     )
 ) AS jt;
 
+
+
+/** 수리 상세페이지 테이블 생성 : travel_repair_detail */
+DROP TABLE travel_repair_detail;
+create table travel_repair_detail(
+	did					int				auto_increment primary key,
+    rname   			varchar(30) not null,
+    `rlike`				DECIMAL(4,1),
+    tag	    			json,
+    location			varchar(100),
+    `repair`				varchar(100), 
+    address				varchar(100),
+    local_address		varchar(100),
+    business			json,
+    phone				varchar(100),
+    other				json,
+    menu				json,
+    main_images			json,
+    image_list			json,
+    review				json
+);
+
+desc travel_repair_detail;
+select * from travel_repair_detail;
+
+-- json 파일의 travel_food_detail 정보 매핑
+INSERT INTO travel_repair_detail(rname, `rlike`, tag, location, `repair`, address, local_address, business, phone, other, menu, main_images, image_list, review)
+SELECT
+    jt.rname,
+    jt.`rlike`,
+    jt.tag,
+    jt.location,
+    jt.`repair`,
+    jt.address,
+    jt.local_address,
+    jt.business,
+    jt.phone,
+    jt.other,
+    jt.menu,
+    jt.main_images,
+    jt.image_list,
+    jt.review
+FROM JSON_TABLE(
+    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelRepairDetails.json') AS CHAR CHARACTER SET utf8mb4),
+    '$[*]' COLUMNS (
+        rname            VARCHAR(30) PATH '$.rname',
+        `rlike`            DECIMAL(4,1) PATH '$.rlike',
+        tag              JSON PATH '$.tag',
+        location         VARCHAR(100) PATH '$.location',
+        `repair`             VARCHAR(100) PATH '$.repair',
+        address          VARCHAR(100) PATH '$.address',
+        local_address    VARCHAR(100) PATH '$.localAddress',
+        business		 JSON PATH '$.business',
+        phone            VARCHAR(100) PATH '$.phone',
+        other            JSON PATH '$.other',
+		menu			 JSON PATH '$.menu', 
+        main_images      JSON PATH '$.mainImages',
+        image_list       JSON PATH '$.imageList',
+        review			 JSON PATH '$.review'
+    )
+) AS jt;
+
 /***************************************************
 	     여행지 추천: travel_food_detail 관련 테이블 (끝)
 ****************************************************/
