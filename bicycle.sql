@@ -32,24 +32,11 @@ SELECT COUNT(*) FROM chatbot_faq;
 -- 전체 데이터 삭제(chat-bot.json 데이터 수정 시)
 TRUNCATE TABLE chatbot_faq;
 
-/** 데이터베이스 생성 */
-create database bicycle;
-
-/** 데이터베이스 열기 */
-use bicycle;
-select database();
-
-/** 테이블 목록 확인 */
-show tables;
-
 /*********************************************
 	     여행지 추천: marker 관련 테이블
 *********************************************/
 
 /** 마커 테이블 생성 : marker */
--- 	private String lat;
---  private String lng;
---  private String type;
 DROP TABLE marker;
 create table marker(
 	mid		int				auto_increment primary key,
@@ -101,18 +88,6 @@ show variables like 'secure_file_priv';
 *********************************************/
 
 /** 맛집 테이블 생성 : travel_food */
---  private String fname;
---     private Double flike;
---     private int score;
---     private int evaluation;
---     private List<String> tag;
---     private String image1;
---     private String image2;
---     private String image3;
---     private String fullImage1;
---     private String fullImage2;
---     private String fullImage3;
---     private String description;
 DROP TABLE travel_food;
 create table travel_food(
 	fid			int				auto_increment primary key,
@@ -305,23 +280,6 @@ select * from travel_repair;
 	     여행지 추천: travel_food_detail 관련 테이블
 ****************************************************/
 /** 맛집 상세페이지 테이블 생성 : travel_food_detail */
---     private int did;
--- 	   private String fname;
---     private Double flike;
---     private List<String> tag;
---     private String location;
---     private String food;
---     private String address;
---     private String localAddress;
---     private String businessHouers;
---     private String lastOrder;
---     private String phone;
---     private List<String> other;
---     private List<TravelDetailMenu> menu;
---     private String image1;
---     private String image2;
---     private String image3;
---     private List<TravelDetailReview> review;
 DROP TABLE travel_food_detail;
 create table travel_food_detail(
 	did					int				auto_increment primary key,
@@ -369,6 +327,68 @@ FROM JSON_TABLE(
         tag              JSON PATH '$.tag',
         location         VARCHAR(100) PATH '$.location',
         food             VARCHAR(100) PATH '$.food',
+        address          VARCHAR(100) PATH '$.address',
+        local_address    VARCHAR(100) PATH '$.localAddress',
+        business		 JSON PATH '$.business',
+        phone            VARCHAR(100) PATH '$.phone',
+        other            JSON PATH '$.other',
+		menu			 JSON PATH '$.menu', 
+        main_images      JSON PATH '$.mainImages',
+        image_list       JSON PATH '$.imageList',
+        review			 JSON PATH '$.review'
+    )
+) AS jt;
+
+
+
+/** 숙소 상세페이지 테이블 생성 : travel_hotel_detail */
+DROP TABLE travel_hotel_detail;
+create table travel_hotel_detail(
+	did					int				auto_increment primary key,
+    hname   			varchar(30) not null,
+    hlike				DECIMAL(4,1),
+    tag	    			json,
+    location			varchar(100),
+    hotel				varchar(100), 
+    address				varchar(100),
+    local_address		varchar(100),
+    business			json,
+    phone				varchar(100),
+    other				json,
+    menu				json,
+    main_images			json,
+    image_list			json,
+    review				json
+);
+
+desc travel_hotel_detail;
+select * from travel_hotel_detail;
+
+-- json 파일의 travel_food_detail 정보 매핑
+INSERT INTO travel_hotel_detail(hname, hlike, tag, location, hotel, address, local_address, business, phone, other, menu, main_images, image_list, review)
+SELECT
+    jt.hname,
+    jt.hlike,
+    jt.tag,
+    jt.location,
+    jt.hotel,
+    jt.address,
+    jt.local_address,
+    jt.business,
+    jt.phone,
+    jt.other,
+    jt.menu,
+    jt.main_images,
+    jt.image_list,
+    jt.review
+FROM JSON_TABLE(
+    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelHotelDetails.json') AS CHAR CHARACTER SET utf8mb4),
+    '$[*]' COLUMNS (
+        hname            VARCHAR(30) PATH '$.hname',
+        hlike            DECIMAL(4,1) PATH '$.hlike',
+        tag              JSON PATH '$.tag',
+        location         VARCHAR(100) PATH '$.location',
+        hotel             VARCHAR(100) PATH '$.hotel',
         address          VARCHAR(100) PATH '$.address',
         local_address    VARCHAR(100) PATH '$.localAddress',
         business		 JSON PATH '$.business',
