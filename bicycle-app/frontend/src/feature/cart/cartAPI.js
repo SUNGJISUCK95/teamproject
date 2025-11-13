@@ -27,7 +27,7 @@ export const showCart = () => async (dispatch) => {
         axiosData("/data/electric/electricData.json")
     ]);
 
-    const allProducts = [...mountainData, ...roadData, ...lifeStyleData, ...electricData]; // (lifestyleData 등도 추가)
+    const allProducts = [...mountainData, ...roadData, ...lifeStyleData, ...electricData];
 
     dispatch(showCartItem({"items": allProducts}));
     dispatch(updateTotalPrice());
