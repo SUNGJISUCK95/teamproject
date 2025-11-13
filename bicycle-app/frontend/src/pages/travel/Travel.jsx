@@ -6,6 +6,7 @@ import { TravelHotelList } from "../../components/travel/TravelHotelList.jsx";
 import { TravelRepairList } from "../../components/travel/TravelRepairList.jsx";
 import { TravelFoodDetailList } from "../../components/travel/TravelFoodDetailList.jsx";
 import { TravelHotelDetailList } from "../../components/travel/TravelHotelDetailList.jsx";
+import { TravelRepairDetailList } from "../../components/travel/TravelRepairDetailList.jsx";
 import { TravelDetail } from "../../components/travel/TravelFoodDetail.jsx";
 import Map from './Map.jsx';
 
@@ -57,7 +58,7 @@ export function Travel() {
       const detail = document.getElementById("travel_detail");
 
       // 상세 정보창 출력
-      if(detail && type === "food" || type === "hotel") {
+      if(detail && type === "food" || type === "hotel" || type === "repair") {
         if (did) {
           setSelectedDid(did);
         }
@@ -128,6 +129,14 @@ export function Travel() {
                       <li className="detail-close-box"><button className="detail-close-button" onClick={() => handleListDetail("close")}><i class="fa-solid fa-xmark"></i></button></li>
                       <div>
                         <TravelHotelDetailList selectedDid={selectedDid}/>
+                      </div>
+                    </>
+                  )}
+                  {showRepairs && selectedDid && (
+                    <>
+                      <li className="detail-close-box"><button className="detail-close-button" onClick={() => handleListDetail("close")}><i class="fa-solid fa-xmark"></i></button></li>
+                      <div>
+                        <TravelRepairDetailList selectedDid={selectedDid}/>
                       </div>
                     </>
                   )}

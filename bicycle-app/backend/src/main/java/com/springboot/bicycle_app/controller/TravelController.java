@@ -5,6 +5,7 @@ import com.springboot.bicycle_app.dto.travel.TravelHotelDto;
 import com.springboot.bicycle_app.dto.travel.TravelRepairDto;
 import com.springboot.bicycle_app.dto.travel.TravelFoodDetailDto;
 import com.springboot.bicycle_app.dto.travel.TravelHotelDetailDto;
+import com.springboot.bicycle_app.dto.travel.TravelRepairDetailDto;
 import com.springboot.bicycle_app.service.TravelService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,5 +53,11 @@ public class TravelController {
     public TravelHotelDetailDto hotelDetail(@RequestBody TravelHotelDetailDto travelHotelDetail){
 //        System.out.println("controller ==> ");
         return travelService.findHotelDetail(travelHotelDetail.getDid());
+    }
+
+    @PostMapping("/repairDetail")
+    public TravelRepairDetailDto repairDetail(@RequestBody TravelRepairDetailDto travelRepairDetail){
+//        System.out.println("controller ==> ");
+        return travelService.findRepairDetail(travelRepairDetail.getDid());
     }
 }
