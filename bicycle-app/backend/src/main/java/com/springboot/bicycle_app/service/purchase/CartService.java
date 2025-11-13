@@ -9,6 +9,6 @@ public interface CartService {
     int deleteItem(CartDto cartDto);
     List<CartDto> findList(CartDto cartDto);
     int updateQty(CartDto cartDto);
-    CartDto checkQty(CartDto cartDto);
     int add(CartDto cartDto);
+    int toggleCheck(CartDto cartDto);
 }

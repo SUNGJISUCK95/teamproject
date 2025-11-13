@@ -37,23 +37,15 @@ public class CartServiceImpl implements CartService{
         return result;
     }
     @Override
-    public CartDto checkQty(CartDto cartDto){
-        long product_id = cartDto.getProduct_id();
-        int unum = cartDto.getUnum();
-        long cid = cartDto.getCid();
-        CartCheckQtyDto qtyDto = jpaCartRepository.checkQty(cid, product_id, unum);
-        if(qtyDto != null){
-            cartDto.setCid(qtyDto.getCid());
-            cartDto.setCheckQty(qtyDto.getCount());
-        } else cartDto.setCheckQty(0L);
-        return cartDto;
-    }
-    @Override
     public int add(CartDto cartDto) {
         int result = 0;
         Cart entity = jpaCartRepository.save(new Cart(cartDto));
         if(entity != null) result = 1;
         return result;
+    }
+    @Override
+    public int toggleCheck(CartDto cartDto) {
+        return jpaCartRepository.toggleCheck(cartDto.getCid());
     }
 
 }

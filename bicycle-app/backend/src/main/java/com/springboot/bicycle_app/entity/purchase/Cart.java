@@ -31,6 +31,11 @@ public class Cart {
     @Column(nullable = false)
     private boolean checked;
 
-    public Cart(CartDto cartDto) {
+    public Cart(CartDto cartDto, Product product, UserInfo user) {
+        this.qty = cartDto.getQty();
+        this.checked = cartDto.isChecked();
+        this.cdate = LocalDate.now();
+        this.product = product;
+        this.user = user;
     }
 }

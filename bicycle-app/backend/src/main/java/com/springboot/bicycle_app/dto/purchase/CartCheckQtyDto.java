@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter @Getter
 @AllArgsConstructor
 public class CartCheckQtyDto {
-    private int cid;
-    private Long count;
+    private long cid;
+    private long count;
 
     //클래스의 필드에 데이터를 주입(Injection) 방법 2가지
     //1. 생성자
