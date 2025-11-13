@@ -89,6 +89,7 @@ show variables like 'secure_file_priv';
 
 /** 맛집 테이블 생성 : travel_food */
 DROP TABLE travel_food;
+
 create table travel_food(
 	fid			int				auto_increment primary key,
     fname   	varchar(30) not null,
