@@ -420,7 +420,7 @@ drop table userinfo;
 
 create table userinfo(
 	unum 		int				auto_increment primary key,
-    uid   		varchar(30) not null,
+    uid   		varchar(100) not null,
     upass		varchar(100) not null,
     uname	    varchar(50) not null,
     uage		int not null,
@@ -434,3 +434,4 @@ insert into userinfo(uid, upass, uname, uage, ugender, uaddress, uemail, uphone)
 value (
 "test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
 );
+
