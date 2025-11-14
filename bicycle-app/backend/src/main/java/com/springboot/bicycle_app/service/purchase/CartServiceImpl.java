@@ -48,7 +48,7 @@ public class CartServiceImpl implements CartService{
         return result;
     }
     @Override
-    public int add(CartDto cartDto) {
+    public List<CartDto> add(CartDto cartDto) {
         Optional<Cart> existingCart = jpaCartRepository.findByUnumAndProductId(
                 TEST_USER_UNUM, cartDto.getProduct_id()
         );
@@ -73,10 +73,10 @@ public class CartServiceImpl implements CartService{
                 Cart newCart = new Cart(cartDto, product, user);
                 jpaCartRepository.save(newCart); // insert
             }
-            return 1; // 성공
+            return jpaCartRepository.findByUnum(TEST_USER_UNUM);
         } catch (Exception e) {
             e.printStackTrace(); // 개발 중에만 에러 확인용으로 사용
-            return 0; // 실패
+            return null; // 또는 Collections.emptyList();
         }
     }
 

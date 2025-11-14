@@ -37,7 +37,7 @@ public class CartController {
     }
 
     @PostMapping("/add")
-    public int add(@RequestBody CartDto cartDto){
+    public List<CartDto> add(@RequestBody CartDto cartDto){
         return cartService.add(cartDto);
     }
     @PostMapping("/toggleCheck")

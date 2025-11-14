@@ -66,7 +66,7 @@ export const addCart = (pid, category) => async (dispatch) => {
         const data = {"product_id": Number(pid), "qty": 1, "checked":true};
 
         const response = await axiosPost(url, data);
-        if (response === 1) { // 👈 백엔드가 1을 리턴할 때만 성공 처리
+        if (response) { // 👈 백엔드가 1을 리턴할 때만 성공 처리
             alert("상품이 추가되었습니다!");
             dispatch(showCart());
         } else {
