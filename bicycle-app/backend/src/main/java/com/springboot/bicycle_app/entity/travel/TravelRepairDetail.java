@@ -19,6 +19,9 @@ public class TravelRepairDetail {
     @Column(name="rlike")
     private Double rlike;
 
+    @Column(name="score")
+    private int score;
+
     @Column(name="tag", columnDefinition = "JSON")
     private String tag;
 

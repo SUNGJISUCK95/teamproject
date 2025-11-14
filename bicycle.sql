@@ -93,6 +93,8 @@ DROP TABLE travel_food;
 create table travel_food(
 	fid			int				auto_increment primary key,
     fname   	varchar(30) not null,
+	lat			DECIMAL(10,8),
+    lng	    	DECIMAL(11,8),
     flike		DECIMAL(4,1),
     score	    int,
     evaluation	int,
@@ -108,14 +110,13 @@ create table travel_food(
 
 desc travel_food;
 select * from travel_food;
-select fname, flike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description from travel_food;
-
-show variables like 'secure_file_priv';
 
 -- json 파일의 travel_food 정보 매핑
-insert into travel_food(fname, flike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+insert into travel_food(fname, lat, lng, flike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
 select 
 	jt.fname,
+    jt.lat,
+    jt.lng,
     jt.flike,
     jt.score,
     jt.evaluation,
@@ -133,7 +134,9 @@ from
 				AS CHAR CHARACTER SET utf8mb4 ),
 		'$[*]' COLUMNS (
 			 fname   		varchar(30) 	PATH '$.fname', 
-			 flike   		DECIMAL(4,1) 	PATH '$.flike',
+             lat			DECIMAL(10,8)	PATH '$.lat',
+			 lng			DECIMAL(11,8)   PATH '$.lng',
+             flike   		DECIMAL(4,1) 	PATH '$.flike',
 			 score   		int 			PATH '$.score',
 			 evaluation		int			 	PATH '$.evaluation',
              tag           	json 			PATH '$.tag',  
@@ -169,9 +172,6 @@ create table travel_hotel(
 
 desc travel_hotel;
 select * from travel_hotel;
-select hname, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description from travel_hotel;
-
-show variables like 'secure_file_priv';
 
 -- json 파일의 travel_food 정보 매핑
 insert into travel_hotel(hname, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
@@ -231,9 +231,6 @@ create table travel_repair(
 
 desc travel_repair;
 select * from travel_repair;
-select rname, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description from travel_repair;
-
-show variables like 'secure_file_priv';
 
 -- json 파일의 travel_food 정보 매핑
 insert into travel_repair(rname, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
@@ -272,7 +269,6 @@ from
     
 select * from travel_repair;
 
-
 /*********************************************
 	     여행지 추천: travel 관련 테이블 (끝)
 *********************************************/
@@ -280,12 +276,14 @@ select * from travel_repair;
 /***************************************************
 	     여행지 추천: travel_food_detail 관련 테이블
 ****************************************************/
+
 /** 맛집 상세페이지 테이블 생성 : travel_food_detail */
 DROP TABLE travel_food_detail;
 create table travel_food_detail(
 	did					int				auto_increment primary key,
     fname   			varchar(30) not null,
     flike				DECIMAL(4,1),
+    score	    		int,
     tag	    			json,
     location			varchar(100),
     food				varchar(100), 
@@ -304,10 +302,11 @@ desc travel_food_detail;
 select * from travel_food_detail;
 
 -- json 파일의 travel_food_detail 정보 매핑
-INSERT INTO travel_food_detail(fname, flike, tag, location, food, address, local_address, business, phone, other, menu, main_images, image_list, review)
+INSERT INTO travel_food_detail(fname, flike, score, tag, location, food, address, local_address, business, phone, other, menu, main_images, image_list, review)
 SELECT
     jt.fname,
     jt.flike,
+    jt.score,
     jt.tag,
     jt.location,
     jt.food,
@@ -323,8 +322,9 @@ SELECT
 FROM JSON_TABLE(
     CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodDetails.json') AS CHAR CHARACTER SET utf8mb4),
     '$[*]' COLUMNS (
-        fname            VARCHAR(30) PATH '$.fname',
+        fname            VARCHAR(30)  PATH '$.fname',
         flike            DECIMAL(4,1) PATH '$.flike',
+        score   		 int 		  PATH '$.score',
         tag              JSON PATH '$.tag',
         location         VARCHAR(100) PATH '$.location',
         food             VARCHAR(100) PATH '$.food',
@@ -348,6 +348,7 @@ create table travel_hotel_detail(
 	did					int				auto_increment primary key,
     hname   			varchar(30) not null,
     hlike				DECIMAL(4,1),
+    score	    		int,
     tag	    			json,
     location			varchar(100),
     hotel				varchar(100), 
@@ -366,10 +367,11 @@ desc travel_hotel_detail;
 select * from travel_hotel_detail;
 
 -- json 파일의 travel_food_detail 정보 매핑
-INSERT INTO travel_hotel_detail(hname, hlike, tag, location, hotel, address, local_address, business, phone, other, menu, main_images, image_list, review)
+INSERT INTO travel_hotel_detail(hname, hlike, score, tag, location, hotel, address, local_address, business, phone, other, menu, main_images, image_list, review)
 SELECT
     jt.hname,
     jt.hlike,
+    jt.score,
     jt.tag,
     jt.location,
     jt.hotel,
@@ -387,6 +389,7 @@ FROM JSON_TABLE(
     '$[*]' COLUMNS (
         hname            VARCHAR(30) PATH '$.hname',
         hlike            DECIMAL(4,1) PATH '$.hlike',
+        score   		 int 		  PATH '$.score',
         tag              JSON PATH '$.tag',
         location         VARCHAR(100) PATH '$.location',
         hotel             VARCHAR(100) PATH '$.hotel',
@@ -410,6 +413,7 @@ create table travel_repair_detail(
 	did					int				auto_increment primary key,
     rname   			varchar(30) not null,
     `rlike`				DECIMAL(4,1),
+    score	    		int,
     tag	    			json,
     location			varchar(100),
     `repair`				varchar(100), 
@@ -428,10 +432,11 @@ desc travel_repair_detail;
 select * from travel_repair_detail;
 
 -- json 파일의 travel_food_detail 정보 매핑
-INSERT INTO travel_repair_detail(rname, `rlike`, tag, location, `repair`, address, local_address, business, phone, other, menu, main_images, image_list, review)
+INSERT INTO travel_repair_detail(rname, `rlike`, score, tag, location, `repair`, address, local_address, business, phone, other, menu, main_images, image_list, review)
 SELECT
     jt.rname,
     jt.`rlike`,
+    jt.score,
     jt.tag,
     jt.location,
     jt.`repair`,
@@ -449,6 +454,7 @@ FROM JSON_TABLE(
     '$[*]' COLUMNS (
         rname            VARCHAR(30) PATH '$.rname',
         `rlike`            DECIMAL(4,1) PATH '$.rlike',
+        score   		 int 		  PATH '$.score',
         tag              JSON PATH '$.tag',
         location         VARCHAR(100) PATH '$.location',
         `repair`             VARCHAR(100) PATH '$.repair',

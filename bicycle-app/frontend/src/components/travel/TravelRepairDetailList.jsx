@@ -26,6 +26,7 @@ export function TravelRepairDetailList({ selectedDid }) {
                         did={travelRepairDetailList.did}
                         rname={travelRepairDetailList.rname}
                         rlike={travelRepairDetailList.rlike}
+                        score={travelRepairDetailList.score}
                         tag={travelRepairDetailList.tag}
                         location={travelRepairDetailList.location}
                         repair={travelRepairDetailList.repair}
