@@ -43,11 +43,20 @@ public class OauthController {
 
     @PostMapping("/token")
     public UserInfoDto gettoken(@RequestBody Token token){
+        String authcode;
+        String socialId;
         System.out.println("social : "+token.getSocial());
         System.out.println("auth : "+token.getAuthCode());
-        String authcode = oauthService.getSocialAccessToken(token);
-        String socialId = oauthService.socialIdCatcher(authcode,token.getSocial());
-
+        if(token.getSocial().equals("google"))//구글은 중간 토큰 요청없이 access토큰을 바로 넘겨준다.
+            //https://ldd6cr-adness.tistory.com/323 참고
+        {
+            socialId = oauthService.socialIdCatcher(token.getAuthCode(),token.getSocial());
+        }
+        else
+        {
+            authcode = oauthService.getSocialAccessToken(token);
+            socialId = oauthService.socialIdCatcher(authcode,token.getSocial());
+        }
         UserInfoDto socialIdChecker = new UserInfoDto();
         socialIdChecker.setUid(socialId);
         String jwToken = oauthJWTService.createToken(socialId,"Role_USSR");
@@ -76,9 +85,11 @@ public class OauthController {
     public int signup(@RequestBody UserInfoDto userInfoDto){
         if(userInfoDto.isSocialDupl())//true면 일반 회원가입
         {
+            System.out.println("imhere~~~~~~~~~~");
             return oauthService.signUp(userInfoDto);
         }
         else{//false면 소셜로그인 해서 겹치는 게 없어서 들어온 회원가입
+            System.out.println("imhere2222222222222~~~~~~~~~~");
             String JWToken = userInfoDto.getJwToken();
             Claims claim = oauthJWTService.getClaims(JWToken);
             userInfoDto.setUid(claim.getSubject());
