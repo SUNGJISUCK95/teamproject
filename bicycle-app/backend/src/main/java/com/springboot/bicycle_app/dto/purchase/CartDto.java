@@ -16,6 +16,7 @@ public class CartDto {
     private int unum;
     private LocalDate cdate;
     private boolean checked;
+    private String category;
     private Long checkQty;
     private String type;
     private int sumQty;

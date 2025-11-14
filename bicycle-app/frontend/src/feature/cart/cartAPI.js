@@ -44,7 +44,8 @@ export const showCart = () => async (dispatch) => {
     // dispatch(updateTotalPrice());
     const url = "/cart/list"
     const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
-    const cartData = await axiosPost(url, {"unum":userId});
+    // const cartData = await axiosPost(url, {"unum":Number(userId)});
+    const cartData = await axiosPost(url, {});
     dispatch(showCartItem({"items":cartData}));
     // cartData.length && dispatch(updateTotalPrice({"totalPrice":cartData[0].totalPrice}))
     dispatch(updateTotalPrice());
@@ -52,16 +53,17 @@ export const showCart = () => async (dispatch) => {
 
 export const addCart = (pid, category) => async (dispatch) => {
     try {
-        const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
-        if (!loginInfo || !loginInfo.userId) {
-            alert("로그인이 필요합니다.");
-            // navigate("/login");
-            return;
-        }
-        const { userId } = loginInfo;
+        // const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+        // if (!loginInfo || !loginInfo.userId) {
+        //     alert("로그인이 필요합니다.");
+        //     // navigate("/login");
+        //     return;
+        // }
+        // const { userId } = loginInfo;
 
         const url = "/cart/add";
-        const data = {"product_id": pid, "category": category, "qty": 1, "checked":true, "unum": userId};
+        // const data = {"product_id": Number(pid), "qty": 1, "checked":true, "unum": Number(userId)};
+        const data = {"product_id": Number(pid), "qty": 1, "checked":true};
 
         await axiosPost(url, data);
         alert("상품이 추가되었습니다!");

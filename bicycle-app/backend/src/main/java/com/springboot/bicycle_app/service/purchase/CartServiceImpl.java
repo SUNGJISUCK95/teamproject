@@ -19,6 +19,7 @@ import java.util.Optional;
 @Service
 @Transactional
 public class CartServiceImpl implements CartService{
+    private final int TEST_USER_UNUM = 1;
     public final JpaCartRepository jpaCartRepository;
     private final JpaProductRepository jpaProductRepository;
     private final JpaUserInfoRepository jpaUserInfoRepository;
@@ -34,7 +35,7 @@ public class CartServiceImpl implements CartService{
     }
     @Override
     public List<CartDto> findList(CartDto cartDto){
-        return jpaCartRepository.findByUnum(cartDto.getUnum());
+        return jpaCartRepository.findByUnum(TEST_USER_UNUM);
     }
     @Override
     public int updateQty(CartDto cartDto){
@@ -49,7 +50,7 @@ public class CartServiceImpl implements CartService{
     @Override
     public int add(CartDto cartDto) {
         Optional<Cart> existingCart = jpaCartRepository.findByUnumAndProductId(
-                cartDto.getUnum(), cartDto.getProduct_id()
+                TEST_USER_UNUM, cartDto.getProduct_id()
         );
 
         try {
