@@ -657,8 +657,9 @@ desc store_location;
 /***************************************************
 	     카트테이블 : cart 테이블 - 황동주
 ****************************************************/
-use shoppy;
 drop table cart;
+desc product;
+select count(*) from product;
 create table cart(
 	cid			int 	auto_increment		primary key,
     qty			int		not null,
@@ -674,6 +675,7 @@ create table cart(
 );
 use bicycle;
 desc cart;
+select * from cart;
 /***************************************************
 	     주문테이블 : order 테이블 - 황동주
 ****************************************************/

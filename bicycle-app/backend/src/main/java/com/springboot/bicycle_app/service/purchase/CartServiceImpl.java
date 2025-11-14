@@ -55,28 +55,23 @@ public class CartServiceImpl implements CartService{
 
         try {
             if (existingCart.isPresent()) {
-                // 2. 이미 존재하면 수량만 증가
                 Cart cart = existingCart.get();
                 cart.setQty(cart.getQty() + cartDto.getQty());
                 jpaCartRepository.save(cart); // update
             } else {
-                // 3. 존재하지 않으면 새로 생성
-
-                // 3-1. Product 와 UserInfo 엔티티를 DB에서 조회
                 Product product = jpaProductRepository.findById(cartDto.getProduct_id())
                         .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + cartDto.getProduct_id()));
 
                 UserInfo user = jpaUserInfoRepository.findById(TEST_USER_UNUM)
                         .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + TEST_USER_UNUM));
 
-                // 3-2. 올바른 생성자를 사용해서 Cart 객체 생성
                 Cart newCart = new Cart(cartDto, product, user);
-                jpaCartRepository.save(newCart); // insert
+                jpaCartRepository.save(newCart);
             }
             return jpaCartRepository.findByUnum(TEST_USER_UNUM);
         } catch (Exception e) {
-            e.printStackTrace(); // 개발 중에만 에러 확인용으로 사용
-            return null; // 또는 Collections.emptyList();
+            e.printStackTrace();
+            return null;
         }
     }
 

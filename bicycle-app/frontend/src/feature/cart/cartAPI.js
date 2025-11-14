@@ -55,7 +55,6 @@ export const addCart = (pid, category) => async (dispatch) => {
     try {
         // const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
         // if (!loginInfo || !loginInfo.userId) {
-        //     alert("로그인이 필요합니다.");
         //     // navigate("/login");
         //     return;
         // }
@@ -66,11 +65,11 @@ export const addCart = (pid, category) => async (dispatch) => {
         const data = {"product_id": Number(pid), "qty": 1, "checked":true};
 
         const response = await axiosPost(url, data);
-        if (response) { // 👈 백엔드가 1을 리턴할 때만 성공 처리
+        if (response) {
             alert("상품이 추가되었습니다!");
             dispatch(showCart());
         } else {
-            alert("장바구니 추가에 실패했습니다. (서버 오류)");
+            alert("장바구니 추가에 실패했습니다.");
         }
     } catch (error) {
         console.error("추가 실패:", error);
