@@ -66,7 +66,7 @@ public class CartServiceImpl implements CartService{
                 Product product = jpaProductRepository.findById(cartDto.getProduct_id())
                         .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + cartDto.getProduct_id()));
 
-                UserInfo user = jpaUserInfoRepository.findById(cartDto.getUnum())
+                UserInfo user = jpaUserInfoRepository.findById(TEST_USER_UNUM)
                         .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + TEST_USER_UNUM));
 
                 // 3-2. 올바른 생성자를 사용해서 Cart 객체 생성

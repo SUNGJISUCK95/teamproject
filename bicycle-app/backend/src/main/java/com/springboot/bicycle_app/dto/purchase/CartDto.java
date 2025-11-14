@@ -1,12 +1,11 @@
 package com.springboot.bicycle_app.dto.purchase;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Data
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class CartDto {
@@ -20,13 +19,19 @@ public class CartDto {
     private Long checkQty;
     private String type;
     private int sumQty;
+    private String name;
+    private long price;
+    private String image;
 
-    public CartDto(long cid, int qty, long product_id, int unum, LocalDate cdate, boolean checked) {
+    public CartDto(long cid, int qty, long product_id, int unum, LocalDate cdate, boolean checked, String name, long price, String image) {
         this.cid = cid;
         this.qty = qty;
         this.product_id = product_id;
         this.unum = unum;
         this.cdate = cdate;
         this.checked = checked;
+        this.name = name;
+        this.price = price;
+        this.image = image;
     }
 }

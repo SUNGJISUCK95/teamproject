@@ -18,7 +18,8 @@ public interface JpaCartRepository extends JpaRepository<Cart, Long> {
     //장바구니 조회
     @Query("""
             select new com.springboot.bicycle_app.dto.purchase.CartDto(
-                    c.cid, c.qty, c.product.product_id, c.user.unum, c.cdate, c.checked)
+                    c.cid, c.qty, c.product.product_id, c.user.unum, c.cdate, c.checked,
+                    c.product.name, c.product.price, c.product.image)
                         from Cart c
                         where c.user.unum = :unum
             """)
@@ -29,16 +30,16 @@ public interface JpaCartRepository extends JpaRepository<Cart, Long> {
     int deleteItem(@Param("cid")long cid);
     //장바구니 수량 업데이트
     @Modifying
-    @Query("update Cart c set c.qty = c.qty + 1 where c.cid =: cid")
+    @Query("update Cart c set c.qty = c.qty + 1 where c.cid =:cid")
     int increaseQty(@Param("cid") long cid);
     @Modifying
-    @Query("update Cart c set c.qty = c.qty - 1 where c.cid =: cid")
+    @Query("update Cart c set c.qty = c.qty - 1 where c.cid =:cid")
     int decreaseQty(@Param("cid") long cid);
     //장바구니 상품 추가
 //    Cart save(Cart cart);
     @Transactional
     @Modifying
-    @Query("UPDATE Cart c SET c.checked = NOT c.checked where c.cid = :cid")
+    @Query("UPDATE Cart c SET c.checked = NOT c.checked where c.cid =:cid")
     int toggleCheck(@Param("cid") long cid);
     @Query("SELECT c FROM Cart c WHERE c.user.unum = :unum AND c.product.product_id = :productId")
     Optional<Cart> findByUnumAndProductId(@Param("unum") int unum, @Param("productId") long productId);

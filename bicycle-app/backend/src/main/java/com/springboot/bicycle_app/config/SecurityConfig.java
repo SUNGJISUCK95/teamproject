@@ -50,6 +50,7 @@ public class SecurityConfig {
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .ignoringRequestMatchers("/auth/logout")
                         .csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler())
+                        .ignoringRequestMatchers("/cart/**")
                 )
                 .cors((cors) -> cors
                         .configurationSource(corsConfigurationSource())
