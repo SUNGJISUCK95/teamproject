@@ -112,7 +112,7 @@ export function Travel() {
                     </div>
                 </div>
                 <div className="travel-map">
-                    <Map handleMenuClick={handleMenuClick} handleMapGoBack={handleMapGoBack}/>
+                    <Map handleMenuClick={handleMenuClick} handleMapGoBack={handleMapGoBack} type="food"/>
                 </div>
                 <div id="travel_detail_back" className="travel-detail-back" />
                 <div id="travel_detail" className="travel-detail">

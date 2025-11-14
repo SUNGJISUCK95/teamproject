@@ -8,6 +8,7 @@ public class TravelRepairDetailDto {
     private int did;
     private String rname;
     private Double rlike;
+    private int score;
     private String tag;
     private String location;
     private String repair;
@@ -27,6 +28,7 @@ public class TravelRepairDetailDto {
         this.did = entity.getDid();
         this.rname = entity.getRname();
         this.rlike = entity.getRlike();
+        this.score = entity.getScore();
         this.tag = entity.getTag();
         this.location = entity.getLocation();
         this.repair = entity.getRepair();
