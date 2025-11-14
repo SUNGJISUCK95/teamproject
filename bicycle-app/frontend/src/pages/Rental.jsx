@@ -109,7 +109,7 @@ const Rantal = () => {
     return (
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <Maps data={selectedMarker} onClose={() => { dispatch(setSelectedStation(null)) }} />
-            <Map center={latLon} style={{ width: "100%", height: "calc(100vh - 52px)" }}
+            <Map center={latLon} style={{ width: "100%", height: "calc(100vh - 55px)" }}
                 onDragEnd={(map)=>{
                     //지도의 새로운 중심 좌표를 가져와서 latLon 상태 업데이트
                     const newCenter = map.getCenter();
