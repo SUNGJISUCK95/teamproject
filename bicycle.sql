@@ -572,6 +572,8 @@ select * from board_post;
 ****************************************************/
 drop table product;
 use bicycle;
+desc product;
+select * from product;
 create table product (
 	product_id int not null primary key auto_increment,
     pid varchar(50) not null,
@@ -655,13 +657,14 @@ desc store_location;
 /***************************************************
 	     카트테이블 : cart 테이블 - 황동주
 ****************************************************/
-
+use shoppy;
+drop table cart;
 create table cart(
 	cid			int 	auto_increment		primary key,
     qty			int		not null,
     product_id	int		not null,
     unum   		int not null,
-    cdate		datetime 	not null,
+    cdate		date 	not null,
     checked     BOOLEAN NOT NULL DEFAULT true,
     constraint fk_cart_product_id	foreign key(product_id) references product(product_id) 
 	on delete cascade		on update cascade,

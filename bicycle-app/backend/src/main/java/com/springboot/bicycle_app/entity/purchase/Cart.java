@@ -1,7 +1,7 @@
 package com.springboot.bicycle_app.entity.purchase;
 
 import com.springboot.bicycle_app.dto.purchase.CartDto;
-import com.springboot.bicycle_app.entity.UserInfo;
+import com.springboot.bicycle_app.entity.userinfo.UserInfo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

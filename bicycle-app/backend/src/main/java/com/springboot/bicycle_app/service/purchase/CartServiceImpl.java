@@ -2,7 +2,7 @@ package com.springboot.bicycle_app.service.purchase;
 
 import com.springboot.bicycle_app.dto.purchase.CartCheckQtyDto;
 import com.springboot.bicycle_app.dto.purchase.CartDto;
-import com.springboot.bicycle_app.entity.UserInfo;
+import com.springboot.bicycle_app.entity.userinfo.UserInfo;
 import com.springboot.bicycle_app.entity.purchase.Cart;
 import com.springboot.bicycle_app.entity.purchase.Product;
 import com.springboot.bicycle_app.repository.JpaCartRepository;
