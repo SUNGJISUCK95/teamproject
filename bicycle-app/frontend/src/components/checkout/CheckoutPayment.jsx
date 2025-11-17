@@ -1,15 +1,15 @@
-import { useEffect, useRef } from "react";
+import {useEffect, useRef, useState} from "react";
 // 1. (중요) ANONYMOUS를 다시 임포트합니다.
 import { loadTossPayments, ANONYMOUS } from "@tosspayments/tosspayments-sdk";
 
-// 2. 공식 문서 예제에 있던 '문서용 공개 키'를 사용합니다.
-const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
+// .env 파일에 저장한 테스트 클라이언트 키 불러오기
+const clientKey = process.env.REACT_APP_TOSS_CLIENT_KEY;
 
 export function CheckoutPayment({ totalPrice, cartList }) {
     const widgetRef = useRef(null);
     const paymentMethodsWidgetRef = useRef(null);
     const agreementWidgetRef = useRef(null);
-
+    const [orderId, setOrderId] = useState(null);
     // useEffect (위젯 렌더링) 부분은 변경할 필요가 없습니다.
     useEffect(() => {
         if (totalPrice <= 0) return;
@@ -46,11 +46,7 @@ export function CheckoutPayment({ totalPrice, cartList }) {
 
         initializeWidget();
         return () => {
-            if (paymentMethodsWidgetRef.current) {
-//                 paymentMethodsWidgetRef.current.cleanup();
-            }
             if (agreementWidgetRef.current) {
-                agreementWidgetRef.current.cleanup();
             }
         };
     }, [totalPrice]);
