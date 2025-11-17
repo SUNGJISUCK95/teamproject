@@ -59,7 +59,7 @@
 /* 4-2. 서브메뉴 컨텐츠 (실제 링크들) */
 .submenu-content {
     display: flex;
-    justify-content:flex-start; /* 왼쪽 정렬 */
+    justify-content: center; /* 왼쪽 정렬 */
     gap: 40px; /* 링크 사이 간격 */
 
 
@@ -67,7 +67,7 @@
     /* .header-content-wrapper와 동일한 좌우 여백을 주어 정렬을 맞춤 */
     max-width: 1440px; /* (예시) 사이트 최대 너비 */
     margin: 0 auto;
-    padding: 15px 440px; /* 상하 15px, 좌우 40px */
+    padding: 10px 40px; /* 상하 15px, 좌우 40px */
 }
 
 /* 4-3. 서브메뉴 내부 링크 <a> 스타일 */
@@ -93,5 +93,72 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 1023px) {
+    /* ACTIVE 메뉴 */
+    .menu-item.active {
+    color: var(--color-blue);
+    }
+
+    /* ▼ / ▲ */
+    .toggle-arrow {
+    position: relative;
+    top: -3px;
+    margin-left: 6px;
+    font-size: 0.5rem;
+    }
+
+    /* 모바일 메뉴 slide-in */
+    .header-center.open {
+    right: 0;
+    animation: slideInRight 0.3s ease-out;
+    }
+
+    /* 닫힐 때 */
+    .header-center.closing {
+    animation: slideOutRight 0.3s ease-in;
+    }
+
+    /* 애니메이션 */
+    @keyframes slideInRight {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0;
+    }
+    }
+
+    @keyframes slideOutRight {
+    from {
+        right: 0;
+    }
+    to {
+        right: -100%;
+    }
+    }
+
+    /* 모바일 submenu (부드러운 drop) */
+    .mobile-submenu {
+        font-size: 0.8rem;
+        margin-top: 10px !important;
+        margin-left: 15px !important;
+        display: flex;
+        flex-direction: column;
+        gap: 10px !important;
+        animation: dropdown 0.25s ease-out;
+        }
+
+    @keyframes dropdown {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
