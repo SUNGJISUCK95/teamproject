@@ -71,6 +71,16 @@ export default function App() {
           <Route path="cart" element={<Cart/>}/>
           <Route path="compare" element={<ComparedProduct/>}/>
           <Route path="checkout" element={<CheckoutInfo/>}/>
+
+          {/* Board (게시판) */}
+          <Route path="board">
+            <Route index element={<Navigate to="news" />} />
+            <Route path=":category" element={<Board />} />        {/* news | event | review */}
+            <Route path="detail/:pid" element={<BoardDetail />} />
+            <Route path="write/:category" element={<BoardWrite />} />
+            <Route path="edit/:pid" element={<BoardWrite />} />
+          </Route>
+          
         </Route>
       </Routes>
     </BrowserRouter>
