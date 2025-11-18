@@ -1,14 +1,15 @@
 package com.springboot.bicycle_app.service.purchase;
 
-import com.springboot.bicycle_app.dto.purchase.CartDto;
-import com.springboot.bicycle_app.entity.purchase.Cart;
+import com.springboot.bicycle_app.dto.purchase.CartItemDto;
+import com.springboot.bicycle_app.dto.purchase.CartItemRequestDto;
+import com.springboot.bicycle_app.dto.purchase.CartListResponseDto;
 
 import java.util.List;
 
 public interface CartService {
-    int deleteItem(CartDto cartDto);
-    List<CartDto> findList(CartDto cartDto);
-    int updateQty(CartDto cartDto);
-    List<CartDto> add(CartDto cartDto);
-    int toggleCheck(CartDto cartDto);
+    int deleteItem(CartItemRequestDto requestDto);
+    List<CartListResponseDto> findList(CartItemRequestDto requestDto);
+    int updateQty(CartItemRequestDto requestDto);
+    int add(CartItemRequestDto requestDto);
+    int toggleCheck(CartItemRequestDto requestDto);
 }

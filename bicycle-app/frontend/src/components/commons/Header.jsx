@@ -136,30 +136,30 @@ export function Header() {
                     </NavLink>
                     {/* 로그인 / 로그아웃 토글 */}
                     {user?.isLogin ? (
-                    <button
-                        className="icon-link logout"
-                        onClick={async () => {
-                            const csrf = getCsrfToken();
-                            await axios.post(
-                            "http://localhost:8080/auth/logout",
-                            {},
-                            {
-                                withCredentials: true,
-                                headers: { "X-XSRF-TOKEN": csrf },
-                            }
-                            );
+                        <button
+                            className="icon-link logout"
+                            onClick={async () => {
+                                const csrf = getCsrfToken();
+                                await axios.post(
+                                    "http://localhost:8080/auth/logout",
+                                    {},
+                                    {
+                                        withCredentials: true,
+                                        headers: { "X-XSRF-TOKEN": csrf },
+                                    }
+                                );
 
-                            logout(); // 전역 로그인 상태 false로
-                        }}
+                                logout(); // 전역 로그인 상태 false로
+                            }}
                         >
-                        <FaSignOutAlt className="icon" /> 
-                        <span className="text">로그아웃</span>
-                    </button>
+                            <FaSignOutAlt className="icon" />
+                            <span className="text">로그아웃</span>
+                        </button>
                     ) : (
-                    <NavLink to="/login" className="icon-link">
-                        <FaUser className="icon" /> 
-                        <span className="text">로그인</span>
-                    </NavLink>
+                        <NavLink to="/login" className="icon-link">
+                            <FaUser className="icon" />
+                            <span className="text">로그인</span>
+                        </NavLink>
                     )}
                     <Link
                         to="#"

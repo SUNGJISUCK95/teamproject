@@ -1,9 +1,10 @@
 package com.springboot.bicycle_app.service.purchase;
 
-import com.springboot.bicycle_app.dto.purchase.CartCheckQtyDto;
-import com.springboot.bicycle_app.dto.purchase.CartDto;
+import com.springboot.bicycle_app.dto.purchase.CartItemDto;
+import com.springboot.bicycle_app.dto.purchase.CartItemRequestDto;
+import com.springboot.bicycle_app.dto.purchase.CartListResponseDto;
+import com.springboot.bicycle_app.entity.purchase.CartItem;
 import com.springboot.bicycle_app.entity.userinfo.UserInfo;
-import com.springboot.bicycle_app.entity.purchase.Cart;
 import com.springboot.bicycle_app.entity.purchase.Product;
 import com.springboot.bicycle_app.repository.JpaCartRepository;
 import com.springboot.bicycle_app.repository.JpaProductRepository;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,54 +32,46 @@ public class CartServiceImpl implements CartService{
         this.jpaUserInfoRepository = jpaUserInfoRepository;
     }
     @Override
-    public int deleteItem(CartDto cartDto){
-        return jpaCartRepository.deleteItem(cartDto.getCid());
+    public int deleteItem(CartItemRequestDto requestDto){
+        return jpaCartRepository.deleteItem(requestDto.getCid());
     }
     @Override
-    public List<CartDto> findList(CartDto cartDto){
-        return jpaCartRepository.findByUnum(TEST_USER_UNUM);
+    public List<CartListResponseDto> findList(CartItemRequestDto requestDto){
+        List<CartListResponseDto> list = new ArrayList<>();
+        List<CartItem> cartItemList = jpaCartRepository.findList(requestDto.getUnum());
+        long totalPrice = cartItemList.stream()
+                .mapToLong(item -> item.getQty() * item.getProduct().getPrice())
+                .sum();
+        cartItemList.forEach(cartItem -> {
+            CartListResponseDto dto = new CartListResponseDto(cartItem, totalPrice);
+            list.add(dto);
+        });
+        return list;
     }
     @Override
-    public int updateQty(CartDto cartDto){
+    public int updateQty(CartItemRequestDto requestDto){
         int result =0;
-        if(cartDto.getType().equals("+")){
-            result = jpaCartRepository.increaseQty(cartDto.getCid());
+        if(requestDto.getType().equals("+")){
+            result = jpaCartRepository.increaseQty(requestDto.getCid());
         } else {
-            result = jpaCartRepository.decreaseQty(cartDto.getCid());
+            result = jpaCartRepository.decreaseQty(requestDto.getCid());
         }
         return result;
     }
     @Override
-    public List<CartDto> add(CartDto cartDto) {
-        Optional<Cart> existingCart = jpaCartRepository.findByUnumAndProductId(
-                TEST_USER_UNUM, cartDto.getProduct_id()
-        );
-
-        try {
-            if (existingCart.isPresent()) {
-                Cart cart = existingCart.get();
-                cart.setQty(cart.getQty() + cartDto.getQty());
-                jpaCartRepository.save(cart); // update
-            } else {
-                Product product = jpaProductRepository.findById(cartDto.getProduct_id())
-                        .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + cartDto.getProduct_id()));
-
-                UserInfo user = jpaUserInfoRepository.findById(TEST_USER_UNUM)
-                        .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + TEST_USER_UNUM));
-
-                Cart newCart = new Cart(cartDto, product, user);
-                jpaCartRepository.save(newCart);
-            }
-            return jpaCartRepository.findByUnum(TEST_USER_UNUM);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    public int add(CartItemRequestDto requestDto) {
+        int result = 0;
+        Product product = jpaProductRepository.findByPid(requestDto.getProduct_id());
+        Optional<UserInfo> user = jpaUserInfoRepository.findById(requestDto.getUnum());
+        CartItem cartItem = new CartItem(requestDto,product,user.get());
+        CartItem entity = jpaCartRepository.save(new CartItem(cartItem));
+        if(entity != null) result = 1;
+        return result;
     }
 
     @Override
-    public int toggleCheck(CartDto cartDto) {
-        return jpaCartRepository.toggleCheck(cartDto.getCid());
+    public int toggleCheck(CartItemRequestDto requestDto) {
+        return jpaCartRepository.toggleCheck(requestDto.getCid());
     }
 
 }

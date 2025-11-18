@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartDto {
+public class CartItemDto {
     private long cid;
     private int qty;
     private long product_id;
@@ -23,7 +23,7 @@ public class CartDto {
     private long price;
     private String image;
 
-    public CartDto(long cid, int qty, long product_id, int unum, LocalDate cdate, boolean checked, String name, long price, String image) {
+    public CartItemDto(long cid, int qty, long product_id, int unum, LocalDate cdate, boolean checked, String name, long price, String image) {
         this.cid = cid;
         this.qty = qty;
         this.product_id = product_id;

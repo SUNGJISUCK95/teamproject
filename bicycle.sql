@@ -657,6 +657,7 @@ desc store_location;
 /***************************************************
 	     카트테이블 : cart 테이블 - 황동주
 ****************************************************/
+use bicycle;
 drop table cart;
 desc product;
 select count(*) from product;

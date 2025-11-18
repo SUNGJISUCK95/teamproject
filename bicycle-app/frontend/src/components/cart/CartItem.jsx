@@ -1,13 +1,13 @@
 import {useDispatch, useSelector} from "react-redux";
-import {checkItem, removeCart, updateCart} from "../../feature/cart/cartAPI.js";
+import {checkItem, removeCart, updateCart} from "../../feature/cartItem/cartAPI.js";
 import {RiDeleteBin6Line} from "react-icons/ri";
 import {useNavigate} from "react-router-dom";
-import {clearCart} from "../../feature/cart/cartSlice.js";
+import {clearCart} from "../../feature/cartItem/cartSlice.js";
 import {useEffect} from "react";
 
 export function CartItem(){
-    const cartList = useSelector((state) => state.cart.cartList);
-    const totalPrice = useSelector((state) => state.cart.totalPrice);
+    const cartList = useSelector((state) => state.cartItem.cartList);
+    const totalPrice = useSelector((state) => state.cartItem.totalPrice);
     const dispatch= useDispatch();
     const navigate = useNavigate();
     console.log(cartList);
@@ -21,17 +21,17 @@ export function CartItem(){
         }
     }, [totalPrice, cartList.length, dispatch]);
     return(
-        <div className="cart-item-list">
+        <div className="cartItem-item-list">
 
             {totalPrice > 0 ? (
                 <>
                     {cartList
                         .filter(item => item.price !== undefined)
                         .map((item)=> (
-                            <div key={item.cid} className="cart-item-row">
+                            <div key={item.cid} className="cartItem-item-row">
                                 <input
                                     type="checkbox"
-                                    className="cart-item-checkbox"
+                                    className="cartItem-item-checkbox"
                                     checked={item.checked || false}
                                     onChange={() => dispatch(checkItem(item.cid))}
                                 />
@@ -43,26 +43,26 @@ export function CartItem(){
                                 <span className="item-price">
                                 {item.price && item.price.toLocaleString() + '원'}
                                 </span>
-                                <div className='cart-quantity'>
+                                <div className='cartItem-quantity'>
                                     <button type='button'
                                             onClick={()=>{item.qty > 1 && dispatch(updateCart(item.cid, "-"))}}>-</button>
                                     <input type='text' value={item.qty} readOnly/>
                                     <button type='button'
                                             onClick={()=>{dispatch(updateCart(item.cid, "+"))}}>+</button>
-                                    <button className='cart-remove' onClick={()=>{dispatch(removeCart(item.cid))}}>
+                                    <button className='cartItem-remove' onClick={()=>{dispatch(removeCart(item.cid))}}>
                                         <RiDeleteBin6Line />
                                     </button>
                                 </div>
                             </div>
                         ))}
 
-                    <div className="cart-total-summary">
+                    <div className="cartItem-total-summary">
                         <span className="total-label">총 금액 :</span>
                         <span className="total-value">{totalPrice.toLocaleString()}원</span>
                     </div>
                 </>
             ) : (
-                <div className="cart-empty-message">
+                <div className="cartItem-empty-message">
                     <p>장바구니에 상품이 없습니다.</p>
                     <button onClick={goToProduct}>자전거 구매</button>
                 </div>

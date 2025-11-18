@@ -1,6 +1,8 @@
 package com.springboot.bicycle_app.controller;
 
-import com.springboot.bicycle_app.dto.purchase.CartDto;
+import com.springboot.bicycle_app.dto.purchase.CartItemDto;
+import com.springboot.bicycle_app.dto.purchase.CartItemRequestDto;
+import com.springboot.bicycle_app.dto.purchase.CartListResponseDto;
 import com.springboot.bicycle_app.service.purchase.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,26 +24,26 @@ public class CartController {
     }
 
     @PostMapping("/delete")
-    public int deleteItem(@RequestBody CartDto cartDto){
-        return cartService.deleteItem(cartDto);
+    public int deleteItem(@RequestBody CartItemRequestDto requestDto){
+        return cartService.deleteItem(requestDto);
     }
 
     @PostMapping("/list")
-    public List<CartDto> findList(@RequestBody CartDto cartDto){
-        return cartService.findList(cartDto);
+    public List<CartListResponseDto> findList(@RequestBody CartItemRequestDto requestDto){
+        return cartService.findList(requestDto);
     }
 
     @PostMapping("/updateCart")
-    public int updateQty(@RequestBody CartDto cartDto){
-        return cartService.updateQty(cartDto);
+    public int updateQty(@RequestBody CartItemRequestDto requestDto){
+        return cartService.updateQty(requestDto);
     }
 
     @PostMapping("/add")
-    public List<CartDto> add(@RequestBody CartDto cartDto){
-        return cartService.add(cartDto);
+    public int add(@RequestBody CartItemRequestDto requestDto){
+        return cartService.add(requestDto);
     }
     @PostMapping("/toggleCheck")
-    public int toggleCheck(@RequestBody CartDto cartDto) {
-        return cartService.toggleCheck(cartDto);
+    public int toggleCheck(@RequestBody CartItemRequestDto requestDto) {
+        return cartService.toggleCheck(requestDto);
     }
 }
