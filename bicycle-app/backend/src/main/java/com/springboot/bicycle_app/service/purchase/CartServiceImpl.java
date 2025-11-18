@@ -60,13 +60,25 @@ public class CartServiceImpl implements CartService{
     }
     @Override
     public int add(CartItemRequestDto requestDto) {
-        int result = 0;
-        Product product = jpaProductRepository.findByPid(requestDto.getProduct_id());
-        Optional<UserInfo> user = jpaUserInfoRepository.findById(requestDto.getUnum());
-        CartItem cartItem = new CartItem(requestDto,product,user.get());
-        CartItem entity = jpaCartRepository.save(new CartItem(cartItem));
-        if(entity != null) result = 1;
-        return result;
+        // 1. 🚨 유저 ID와 상품 ID로 기존 상품이 장바구니에 있는지 확인합니다.
+        Optional<CartItem> existingCartItem = jpaCartRepository.findByUnumAndProductId(
+                requestDto.getUnum(),
+                requestDto.getProduct_id()
+        );
+        CartItem entity;
+        if (existingCartItem.isPresent()) {
+            CartItem cartItem = existingCartItem.get();
+            cartItem.setQty(cartItem.getQty() + requestDto.getQty());
+            entity = jpaCartRepository.save(cartItem);
+        } else {
+            Product product = jpaProductRepository.findByPid(requestDto.getProduct_id());
+            UserInfo user = jpaUserInfoRepository.findById(requestDto.getUnum())
+                    .orElseThrow(() -> new EntityNotFoundException("User not found"));
+            CartItem newCartItem = new CartItem(requestDto, product, user);
+            entity = jpaCartRepository.save(newCartItem);
+        }
+        if(entity != null) return 1;
+        return 0;
     }
 
     @Override

@@ -1,13 +1,13 @@
 import {useDispatch, useSelector} from "react-redux";
-import {checkItem, removeCart, updateCart} from "../../feature/cartItem/cartAPI.js";
+import {checkItem, removeCart, updateCart} from "../../feature/cart/cartAPI.js";
 import {RiDeleteBin6Line} from "react-icons/ri";
 import {useNavigate} from "react-router-dom";
-import {clearCart} from "../../feature/cartItem/cartSlice.js";
+import {clearCart} from "../../feature/cart/cartSlice.js";
 import {useEffect} from "react";
 
 export function CartItem(){
-    const cartList = useSelector((state) => state.cartItem.cartList);
-    const totalPrice = useSelector((state) => state.cartItem.totalPrice);
+    const cartList = useSelector((state) => state.cart.cartList);
+    const totalPrice = useSelector((state) => state.cart.totalPrice);
     const dispatch= useDispatch();
     const navigate = useNavigate();
     console.log(cartList);

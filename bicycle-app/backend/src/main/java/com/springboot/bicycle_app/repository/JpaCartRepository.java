@@ -20,7 +20,7 @@ public interface JpaCartRepository extends JpaRepository<CartItem, Long> {
                 from CartItem c
                     join fetch c.product p
                     join fetch c.user u
-                        where u.unum =:umum
+                        where u.unum = :umum
             """)
     List<CartItem> findList(@Param("unum")int unum);
     //장바구니 아이템 삭제

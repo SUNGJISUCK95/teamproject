@@ -13,8 +13,8 @@ export const removeCart = (cid) => async(dispatch) => {
     const url = "/cart/delete";
     const data = {"cid":cid};
     const rows = await axiosPost(url,data);
-    // const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
-    dispatch(showCart());
+    const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
+    dispatch(showCart(userId));
 }
 
 export const updateCart = (cid, type) => async (dispatch) => {
@@ -24,8 +24,8 @@ export const updateCart = (cid, type) => async (dispatch) => {
     const url = "/cart/updateCart";
     const data = {"cid":cid,"type":type};
     const rows = await axiosPost(url,data);
-    // const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
-    dispatch(showCart());
+    const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
+    dispatch(showCart(userId));
 
 }
 
@@ -44,13 +44,19 @@ export const showCart = () => async (dispatch) => {
     // dispatch(updateTotalPrice());
     const url = "/cart/list"
     const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
-    // const cartData = await axiosPost(url, {"unum":Number(userId)});
-    const cartData = await axiosPost(url, {});
+    const cartData = await axiosPost(url, {"unum":Number(userId)});
+    // const cartData = await axiosPost(url, {});
     dispatch(showCartItem({"items":cartData}));
     // cartData.length && dispatch(updateTotalPrice({"totalPrice":cartData[0].totalPrice}))
     dispatch(updateTotalPrice());
 }
 
+export const checkQty = async(pid, size, id) => {
+    const url = "/cart/checkQty";
+    const data = {"pid": pid, "size": size, "id": id};
+    const jsonData = await axiosPost(url, data);
+    return jsonData;
+}
 export const addCart = (pid, category) => async (dispatch) => {
     try {
         // const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
