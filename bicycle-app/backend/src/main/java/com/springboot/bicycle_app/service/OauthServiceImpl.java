@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Optional;
 
 @Service
 public class OauthServiceImpl implements OauthService{
@@ -103,6 +104,8 @@ public class OauthServiceImpl implements OauthService{
         return access_Token;
     }
 
+//    구글 로그인 정보 출처 :
+//    https://velog.io/@39busy/React-Social-Login
     @Override
     public String socialIdCatcher(String authcode,String social){
         String id="";
@@ -116,6 +119,10 @@ public class OauthServiceImpl implements OauthService{
             else if(social.equals("naver"))
             {
                 UserInfoURL ="https://openapi.naver.com/v1/nid/me";
+            }
+            else if(social.equals("google"))
+            {
+                UserInfoURL = "https://www.googleapis.com/oauth2/v2/userinfo";
             }
             //프로퍼티 키를 이용해보려 하였지만 개인정보 설정(https://developers.kakao.com/console/app/1324377/product/login/scope)을
             //을 켜야하고, 심지어 이메일 주소 등은 허가를 받아야하며, 닉네임은 깨져서 들어오는 관계로 보류
@@ -165,10 +172,19 @@ public class OauthServiceImpl implements OauthService{
                 JsonPrimitive idPrimitive = responsePrimitive.getAsJsonPrimitive("id");
                 id = idPrimitive.getAsString();
             }
+            else if(social.equals("google")) {
+                System.out.println("google data");
+                System.out.println(jsonObject);
+                JsonPrimitive idPrimitive = jsonObject.getAsJsonPrimitive("id");
+                // 4. 값을 원하는 타입(여기서는 String)으로 변환하여 사용합니다.
+                id = idPrimitive.getAsString();
+            }
             // 카카오 {"id":숫자,"connected_at":"2025-10-18T06:12:07Z"}
             // 네이버 {"resultcode":"00","message":"success",
             //          "response":{"id":"긴 문자열 ",
             //                      "nickname":"jhs3427****","email":"jhs34276225@jr.naver.com"}}
+            // 구글{  "id": "116502515182203632728",  "email": "jhs34276225@gmail.com",  "verified_email": true,  "name": "占쏙옙占쌔쇽옙",  "given_name": "占쌔쇽옙",  "family_name": "占쏙옙",  "picture": "https://lh3.googleuserconte
+            //nt.com/a/ACg8ocK5f6fBETgC3CW2SInPtH3ICh86z3vfwNnW16qWbkNy28gavA=s96-c"}
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -177,7 +193,14 @@ public class OauthServiceImpl implements OauthService{
 
     @Override
     public boolean idDuplChecker(String incomeId){
-        return userInfoRepository.idDuplChecker(incomeId);
+//        return userInfoRepository.idDuplChecker(incomeId);
+        boolean result = false;
+        Optional<UserInfoDto> newone = jpaUserInfoRepository.findByUserInfo(incomeId);
+        if(newone.isPresent()){//중복이 있으면 true
+            System.out.println("newone is : "+newone.get().getUid());
+            result = true;
+        }
+        return result;
     }
 
     @Override
@@ -192,6 +215,13 @@ public class OauthServiceImpl implements OauthService{
             result = 1;
         }
         return result;
-
     }
+
+    @Override
+    public String encryptString(String socialId){
+        String encrypt_socialId=passwordEncoder.encode(socialId);
+
+        return encrypt_socialId;
+    }
+
 }

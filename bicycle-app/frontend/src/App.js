@@ -58,10 +58,8 @@ export default function App() {
 
           {/* Auth */}
           <Route path="login" element={<Login />} />
-          <Route path="auth" element={<Auth />} />
-          <Route path="signUp" element={<SignUp />} />
-
-          {/* 정책 페이지 */}
+          <Route path="auth" element={<Auth />} />   
+          <Route path="signUp" element={<SignUp />} />          
           <Route path="policies/terms" element={<Terms />} />
           <Route path="policies/privacy" element={<Privacy />} />
           <Route path="policies/internalpolicy" element={<InternalPolicy />} />
@@ -69,22 +67,10 @@ export default function App() {
           {/* Product */}
           <Route path="products/:category" element={<Products />} />
           <Route path="products/:category/:pid" element={<ProductDetail />} />
-
-          {/* Store / Cart */}
-          <Route path="location" element={<StoreLocation />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="compare" element={<ComparedProduct />} />
-          <Route path="checkout" element={<CheckoutInfo />} />
-
-          {/* Board (게시판) */}
-          <Route path="board">
-            <Route index element={<Navigate to="news" />} />
-            <Route path=":category" element={<Board />} />        {/* news | event | review */}
-            <Route path="detail/:pid" element={<BoardDetail />} />
-            <Route path="write/:category" element={<BoardWrite />} />
-            <Route path="edit/:pid" element={<BoardWrite />} />
-          </Route>
-
+          <Route path="location" element={<StoreLocation/>}/>
+          <Route path="cart" element={<Cart/>}/>
+          <Route path="compare" element={<ComparedProduct/>}/>
+          <Route path="checkout" element={<CheckoutInfo/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -10,23 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TravelFoodDetail {
-// did	int
-// fname	varchar(30)
-// flike	decimal(4,1)
-// tag	    json
-// location	varchar(100)
-// food	varchar(100)
-// address	varchar(100)
-// local_address	varchar(100)
-// business_houers	varchar(100)
-// last_order	varchar(100)
-// phone	varchar(100)
-// other	json
-// menu	    json
-// image1	varchar(100)
-// image2	varchar(100)
-// image3	varchar(100)
-// review	json
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int did;
@@ -35,7 +18,10 @@ public class TravelFoodDetail {
     private String fname;
 
     @Column(name="flike") 
-    private Double flike; 
+    private Double flike;
+
+    @Column(name="score")
+    private int score;
 
     @Column(name="tag", columnDefinition = "JSON")
     private String tag;
@@ -52,11 +38,8 @@ public class TravelFoodDetail {
     @Column(name="localAddress", length = 100)
     private String localAddress;
 
-    @Column(name="businessHouers", length = 100)
-    private String businessHouers;
-
-    @Column(name="lastOrder", length = 100)
-    private String lastOrder;
+    @Column(name="business", columnDefinition = "JSON")
+    private String business;
 
     @Column(name="phone", length = 100)
     private String phone;
@@ -67,14 +50,11 @@ public class TravelFoodDetail {
     @Column(name="menu", columnDefinition = "JSON")
     private String menu;
 
-    @Column(name="image1", length = 100)
-    private String image1;
+    @Column(name="mainImages", columnDefinition = "JSON")
+    private String mainImages;
 
-    @Column(name="image2", length = 100)
-    private String image2;
-
-    @Column(name="image3", length = 100)
-    private String image3;
+    @Column(name="imageList", columnDefinition = "JSON")
+    private String imageList;
 
     @Column(name="review", columnDefinition = "JSON")
     private String review;

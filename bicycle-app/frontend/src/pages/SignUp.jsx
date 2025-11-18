@@ -6,7 +6,8 @@
 
 import '../styles/signup.css';
 import React, {useState,useMemo, useRef} from 'react'
-import { usePostCode, idDuplCheck, sendSignUpData} from '../feature/auth/authAPI';
+import { usePostCode, idDuplCheck, sendSignUpData, randomString8to16} from '../feature/auth/authAPI';
+import { useLocation,useNavigate } from 'react-router-dom';
 
 //입력창 생성 함수
 const ConsoleBox = ({ 
@@ -29,6 +30,7 @@ const ConsoleBox = ({
 
   return(
     <>
+        {/*입력 후 마우스를 다른곳으로 옮겼을 때, 빈칸이면 경고식으로 빨간색 테두리 생김*/}
       {placeholderJudge[id]==="aftertrue" && formData[id]===""?
       <input id={id} type={type} name ={name} // id 사용이유 : 하단의 label에서 htmlfor쓰려고. name : 폼 데이터에 쓰려고. 나눠둔 이유 : 같이쓰면 헤깔려서.
         ref={refToConnect}
@@ -66,16 +68,30 @@ const ConsoleBox = ({
   );
 }
 
+export const SignUp = ({excludeItems=[]}) => {
+  // 소셜로그인인 경우 아이디 비번 제거를 위해 선언
+  // showIdPass==true 인 경우 : 소셜 로그인 아님 ||| showIdPass==false 인 경우 : 소셜 로그인임
+  const showIdPass = !excludeItems.includes('social');
 
-export const SignUp = () => {
+  const location = useLocation();
+  const { authjwToken,authsocialDupl } = location.state || {};
+  const randompassword = randomString8to16();
+  const navigate=useNavigate();
 
+  const initialArray = showIdPass?
+                        {id : "", pass : "", passcheck:"", name : "", age:"",
+                            gender:"",mainAddress:"", detailAddress:"", emailAddress:"",
+                            emailList:"default", phone:"", jwToken:true, socialDupl : true} :
+                        {id : "", pass : "", passcheck:"", name : "", age:"",
+                         gender:"",mainAddress:"", detailAddress:"", emailAddress:"",emailList:"default",
+                         phone:"", jwToken: authjwToken, socialDupl : authsocialDupl};
   //초기값 세팅을 위한 initialArray선언 및 초기값 선언
-  const initialArray = {id : "", pass : "", passcheck:"", name : "", age:"", gender:"",mainAddress:"", detailAddress:"", emailAddress:"",emailList:"", phone:""};
   const [formData, setFormData]=useState(initialArray);
   const [placeholderJudge, setPlaceholderJudge] = useState(initialArray);
   const [passLook,setPassLook] = useState(false);
   const [idDupl,setIdDupl] = useState(false)
-  
+
+
     const inputRefs = useMemo(() => {
         const keys = Object.keys(initialArray); 
         // reduce를 사용하여 각 키에 대응하는 Ref 객체들을 생성합니다.
@@ -96,6 +112,11 @@ export const SignUp = () => {
     if(name === "id")
     {
       setIdDupl(false);//아이디 값이 새로 입력될 경우 중복확인 다시 하게 만듬.
+    }
+    else if(name === "age" || name == "phone")//나이는 숫자만 입력받음
+    {
+        const onlyNumbers = e.target.value.replace(/[^0-9]/g, '');
+        setFormData({...formData,  [name] : onlyNumbers})
     }
     // console.log(formData)
   }
@@ -142,28 +163,31 @@ export const SignUp = () => {
     const keys = Object.keys(initialArray)
 
     //필수 입력 항목을 key값으로, 해당 항목이 비었을 때의 출력 값을 value로 갖는 배열 생성
-    const mainKey={"id":"아이디","pass":"비밀번호",
+    const mainKey=showIdPass?
+                    {"id":"아이디","pass":"비밀번호",
                     "passcheck":"비밀번호 확인","name":"이름",
+                    "age":"나이","gender":"성별",
+                    "mainAddress":"도로명 주소","detailAddress":"상세 주소"}
+                    :
+                    {"name":"이름",
                     "age":"나이","gender":"성별",
                     "mainAddress":"도로명 주소","detailAddress":"상세 주소"};
     let mainAlertMessage = "";
-    let isempty = false;
     for (const key of keys){
       const value = formData[key];
       if(value===""){
-        isempty=true;
         if(Object.keys(mainKey).includes(key)){
           mainAlertMessage=mainAlertMessage+mainKey[key]+" 값이 비었습니다.\n";
         }
       }
     }
     //비밀번호와 비밀번호 확인란 차이 확인
-    if(formData.pass !== formData.passcheck)
+    if(showIdPass && (formData.pass !== formData.passcheck))
     {
       mainAlertMessage = mainAlertMessage+"\n비밀번호가 다릅니다. 확인해주세요."
     }
-    if(!idDupl){//중복확인 통과시 문제없음. 안했거나 통과 못하면 경고 메시지
-      mainAlertMessage = mainAlertMessage+"\아이디 중복확인을 해주세요."
+    if(!idDupl && showIdPass){//중복확인 통과시 문제없음. 안했거나 통과 못하면 경고 메시지
+      mainAlertMessage = mainAlertMessage+"\n아이디 중복확인을 해주세요."
     }
 
     // console.log("newEmptyCheck : ",newEmptyCheck);
@@ -173,6 +197,8 @@ export const SignUp = () => {
     }
     else{
       sendSignUpData(formData);
+      alert("가입 완료. 홈페이지로 돌아갑니다")
+      navigate('/')
     }
   }
 
@@ -190,35 +216,39 @@ export const SignUp = () => {
     <form onSubmit={signupOnSubmit}>
       <div className="SignUpPage">
         <h1 className="SignTitle">회원가입 페이지입니다.</h1>
-        <div className = "IdPassSection">
-          <h3>반드시 입력해주세요</h3>
-          <h1 className="IdPassTitle">접속 정보란입니다</h1>
-          <div className="IdBox">          
-            <ConsoleBox id="id" type="text" name="id" {...sharedData}/>
-            {idDupl?
-            <button type='button' className = 'IdDuplCheck'>중복확인 성공</button>:
-            <button type='button' className = 'IdDuplCheck' onClick={IdDupleCheck}>중복확인</button>}
-          </div>
-          <div className="PassBox">
-            {passLook?
-            <>
-              <ConsoleBox id="pass" type="text" name="pass" {...sharedData}/>
-              <ConsoleBox id="passcheck" type="text" name="passcheck" {...sharedData}/>
-            </>:
-            <>
-              <ConsoleBox id="pass" type="password" name="pass" {...sharedData}/>
-              <ConsoleBox id="passcheck" type="password" name="passcheck" {...sharedData}/>
-            </>}
-            {passLook?
-            <button 
-            type='button'
-            className = 'passlook' onClick={()=>setPassLook(!passLook)}>비밀번호 가리기</button>:
-            <button 
-            type='button'
-            className = 'passlook' onClick={()=>setPassLook(!passLook)}>비밀번호 확인</button>}
-            
-          </div>
-        </div>
+        { showIdPass &&
+          <>
+            <div className = "IdPassSection">
+              <h3>반드시 입력해주세요</h3>
+              <h1 className="IdPassTitle">접속 정보란입니다</h1>
+              <div className="IdBox">          
+                <ConsoleBox id="id" type="text" name="id" {...sharedData}/>
+                {idDupl?
+                <button type='button' className = 'IdDuplCheck'>중복확인 성공</button>:
+                <button type='button' className = 'IdDuplCheck' onClick={IdDupleCheck}>중복확인</button>}
+              </div>
+              <div className="PassBox">
+                {passLook?
+                <>
+                  <ConsoleBox id="pass" type="text" name="pass" {...sharedData}/>
+                  <ConsoleBox id="passcheck" type="text" name="passcheck" {...sharedData}/>
+                </>:
+                <>
+                  <ConsoleBox id="pass" type="password" name="pass" {...sharedData}/>
+                  <ConsoleBox id="passcheck" type="password" name="passcheck" {...sharedData}/>
+                </>}
+                {passLook?
+                <button 
+                type='button'
+                className = 'passlook' onClick={()=>setPassLook(!passLook)}>비밀번호 가리기</button>:
+                <button 
+                type='button'
+                className = 'passlook' onClick={()=>setPassLook(!passLook)}>비밀번호 확인</button>}
+                
+              </div>
+            </div>
+          </>
+        }
         <div className= "PrivateInfoSection">
           <h3>반드시 입력 및 선택해주세요</h3>
           <h1>개인 정보란 입니다</h1>
@@ -254,7 +284,8 @@ export const SignUp = () => {
                 <ConsoleBox id="emailAddress" type="text" name="emailAddress" {...sharedData}/>
               </div>
               <div className = "EmailAddressBack">
-                <span>@</span>
+                {formData.emailList==="default"?<p></p>:<span>@</span>}
+
                 <select id="emailList" name="emailList" value={formData.emailList} onChange={handleChange}>
                   <option value="default">직접 입력</option>
                   <option value="naver.com">naver.com</option>
@@ -277,4 +308,3 @@ export const SignUp = () => {
     </>
   );
 }
-
