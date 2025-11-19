@@ -7,6 +7,7 @@ import { Support } from './pages/Support.jsx';
 import { Login } from './pages/Login.jsx';
 import { Auth } from './pages/Auth.jsx';
 import { SignUp } from './pages/SignUp.jsx';
+import { MyPage } from './pages/MyPage.jsx';
 import { Terms } from './pages/policies/Terms.jsx';
 import { Privacy } from './pages/policies/Privacy.jsx';
 import { InternalPolicy } from './pages/policies/InternalPolicy.jsx';
@@ -65,6 +66,7 @@ export default function App() {
             <Route path="auth" element={<Auth />} />   
             <Route path="signUp" element={<SignUp />} /> 
             <Route path="socialsignUp" element={<SignUp excludeItems={['social']} />} />
+            <Route path="mypage" element={<MyPage />} />             
 
             {/* Policy */}
             <Route path="policies/terms" element={<Terms />} />

@@ -19,7 +19,7 @@ public class BoardPost {
     private BoardCategory boardCategory;
 
     @Column(nullable = false)
-    private int unum; // ✅ 작성자 번호 (임시로 userId 대신)
+    private String uid; // ✅ 작성자 번호 (임시로 userId 대신)
 
     @Column(length = 100, nullable = false)
     private String title;
