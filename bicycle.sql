@@ -30,7 +30,7 @@ SELECT * FROM chatbot_faq;
 -- 데이터 개수 확인
 SELECT COUNT(*) FROM chatbot_faq;
 -- 전체 데이터 삭제(chat-bot.json 데이터 수정 시)
-TRUNCATE TABLE chatbot_faq;
+-- TRUNCATE TABLE chatbot_faq;
 
 /*********************************************
 	     여행지 추천: marker 관련 테이블
@@ -504,3 +504,60 @@ value (
 "test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
 );
 
+select * from userinfo;
+
+/******************************************************
+	일반 회원 / 관리자 구분용 컬럼 추가 - 강기종
+******************************************************/
+ALTER TABLE userinfo
+ADD COLUMN role ENUM('USER','ADMIN') DEFAULT 'USER' AFTER uphone;
+select * from userinfo;
+/******************************************************
+	게시판 - 강기종
+******************************************************/
+-- 1. 기존 테이블이 있다면 제거 (안전용)
+-- DROP TABLE IF EXISTS board_post;
+-- DROP TABLE IF EXISTS board_category;
+
+-- 2. 게시판 종류 테이블
+CREATE TABLE board_category (
+  bid INT AUTO_INCREMENT PRIMARY KEY,
+  bname VARCHAR(50) NOT NULL,   -- 식별용 코드 (예: news, event, review)
+  btitle VARCHAR(100) NOT NULL  -- 한글 표시용 이름
+);
+
+-- 기본 게시판 등록
+INSERT INTO board_category (bname, btitle) VALUES
+('news', '뉴스'),
+('event', '이벤트'),
+('review', '리뷰');
+select * from board_category;
+
+-- 3. 게시글 테이블
+CREATE TABLE board_post (
+  pid INT AUTO_INCREMENT PRIMARY KEY,       -- 게시글 고유 ID
+  bid INT NOT NULL,                         -- 게시판 FK
+  unum INT NOT NULL,                        -- 작성자 (userinfo FK)
+  title VARCHAR(150) NOT NULL,              -- 제목
+  content TEXT NOT NULL,                    -- 본문
+  image_url VARCHAR(255),                   -- 본문 내 이미지
+  thumbnail_url VARCHAR(255),               -- 카드 썸네일
+  category_tag VARCHAR(50) DEFAULT '일반',  -- 세부 분류 (공지, 후기 등)
+  view_count INT DEFAULT 0,                 -- 조회수
+  status ENUM('PUBLIC','PRIVATE','DELETED') DEFAULT 'PUBLIC', -- 상태
+  created_at DATETIME DEFAULT NOW(),
+  updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
+  FOREIGN KEY (bid) REFERENCES board_category(bid) ON DELETE CASCADE,
+  FOREIGN KEY (unum) REFERENCES userinfo(unum) ON DELETE CASCADE
+);
+select * from board_post;
+ALTER TABLE board_post ADD COLUMN writer VARCHAR(50);
+
+-- 4. 확인용 쿼리
+SELECT * FROM board_category;
+SELECT pid, bid, unum, title, category_tag, status, view_count, created_at FROM board_post;
+
+show tables;
+select * from board_post;
+-- 전체 데이터 삭제(자동 증가값도 초기화됨)
+-- TRUNCATE TABLE board_post;

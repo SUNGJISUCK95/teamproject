@@ -8,11 +8,13 @@ import {useState,useRef,useEffect} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { getLogin,getFlatformName,randomString8to16,getLogout} from '../feature/auth/authAPI';
 import { Link,useLocation,useNavigate } from 'react-router-dom';
+import { useAuth } from "../feature/auth/authContext";
 export function Login() {
     const navigate=useNavigate();
     const location = useLocation();
     const state = location.state;
-    const initialized = useRef(false)
+    const initialized = useRef(false);
+    const { login, logout } = useAuth();
 
     useEffect(() => {//소셜 로그인 시 자동 로그인을 통해 세션 아이디 발급받기.
         if(!initialized.current)
@@ -95,23 +97,33 @@ export function Login() {
     }
 
     //제출버튼을 누르면 변화 발생. - 미완성(에러는 없음)
-    const handleLoginSubmit = async (e)=>{
+    const handleLoginSubmit = async (e) => {
         e.preventDefault();
+
         const param = {
-            idRef : idRef,
-            passRef : passRef,
-            setErrors : setErrors,
-            errors : errors
+            idRef: idRef,
+            passRef: passRef,
+            setErrors: setErrors,
+            errors: errors,
+        };
+
+        // Redux 방식 로그인 실행 (로그인 요청)
+        const success = await dispatch(getLogin(formData, param));
+
+        if (success) {
+            // 🔥 세션 기반 로그인 상태를 즉시 Header에 반영
+            await login();          // AuthContext.login()
+
+            navigate("/");
+        } else {
+            alert("로그인 실패");
         }
-        const succ = dispatch(getLogin(formData,param));
-        navigate('/');
-        
-    }
-    const handleLogOut= () =>{
-        dispatch(getLogout());
-        alert("로그아웃 하셨습니다.");
-        navigate('/');
-        }
+    };
+    const handleLogOut = async () => {
+        await dispatch(getLogout()); // 서버 세션 삭제
+        await logout();              // AuthContext 상태 업데이트
+        navigate("/");
+    };
     return (
         <>
             <div className='loginCenter'>
