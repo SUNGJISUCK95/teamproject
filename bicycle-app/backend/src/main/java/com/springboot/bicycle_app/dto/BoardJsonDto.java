@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter @Setter
 public class BoardJsonDto {
     private int bid;
-    private int unum;
+    private String uid;
     private String writer;
     private String title;
     private String content;

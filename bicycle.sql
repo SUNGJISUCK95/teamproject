@@ -488,8 +488,7 @@ desc userinfo;
 drop table userinfo;
 
 create table userinfo(
-	unum 		int				auto_increment primary key,
-    uid   		varchar(100) not null,
+    uid   		varchar(100) not null primary key,
     upass		varchar(100) not null,
     uname	    varchar(50) not null,
     uage		int not null,
@@ -504,8 +503,8 @@ value (
 "test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
 );
 
-select * from userinfo;
 
+select * from userinfo;
 /******************************************************
 	일반 회원 / 관리자 구분용 컬럼 추가 - 강기종
 ******************************************************/
@@ -537,7 +536,7 @@ select * from board_category;
 CREATE TABLE board_post (
   pid INT AUTO_INCREMENT PRIMARY KEY,       -- 게시글 고유 ID
   bid INT NOT NULL,                         -- 게시판 FK
-  unum INT NOT NULL,                        -- 작성자 (userinfo FK)
+  uid varchar(100) NOT NULL,                        -- 작성자 (userinfo FK)
   title VARCHAR(150) NOT NULL,              -- 제목
   content TEXT NOT NULL,                    -- 본문
   image_url VARCHAR(255),                   -- 본문 내 이미지
@@ -548,14 +547,14 @@ CREATE TABLE board_post (
   created_at DATETIME DEFAULT NOW(),
   updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
   FOREIGN KEY (bid) REFERENCES board_category(bid) ON DELETE CASCADE,
-  FOREIGN KEY (unum) REFERENCES userinfo(unum) ON DELETE CASCADE
+  FOREIGN KEY (uid) REFERENCES userinfo(uid) ON DELETE CASCADE
 );
 select * from board_post;
 ALTER TABLE board_post ADD COLUMN writer VARCHAR(50);
 
 -- 4. 확인용 쿼리
 SELECT * FROM board_category;
-SELECT pid, bid, unum, title, category_tag, status, view_count, created_at FROM board_post;
+SELECT pid, bid, uid, title, category_tag, status, view_count, created_at FROM board_post;
 
 show tables;
 select * from board_post;

@@ -57,7 +57,7 @@ public class BoardInitService {
                     // 🔥 엔티티 생성
                     BoardPost post = new BoardPost();
                     post.setBoardCategory(category);
-                    post.setUnum(dto.getUnum());
+                    post.setUid(dto.getUid());
                     post.setWriter(dto.getWriter());
                     post.setTitle(dto.getTitle());
                     post.setContent(dto.getContent());

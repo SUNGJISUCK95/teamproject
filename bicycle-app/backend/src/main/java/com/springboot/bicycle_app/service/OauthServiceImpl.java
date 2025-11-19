@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import com.springboot.bicycle_app.dto.Token;
-import com.springboot.bicycle_app.entity.UserInfo;
+import com.springboot.bicycle_app.entity.userinfo.UserInfo;
 import com.springboot.bicycle_app.dto.UserInfoDto;
 import com.springboot.bicycle_app.repository.UserInfoRepository;
 import com.springboot.bicycle_app.repository.JpaUserInfoRepository;
@@ -104,7 +104,7 @@ public class OauthServiceImpl implements OauthService{
         return access_Token;
     }
 
-//    구글 로그인 정보 출처 :
+    //    구글 로그인 정보 출처 :
 //    https://velog.io/@39busy/React-Social-Login
     @Override
     public String socialIdCatcher(String authcode,String social){
@@ -191,6 +191,16 @@ public class OauthServiceImpl implements OauthService{
         return id;
     }
 
+    // public String kakaologouttest(){
+    //     String clientId = "ef9794cb2ff6a12a26f6432f5ec9a04b";
+    //     String redirectUri = "http://localhost:3000";
+    //     String id="";
+    //     //헤더만 있고 바디 요청이나 post 요청이 없어서 GET방식으로 감
+    //     String kakaoLogoutUrl = "https://kauth.kakao.com/oauth/logout" +
+    //                         "?client_id=" + clientId +
+    //                         "&logout_redirect_uri=" + redirectUri;
+    //     return id;
+    // }
     @Override
     public boolean idDuplChecker(String incomeId){
 //        return userInfoRepository.idDuplChecker(incomeId);
@@ -204,11 +214,21 @@ public class OauthServiceImpl implements OauthService{
     }
 
     @Override
+    public UserInfoDto findInfo(UserInfoDto userInfoDto){
+        Optional<UserInfo> userInfoData =jpaUserInfoRepository.findByUid(userInfoDto.getUid());
+        UserInfoDto result = null;
+        if(userInfoData.isPresent()){
+            UserInfo getuserInfoData = userInfoData.get();
+            result = new UserInfoDto(getuserInfoData);
+        }
+        return result;
+    }
+
+    @Override
     public int signUp(UserInfoDto UserInfoDto){
         int result = 0;
         String encodePwd = passwordEncoder.encode(UserInfoDto.getUpass());//UUID타입으로 생성됨
         UserInfoDto.setUpass(encodePwd);
-
         UserInfo userinfo = new UserInfo(UserInfoDto);
         UserInfo saveUserinfo = jpaUserInfoRepository.save(userinfo);
         if(saveUserinfo!=null) {

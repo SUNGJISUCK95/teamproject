@@ -48,7 +48,7 @@ public class OauthController {
         System.out.println("social : "+token.getSocial());
         System.out.println("auth : "+token.getAuthCode());
         if(token.getSocial().equals("google"))//구글은 중간 토큰 요청없이 access토큰을 바로 넘겨준다.
-            //https://ldd6cr-adness.tistory.com/323 참고
+        //https://ldd6cr-adness.tistory.com/323 참고
         {
             socialId = oauthService.socialIdCatcher(token.getAuthCode(),token.getSocial());
         }
@@ -67,7 +67,7 @@ public class OauthController {
         if(Social_reuslt_b){
             Social_reuslt_s = "duplicate on " + token.getSocial();
             socialIdChecker.setSocialDupl(true);
-            }
+        }
         else{
             Social_reuslt_s = "duplicate off" + token.getSocial();
             socialIdChecker.setUid("");
@@ -85,11 +85,9 @@ public class OauthController {
     public int signup(@RequestBody UserInfoDto userInfoDto){
         if(userInfoDto.isSocialDupl())//true면 일반 회원가입
         {
-            System.out.println("imhere~~~~~~~~~~");
             return oauthService.signUp(userInfoDto);
         }
         else{//false면 소셜로그인 해서 겹치는 게 없어서 들어온 회원가입
-            System.out.println("imhere2222222222222~~~~~~~~~~");
             String JWToken = userInfoDto.getJwToken();
             Claims claim = oauthJWTService.getClaims(JWToken);
             userInfoDto.setUid(claim.getSubject());
@@ -97,6 +95,15 @@ public class OauthController {
             return oauthService.signUp(userInfoDto);
         }
     }
+
+    @PostMapping("/info")
+    public UserInfoDto info(@RequestBody UserInfoDto userInfoDto){
+        UserInfoDto result = null;
+        result = oauthService.findInfo(userInfoDto);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaa " + result);
+        return result;
+    }
+
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserInfoDto userInfo,
@@ -158,7 +165,7 @@ public class OauthController {
             return ResponseEntity.ok(Map.of("login", false));
         }
     }
-    
+
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest request,
                                     HttpServletResponse response) {
@@ -195,20 +202,5 @@ public class OauthController {
         return ResponseEntity.ok(Map.of("logout", true));
     }
 
-    @GetMapping("/me")
-    public ResponseEntity<?> me(Authentication authentication) {
 
-        if (authentication == null || !authentication.isAuthenticated()) {
-            return ResponseEntity.ok(Map.of("isLogin", false));
-        }
-
-        var principal = (org.springframework.security.core.userdetails.User)
-                authentication.getPrincipal();
-
-        return ResponseEntity.ok(Map.of(
-                "isLogin", true,
-                "uid", principal.getUsername(),
-                "role", principal.getAuthorities()
-        ));
-    }
 }

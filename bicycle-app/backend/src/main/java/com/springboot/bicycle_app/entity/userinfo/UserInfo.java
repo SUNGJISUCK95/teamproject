@@ -1,4 +1,4 @@
-package com.springboot.bicycle_app.entity;
+package com.springboot.bicycle_app.entity.userinfo;
 
 import com.springboot.bicycle_app.dto.UserInfoDto;
 import jakarta.persistence.Column;
@@ -14,7 +14,6 @@ import lombok.Setter;
 @Getter
 public class UserInfo {
     @Id
-    private int unum;
     private String uid;
     private String upass;
     private String uname;
