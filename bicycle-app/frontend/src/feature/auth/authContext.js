@@ -21,6 +21,10 @@ export function AuthProvider({ children }) {
   // 로그아웃 함수
   const logout = async () => {
     await axios.post("http://localhost:8080/auth/logout", {}, { withCredentials: true });
+
+    // 새 CSRF 토큰 발급
+    await axios.get("http://localhost:8080/csrf/create", { withCredentials: true });
+
     setUser({ isLogin: false });
   };
 
