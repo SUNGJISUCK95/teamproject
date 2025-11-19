@@ -66,7 +66,7 @@ public class SecurityConfig {
 //                .securityContext(sc -> sc.requireExplicitSave(true)) //인증정보 세션 자동저장 방지
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(
-                                "/member/**","/product/**","/auth/**","/cart/**",
+                                "/member/**","/products/**","/auth/**","/cart/**",
                                 "/support/**","/map/**","/travel/**","/csrf/**", "/uploads/**",
                                 "/api/chatbot", "/api/board/**", "/api/upload"
                         ).permitAll()

@@ -15,6 +15,7 @@ public class CartListResponseDto {
     private String uname;
     private String uphone;
     private String uemail;
+    private String uaddress;
     private long product_id;
     private String category;
     private String name;
@@ -33,6 +34,7 @@ public class CartListResponseDto {
         this.uname = entity.getUser().getUname();
         this.uphone = entity.getUser().getUphone();
         this.uemail = entity.getUser().getUemail();
+        this.uaddress = entity.getUser().getUaddress();
         this.product_id = entity.getProduct().getProduct_id();
         this.category = entity.getProduct().getCategory();
         this.name = entity.getProduct().getName();

@@ -1,5 +1,5 @@
 import {CartHeader} from "../components/cart/CartHeader.jsx";
-import {CartShippingInfo} from "../components/cart/CartShippingInfo.jsx"
+import CartShippingInfo from "../components/cart/CartShippingInfo.jsx"
 import {CartItem} from "../components/cart/CartItem.jsx";
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
