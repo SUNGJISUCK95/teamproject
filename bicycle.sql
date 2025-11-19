@@ -157,6 +157,8 @@ DROP TABLE travel_hotel;
 create table travel_hotel(
 	hid			int				auto_increment primary key,
     hname   	varchar(30) not null,
+	lat			DECIMAL(10,8),
+    lng	    	DECIMAL(11,8),
     hlike		DECIMAL(4,1),
     score	    int,
     evaluation	int,
@@ -174,9 +176,11 @@ desc travel_hotel;
 select * from travel_hotel;
 
 -- json 파일의 travel_food 정보 매핑
-insert into travel_hotel(hname, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+insert into travel_hotel(hname, lat, lng, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
 select 
 	jt.hname,
+    jt.lat,
+    jt.lng,
     jt.hlike,
     jt.score,
     jt.evaluation,
@@ -193,7 +197,9 @@ from
 		cast(load_file('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelHotels.json') 
 				AS CHAR CHARACTER SET utf8mb4 ),
 		'$[*]' COLUMNS (
-			 hname   			varchar(30) 	PATH '$.hname', 
+			 hname   			varchar(30) 	PATH '$.hname',
+             lat				DECIMAL(10,8)	PATH '$.lat',
+			 lng				DECIMAL(11,8)   PATH '$.lng',
 			 hlike   			DECIMAL(4,1) 	PATH '$.hlike',
 			 score   			int 			PATH '$.score',
 			 evaluation			int 			PATH '$.evaluation',
@@ -216,6 +222,8 @@ DROP TABLE travel_repair;
 create table travel_repair(
 	rid			int				auto_increment primary key,
     rname   	varchar(30) not null,
+    lat			DECIMAL(10,8),
+    lng	    	DECIMAL(11,8),
     `rlike`		DECIMAL(4,1),
     score	    int,
     evaluation	int,
@@ -233,9 +241,11 @@ desc travel_repair;
 select * from travel_repair;
 
 -- json 파일의 travel_food 정보 매핑
-insert into travel_repair(rname, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+insert into travel_repair(rname, lat, lng, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
 select 
 	jt.rname,
+    jt.lat,
+    jt.lng,
     jt.rlike,
     jt.score,
     jt.evaluation,
@@ -253,6 +263,8 @@ from
 				AS CHAR CHARACTER SET utf8mb4 ),
 		'$[*]' COLUMNS (
 			 rname   		varchar(30) 	PATH '$.rname', 
+             lat			DECIMAL(10,8)	PATH '$.lat',
+			 lng			DECIMAL(11,8)   PATH '$.lng',
 			 `rlike`   		DECIMAL(4,1) 	PATH '$.rlike',
 			 score   		int 			PATH '$.score',
 			 evaluation		int	 			PATH '$.evaluation',
