@@ -4,6 +4,11 @@ import { FaHeadset, FaUser, FaBars, FaTimes, FaCartArrowDown, FaSignOutAlt } fro
 import { Chatbot } from "../../pages/support/Chatbot.jsx";
 import "../../styles/purchaseheader.css";
 
+
+import { getLogout} from '../../feature/auth/authAPI';
+import { useDispatch } from 'react-redux';
+
+
 export function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [purchaseMenuOpen, setPurchaseMenuOpen] = useState(false);
@@ -14,6 +19,10 @@ export function Header() {
     const loginInfo = localStorage.getItem("loginInfo");
     const isLogin = loginInfo ? true : false;
     const location = useLocation();
+
+    
+    const dispatch = useDispatch();
+
 
     // 화면 크기 감지
     useEffect(() => {
@@ -136,8 +145,9 @@ export function Header() {
                     {isLogin ? (
                     <button
                         className="icon-link logout"
-                        onClick={() => {
-                        localStorage.removeItem("loginInfo");
+                        onClick={async() => {
+                        await dispatch(getLogout());
+                        // localStorage.removeItem("loginInfo");
                         window.location.reload(); // UI 갱신
                         }}
                     >

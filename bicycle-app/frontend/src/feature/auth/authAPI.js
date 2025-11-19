@@ -61,6 +61,7 @@ export const getLogin = (formData,param) => async(dispatch) => {
 export const getLogout = () => async(dispatch) => {
     const url = "/auth/logout";
     const result = await axiosPost(url, {});
+    console.log("result"+result)
     if(result) {
         await refreshCsrfToken();
         dispatch(logout());
