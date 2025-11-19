@@ -1,11 +1,11 @@
-import {CartHeader} from "../components/cartItem/CartHeader.jsx";
-import {CartShippingInfo} from "../components/cartItem/CartShippingInfo.jsx"
-import '../styles/cartItem/cartItem.css';
-import {CartItem} from "../components/cartItem/CartItem.jsx";
+import {CartHeader} from "../components/cart/CartHeader.jsx";
+import {CartShippingInfo} from "../components/cart/CartShippingInfo.jsx"
+import {CartItem} from "../components/cart/CartItem.jsx";
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
-import {showCart} from "../feature/cartItem/cartAPI.js";
+import {showCart} from "../feature/cart/cartAPI.js";
 import {useNavigate} from "react-router-dom";
+import '../styles/cart/cart.css';
 
 export function Cart(){
     const dispatch = useDispatch();
