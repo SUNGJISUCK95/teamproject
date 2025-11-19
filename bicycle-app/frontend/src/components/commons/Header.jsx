@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { FaHeadset, FaUser, FaBars, FaTimes, FaCartArrowDown } from "react-icons/fa";
+import { FaHeadset, FaUser, FaBars, FaTimes, FaCartArrowDown, FaSignOutAlt } from "react-icons/fa";
 import { Chatbot } from "../../pages/support/Chatbot.jsx";
+import { useAuth } from "../../feature/auth/authContext.js";
+import { getCsrfToken } from "../../feature/auth/session";
 import "../../styles/purchaseheader.css";
 
 export function Header() {
@@ -11,6 +14,7 @@ export function Header() {
     const [showChatbot, setShowChatbot] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1023);
     const [closing, setClosing] = useState(false);
+    const { user, logout } = useAuth();
     const location = useLocation();
 
     // 화면 크기 감지
@@ -130,9 +134,33 @@ export function Header() {
                     <NavLink to="/support" className="icon-link">
                         <FaHeadset className="icon" /> <span className="text">고객센터</span>
                     </NavLink>
+                    {/* 로그인 / 로그아웃 토글 */}
+                    {user?.isLogin ? (
+                    <button
+                        className="icon-link logout"
+                        onClick={async () => {
+                            const csrf = getCsrfToken();
+                            await axios.post(
+                            "http://localhost:8080/auth/logout",
+                            {},
+                            {
+                                withCredentials: true,
+                                headers: { "X-XSRF-TOKEN": csrf },
+                            }
+                            );
+
+                            logout(); // 전역 로그인 상태 false로
+                        }}
+                        >
+                        <FaSignOutAlt className="icon" /> 
+                        <span className="text">로그아웃</span>
+                    </button>
+                    ) : (
                     <NavLink to="/login" className="icon-link">
-                        <FaUser className="icon" /> <span className="text">로그인</span>
+                        <FaUser className="icon" /> 
+                        <span className="text">로그인</span>
                     </NavLink>
+                    )}
                     <Link
                         to="#"
                         onClick={(e) => {

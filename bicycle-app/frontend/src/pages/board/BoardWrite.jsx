@@ -8,8 +8,12 @@ import "../../styles/board/board_write.css";
 export function BoardWrite() {
   const { category, pid } = useParams();
   const navigate = useNavigate();
-  const user = getCurrentUser();
   const isEdit = !!pid;
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+      getCurrentUser().then(setUser);
+  }, []);
 
   const getCsrfToken = () => {
     return document.cookie
@@ -21,7 +25,7 @@ export function BoardWrite() {
   const [form, setForm] = useState({
     title: "",
     content: "",
-    writer: user?.uid || "user123",
+    writer: user?.uid || "USER",
     imageUrl: "",
     thumbnailUrl: "",
     categoryTag: category || "review",

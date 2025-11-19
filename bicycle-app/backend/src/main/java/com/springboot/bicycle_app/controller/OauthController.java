@@ -195,5 +195,20 @@ public class OauthController {
         return ResponseEntity.ok(Map.of("logout", true));
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<?> me(Authentication authentication) {
 
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return ResponseEntity.ok(Map.of("isLogin", false));
+        }
+
+        var principal = (org.springframework.security.core.userdetails.User)
+                authentication.getPrincipal();
+
+        return ResponseEntity.ok(Map.of(
+                "isLogin", true,
+                "uid", principal.getUsername(),
+                "role", principal.getAuthorities()
+        ));
+    }
 }

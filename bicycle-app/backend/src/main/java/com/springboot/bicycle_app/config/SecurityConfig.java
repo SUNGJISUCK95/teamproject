@@ -48,6 +48,7 @@ public class SecurityConfig {
         http
                 .csrf((csrf) -> csrf
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                        .ignoringRequestMatchers("/auth/logout")
                         .csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler())
                 )
                 .cors((cors) -> cors

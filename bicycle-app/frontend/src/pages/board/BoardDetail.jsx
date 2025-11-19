@@ -9,7 +9,11 @@ export function BoardDetail() {
   const { pid } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
-  const user = getCurrentUser();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+      getCurrentUser().then(setUser);
+  }, []);
 
   useEffect(() => {
     axios
