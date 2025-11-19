@@ -79,10 +79,24 @@ export function Travel() {
 
     }
 
-    const handleMapGoBack = () => {
+    const handleLeftClose = () => {
       const travel_left_detail = document.querySelector(".travel-left-detail");
+
       if(travel_left_detail) {
         travel_left_detail.style.left = "-40rem";
+      }
+    }
+
+    const handleMapGoBack = () => {
+      const travel_left_detail = document.querySelector(".travel-left-detail");
+      const travel_left_menus = document.querySelector(".travel-left-menus");
+
+      if(travel_left_detail) {
+        travel_left_detail.style.left = "-40rem";
+      }
+
+      if(travel_left_menus) {
+        travel_left_menus.style.top = "-3rem";
       }
     }   
 
@@ -100,20 +114,24 @@ export function Travel() {
                         {/* showFoods, showHotels가 true일 때만 버튼 보이기 */}
                         {showFoods && (
                           <ul className='food-list'>  
-                            <TravelFoodList handleListDetail={handleListDetail}/>                                                                       
+                            <TravelFoodList handleListDetail={handleListDetail}/>
+                            <button className="travel-left-close" onClick={handleLeftClose}><i class="fa-solid fa-backward-step"></i></button>
                           </ul>
                         )}
                         {showHotels && (
                           <ul className='hotel-list'>
-                            <TravelHotelList handleListDetail={handleListDetail}/> 
+                            <TravelHotelList handleListDetail={handleListDetail}/>
+                            <button className="travel-left-close" onClick={handleLeftClose}><i class="fa-solid fa-backward-step"></i></button>
                           </ul>
                         )}
                         {showRepairs && (
                           <ul className='repair-list'>
-                            <TravelRepairList handleListDetail={handleListDetail}/> 
+                            <TravelRepairList handleListDetail={handleListDetail}/>
+                            <button className="travel-left-close" onClick={handleLeftClose}><i class="fa-solid fa-backward-step"></i></button>
                           </ul>
                         )}
                     </div>
+
                 </div>
                 <div className="travel-map">
                     <Map handleMenuClick={handleMenuClick} handleMapGoBack={handleMapGoBack} handleListDetail={handleListDetail} type={selectedType} />
