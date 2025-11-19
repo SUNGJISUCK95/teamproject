@@ -23,7 +23,7 @@ public class UserInfo {
     private String uaddress;
     private String uemail;
     private String uphone;
-    @OneToMany(mappedBy = "userinfo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CartItem> cartItemList = new ArrayList<>();
 
     public UserInfo(){}

@@ -21,7 +21,7 @@ import java.util.Optional;
 @Service
 @Transactional
 public class CartServiceImpl implements CartService{
-    private final int TEST_USER_UNUM = 1;
+//    private final int TEST_USER_UNUM = 1;
     public final JpaCartRepository jpaCartRepository;
     private final JpaProductRepository jpaProductRepository;
     private final JpaUserInfoRepository jpaUserInfoRepository;
@@ -38,7 +38,7 @@ public class CartServiceImpl implements CartService{
     @Override
     public List<CartListResponseDto> findList(CartItemRequestDto requestDto){
         List<CartListResponseDto> list = new ArrayList<>();
-        List<CartItem> cartItemList = jpaCartRepository.findList(requestDto.getUnum());
+        List<CartItem> cartItemList = jpaCartRepository.findList(requestDto.getUid());
         long totalPrice = cartItemList.stream()
                 .mapToLong(item -> item.getQty() * item.getProduct().getPrice())
                 .sum();
@@ -60,9 +60,8 @@ public class CartServiceImpl implements CartService{
     }
     @Override
     public int add(CartItemRequestDto requestDto) {
-        // 1. 🚨 유저 ID와 상품 ID로 기존 상품이 장바구니에 있는지 확인합니다.
-        Optional<CartItem> existingCartItem = jpaCartRepository.findByUnumAndProductId(
-                requestDto.getUnum(),
+        Optional<CartItem> existingCartItem = jpaCartRepository.findByUidAndProductId(
+                requestDto.getUid(),
                 requestDto.getProduct_id()
         );
         CartItem entity;
@@ -72,7 +71,7 @@ public class CartServiceImpl implements CartService{
             entity = jpaCartRepository.save(cartItem);
         } else {
             Product product = jpaProductRepository.findByPid(requestDto.getProduct_id());
-            UserInfo user = jpaUserInfoRepository.findById(requestDto.getUnum())
+            UserInfo user = jpaUserInfoRepository.findById(requestDto.getUid())
                     .orElseThrow(() -> new EntityNotFoundException("User not found"));
             CartItem newCartItem = new CartItem(requestDto, product, user);
             entity = jpaCartRepository.save(newCartItem);

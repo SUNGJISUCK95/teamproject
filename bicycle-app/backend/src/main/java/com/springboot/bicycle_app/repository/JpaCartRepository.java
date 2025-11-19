@@ -20,9 +20,9 @@ public interface JpaCartRepository extends JpaRepository<CartItem, Long> {
                 from CartItem c
                     join fetch c.product p
                     join fetch c.user u
-                        where u.unum = :umum
+                        where u.uid = :uid
             """)
-    List<CartItem> findList(@Param("unum")int unum);
+    List<CartItem> findList(@Param("uid")String uid);
     //장바구니 아이템 삭제
     @Modifying
     @Query("delete from CartItem c where c.cid =:cid")
@@ -38,10 +38,10 @@ public interface JpaCartRepository extends JpaRepository<CartItem, Long> {
 //    Cart save(Cart cartItem);
     @Transactional
     @Modifying
-    @Query("UPDATE CartItem c SET c.checked = NOT(c.checked) where c.cid = :cid")
+    @Query("UPDATE CartItem c SET c.checked = (CASE WHEN c.checked = true THEN false ELSE true END) WHERE c.cid = :cid")
     int toggleCheck(@Param("cid") long cid);
-    @Query("SELECT c FROM CartItem c WHERE c.user.unum = :unum AND c.product.product_id = :productId")
-    Optional<CartItem> findByUnumAndProductId(@Param("unum") int unum, @Param("productId") long productId);
+    @Query("SELECT c FROM CartItem c WHERE c.user.uid = :unum AND c.product.product_id = :productId")
+    Optional<CartItem> findByUidAndProductId(@Param("unum") String uid, @Param("productId") long productId);
 
 
 }

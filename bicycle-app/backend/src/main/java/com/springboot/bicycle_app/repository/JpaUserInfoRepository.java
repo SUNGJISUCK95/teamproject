@@ -34,7 +34,6 @@ public interface JpaUserInfoRepository extends JpaRepository<UserInfo, String> {
     //+필요한 데이터는 괄호 안에 담기
     Optional<UserInfoDto> findByUserInfo(@Param("uid") String uid);
     //
-    Optional<UserInfo> findById(@Param("uid") int unum);
 
     Optional<UserInfo> findByUid(@Param("uid") String uid);
 }

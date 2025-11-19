@@ -12,5 +12,5 @@ public class CartItemRequestDto {
     private String type;
     private boolean checked;
     private LocalDate cdate;
-    private int unum;
+    private String uid;
 }

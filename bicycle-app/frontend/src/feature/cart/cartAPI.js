@@ -44,7 +44,7 @@ export const showCart = () => async (dispatch) => {
     // dispatch(updateTotalPrice());
     const url = "/cart/list"
     const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
-    const cartData = await axiosPost(url, {"unum":Number(userId)});
+    const cartData = await axiosPost(url, {"uid":userId});
     // const cartData = await axiosPost(url, {});
     dispatch(showCartItem({"items":cartData}));
     // cartData.length && dispatch(updateTotalPrice({"totalPrice":cartData[0].totalPrice}))
@@ -64,11 +64,11 @@ export const addCart = (pid, category) => async (dispatch) => {
         //     // navigate("/login");
         //     return;
         // }
-        // const { userId } = loginInfo;
+        const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
 
         const url = "/cart/add";
         // const data = {"product_id": Number(pid), "qty": 1, "checked":true, "unum": Number(userId)};
-        const data = {"product_id": Number(pid), "qty": 1, "checked":true};
+        const data = {"product_id": Number(pid), "qty": 1, "checked":true, "uid": userId};
 
         const response = await axiosPost(url, data);
         if (response) {

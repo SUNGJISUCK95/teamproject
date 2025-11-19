@@ -25,7 +25,7 @@ public class CartItem {
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "unum", nullable = false)
+    @JoinColumn(name = "uid", nullable = false)
     private UserInfo user;
     @Column(nullable = false)
     private LocalDate cdate;

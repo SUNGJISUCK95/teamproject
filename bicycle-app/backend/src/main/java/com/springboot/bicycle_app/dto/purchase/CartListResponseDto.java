@@ -11,9 +11,8 @@ import java.util.List;
 @Setter @Getter
 public class CartListResponseDto {
     private long cid;
-    private int unum;
-    private String uname;
     private String uid;
+    private String uname;
     private String uphone;
     private String uemail;
     private long product_id;
@@ -30,9 +29,8 @@ public class CartListResponseDto {
     private CartListResponseDto(){}
     public CartListResponseDto(CartItem entity, long totalPrice){
         this.cid = entity.getCid();
-        this.unum = entity.getUser().getUnum();
-        this.uname = entity.getUser().getUname();
         this.uid = entity.getUser().getUid();
+        this.uname = entity.getUser().getUname();
         this.uphone = entity.getUser().getUphone();
         this.uemail = entity.getUser().getUemail();
         this.product_id = entity.getProduct().getProduct_id();

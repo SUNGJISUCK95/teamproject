@@ -17,11 +17,11 @@ export function Cart(){
         dispatch(showCart());
     }, [dispatch]);
     return(
-        <div className="cartItem-page-container">
+        <div className="cart-page-container">
             <CartHeader/>
             <CartItem/>
             <CartShippingInfo/>
-            <div className="cartItem-footer-buttons">
+            <div className="cart-footer-buttons">
                 <button className="btn-primary" onClick={goToCheckout}>제품 주문하기</button>
             </div>
         </div>
