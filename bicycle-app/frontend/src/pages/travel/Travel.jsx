@@ -21,6 +21,7 @@ export function Travel() {
     const [showHotels, setShowHotels] = useState(false);
     const [showRepairs, setShowRepairs] = useState(false);
     const [selectedDid, setSelectedDid] = useState(null); //클릭된 did 저장
+    const [selectedType, setSelectedType] = useState(null); //클릭된 type 저장
 
     const handleMenuClick = (type) => {
         const travel_left_menus = document.querySelector('.travel-left-menus');
@@ -37,17 +38,20 @@ export function Travel() {
           setShowFoods(true);
           setShowHotels(false);
           setShowRepairs(false);
+          setSelectedType(type);
           travel_left_detail.style.left = "0";
         }else if(type === "hotel"){
           setShowFoods(false);
           setShowHotels(true);
           setShowRepairs(false);
+          setSelectedType(type);
           travel_left_detail.style.left = "0";
         }
         else if(type === "repair"){
           setShowFoods(false);
           setShowHotels(false);
           setShowRepairs(true);
+          setSelectedType(type);
           travel_left_detail.style.left = "0";
         }
 
@@ -112,7 +116,7 @@ export function Travel() {
                     </div>
                 </div>
                 <div className="travel-map">
-                    <Map handleMenuClick={handleMenuClick} handleMapGoBack={handleMapGoBack} type="food"/>
+                    <Map handleMenuClick={handleMenuClick} handleMapGoBack={handleMapGoBack} handleListDetail={handleListDetail} type={selectedType} />
                 </div>
                 <div id="travel_detail_back" className="travel-detail-back" />
                 <div id="travel_detail" className="travel-detail">
