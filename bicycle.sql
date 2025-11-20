@@ -526,7 +526,7 @@ drop table rental_history;
 create table rental_history(
 	bid bigint auto_increment primary key,
     user_id varchar(50) not null,
-    user_num INT NOT NULL,
+    station_name varchar(100) not null,
     station_id varchar(255) null,
     amount bigint not null,
     method VARCHAR(50) NOT NULL,
@@ -534,7 +534,6 @@ create table rental_history(
     end_time DATETIME NULL,
     FOREIGN KEY (user_id) REFERENCES userinfo(uid)
 );
-
 select * from rental_history;
 
 /***************************************************

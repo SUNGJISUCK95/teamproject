@@ -3,7 +3,6 @@ package com.springboot.bicycle_app.repository;
 import com.springboot.bicycle_app.dto.RentalPaymentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -24,23 +23,7 @@ public class JdbcTemplateRentalRepository implements RentalRepository {
     @Override
     public String saveRental(RentalPaymentRequest request) {
 
-        final Long userNum;
-        try {
-            // userinfo 테이블의 사용자 ID 컬럼명은 'uid'를 사용합니다.
-            String findUnumSql = "SELECT unum FROM userinfo WHERE uid = ?";
-
-            userNum = jdbcTemplate.queryForObject(
-                    findUnumSql,
-                    Long.class,
-                    request.getUserId()
-            );
-
-        } catch (EmptyResultDataAccessException e) {
-            System.err.println("ERROR: User not found with ID: " + request.getUserId());
-            return null;
-        }
-
-        final String sql = "insert into rental_history (user_id, user_num, station_name, station_id, amount, method, start_time) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        final String sql = "insert into rental_history (user_id, station_name, station_id, amount, method, start_time) VALUES (?, ?, ?, ?, ?, NOW())";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -48,23 +31,22 @@ public class JdbcTemplateRentalRepository implements RentalRepository {
             jdbcTemplate.update(connection -> {
                 PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-                // 1번 파라미터: user_id (VARCHAR)
+                // 1. user_id (VARCHAR - 공식적인 FK)
                 ps.setString(1, request.getUserId());
 
-                // 2번 파라미터: user_num (INT)
-                ps.setLong(2, userNum);
+                // 2. station_name (VARCAR)
+                ps.setString(2, request.getStationName());
 
-                // 3번 파라미터: station_name
-                ps.setString(3, request.getStationName());
+                // 3. station_id (VARCHAR)
+                ps.setString(3, request.getStationId());
 
-                // 4번 파라미터: station_id
-                ps.setString(4, request.getStationId());
+                // 4. amount (BIGINT)
+                ps.setLong(4, request.getPaymentAmount());
 
-                // 5번 파라미터: amount
-                ps.setLong(5, request.getPaymentAmount());
+                // 5. method (VARCHAR)
+                ps.setString(5, request.getPaymentMethod());
 
-                // 6번 파라미터: method
-                ps.setString(6, request.getPaymentMethod());
+                // start_time은 NOW()로 처리되므로 5번 인덱스 없음
 
                 return ps;
             }, keyHolder);

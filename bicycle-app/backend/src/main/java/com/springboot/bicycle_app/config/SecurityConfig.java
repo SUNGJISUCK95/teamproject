@@ -66,16 +66,12 @@ public class SecurityConfig {
                 .requestCache(rc -> rc.disable()) //로그인 후 리다이렉트 방지
 //                .securityContext(sc -> sc.requireExplicitSave(true)) //인증정보 세션 자동저장 방지
                 .authorizeHttpRequests(authorize -> authorize
-<<<<<<< HEAD
                         .requestMatchers(HttpMethod.POST, "/rental/payment").permitAll()
-                        .requestMatchers("/member/**","/product/**","/auth/**","/cart/**","/support/**", "/api/chatbot/**", "/map/**", "/travel/**","/csrf/**","/rental/**").permitAll()
-=======
                         .requestMatchers(
                                 "/member/**","/products/**","/auth/**","/cart/**",
                                 "/support/**","/map/**","/travel/**","/csrf/**", "/uploads/**",
-                                "/api/chatbot", "/api/board/**", "/api/upload"
+                                "/api/chatbot", "/api/board/**", "/api/upload","/rental/**"
                         ).permitAll()
->>>>>>> 9aa23e48532065e35b467d6ba32e48b8a28ca2fc
                         .anyRequest().authenticated()
                 );
 
@@ -120,14 +116,9 @@ public class SecurityConfig {
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
-<<<<<<< HEAD
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));   // 🔥 필수
-        configuration.setExposedHeaders(Arrays.asList("*"));
-=======
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // ✅ 추가
         configuration.setAllowedHeaders(Arrays.asList("*")); // ✅ 모든 헤더 허용
->>>>>>> 9aa23e48532065e35b467d6ba32e48b8a28ca2fc
+        configuration.setExposedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);  // 🔥 프론트에서 JSESSIONID/CSRF 쿠키 받으려면 필수
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
