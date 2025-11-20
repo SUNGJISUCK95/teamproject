@@ -44,7 +44,6 @@ export default function CartShippingInfo() {
                     <div className="form-group">
                         <label htmlFor="orderer-name">주문자명 <span className="required">*</span></label>
                         <div className="input-wrapper">
-                            {/* value에 state를 연결하여 DB값이 보이게 함 */}
                             <input
                                 type="text"
                                 id="orderer-name"
