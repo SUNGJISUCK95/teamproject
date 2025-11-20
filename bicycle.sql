@@ -504,3 +504,26 @@ value (
 "test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
 );
 
+/***************************************************
+		대여 자전거 : rental_history 테이블 (시작)
+****************************************************/
+
+drop table rental_history;
+
+create table rental_history(
+	bid bigint auto_increment primary key,
+    user_id varchar(50) not null,
+    user_num INT NOT NULL,
+    station_id varchar(255) null,
+    amount bigint not null,
+    method VARCHAR(50) NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NULL,
+    FOREIGN KEY (user_num) REFERENCES userinfo(unum)
+);
+
+select * from rental_history;
+
+/***************************************************
+		대여 자전거 : rental_history 테이블 (끝)
+****************************************************/
