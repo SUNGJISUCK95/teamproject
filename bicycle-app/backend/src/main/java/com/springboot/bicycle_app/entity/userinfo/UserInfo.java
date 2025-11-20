@@ -1,12 +1,13 @@
-package com.springboot.bicycle_app.entity;
+package com.springboot.bicycle_app.entity.userinfo;
 
 import com.springboot.bicycle_app.dto.UserInfoDto;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.springboot.bicycle_app.entity.purchase.CartItem;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="userinfo")
@@ -14,7 +15,6 @@ import lombok.Setter;
 @Getter
 public class UserInfo {
     @Id
-    private int unum;
     private String uid;
     private String upass;
     private String uname;
@@ -23,6 +23,8 @@ public class UserInfo {
     private String uaddress;
     private String uemail;
     private String uphone;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CartItem> cartItemList = new ArrayList<>();
 
     public UserInfo(){}
     public UserInfo(UserInfoDto userInfoDto){

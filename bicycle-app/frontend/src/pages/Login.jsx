@@ -8,11 +8,13 @@ import {useState,useRef,useEffect} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { getLogin,getFlatformName,randomString8to16,getLogout} from '../feature/auth/authAPI';
 import { Link,useLocation,useNavigate } from 'react-router-dom';
+import { useAuth } from "../feature/auth/authContext";
 export function Login() {
     const navigate=useNavigate();
     const location = useLocation();
     const state = location.state;
-    const initialized = useRef(false)
+    const initialized = useRef(false);
+    const { login, logout } = useAuth();
 
     useEffect(() => {//소셜 로그인 시 자동 로그인을 통해 세션 아이디 발급받기.
         if(!initialized.current)
@@ -34,6 +36,7 @@ export function Login() {
                     }
                     else {
                         console.log("attemptfail");
+                        alert("소셜로그인 실패. 재시도 부탁드립니다.")
                         navigate('/login');
                     }
                 }
@@ -95,7 +98,7 @@ export function Login() {
     }
 
     //제출버튼을 누르면 변화 발생. - 미완성(에러는 없음)
-    const handleLoginSubmit = async (e)=>{
+    const handleLoginSubmit = async (e) => {
         e.preventDefault();
         const param = {
             idRef : idRef,
@@ -103,13 +106,31 @@ export function Login() {
             setErrors : setErrors,
             errors : errors
         }
-        const succ = dispatch(getLogin(formData,param));
-        navigate('/');
+        const succ = await dispatch(getLogin(formData,param));
+        console.log(succ)
+        if(succ)
+        {
+            await login();
+            navigate('/');
+        }
+        else{
+            alert("로그인에 실패, 확인후 다시 진행해주세요.");
+            setFormData({uid:"", upass:""});
+            idRef.current.focus();
+        }
         
     }
-    const handleLogOut= () =>{
+    const handleLogOut= async () =>{
+        if(sessionStorage.getItem("social")){
+            alert("소셜상태에서 로그아웃 하셨습니다.");
+        }
+        else{
+
+        }
         dispatch(getLogout());
         alert("로그아웃 하셨습니다.");
+        await logout();
+        sessionStorage.removeItem("social");
         navigate('/');
         }
     return (
@@ -127,15 +148,14 @@ export function Login() {
                                         ref = {idRef}
                                         placeholder='아이디'/>
                                 </div>
-                                <span>{errors.id}</span>
                             </li>
                             <li>
                                 <div className='loginDataBox'>비밀번호 : <input type="password"
                                         name="upass"
                                         onChange={handleformchange}
-                                        ref= {passRef}/>
+                                        ref= {passRef}
+                                        placeholder='비밀번호'/>
                                 </div>
-                                <span>{errors.pass}</span>
                             </li>
                             <ul>
                                 <li><button type = "submit">로그인</button></li>
@@ -148,17 +168,17 @@ export function Login() {
                         <div className='socialButtonWrapper'>
                             <button onClick={handleSocialLogin} id = "kakao">카카오 로그인</button>
                             <button onClick={handleSocialLogin} id = "naver">네이버 로그인</button>
-                            <button onClick={handleSocialLogin} id = "google">구글 로그인</button> {/* ⭐ 구글 버튼 추가 */}
+                            <button onClick={handleSocialLogin} id = "google">구글 로그인</button>
                         </div>
                     </div>
                     <>
                         {isLogin?
                         <>
-                        <h1>12123213</h1>
+                        <h1>로그인 상태</h1>
                         <Link to="/">홈</Link>
                         <button onClick={handleLogOut}>로그아웃</button>
                         </>:
-                        <h1>44444444444444</h1>}
+                        <h1>비 로그인 상태</h1>}
                     </>
                 </div>
                 <div className='loginBottomLinks'> 

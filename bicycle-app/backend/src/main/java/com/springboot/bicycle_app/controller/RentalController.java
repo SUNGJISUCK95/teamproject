@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.springboot.bicycle_app.controller;
 
 import com.springboot.bicycle_app.dto.RentalPayment;
@@ -46,3 +47,7 @@ public class RentalController {
         }
     }
 }
+=======
+
+
+>>>>>>> 9aa23e48532065e35b467d6ba32e48b8a28ca2fc

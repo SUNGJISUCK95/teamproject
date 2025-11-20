@@ -53,7 +53,8 @@ export const getRentalPayment = (priceInfo, paymentMethod) => async(dispatch, ge
     };
 
     try {
-        const url = "http://localhost:8080/rental/payment";
+        // const url = "http://localhost:8080/rental/payment";
+        const url = "http://localhost:8080/payment/kakao/ready";
         const result = await axiosPost(url, rentalPayload);
 
         console.log("백엔드로부터의 최종 응답:", result);

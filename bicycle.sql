@@ -30,7 +30,7 @@ SELECT * FROM chatbot_faq;
 -- 데이터 개수 확인
 SELECT COUNT(*) FROM chatbot_faq;
 -- 전체 데이터 삭제(chat-bot.json 데이터 수정 시)
-TRUNCATE TABLE chatbot_faq;
+-- TRUNCATE TABLE chatbot_faq;
 
 /*********************************************
 	     여행지 추천: marker 관련 테이블
@@ -157,6 +157,8 @@ DROP TABLE travel_hotel;
 create table travel_hotel(
 	hid			int				auto_increment primary key,
     hname   	varchar(30) not null,
+	lat			DECIMAL(10,8),
+    lng	    	DECIMAL(11,8),
     hlike		DECIMAL(4,1),
     score	    int,
     evaluation	int,
@@ -174,9 +176,11 @@ desc travel_hotel;
 select * from travel_hotel;
 
 -- json 파일의 travel_food 정보 매핑
-insert into travel_hotel(hname, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+insert into travel_hotel(hname, lat, lng, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
 select 
 	jt.hname,
+    jt.lat,
+    jt.lng,
     jt.hlike,
     jt.score,
     jt.evaluation,
@@ -193,7 +197,9 @@ from
 		cast(load_file('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelHotels.json') 
 				AS CHAR CHARACTER SET utf8mb4 ),
 		'$[*]' COLUMNS (
-			 hname   			varchar(30) 	PATH '$.hname', 
+			 hname   			varchar(30) 	PATH '$.hname',
+             lat				DECIMAL(10,8)	PATH '$.lat',
+			 lng				DECIMAL(11,8)   PATH '$.lng',
 			 hlike   			DECIMAL(4,1) 	PATH '$.hlike',
 			 score   			int 			PATH '$.score',
 			 evaluation			int 			PATH '$.evaluation',
@@ -216,6 +222,8 @@ DROP TABLE travel_repair;
 create table travel_repair(
 	rid			int				auto_increment primary key,
     rname   	varchar(30) not null,
+    lat			DECIMAL(10,8),
+    lng	    	DECIMAL(11,8),
     `rlike`		DECIMAL(4,1),
     score	    int,
     evaluation	int,
@@ -233,9 +241,11 @@ desc travel_repair;
 select * from travel_repair;
 
 -- json 파일의 travel_food 정보 매핑
-insert into travel_repair(rname, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+insert into travel_repair(rname, lat, lng, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
 select 
 	jt.rname,
+    jt.lat,
+    jt.lng,
     jt.rlike,
     jt.score,
     jt.evaluation,
@@ -253,6 +263,8 @@ from
 				AS CHAR CHARACTER SET utf8mb4 ),
 		'$[*]' COLUMNS (
 			 rname   		varchar(30) 	PATH '$.rname', 
+             lat			DECIMAL(10,8)	PATH '$.lat',
+			 lng			DECIMAL(11,8)   PATH '$.lng',
 			 `rlike`   		DECIMAL(4,1) 	PATH '$.rlike',
 			 score   		int 			PATH '$.score',
 			 evaluation		int	 			PATH '$.evaluation',
@@ -488,8 +500,7 @@ desc userinfo;
 drop table userinfo;
 
 create table userinfo(
-	unum 		int				auto_increment primary key,
-    uid   		varchar(100) not null,
+    uid   		varchar(100) not null primary key,
     upass		varchar(100) not null,
     uname	    varchar(50) not null,
     uage		int not null,
@@ -503,6 +514,8 @@ insert into userinfo(uid, upass, uname, uage, ugender, uaddress, uemail, uphone)
 value (
 "test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
 );
+
+
 
 /***************************************************
 		대여 자전거 : rental_history 테이블 (시작)
@@ -519,11 +532,192 @@ create table rental_history(
     method VARCHAR(50) NOT NULL,
     start_time DATETIME NOT NULL,
     end_time DATETIME NULL,
-    FOREIGN KEY (user_num) REFERENCES userinfo(unum)
+    FOREIGN KEY (user_id) REFERENCES userinfo(uid)
 );
 
 select * from rental_history;
 
 /***************************************************
 		대여 자전거 : rental_history 테이블 (끝)
+****************************************************/
+select * from userinfo;
+
+
+/******************************************************
+	일반 회원 / 관리자 구분용 컬럼 추가 - 강기종
+******************************************************/
+ALTER TABLE userinfo
+ADD COLUMN role ENUM('USER','ADMIN') DEFAULT 'USER' AFTER uphone;
+select * from userinfo;
+
+
+-- 251119 -- 위 컬럼 추가 후 데이터 추가 부탁드립니다--------------------------------------------------------------------
+insert into userinfo(uid, upass, uname, uage, ugender, uaddress, uemail, uphone,role)
+value ("1","$2a$10$FWC6QTGIGaCgx5tlrhvocOrAQdP0o8bcVE28UwG7qXNiKVN8FcyNy","1","1","남성","1순환로44(율량동,동청주세무서)" , "1@gmail.com","1","USER");
+-- 251119 -- 위 컬럼 추가 후 데이터 추가 부탁드립니다-------------------------------------------------------------------
+
+/******************************************************
+	게시판 - 강기종
+******************************************************/
+-- 1. 기존 테이블이 있다면 제거 (안전용)
+-- DROP TABLE IF EXISTS board_post;
+-- DROP TABLE IF EXISTS board_category;
+
+-- 2. 게시판 종류 테이블
+CREATE TABLE board_category (
+  bid INT AUTO_INCREMENT PRIMARY KEY,
+  bname VARCHAR(50) NOT NULL,   -- 식별용 코드 (예: news, event, review)
+  btitle VARCHAR(100) NOT NULL  -- 한글 표시용 이름
+);
+
+-- 기본 게시판 등록
+INSERT INTO board_category (bname, btitle) VALUES
+('news', '뉴스'),
+('event', '이벤트'),
+('review', '리뷰');
+select * from board_category;
+
+-- 3. 게시글 테이블
+CREATE TABLE board_post (
+  pid INT AUTO_INCREMENT PRIMARY KEY,       -- 게시글 고유 ID
+  bid INT NOT NULL,                         -- 게시판 FK
+  uid varchar(100) NOT NULL,                        -- 작성자 (userinfo FK)
+  title VARCHAR(150) NOT NULL,              -- 제목
+  content TEXT NOT NULL,                    -- 본문
+  image_url VARCHAR(255),                   -- 본문 내 이미지
+  thumbnail_url VARCHAR(255),               -- 카드 썸네일
+  category_tag VARCHAR(50) DEFAULT '일반',  -- 세부 분류 (공지, 후기 등)
+  view_count INT DEFAULT 0,                 -- 조회수
+  status ENUM('PUBLIC','PRIVATE','DELETED') DEFAULT 'PUBLIC', -- 상태
+  created_at DATETIME DEFAULT NOW(),
+  updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
+  FOREIGN KEY (bid) REFERENCES board_category(bid) ON DELETE CASCADE,
+  FOREIGN KEY (uid) REFERENCES userinfo(uid) ON DELETE CASCADE
+);
+show tables;
+select * from board_post;
+ALTER TABLE board_post ADD COLUMN writer VARCHAR(50);
+
+-- 4. 확인용 쿼리
+SELECT * FROM board_category;
+SELECT pid, bid, uid, title, category_tag, status, view_count, created_at FROM board_post;
+
+show tables;
+select * from board_post;
+-- 전체 데이터 삭제(자동 증가값도 초기화됨)
+-- TRUNCATE TABLE board_post;
+
+
+/***************************************************
+	     상품 테이블 : product 테이블 - 황동주
+****************************************************/
+drop table product;
+use bicycle;
+desc product;
+select * from product;
+create table product (
+	product_id int not null primary key auto_increment,
+    pid varchar(50) not null,
+    category varchar(100) not null,
+    image varchar(600) not null,
+    name varchar(300) not null,
+    price int,
+    color varchar(100),
+    subinfo varchar(150),
+    description JSON,
+    
+    unique key uk_pid_category(pid,category)
+);
+-- json 파일의 product 정보 매핑
+INSERT INTO product(pid,
+					category,
+                    image,
+                    name,
+                    price,
+                    color,
+                    subinfo,
+                    description)
+SELECT
+    jt.pid,
+    jt.category,
+    jt.image,
+    jt.name,
+    jt.price,
+    jt.color,
+    jt.subinfo,
+    jt.description
+FROM JSON_TABLE(
+    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/lifestyleData.json') AS CHAR CHARACTER SET utf8mb4),
+    '$[*]' COLUMNS (
+        pid         VARCHAR(50)   PATH '$.pid',
+            category    VARCHAR(100)  PATH '$.category',
+            image       VARCHAR(600)  PATH '$.image',
+            name        VARCHAR(300)  PATH '$.name',
+            price       INT           PATH '$.price',
+            color       VARCHAR(100)  PATH '$.color',
+            subinfo     TEXT          PATH '$.subInfo',
+            description JSON          PATH '$.description'
+    )
+) AS jt;
+select * from product;
+/***************************************************
+	     스토어위치테이블 : store_location 테이블 - 황동주
+****************************************************/
+create table store_location(
+	sid int not null primary key auto_increment,
+    name varchar(100) not null,
+    address varchar(150),
+    phone varchar(20),
+    lat decimal(10,8),
+    lng decimal(11,8)
+);
+-- json 파일의 productlocation 정보 매핑
+INSERT INTO store_location(name,
+					address,
+                    phone,
+                    lat,
+                    lng)
+SELECT
+    jt.name,
+    jt.address,
+    jt.phone,
+    jt.lat,
+    jt.lng
+FROM JSON_TABLE(
+    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/productLocation.json') AS CHAR CHARACTER SET utf8mb4),
+    '$[*]' COLUMNS (
+        name         VARCHAR(100)   PATH '$.name',
+            address    VARCHAR(150)  PATH '$.address',
+            phone       VARCHAR(20)  PATH '$.phone',
+            lat        decimal(10,8)  PATH '$.lat',
+            lng       decimal(11,8)           PATH '$.lng'
+    )
+) AS jt;
+select * from store_location;
+desc store_location;
+/***************************************************
+	     카트테이블 : cart 테이블 - 황동주
+****************************************************/
+use bicycle;
+drop table cart;
+desc product;
+select count(*) from product;
+create table cart(
+	cid			int 	auto_increment		primary key,
+    qty			int		not null,
+    product_id	int		not null,
+    uid   		varchar(50) not null,
+    cdate		date 	not null,
+    checked     BOOLEAN NOT NULL DEFAULT true,
+    constraint fk_cart_product_id	foreign key(product_id) references product(product_id) 
+	on delete cascade		on update cascade,
+	constraint fk_cart_unum	foreign key(uid) references userinfo(uid)
+	on delete cascade		on update cascade,
+    UNIQUE KEY uk_userinfo_product (uid, product_id)
+);
+use bicycle;
+desc cart;
+select * from cart;
+/***************************************************
+	     주문테이블 : order 테이블 - 황동주
 ****************************************************/
