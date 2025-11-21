@@ -40,13 +40,13 @@ export function CheckoutPayment({ totalPrice, cartList }) {
                 console.error("Error initializing widgets:", error); //
             }
         };
-
         initializeWidget();
-        return () => {
-            if (agreementWidgetRef.current) {
-            }
-        };
-    }, [totalPrice]);
+
+        // return () => {
+        //     if (agreementWidgetRef.current) {
+        //     }
+        // };
+    }, []);
 
     const handlePayment = async () => {
         const widgets = widgetRef.current;
