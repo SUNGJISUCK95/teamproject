@@ -644,7 +644,10 @@ SELECT
     jt.subinfo,
     jt.description
 FROM JSON_TABLE(
-    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/lifestyleData.json') AS CHAR CHARACTER SET utf8mb4),
+    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/mountainData.json') AS CHAR CHARACTER SET utf8mb4),
+    -- C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/roadData.json
+	-- C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/electricData.json
+    -- C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/lifestyleData.json
     '$[*]' COLUMNS (
         pid         VARCHAR(50)   PATH '$.pid',
             category    VARCHAR(100)  PATH '$.category',
