@@ -10,18 +10,16 @@ import { TravelRepairDetailList } from "../../components/travel/TravelRepairDeta
 import { TravelDetail } from "../../components/travel/TravelFoodDetail.jsx";
 import Map from './Map.jsx';
 
-
-// import { getTravelHotelDetailList } from '../feature/travel/travelHotelAPI.js';
-
 export function Travel() {
 
-    // 버튼들 보이기/숨기기 상태 관리
+    // 버튼 및 리스트들 보이기/숨기기 상태 관리
     const [showMenus, setShowMenus] = useState(false);
     const [showFoods, setShowFoods] = useState(false);
     const [showHotels, setShowHotels] = useState(false);
     const [showRepairs, setShowRepairs] = useState(false);
-    const [selectedDid, setSelectedDid] = useState(null); //클릭된 did 저장
-    const [selectedType, setSelectedType] = useState(null); //클릭된 type 저장
+//     const [showStores, setShowStores] = useState(false);
+    const [selectedDid, setSelectedDid] = useState(null); // 클릭된 did 저장
+    const [selectedType, setSelectedType] = useState(null); // 클릭된 type 저장
 
     const handleMenuClick = (type) => {
         const travel_left_menus = document.querySelector('.travel-left-menus');
@@ -38,12 +36,14 @@ export function Travel() {
           setShowFoods(true);
           setShowHotels(false);
           setShowRepairs(false);
+//           setShowStores(false);
           setSelectedType(type);
           travel_left_detail.style.left = "0";
         }else if(type === "hotel"){
           setShowFoods(false);
           setShowHotels(true);
           setShowRepairs(false);
+//           setShowStores(false);
           setSelectedType(type);
           travel_left_detail.style.left = "0";
         }
@@ -51,9 +51,18 @@ export function Travel() {
           setShowFoods(false);
           setShowHotels(false);
           setShowRepairs(true);
+//           setShowStores(false);
           setSelectedType(type);
           travel_left_detail.style.left = "0";
         }
+//         else if(type === "store"){
+//           setShowFoods(false);
+//           setShowHotels(false);
+//           setShowRepairs(false);
+//           setShowStores(true);
+//           setSelectedType(type);
+//           travel_left_detail.style.left = "-40rem";
+//         }
 
     }
 
@@ -111,7 +120,7 @@ export function Travel() {
                         )}
                     </nav>
                     <div className="travel-left-detail">
-                        {/* showFoods, showHotels가 true일 때만 버튼 보이기 */}
+                        {/* showFoods, showHotels, showRepairs가 true일 때만 리스트 보이기 */}
                         {showFoods && (
                           <ul className='food-list'>  
                             <TravelFoodList handleListDetail={handleListDetail}/>
@@ -134,7 +143,7 @@ export function Travel() {
 
                 </div>
                 <div className="travel-map">
-                    <Map handleMenuClick={handleMenuClick} handleMapGoBack={handleMapGoBack} handleListDetail={handleListDetail} type={selectedType} />
+                    <Map handleMenuClick={handleMenuClick} handleMapGoBack={handleMapGoBack} handleListDetail={handleListDetail} type={selectedType} selectedDid={selectedDid} />
                 </div>
                 <div id="travel_detail_back" className="travel-detail-back" />
                 <div id="travel_detail" className="travel-detail">

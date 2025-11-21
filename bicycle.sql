@@ -663,6 +663,7 @@ select * from product;
 /***************************************************
 	     스토어위치테이블 : store_location 테이블 - 황동주
 ****************************************************/
+drop table store_location;
 create table store_location(
 	sid int not null primary key auto_increment,
     name varchar(100) not null,
