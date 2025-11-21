@@ -17,7 +17,7 @@ export function BoardDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/board/detail/${pid}`)
+      .get(`http://172.16.250.24:8080/api/board/detail/${pid}`)
       .then((res) => setPost(res.data))
       .catch((err) => console.error("게시글 상세 조회 실패:", err));
   }, [pid]);
@@ -31,7 +31,7 @@ export function BoardDetail() {
       const csrf = getCsrfToken();
 
       await axios.delete(
-        `http://localhost:8080/api/board/delete/${pid}`,
+        `http://172.16.250.24:8080/api/board/delete/${pid}`,
         {
           headers: {
             "X-XSRF-TOKEN": csrf

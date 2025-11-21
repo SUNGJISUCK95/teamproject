@@ -78,7 +78,7 @@ export function BoardWrite() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/upload",
+        "http://172.16.250.24:8080/api/upload",
         formData,
         {
           headers: {
@@ -106,7 +106,7 @@ export function BoardWrite() {
     if (!isEdit) return;
 
     axios
-      .get(`http://localhost:8080/api/board/detail/${pid}`, {
+      .get(`http://172.16.250.24:8080/api/board/detail/${pid}`, {
         withCredentials: true, // 🔥 쿠키 필요
       })
       .then((res) => {
@@ -139,7 +139,7 @@ export function BoardWrite() {
       if (isEdit) {
         // 🔥 게시글 수정
         await axios.put(
-          `http://localhost:8080/api/board/update/${pid}`,
+          `http://172.16.250.24:8080/api/board/update/${pid}`,
           { ...form, uid: user.uid },   // ★ 추가 보강 (중복확인)
           {
             headers: { "X-XSRF-TOKEN": csrf },
@@ -152,7 +152,7 @@ export function BoardWrite() {
       } else {
         // 🔥 게시글 등록
         await axios.post(
-          "http://localhost:8080/api/board/write",
+          "http://172.16.250.24:8080/api/board/write",
           {
             ...form,
             uid: user.uid,         // FK
