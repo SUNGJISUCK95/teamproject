@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
@@ -65,10 +66,11 @@ public class SecurityConfig {
                 .requestCache(rc -> rc.disable()) //로그인 후 리다이렉트 방지
 //                .securityContext(sc -> sc.requireExplicitSave(true)) //인증정보 세션 자동저장 방지
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(HttpMethod.POST, "/rental/payment").permitAll()
                         .requestMatchers(
                                 "/member/**","/products/**","/auth/**","/cart/**",
                                 "/support/**","/map/**","/travel/**","/csrf/**", "/uploads/**",
-                                "/api/chatbot", "/api/board/**", "/api/upload"
+                                "/api/chatbot", "/api/board/**", "/api/upload","/rental/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 );
@@ -109,19 +111,19 @@ public class SecurityConfig {
     }
 
 
-    //CORS 보안정책 수행 객체
+//    //CORS 보안정책 수행 객체
     @Bean
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // ✅ 추가
         configuration.setAllowedHeaders(Arrays.asList("*")); // ✅ 모든 헤더 허용
+        configuration.setExposedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);  // 🔥 프론트에서 JSESSIONID/CSRF 쿠키 받으려면 필수
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
 
     // 회원가입 시 호출 --> 비밀번호 암호화 설정 (PasswordEncoder)
     // Spring Security는 반드시 비밀번호를 암호화하여 저장하고 비교해야 함!!

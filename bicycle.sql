@@ -515,7 +515,33 @@ value (
 "test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
 );
 
+
+
+/***************************************************
+		대여 자전거 : rental_history 테이블 (시작)
+****************************************************/
+
+drop table rental_history;
+
+create table rental_history(
+	bid bigint auto_increment primary key,
+    user_id varchar(50) not null,
+    station_name varchar(100) not null,
+    station_id varchar(255) null,
+    amount bigint not null,
+    method VARCHAR(50) NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NULL,
+    FOREIGN KEY (user_id) REFERENCES userinfo(uid)
+);
+select * from rental_history;
+
+/***************************************************
+		대여 자전거 : rental_history 테이블 (끝)
+****************************************************/
 select * from userinfo;
+
+
 /******************************************************
 	일반 회원 / 관리자 구분용 컬럼 추가 - 강기종
 ******************************************************/
@@ -567,6 +593,7 @@ CREATE TABLE board_post (
   FOREIGN KEY (bid) REFERENCES board_category(bid) ON DELETE CASCADE,
   FOREIGN KEY (uid) REFERENCES userinfo(uid) ON DELETE CASCADE
 );
+show tables;
 select * from board_post;
 ALTER TABLE board_post ADD COLUMN writer VARCHAR(50);
 
@@ -578,7 +605,8 @@ show tables;
 select * from board_post;
 -- 전체 데이터 삭제(자동 증가값도 초기화됨)
 -- TRUNCATE TABLE board_post;
-=======
+
+
 /***************************************************
 	     상품 테이블 : product 테이블 - 황동주
 ****************************************************/
@@ -677,14 +705,14 @@ create table cart(
 	cid			int 	auto_increment		primary key,
     qty			int		not null,
     product_id	int		not null,
-    unum   		int not null,
+    uid   		varchar(50) not null,
     cdate		date 	not null,
     checked     BOOLEAN NOT NULL DEFAULT true,
     constraint fk_cart_product_id	foreign key(product_id) references product(product_id) 
 	on delete cascade		on update cascade,
-	constraint fk_cart_unum	foreign key(unum) references userinfo(unum) 
+	constraint fk_cart_unum	foreign key(uid) references userinfo(uid)
 	on delete cascade		on update cascade,
-    UNIQUE KEY uk_userinfo_product (unum, product_id)
+    UNIQUE KEY uk_userinfo_product (uid, product_id)
 );
 use bicycle;
 desc cart;
