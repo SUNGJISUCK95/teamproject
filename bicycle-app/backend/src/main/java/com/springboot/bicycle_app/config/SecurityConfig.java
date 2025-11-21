@@ -65,13 +65,30 @@ public class SecurityConfig {
                 .requestCache(rc -> rc.disable()) //로그인 후 리다이렉트 방지
 //                .securityContext(sc -> sc.requireExplicitSave(true)) //인증정보 세션 자동저장 방지
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(
-                                "/member/**","/products/**","/auth/**","/cart/**",
-                                "/support/**","/map/**","/travel/**","/csrf/**", "/uploads/**",
-                                "/api/chatbot", "/api/board/**", "/api/upload"
-                        ).permitAll()
-                        .anyRequest().authenticated()
-                );
+                    // 공개 API (읽기 전용)
+                    .requestMatchers(
+                            "/member/**", "/products/**", "/auth/**", "/cart/**",
+                            "/support/**", "/map/**", "/travel/**", "/csrf/**",
+                            "/uploads/**",
+                            "/api/chatbot",
+
+                            // 게시판 조회만 허용(GET)
+                            "/api/board/news",
+                            "/api/board/event",
+                            "/api/board/review",
+                            "/api/board/detail/**"
+                    ).permitAll()
+
+                    // 보호 API (로그인 필요)
+                    .requestMatchers(
+                            "/api/board/write",
+                            "/api/board/update/**",
+                            "/api/board/delete/**"
+                    ).authenticated()
+
+                    // 나머지 요청
+                    .anyRequest().permitAll()
+            );
 
         return http.build();
 
