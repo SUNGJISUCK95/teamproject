@@ -6,6 +6,7 @@ import { Maps } from '../components/rental/Maps.jsx';
 import { addData, setFilteredList, setSelectedStation } from '../feature/rental/rentalMarkerSlice.js';
 import { showMarkerAPI } from '../feature/rental/rentalMarkerAPI.js';
 import useRentalMapResponsive from '../utils/useRentalMapResponsive.js';
+import useKakaoLoader from "../useKakaoLoader.js";
 
 const getDistance = (startLat, startLon, endLat, endLon) => {
     // 주 지점이 같은 경우 0km 반환
@@ -16,7 +17,7 @@ const getDistance = (startLat, startLon, endLat, endLon) => {
     // 지구의 평균 반지름 (단위: km)
     const earthRadiusKm = 6371;
 
-    // 도를 라디안으로 변환
+    // 도(각도: 위도, 경도)를 라디안으로 변환
     const degreesToRadians = Math.PI / 180;
 
     // 위도 및 경도 차이를 라디안으로 변환
@@ -39,6 +40,7 @@ const getDistance = (startLat, startLon, endLat, endLon) => {
 }
 
 const Rantal = () => {
+    useKakaoLoader()
     // useDispatch()를 사용하기 위해서 dispatch 변수 선언 그리고 할당 함.
     const dispatch = useDispatch();
 
@@ -50,6 +52,7 @@ const Rantal = () => {
 
     // 사용자가 위치 사용 권한을 거부했을 시 기본 좌표 반영
     const [latLon, setLatLon] = useState({ lat: 37.575877, lng: 126.976897 });
+
     // store에서 필터링된 마커 리스트를 가져 올 변수
     const [filteredMaps, setFilteredMaps] = useState([]);
 
@@ -137,6 +140,7 @@ const Rantal = () => {
     return (
         
         <div className='rental_map_box'>
+
                 <Maps
                     data={selectedMarker}
                     onClose={() => dispatch(setSelectedStation(null))}

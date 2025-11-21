@@ -313,6 +313,10 @@
     transition: all 0.3s ease-in-out;
     cursor:pointer;
 }
+.bike_station_name_list > ul > li.active {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
 .bike_station_name_list > ul > li > span {
     display: block;
 }

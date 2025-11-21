@@ -46,8 +46,6 @@ public class JdbcTemplateRentalRepository implements RentalRepository {
                 // 5. method (VARCHAR)
                 ps.setString(5, request.getPaymentMethod());
 
-                // start_time은 NOW()로 처리되므로 5번 인덱스 없음
-
                 return ps;
             }, keyHolder);
 
