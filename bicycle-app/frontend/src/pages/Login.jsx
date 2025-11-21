@@ -52,7 +52,16 @@ export function Login() {
     const STATE = randomString8to16();
 
 
-    const redirect_uri = 'http://localhost:3000/auth' //Redirect URI
+    
+    const hostName = new URL(window.location.href).hostname;
+    let redirect_uri = ""
+    if(hostName==="localhost")
+    {
+        redirect_uri = 'http://localhost:3000/auth'
+    }
+    else{
+        redirect_uri = 'http://'+hostName+':3000/auth'
+    } //Redirect URI
     // 플랫폼별 oauth 요청 URL
     const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`
     const NAVER_AUTH_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${NAVER_CLIENT_ID}&state=${STATE}&redirect_uri=${redirect_uri}`;
