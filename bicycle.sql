@@ -605,8 +605,6 @@ show tables;
 select * from board_post;
 -- 전체 데이터 삭제(자동 증가값도 초기화됨)
 -- TRUNCATE TABLE board_post;
-
-
 /***************************************************
 	     상품 테이블 : product 테이블 - 황동주
 ****************************************************/
@@ -705,18 +703,45 @@ create table cart(
 	cid			int 	auto_increment		primary key,
     qty			int		not null,
     product_id	int		not null,
-    uid   		varchar(50) not null,
+    uid   		varchar(100) not null,
     cdate		date 	not null,
     checked     BOOLEAN NOT NULL DEFAULT true,
     constraint fk_cart_product_id	foreign key(product_id) references product(product_id) 
 	on delete cascade		on update cascade,
-	constraint fk_cart_unum	foreign key(uid) references userinfo(uid)
+	constraint fk_cart_uid	foreign key(uid) references userinfo(uid) 
 	on delete cascade		on update cascade,
     UNIQUE KEY uk_userinfo_product (uid, product_id)
 );
 use bicycle;
+desc userinfo;
 desc cart;
 select * from cart;
 /***************************************************
-	     주문테이블 : order 테이블 - 황동주
+	     주문테이블 : orders 테이블 - 황동주
 ****************************************************/
+create table orders(
+	order_id varchar(50) primary key not null,
+    uid varchar(100) not null,
+    order_name varchar(300) not null,
+    total_price int not null,
+    status varchar(20) default 'READY',
+    payment_key varchar(200),
+    odate datetime,
+    
+    foreign key(uid) references userinfo(uid)
+);
+desc orders;
+/***************************************************
+	     주문상세아이템테이블 : orders_items 테이블 - 황동주
+****************************************************/
+create table orders_items(
+	oid int auto_increment primary key,
+	order_id varchar(50) not null,
+    product_id int not null,
+    product_name varchar(300) not null,
+    price int not null,
+    qty int not null,
+    foreign key(order_id) references orders(order_id) on delete cascade,
+    foreign key(product_id) references product(product_id)
+);
+desc orders_items;
