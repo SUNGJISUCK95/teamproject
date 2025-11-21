@@ -5,48 +5,61 @@ const clientKey = process.env.REACT_APP_TOSS_CLIENT_KEY;
 
 export function CheckoutPayment({ totalPrice, cartList }) {
     const widgetRef = useRef(null);
-    const paymentMethodsWidgetRef = useRef(null);
-    const agreementWidgetRef = useRef(null);
-    const [orderId, setOrderId] = useState(null);
+    // const paymentMethodsWidgetRef = useRef(null);
+    // const agreementWidgetRef = useRef(null);
+    // const [orderId, setOrderId] = useState(null);
     useEffect(() => {
-        if (totalPrice <= 0) return;
+        let isCancelled = false;
 
         const initializeWidget = async () => {
             try {
                 const tossPayments = await loadTossPayments(clientKey);
+                if (isCancelled) return;
+
                 const widgets = tossPayments.widgets({
                     customerKey: ANONYMOUS,
                 });
-                widgetRef.current = widgets;
 
                 await widgets.setAmount({
                     currency: "KRW",
                     value: totalPrice,
                 });
 
-                const paymentMethodsWidget = await widgets.renderPaymentMethods({
-                    selector: "#payment-methods",
-                    variantKey: "DEFAULT",
-                });
-                paymentMethodsWidgetRef.current = paymentMethodsWidget;
+                if (isCancelled) return; // await 후에도 체크
 
-                const agreementWidget = await widgets.renderAgreement({
-                    selector: "#payment-agreement",
-                    variantKey: "DEFAULT",
-                });
-                agreementWidgetRef.current = agreementWidget;
+                widgetRef.current = widgets;
+
+                const methodContainer = document.getElementById("payment-methods");
+                if (methodContainer && methodContainer.innerHTML === "") {
+                    await widgets.renderPaymentMethods({
+                        selector: "#payment-methods",
+                        variantKey: "DEFAULT",
+                    });
+                }
+
+                const agreementContainer = document.getElementById("payment-agreement");
+                if (agreementContainer && agreementContainer.innerHTML === "") {
+                    await widgets.renderAgreement({
+                        selector: "#payment-agreement",
+                        variantKey: "DEFAULT",
+                    });
+                }
 
             } catch (error) {
-                console.error("Error initializing widgets:", error); //
+                console.error("Error initializing widgets:", error);
             }
         };
 
         initializeWidget();
         return () => {
-            if (agreementWidgetRef.current) {
-            }
+            isCancelled = true;
+            const paymentMethods = document.getElementById("payment-methods");
+            if (paymentMethods) paymentMethods.innerHTML = "";
+
+            const agreement = document.getElementById("payment-agreement");
+            if (agreement) agreement.innerHTML = "";
         };
-    }, [totalPrice]);
+    }, []);
 
     const handlePayment = async () => {
         const widgets = widgetRef.current;
