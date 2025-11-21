@@ -47,53 +47,62 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf((csrf) -> csrf
-                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                        .ignoringRequestMatchers("/auth/logout")
-                        .csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler())
-                        .ignoringRequestMatchers("/cart/**")
-                )
-                .cors((cors) -> cors
-                        .configurationSource(corsConfigurationSource())
-                )
-                .authenticationProvider(authenticationProvider())//중간자 겸 공급자?
-                .securityContext(sc -> sc.requireExplicitSave(true)) // ← 선택. true면 아래 로그인 컨트롤러에서 save 필요
-                .sessionManagement((session) -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                )
-                .httpBasic(basic -> basic.disable())
-                .formLogin(form -> form.disable())
-                .requestCache(rc -> rc.disable()) //로그인 후 리다이렉트 방지
-//                .securityContext(sc -> sc.requireExplicitSave(true)) //인증정보 세션 자동저장 방지
-                .authorizeHttpRequests(authorize -> authorize
-                    .requestMatchers(HttpMethod.POST, "/rental/payment").permitAll()
-                    // 공개 API (읽기 전용)
-                    .requestMatchers(
-                            "/member/**", "/products/**", "/auth/**", "/cart/**",
-                            "/support/**", "/map/**", "/travel/**", "/csrf/**",
-                            "/uploads/**",
-                            "/api/chatbot", "/api/upload",
-                            "/rental/**"
-                    ).permitAll()
+            // 🔥 CORS 설정 (모든 IP 허용)
+            .cors(cors -> cors.configurationSource(request -> {
+                CorsConfiguration config = new CorsConfiguration();
 
-                    // 게시판 조회(READ)만 허용 (GET)
-                    .requestMatchers(
-                            "/api/board/news",
-                            "/api/board/event",
-                            "/api/board/review",
-                            "/api/board/detail/**"
-                    ).permitAll()
+                config.setAllowCredentials(true); // 쿠키 허용
+                config.addAllowedOriginPattern("*"); // 🔥 모든 IP Origin 허용
+                config.addAllowedHeader("*");
+                config.addAllowedMethod("*");
 
-                    // 보호된 게시판 API (로그인 필요)
-                    .requestMatchers(
-                            "/api/board/write",
-                            "/api/board/update/**",
-                            "/api/board/delete/**"
-                    ).authenticated()
+                return config;
+            }))
 
-                    // 그 외 요청
-                    .anyRequest().permitAll()
-                );
+            // 🔥 CSRF 설정 (기존 유지)
+            .csrf(csrf -> csrf
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                .ignoringRequestMatchers("/auth/logout", "/cart/**", "/api/chatbot", "/auth/me")  // 그대로 유지
+                .csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler())
+            )
+            .authenticationProvider(authenticationProvider())//중간자 겸 공급자?
+            .securityContext(sc -> sc.requireExplicitSave(true)) // ← 선택. true면 아래 로그인 컨트롤러에서 save 필요
+            .sessionManagement((session) -> session
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+            )
+            .httpBasic(basic -> basic.disable())
+            .formLogin(form -> form.disable())
+            .requestCache(rc -> rc.disable()) //로그인 후 리다이렉트 방지
+            //                .securityContext(sc -> sc.requireExplicitSave(true)) //인증정보 세션 자동저장 방지
+            .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers(HttpMethod.POST, "/rental/payment").permitAll()
+                // 공개 API (읽기 전용)
+                .requestMatchers(
+                    "/member/**", "/products/**", "/auth/**", "/cart/**",
+                    "/support/**", "/map/**", "/travel/**", "/csrf/**",
+                    "/uploads/**",
+                    "/api/chatbot", "/api/upload",
+                    "/rental/**"
+                ).permitAll()
+
+                // 게시판 조회(READ)만 허용 (GET)
+                .requestMatchers(
+                    "/api/board/news",
+                    "/api/board/event",
+                    "/api/board/review",
+                    "/api/board/detail/**"
+                ).permitAll()
+
+                // 보호된 게시판 API (로그인 필요)
+                .requestMatchers(
+                    "/api/board/write",
+                    "/api/board/update/**",
+                    "/api/board/delete/**"
+                ).authenticated()
+
+                // 그 외 요청
+                .anyRequest().permitAll()
+            );
 
         return http.build();
 
