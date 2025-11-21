@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { getCurrentUser, isAdmin, isOwner } from "../../feature/auth/session";
+import { getCurrentUser, isAdmin, isOwner, getCsrfToken } from "../../feature/auth/session";
 import "../../styles/board.css";
 import "../../styles/board/board_detail.css";
 
@@ -26,8 +26,20 @@ export function BoardDetail() {
 
   const handleDelete = async () => {
     if (!window.confirm("정말 삭제할까요?")) return;
+
     try {
-      await axios.delete(`http://localhost:8080/api/board/delete/${pid}`);
+      const csrf = getCsrfToken();
+
+      await axios.delete(
+        `http://localhost:8080/api/board/delete/${pid}`,
+        {
+          headers: {
+            "X-XSRF-TOKEN": csrf
+          },
+          withCredentials: true,
+        }
+      );
+
       alert("삭제되었습니다.");
 
       const backTab = post?.categoryTag || "news";
@@ -39,7 +51,9 @@ export function BoardDetail() {
   };
 
   const handleEdit = () => {
-    navigate(`/board/edit/${pid}`);
+    navigate(`/board/edit/${pid}`, {
+      state: { fromBoard: true }   // 🔥 반드시 필요!
+    });
   };
 
   if (!post)
