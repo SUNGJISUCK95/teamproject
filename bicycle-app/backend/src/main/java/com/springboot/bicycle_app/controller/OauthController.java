@@ -5,6 +5,7 @@ import com.springboot.bicycle_app.dto.UserInfoDto;
 import com.springboot.bicycle_app.service.OauthJWTService;
 import com.springboot.bicycle_app.service.OauthJWTServiceImpl;
 import com.springboot.bicycle_app.service.OauthService;
+import com.springboot.bicycle_app.service.TravelService;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Cookie;
@@ -17,6 +18,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
@@ -29,16 +31,19 @@ public class OauthController {
     private final AuthenticationManager authenticationManager;
     private final HttpSessionSecurityContextRepository contextRepository;
     private final OauthJWTService oauthJWTService;
+    private final TravelService travelService;
 
     public OauthController(OauthService oauthService,
                            AuthenticationManager authenticationManager,
                            HttpSessionSecurityContextRepository contextRepository,
-                           OauthJWTService oauthJWTService)
+                           OauthJWTService oauthJWTService,
+                           TravelService travelService)
     {
         this.oauthService = oauthService;
         this.authenticationManager = authenticationManager;
         this.contextRepository = contextRepository;
         this.oauthJWTService = oauthJWTService;
+        this.travelService = travelService;
     }
 
     @PostMapping("/token")
@@ -86,7 +91,9 @@ public class OauthController {
     public int signup(@RequestBody UserInfoDto userInfoDto){
         if(userInfoDto.isSocialDupl())//true면 일반 회원가입
         {
-            return oauthService.signUp(userInfoDto);
+            oauthService.signUp(userInfoDto);
+            travelService.insertSave(userInfoDto.getUid());
+            return 1;
         }
         else{//false면 소셜로그인 해서 겹치는 게 없어서 들어온 회원가입
             String JWToken = userInfoDto.getJwToken();

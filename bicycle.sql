@@ -486,6 +486,30 @@ FROM JSON_TABLE(
 	     여행지 추천: travel_food_detail 관련 테이블 (끝)
 ****************************************************/
 
+/***************************************************
+	     여행지 추천: travel_save 관련 테이블 
+****************************************************/
+
+DROP TABLE travel_save;
+create table travel_save(
+	sid					int				auto_increment primary key,
+    uid   				varchar(100) 	not null,
+    fid	    			json,
+    hid	    			json,
+    rid	    			json,    
+    constraint fk_travel_user
+        foreign key (uid)
+        references userinfo(uid)
+        on delete cascade
+        on update cascade
+);
+
+desc travel_save;
+select * from travel_save;
+
+/***************************************************
+	     여행지 추천: travel_save 관련 테이블 (끝)
+****************************************************/
 
 /*********************************************
 	     회원정보 테이블 : userinfo 테이블 
