@@ -569,6 +569,21 @@ CREATE TABLE board_category (
   btitle VARCHAR(100) NOT NULL  -- 한글 표시용 이름
 );
 
+/******************************************************
+	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여
+******************************************************/
+
+ALTER TABLE `rental_history` DROP FOREIGN KEY `rental_history_ibfk_1`;
+
+ALTER TABLE `rental_history`
+ADD CONSTRAINT `rental_history_ibfk_1` 
+FOREIGN KEY (`user_id`) 
+REFERENCES `userinfo` (`uid`) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+/******************************************************
+******************************************************/
+
 -- 기본 게시판 등록
 INSERT INTO board_category (bname, btitle) VALUES
 ('news', '뉴스'),
