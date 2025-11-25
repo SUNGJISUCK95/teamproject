@@ -56,4 +56,6 @@ public interface JpaUserInfoRepository extends JpaRepository<UserInfo, String> {
             """)
     int updateByUid(@Param("uid") String uid,
             @Param("includeId") String includeId);
+            
+    void deleteByUid(@Param("uid") String uid);
 }
