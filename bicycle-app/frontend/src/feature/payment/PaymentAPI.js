@@ -1,3 +1,4 @@
+import {axiosPost} from "../../utils/dataFetch.js";
 
 export const requestTossPay = async (widgets, cartList) => {
     if (!widgets) {
@@ -24,7 +25,18 @@ export const requestTossPay = async (widgets, cartList) => {
             failUrl: `${window.location.origin}/checkout/fail`,
         });
     } catch (error) {
-        console.error("Payment error:", error); //
-        alert(`결제 중 오류가 발생했습니다: ${error.message}`);
+        console.error("Payment error:", error);
+        if (error.code === 'USER_CANCEL') {
+        } else {
+            alert(`결제 중 오류가 발생했습니다: ${error.message}`);
+        }
     }
+}
+
+export const confirmPayment = async (paymentKey,orderId,amount) => {
+    const url = "/confirm";
+    const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
+    const data = {"paymentKey":paymentKey, "orderId":orderId,"amount":amount,"userId":userId};
+    const response = await axiosPost(url,data);
+    return response;
 }
