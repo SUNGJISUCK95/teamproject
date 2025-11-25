@@ -1,22 +1,11 @@
 
-export const requestTossPay = async (totalPrice, cartList) => {
-    const secretKey = process.env.REACT_APP_TOSS_SECRET_KEY;
-    const url = "/confirm"
-    const data = {
-
-        orderId: `practice-order-${new Date().getTime()}`,
-        orderName: formattedOrderName,
-        successUrl: `${window.location.origin}/checkout/success`,
-        failUrl: `${window.location.origin}/checkout/fail`,
-    }
-    const widgets = widgetRef.current;
-
-    if (!widgets || totalPrice <= 0) {
+export const requestTossPay = async (widgets, cartList) => {
+    if (!widgets) {
         alert("결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.");
         return;
     }
-
-    let formattedOrderName = "주문 상품"; // 기본값
+    
+    let formattedOrderName = "주문 상품";
     if (cartList && cartList.length > 0) {
         const firstItemName = cartList[0].name;
         const remainingItemsCount = cartList.length - 1;
@@ -29,7 +18,10 @@ export const requestTossPay = async (totalPrice, cartList) => {
     }
     try {
         await widgets.requestPayment({
-            url,data
+            orderId: `practice-order-${new Date().getTime()}`,
+            orderName: formattedOrderName,
+            successUrl: `${window.location.origin}/checkout/success`,
+            failUrl: `${window.location.origin}/checkout/fail`,
         });
     } catch (error) {
         console.error("Payment error:", error); //

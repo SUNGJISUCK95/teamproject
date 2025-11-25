@@ -60,7 +60,11 @@ export function CheckoutPayment({ totalPrice, cartList }) {
     }, []);
 
     const handlePayment = async () => {
-        // const widgets = widgetRef.current;
+        const widgets = widgetRef.current;
+        if(totalPrice <= 0 ){
+            alert("결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.");
+            return;
+        } await requestTossPay(widgets,cartList);
         //
         // if (!widgets || totalPrice <= 0) {
         //     alert("결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.");
@@ -89,7 +93,6 @@ export function CheckoutPayment({ totalPrice, cartList }) {
         //     console.error("Payment error:", error); //
         //     alert(`결제 중 오류가 발생했습니다: ${error.message}`);
         // }
-        const result = await requestTossPay(totalPrice,cartList);
     };
 
     return (
