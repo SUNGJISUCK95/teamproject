@@ -1,7 +1,9 @@
 package com.springboot.bicycle_app.controller;
 
+import com.springboot.bicycle_app.dto.purchase.OrderRequestDto;
 import com.springboot.bicycle_app.dto.purchase.TossPayDto;
 import com.springboot.bicycle_app.service.purchase.OrderService;
+import com.springboot.bicycle_app.service.purchase.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/confirm")
+@RequestMapping("/payment")
 public class PaymentController {
     private final OrderService orderService;
 
@@ -21,7 +23,20 @@ public class PaymentController {
         this.orderService = orderService;
     }
 
-    @PostMapping("/")
+    @PostMapping("/request")
+    public ResponseEntity<?> requestPayment(@RequestBody OrderRequestDto dto) {
+        try {
+            var order = orderService.createOrder(dto);
+            return ResponseEntity.ok(Map.of(
+                    "message", "주문 생성 완료",
+                    "orderId", order.getOrderId()
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+        }
+    }
+
+    @PostMapping("/confirm")
     public ResponseEntity<?> confirmPayment(@RequestBody TossPayDto dto) {
         try {
             Object response = orderService.confirmPayment(dto);

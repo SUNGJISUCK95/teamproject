@@ -64,7 +64,7 @@ export function CheckoutPayment({ totalPrice, cartList }) {
         if(totalPrice <= 0 ){
             alert("결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.");
             return;
-        } await requestTossPay(widgets,cartList);
+        } await requestTossPay(widgets,cartList,totalPrice);
     };
 
     return (

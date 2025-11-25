@@ -1,25 +1,32 @@
 import {axiosPost} from "../../utils/dataFetch.js";
 
-export const requestTossPay = async (widgets, cartList) => {
+export const requestTossPay = async (widgets, cartList,totalPrice) => {
     if (!widgets) {
         alert("결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.");
         return;
     }
-    
     let formattedOrderName = "주문 상품";
     if (cartList && cartList.length > 0) {
         const firstItemName = cartList[0].name;
         const remainingItemsCount = cartList.length - 1;
-
-        if (remainingItemsCount > 0) {
-            formattedOrderName = `${firstItemName} 외 ${remainingItemsCount}건`;
-        } else {
-            formattedOrderName = firstItemName;
-        }
+        formattedOrderName = remainingItemsCount > 0
+            ? `${firstItemName} 외 ${remainingItemsCount}건`
+            : firstItemName;
     }
     try {
+        const { userId } = JSON.parse(localStorage.getItem("loginInfo") || "{}");
+
+        const orderData = {
+            userId: userId,
+            amount: totalPrice,
+            orderName: formattedOrderName
+        };
+        const url = "/payment/request";
+        const response = await axiosPost(url,orderData);
+        const dbOrderId = response.data.orderId;
+
         await widgets.requestPayment({
-            orderId: `practice-order-${new Date().getTime()}`,
+            orderId: dbOrderId,
             orderName: formattedOrderName,
             successUrl: `${window.location.origin}/checkout/success`,
             failUrl: `${window.location.origin}/checkout/fail`,
@@ -34,9 +41,14 @@ export const requestTossPay = async (widgets, cartList) => {
 }
 
 export const confirmPayment = async (paymentKey,orderId,amount) => {
-    const url = "/confirm";
+    const url = "/payment/confirm";
     const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
-    const data = {"paymentKey":paymentKey, "orderId":orderId,"amount":amount,"userId":userId};
+    const data = {
+        paymentKey: paymentKey,
+        orderId: orderId,
+        amount: Number(amount),
+        userId: userId
+    };
     const response = await axiosPost(url,data);
     return response;
 }
