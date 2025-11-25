@@ -6,8 +6,7 @@ import "../../styles/purchaseheader.css";
 
 
 import { getLogout} from '../../feature/auth/authAPI';
-import { useDispatch } from 'react-redux';
-
+import { useDispatch , useSelector } from 'react-redux';
 
 export function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,8 +16,11 @@ export function Header() {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1023);
     const [closing, setClosing] = useState(false);
     const loginInfo = localStorage.getItem("loginInfo");
-    const isLogin = loginInfo ? true : false;
-    const location = useLocation();
+    // const isLogin = loginInfo ? true : false;
+    // const location = useLocation();
+    //기존 localStroage에서 가져오는 방식에서 store에 저장된 isLogin값을 가져오는 방식으로 수정
+    const isLogin = useSelector((state)=>state.auth.isLogin)
+    
 
     
     const dispatch = useDispatch();
