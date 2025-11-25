@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-self: end; /* ✅ grid 오른쪽 배치 */
-  gap: 20px;
+  gap: 10px;
 }
 
 /* 공통 아이콘 링크 */
@@ -120,10 +120,6 @@ a.icon-link,
 @media (max-width: 1200px) {
   .icon-link .text {
     display: none;
-  }
-  
-  .header-right {
-    gap: 15px;
   }
 }
 
