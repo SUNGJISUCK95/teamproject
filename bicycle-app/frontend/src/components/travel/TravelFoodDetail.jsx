@@ -18,7 +18,8 @@ export function TravelFoodDetail({did,
                                   imageList,
                                   review,
                                   save,
-                                  handleLikeUpdate
+                                  handleLikeUpdate,
+                                  handleReviewUpload
                                   }) {
 
   // 문자열(JSON) 파싱 처리
@@ -28,7 +29,6 @@ export function TravelFoodDetail({did,
   const parsedMenu = menu ? JSON.parse(menu) : [];
   const parsedMainImages = mainImages ? JSON.parse(mainImages) : [];
   const parsedImageList = imageList ? JSON.parse(imageList) : [];
-  const parsedReview = review ? JSON.parse(review) : [];
   const parsedSave = save ? JSON.parse(save) : [];
 
   // parsedSave안에 did가 있는지 확인
@@ -43,16 +43,21 @@ export function TravelFoodDetail({did,
   const [showAllTime, setShowAllTime] = useState(false);
   const [showAllMenu, setShowAllMenu] = useState(false);
   const [showAllImage, setShowAllImage] = useState(false);
+  const [reviewStar, setReviewStar] = useState(0);
+  const [reviewText, setReviewText] = useState("");
+  const [reviewImages, setReviewImages] = useState([]);
+  
+  const [editingReviewId, setEditingReviewId] = useState(null);
 
-  const sortedReview = [...parsedReview].sort((a, b) => {
+  const sortedReview = [...review].sort((a, b) => {
     if (activeReviewMenu === 0) {
-      return new Date(b.reviewDate) - new Date(a.reviewDate); // 최신순
+      return new Date(b.date) - new Date(a.date); // 최신순
     }
     if (activeReviewMenu === 1) {
-      return b.userLike - a.userLike; // 평점 높은순
+      return b.star - a.star; // 평점 높은순
     }
     if (activeReviewMenu === 2) {
-      return a.userLike - b.userLike; // 평점 낮은순
+      return a.star - b.star; // 평점 낮은순
     }
     return 0;
   });
@@ -96,9 +101,77 @@ export function TravelFoodDetail({did,
       setShowAllImage(!showAllImage);
   }
 
+  const handleImageUpload = (e) => {
+      const files = Array.from(e.target.files);
+
+      // 최대 3개까지만 허용
+      const availableSlots = 3 - reviewImages.length;
+      const limitedFiles = files.slice(0, availableSlots);
+
+      if (limitedFiles.length === 0) {
+          alert("이미지는 최대 3개까지 업로드 가능합니다.");
+          return;
+      }
+
+      const newImages = [];
+      let loadedCount = 0;
+
+      limitedFiles.forEach((file) => {
+          const reader = new FileReader();
+
+          reader.onload = () => {
+              newImages.push(reader.result);
+              loadedCount += 1;
+
+              if (loadedCount === limitedFiles.length) {
+                  // 기존 이미지 + 새로 읽은 이미지 합치기
+                  setReviewImages([...reviewImages, ...newImages]);
+              }
+          }
+      reader.readAsDataURL(file); // 이제 file 타입만 전달
+      });
+  };
+
+  const handleSubmitReview = () => {
+      if (reviewStar === 0) {
+          alert("별점을 선택해주세요.");
+          return;
+      }
+      if (reviewText.trim() === "") {
+          alert("리뷰 내용을 입력해주세요.");
+          return;
+      }
+
+      const reviewData = {
+          fid: did,
+          uid: uid,           // 로그인한 유저 아이디
+          star: reviewStar,
+          content: reviewText,
+          imageList: JSON.stringify(reviewImages)  // base64 또는 파일 그대로 서버 전송 가능
+      };
+
+      handleReviewUpload(reviewData);
+
+      // 초기화
+      setReviewStar(0);
+      setReviewText("");
+      setReviewImages([]);
+  };
+
+  const handleEditReview = (reviewDetail) => {
+      // 수정할 리뷰의 내용, 별점, 이미지 등을 상태에 세팅
+      setReviewStar(reviewDetail.star);
+      setReviewText(reviewDetail.content);
+      setReviewImages(JSON.parse(reviewDetail.imageList));
+
+      // 필요하면 수정 모드 플래그
+      setEditingReviewId(reviewDetail.rid); // rid: 리뷰 고유 ID
+  };
+
   return(
-      <>            
+      <>
           <div className="detail-top">
+              {/* 맛집 정보 영역 */}
               <ul className="detail-title">
                   <li className="detail-title-image-box">
                       { parsedMainImages && parsedMainImages.map((MainImage, idx) => (
@@ -210,7 +283,7 @@ export function TravelFoodDetail({did,
                           )
                         }
                       </span> }
-                      <span className="detail-title-reviewNum" >({parsedReview.length}명의 평가)</span>
+                      <span className="detail-title-reviewNum" >({review.length}명의 평가)</span>
                       <span className="detail-title-likeScore" >{score}점</span></li>
                   <li className="detail-title-address-box">
                       <i class="fa-solid fa-location-dot"></i>
@@ -283,6 +356,7 @@ export function TravelFoodDetail({did,
                   </li>
               </ul>
 
+              {/* 메뉴 영역 */}
               <ul className="detail-menu">
                   <li className="detail-menu-title" >메뉴정보</li>
                   {parsedMenu && parsedMenu
@@ -319,6 +393,8 @@ export function TravelFoodDetail({did,
                   </li>
               </ul>
           </div>
+
+          {/* 이미지 영역 */}
           <ul className="detail-image">
               <li className="detail-image-title"><span>{fname}</span> 사진(손님이 찍은사진)</li>
               <li className="detail-image-button-box">
@@ -396,6 +472,7 @@ export function TravelFoodDetail({did,
               </li>
           </ul>
 
+          {/* 리뷰 영역 */}
           <ul className="detail-review">
               <li className="detail-review-title">{fname} 방문자 리뷰</li>
               <li className="detail-review-button-box">
@@ -416,28 +493,99 @@ export function TravelFoodDetail({did,
               {sortedReview && sortedReview.map((reviewDetail, idx) => (
                   <ul className="detail-review-box">
                       <li className="detail-review-profile">
-                          <img className="detail-review-user-image" src={reviewDetail.userProfile} alt="프로필" />
+                          <img className="detail-review-user-image" src={reviewDetail.userImage} alt="프로필" />
                           <li className="detail-review-info">
-                              <span className="detail-review-user-id">{reviewDetail.userId}</span><br/>
-                              <span className="detail-review-user-like">평균 별점 {reviewDetail.userLike} </span>
+                              <span className="detail-review-user-id">{reviewDetail.uid}</span><br/>
+                              <span className="detail-review-user-like">평균 별점 {reviewDetail.star} </span>
                               <span className="detail-review-user-stats">
                                   평가 {reviewDetail.userTotalReview} 팔로워 {reviewDetail.userFllowers}
                               </span>
+
+                              <button
+                                  className="detail-review-edit-button"
+                                  onClick={() => handleEditReview(reviewDetail)}
+                              >
+                                  수정
+                              </button>
                           </li>
                       </li>
                       <li className="detail-review-image-box">
-                          { reviewDetail.reviewImages && reviewDetail.reviewImages.map((reviewImage, idx) => (
-                              <>
-                                  <img className="detail-review-image" src={reviewImage}/>
-                              </>
-                          ))}
+                        { reviewDetail.imageList &&
+                          JSON.parse(reviewDetail.imageList).map((reviewImage, idx) => (
+                            <img key={idx} className="detail-review-image" src={reviewImage} />
+                          ))
+                        }
                       </li>
-                      <li className="detail-review-date">{reviewDetail.reviewDate}</li>
+                      <li className="detail-review-date">{reviewDetail.date}</li>
                       <li className="detail-review-description">
-                          {reviewDetail.reviewDescription}
+                          {reviewDetail.content}
                       </li>
                   </ul>
               ))}
+          </ul>
+
+          {/* 리뷰 작성 영역 */}
+          <ul className="detail-review-write">
+              <li className="detail-review-write-title">리뷰 작성</li>
+              <div className="detail-review-star-image-box">
+                  {/* ⭐ 별점 선택(이미지/아이콘 클릭) */}
+                  <li className="detail-review-write-stars">
+                    {[1,2,3,4,5].map((starValue) => (
+                      <i
+                        key={starValue}
+                        className={
+                          reviewStar >= starValue
+                            ? "fa-solid fa-star star-selected"  // 선택된 별
+                            : "fa-regular fa-star star-unselected" // 선택 안된 별
+                        }
+                        onClick={() => setReviewStar(starValue)}
+                        style={{ cursor: "pointer", color: "#FFD700", fontSize: "24px", marginRight: "4px" }}
+                      />
+                    ))}
+                    <span> {reviewStar}.0 / 5.0</span>
+                  </li>
+
+                  {/* 📷 이미지 업로드 */}
+                  <li>
+                    {/* 숨겨진 파일 input */}
+                    <input
+                      type="file"
+                      id="reviewImageUpload"
+                      multiple
+                      onChange={handleImageUpload}
+                      style={{ display: "none" }} // 숨기기
+                    />
+
+                    {/* 아이콘 버튼 */}
+                    <label htmlFor="reviewImageUpload" style={{ cursor: "pointer" }}>
+                      <i className="fa-solid fa-camera" style={{ fontSize: "24px", color: "#333" }}></i> 사진 업로드
+                    </label>
+
+                    {/* 업로드한 이미지 미리보기 */}
+                    <div className="detail-review-preview">
+                      {reviewImages.map((img, idx) => (
+                        <img key={idx} src={img} className="review-preview-img" />
+                      ))}
+                    </div>
+                  </li>
+              </div>
+
+              {/* ✏ 리뷰 텍스트 입력 */}
+              <li>
+                  <textarea
+                      className="detail-review-textarea"
+                      placeholder="방문하신 후기를 남겨주세요."
+                      value={reviewText}
+                      onChange={(e) => setReviewText(e.target.value)}
+                  />
+              </li>
+
+              {/* 등록 버튼 */}
+              <li className="detail-review-submit-box">
+                  <button className="detail-review-submit" onClick={handleSubmitReview}>
+                      리뷰 등록
+                  </button>
+              </li>
           </ul>
       </>
   );
