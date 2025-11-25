@@ -306,15 +306,14 @@ create table travel_food_detail(
     other				json,
     menu				json,
     main_images			json,
-    image_list			json,
-    review				json
+    image_list			json
 );
 
 desc travel_food_detail;
 select * from travel_food_detail;
 
 -- json 파일의 travel_food_detail 정보 매핑
-INSERT INTO travel_food_detail(fname, flike, score, tag, location, food, address, local_address, business, phone, other, menu, main_images, image_list, review)
+INSERT INTO travel_food_detail(fname, flike, score, tag, location, food, address, local_address, business, phone, other, menu, main_images, image_list)
 SELECT
     jt.fname,
     jt.flike,
@@ -329,8 +328,7 @@ SELECT
     jt.other,
     jt.menu,
     jt.main_images,
-    jt.image_list,
-    jt.review
+    jt.image_list
 FROM JSON_TABLE(
     CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodDetails.json') AS CHAR CHARACTER SET utf8mb4),
     '$[*]' COLUMNS (
@@ -347,8 +345,7 @@ FROM JSON_TABLE(
         other            JSON PATH '$.other',
 		menu			 JSON PATH '$.menu', 
         main_images      JSON PATH '$.mainImages',
-        image_list       JSON PATH '$.imageList',
-        review			 JSON PATH '$.review'
+        image_list       JSON PATH '$.imageList'
     )
 ) AS jt;
 
@@ -371,15 +368,14 @@ create table travel_hotel_detail(
     other				json,
     menu				json,
     main_images			json,
-    image_list			json,
-    review				json
+    image_list			json
 );
 
 desc travel_hotel_detail;
 select * from travel_hotel_detail;
 
 -- json 파일의 travel_food_detail 정보 매핑
-INSERT INTO travel_hotel_detail(hname, hlike, score, tag, location, hotel, address, local_address, business, phone, other, menu, main_images, image_list, review)
+INSERT INTO travel_hotel_detail(hname, hlike, score, tag, location, hotel, address, local_address, business, phone, other, menu, main_images, image_list)
 SELECT
     jt.hname,
     jt.hlike,
@@ -394,8 +390,7 @@ SELECT
     jt.other,
     jt.menu,
     jt.main_images,
-    jt.image_list,
-    jt.review
+    jt.image_list
 FROM JSON_TABLE(
     CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelHotelDetails.json') AS CHAR CHARACTER SET utf8mb4),
     '$[*]' COLUMNS (
@@ -412,8 +407,7 @@ FROM JSON_TABLE(
         other            JSON PATH '$.other',
 		menu			 JSON PATH '$.menu', 
         main_images      JSON PATH '$.mainImages',
-        image_list       JSON PATH '$.imageList',
-        review			 JSON PATH '$.review'
+        image_list       JSON PATH '$.imageList'
     )
 ) AS jt;
 
@@ -436,15 +430,14 @@ create table travel_repair_detail(
     other				json,
     menu				json,
     main_images			json,
-    image_list			json,
-    review				json
+    image_list			json
 );
 
 desc travel_repair_detail;
 select * from travel_repair_detail;
 
 -- json 파일의 travel_food_detail 정보 매핑
-INSERT INTO travel_repair_detail(rname, `rlike`, score, tag, location, `repair`, address, local_address, business, phone, other, menu, main_images, image_list, review)
+INSERT INTO travel_repair_detail(rname, `rlike`, score, tag, location, `repair`, address, local_address, business, phone, other, menu, main_images, image_list)
 SELECT
     jt.rname,
     jt.`rlike`,
@@ -459,8 +452,7 @@ SELECT
     jt.other,
     jt.menu,
     jt.main_images,
-    jt.image_list,
-    jt.review
+    jt.image_list
 FROM JSON_TABLE(
     CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelRepairDetails.json') AS CHAR CHARACTER SET utf8mb4),
     '$[*]' COLUMNS (
@@ -477,8 +469,7 @@ FROM JSON_TABLE(
         other            JSON PATH '$.other',
 		menu			 JSON PATH '$.menu', 
         main_images      JSON PATH '$.mainImages',
-        image_list       JSON PATH '$.imageList',
-        review			 JSON PATH '$.review'
+        image_list       JSON PATH '$.imageList'
     )
 ) AS jt;
 
@@ -497,7 +488,7 @@ create table travel_save(
     fid	    			json,
     hid	    			json,
     rid	    			json,    
-    constraint fk_travel_user
+    constraint fk_travel_save
         foreign key (uid)
         references userinfo(uid)
         on delete cascade
@@ -509,6 +500,155 @@ select * from travel_save;
 
 /***************************************************
 	     여행지 추천: travel_save 관련 테이블 (끝)
+****************************************************/
+
+/***************************************************
+	     여행지 추천: travel_review 관련 테이블 
+****************************************************/
+
+/** 맛집 리뷰 테이블 생성 : travel_food_review */
+DROP TABLE travel_food_review;
+create table travel_food_review(
+	frid				int				auto_increment primary key,
+    uid   				varchar(100) 	not null,
+    fid	    			int				not null,
+    user_image			varchar(100),
+    user_fllowers		varchar(100),
+    star				DECIMAL(4,1),
+    content				text,
+    `date`				date,
+    image_list			json,
+    constraint fk_travel_food_review
+        foreign key (uid)
+        references userinfo(uid)
+        on delete cascade
+        on update cascade
+);
+
+desc travel_food_review;
+select * from travel_food_review;
+
+-- json 파일의 travel_food_detail 정보 매핑
+INSERT INTO travel_food_review(uid, fid, user_image, user_fllowers, star, content, `date`, image_list)
+SELECT
+    jt.uid,
+    jt.fid,
+    jt.user_image,
+    jt.user_fllowers,
+    jt.star,
+    jt.content,
+    jt.`date`,
+    jt.image_list
+FROM JSON_TABLE(
+    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoodReviews.json') AS CHAR CHARACTER SET utf8mb4),
+    '$[*]' COLUMNS (
+        uid            VARCHAR(100) PATH '$.uid',
+        fid            int			PATH '$.fid',
+        user_image     VARCHAR(100)	PATH '$.userImage',
+        user_fllowers  VARCHAR(100)	PATH '$.userFllowers',
+        star           DECIMAL(4,1) PATH '$.star',
+        content        TEXT 		PATH '$.content',
+        `date`         DATE 	    PATH '$.date',
+        image_list     JSON 	    PATH '$.imageList'
+    )
+) AS jt;
+
+/** 숙소 리뷰 테이블 생성 : travel_hotel_review */
+DROP TABLE travel_hotel_review;
+create table travel_hotel_review(
+	hrid				int				auto_increment primary key,
+    uid   				varchar(100) 	not null,
+    hid	    			int				not null,
+    user_image			varchar(100),
+    user_fllowers		varchar(100),
+    star				DECIMAL(4,1),
+    content				text,
+    `date`				date,
+    image_list			json,
+    constraint fk_travel_hotel_review
+        foreign key (uid)
+        references userinfo(uid)
+        on delete cascade
+        on update cascade
+);
+
+desc travel_hotel_review;
+select * from travel_hotel_review;
+
+-- json 파일의 travel_food_detail 정보 매핑
+INSERT INTO travel_hotel_review(uid, hid, user_image, user_fllowers, star, content, `date`, image_list)
+SELECT
+    jt.uid,
+    jt.hid,
+    jt.user_image,
+    jt.user_fllowers,
+    jt.star,
+    jt.content,
+    jt.`date`,
+    jt.image_list
+FROM JSON_TABLE(
+    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelHotelReviews.json') AS CHAR CHARACTER SET utf8mb4),
+    '$[*]' COLUMNS (
+        uid            VARCHAR(100) PATH '$.uid',
+        hid            int			PATH '$.hid',
+        user_image     VARCHAR(100)	PATH '$.userImage',
+        user_fllowers  VARCHAR(100)	PATH '$.userFllowers',
+        star           DECIMAL(4,1) PATH '$.star',
+        content        TEXT 		PATH '$.content',
+        `date`         DATE 	    PATH '$.date',
+        image_list     JSON 	    PATH '$.imageList'
+    )
+) AS jt;
+
+/** 수리 리뷰 테이블 생성 : travel_repair_review */
+DROP TABLE travel_repair_review;
+create table travel_repair_review(
+	rrid				int				auto_increment primary key,
+    uid   				varchar(100) 	not null,
+    rid	    			int				not null,
+    user_image			varchar(100),
+    user_fllowers		varchar(100),
+    star				DECIMAL(4,1),
+    content				text,
+    `date`				date,
+    image_list			json,
+    constraint fk_travel_repair_review
+        foreign key (uid)
+        references userinfo(uid)
+        on delete cascade
+        on update cascade
+);
+
+desc travel_repair_review;
+select * from travel_repair_review;
+
+-- json 파일의 travel_food_detail 정보 매핑
+INSERT INTO travel_repair_review(uid, rid, user_image, user_fllowers, star, content, `date`, image_list)
+SELECT
+    jt.uid,
+    jt.rid,
+    jt.user_image,
+    jt.user_fllowers,
+    jt.star,
+    jt.content,
+    jt.`date`,
+    jt.image_list
+FROM JSON_TABLE(
+    CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelRepairReviews.json') AS CHAR CHARACTER SET utf8mb4),
+    '$[*]' COLUMNS (
+        uid            VARCHAR(100) PATH '$.uid',
+        rid            int			PATH '$.rid',
+        user_image     VARCHAR(100)	PATH '$.userImage',
+        user_fllowers  VARCHAR(100)	PATH '$.userFllowers',
+        star           DECIMAL(4,1) PATH '$.star',
+        content        TEXT 		PATH '$.content',
+        `date`         DATE 	    PATH '$.date',
+        image_list     JSON 	    PATH '$.imageList'
+    )
+) AS jt;
+
+/***************************************************
+	     여행지 추천: travel_review 관련 테이블 (끝)
 ****************************************************/
 
 
