@@ -158,15 +158,15 @@ export function TravelFoodDetail({did,
       setReviewImages([]);
   };
 
-  const handleEditReview = (reviewDetail) => {
-      // 수정할 리뷰의 내용, 별점, 이미지 등을 상태에 세팅
-      setReviewStar(reviewDetail.star);
-      setReviewText(reviewDetail.content);
-      setReviewImages(JSON.parse(reviewDetail.imageList));
-
-      // 필요하면 수정 모드 플래그
-      setEditingReviewId(reviewDetail.rid); // rid: 리뷰 고유 ID
-  };
+//   const handleEditReview = (reviewDetail) => {
+//       // 수정할 리뷰의 내용, 별점, 이미지 등을 상태에 세팅
+//       setReviewStar(reviewDetail.star);
+//       setReviewText(reviewDetail.content);
+//       setReviewImages(JSON.parse(reviewDetail.imageList));
+//
+//       // 필요하면 수정 모드 플래그
+//       setEditingReviewId(reviewDetail.rid); // rid: 리뷰 고유 ID
+//   };
 
   return(
       <>
@@ -501,12 +501,12 @@ export function TravelFoodDetail({did,
                                   평가 {reviewDetail.userTotalReview} 팔로워 {reviewDetail.userFllowers}
                               </span>
 
-                              <button
-                                  className="detail-review-edit-button"
-                                  onClick={() => handleEditReview(reviewDetail)}
-                              >
-                                  수정
-                              </button>
+{/*                               <button */}
+{/*                                   className="detail-review-edit-button" */}
+{/*                                   onClick={() => handleEditReview(reviewDetail)} */}
+{/*                               > */}
+{/*                                   수정 */}
+{/*                               </button> */}
                           </li>
                       </li>
                       <li className="detail-review-image-box">
