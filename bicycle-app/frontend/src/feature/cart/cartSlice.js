@@ -83,7 +83,9 @@ export const cartSlice = createSlice({
                     name : uname || '',
                     mobile : uphone || '',
                     email : uemail || '',
-                    address : uaddress || ''
+                    zipcode: '',
+                    address : uaddress || '',
+                    detailAddress : ''
                 };
             }
         },
