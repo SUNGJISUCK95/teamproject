@@ -509,20 +509,48 @@ export function TravelHotelDetail({did,
           {/* 리뷰 작성 영역 */}
           <ul className="detail-review-write">
               <li className="detail-review-write-title">리뷰 작성</li>
+              <div className="detail-review-star-image-box">
+                  {/* ⭐ 별점 선택(이미지/아이콘 클릭) */}
+                  <li className="detail-review-write-stars">
+                    {[1,2,3,4,5].map((starValue) => (
+                      <i
+                        key={starValue}
+                        className={
+                          reviewStar >= starValue
+                            ? "fa-solid fa-star star-selected"  // 선택된 별
+                            : "fa-regular fa-star star-unselected" // 선택 안된 별
+                        }
+                        onClick={() => setReviewStar(starValue)}
+                        style={{ cursor: "pointer", color: "#FFD700", fontSize: "24px", marginRight: "4px" }}
+                      />
+                    ))}
+                    <span> {reviewStar}.0 / 5.0</span>
+                  </li>
 
-              {/* ⭐ 별점 선택 */}
-              <li className="detail-review-write-stars">
-                  <input
-                      type="number"
-                      min="0"
-                      max="5"
-                      step="0.1"
-                      value={reviewStar}
-                      onChange={(e) => setReviewStar(parseFloat(e.target.value))}
-                      className="star-input"
-                  />
-                  <span> / 5.0</span>
-              </li>
+                  {/* 📷 이미지 업로드 */}
+                  <li>
+                    {/* 숨겨진 파일 input */}
+                    <input
+                      type="file"
+                      id="reviewImageUpload"
+                      multiple
+                      onChange={handleImageUpload}
+                      style={{ display: "none" }} // 숨기기
+                    />
+
+                    {/* 아이콘 버튼 */}
+                    <label htmlFor="reviewImageUpload" style={{ cursor: "pointer" }}>
+                      <i className="fa-solid fa-camera" style={{ fontSize: "24px", color: "#333" }}></i> 사진 업로드
+                    </label>
+
+                    {/* 업로드한 이미지 미리보기 */}
+                    <div className="detail-review-preview">
+                      {reviewImages.map((img, idx) => (
+                        <img key={idx} src={img} className="review-preview-img" />
+                      ))}
+                    </div>
+                  </li>
+              </div>
 
               {/* ✏ 리뷰 텍스트 입력 */}
               <li>
@@ -534,22 +562,8 @@ export function TravelHotelDetail({did,
                   />
               </li>
 
-              {/* 📷 이미지 업로드 */}
-              <li>
-                  <input
-                      type="file"
-                      multiple
-                      onChange={handleImageUpload}
-                  />
-                  <div className="detail-review-preview">
-                      {reviewImages.map((img, idx) => (
-                          <img key={idx} src={img} className="review-preview-img" />
-                      ))}
-                  </div>
-              </li>
-
               {/* 등록 버튼 */}
-              <li>
+              <li className="detail-review-submit-box">
                   <button className="detail-review-submit" onClick={handleSubmitReview}>
                       리뷰 등록
                   </button>
