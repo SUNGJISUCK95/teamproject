@@ -9,12 +9,16 @@ const initialState = {
         name:'',
         mobile:'',
         email:'',
-        address:''
+        zipcode:'',
+        address:'',
+        detailAddress:''
     },
     receiverInfo:{
         name:'',
         mobile:'',
+        zipcode:'',
         address:'',
+        detailAddress: '',
         isSame: false
     }
 }
@@ -79,7 +83,9 @@ export const cartSlice = createSlice({
                     name : uname || '',
                     mobile : uphone || '',
                     email : uemail || '',
-                    address : uaddress || ''
+                    zipcode: '',
+                    address : uaddress || '',
+                    detailAddress : ''
                 };
             }
         },
@@ -89,11 +95,15 @@ export const cartSlice = createSlice({
             if(isSame){
                 state.receiverInfo.name = state.orderInfo.name;
                 state.receiverInfo.mobile = state.orderInfo.mobile;
+                state.receiverInfo.zipcode = state.orderInfo.zipcode;
                 state.receiverInfo.address = state.orderInfo.address;
+                state.receiverInfo.detailAddress = state.orderInfo.detailAddress;
             } else {
                 state.receiverInfo.name = '';
                 state.receiverInfo.mobile = '';
-                state.receiverInfo.address = ''
+                state.receiverInfo.zipcode = '';
+                state.receiverInfo.address = '';
+                state.receiverInfo.detailAddress = '';
             }
         }
 

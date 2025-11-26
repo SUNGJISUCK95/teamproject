@@ -82,7 +82,7 @@ public class SecurityConfig {
                     "/support/**", "/map/**", "/travel/**", "/csrf/**",
                     "/uploads/**",
                     "/api/chatbot", "/api/upload",
-                    "/rental/**"
+                    "/rental/**", "/payment/**"
                 ).permitAll()
 
                 // 게시판 조회(READ)만 허용 (GET)
