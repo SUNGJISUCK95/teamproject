@@ -9,7 +9,9 @@ const initialState = {
         name:'',
         mobile:'',
         email:'',
-        address:''
+        zipcode:'',
+        address:'',
+        detailAddress:''
     },
     receiverInfo:{
         name:'',

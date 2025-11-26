@@ -9,7 +9,8 @@ export default function CartShippingInfo() {
     const {orderInfo, receiverInfo} = useSelector(state => state.cart);
     useEffect(() => {
         if (cartList && cartList.length > 0) {
-            dispatch(userOrderInfo(cartList[0]))
+            dispatch(userOrderInfo(cartList[0]));
+            dispatch(toggleSameOrderer(true));
         }
     }, [cartList, dispatch]);
 
