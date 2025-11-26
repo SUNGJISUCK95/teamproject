@@ -661,7 +661,6 @@ FROM JSON_TABLE(
 ****************************************************/
 
 
-
 /*********************************************
 	     회원정보 테이블 : userinfo 테이블 
 			251110 수정 - 패스워드 길이 문제로 인하여 테이블 삭제 및 생성, 데이터 삽입을 요청드립니다.
@@ -682,13 +681,19 @@ create table userinfo(
     ugender		varchar(10) not null,
     uaddress	varchar(100) not null,
     uemail	varchar(100) default null,
-    uphone	varchar(100) default null
+    uphone	varchar(100) default null,
+    role	ENUM('USER', 'ADMIN') DEFAULT 'USER'
 );
+/*기존에 테이블을 만드신 분은 아래의 ADD column*/
+ALTER TABLE userinfo ADD COLUMN role ENUM('USER','ADMIN') DEFAULT 'USER' AFTER uphone;
 
 insert into userinfo(uid, upass, uname, uage, ugender, uaddress, uemail, uphone)
 value (
 "test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
 );
+
+UPDATE userinfo SET uid = "test111" where uid="test112";
+
 
 
 
@@ -707,9 +712,26 @@ create table rental_history(
     method VARCHAR(50) NOT NULL,
     start_time DATETIME NOT NULL,
     end_time DATETIME NULL,
-    FOREIGN KEY (user_id) REFERENCES userinfo(uid)
+    FOREIGN KEY (user_id) REFERENCES userinfo(uid) on update cascade
 );
 select * from rental_history;
+desc rental_history;
+
+/******************************************************
+	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여
+******************************************************/
+
+ALTER TABLE `rental_history` DROP FOREIGN KEY `rental_history_ibfk_1`;
+
+ALTER TABLE `rental_history`
+ADD CONSTRAINT `rental_history_ibfk_1` 
+FOREIGN KEY (`user_id`) 
+REFERENCES `userinfo` (`uid`) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+/******************************************************
+******************************************************/
+
 
 /***************************************************
 		대여 자전거 : rental_history 테이블 (끝)
@@ -723,8 +745,8 @@ select * from userinfo;
 ALTER TABLE userinfo
 ADD COLUMN role ENUM('USER','ADMIN') DEFAULT 'USER' AFTER uphone;
 select * from userinfo;
-desc userinfo;
-delete from userinfo where uid = 'test111';
+
+
 -- 251119 -- 위 컬럼 추가 후 데이터 추가 부탁드립니다--------------------------------------------------------------------
 insert into userinfo(uid, upass, uname, uage, ugender, uaddress, uemail, uphone,role)
 value ("1","$2a$10$FWC6QTGIGaCgx5tlrhvocOrAQdP0o8bcVE28UwG7qXNiKVN8FcyNy","1","1","남성","1순환로44(율량동,동청주세무서)" , "1@gmail.com","1","USER");
@@ -783,6 +805,21 @@ CREATE TABLE board_post (
   FOREIGN KEY (bid) REFERENCES board_category(bid) ON DELETE CASCADE,
   FOREIGN KEY (uid) REFERENCES userinfo(uid) ON DELETE CASCADE
 );
+
+/******************************************************
+	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여
+******************************************************/
+
+ALTER TABLE `board_post` DROP FOREIGN KEY `board_post_ibfk_2`;
+
+ALTER TABLE `board_post`
+ADD CONSTRAINT `board_post_ibfk_2` 
+FOREIGN KEY (`uid`) 
+REFERENCES `userinfo` (`uid`) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+/******************************************************
+******************************************************/
 show tables;
 select * from board_post;
 ALTER TABLE board_post ADD COLUMN writer VARCHAR(50);
@@ -909,7 +946,11 @@ create table cart(
 use bicycle;
 desc userinfo;
 desc cart;
-select * from cart;create table orders(
+select * from cart;
+/***************************************************
+	     주문테이블 : orders 테이블 - 황동주
+****************************************************/
+create table orders(
 	order_id varchar(50) primary key not null,
     uid varchar(100) not null,
     order_name varchar(300) not null,
