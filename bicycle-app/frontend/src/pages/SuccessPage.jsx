@@ -57,10 +57,10 @@ export function SuccessPage() {
                             {Number(searchParams.get("amount")).toLocaleString()}원
                         </span>
                     </p>
-                    <p>
-                        <span>paymentKey:</span>
-                        <span className="payment-key">{searchParams.get("paymentKey")}</span>
-                    </p>
+                    {/*<p>*/}
+                    {/*    <span>paymentKey:</span>*/}
+                    {/*    <span className="payment-key">{searchParams.get("paymentKey")}</span>*/}
+                    {/*</p>*/}
                 </div>
             </div>
         </div>

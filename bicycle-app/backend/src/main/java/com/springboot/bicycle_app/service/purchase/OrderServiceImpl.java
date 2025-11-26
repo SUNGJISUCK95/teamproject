@@ -5,6 +5,8 @@ import com.springboot.bicycle_app.dto.purchase.OrderRequestDto;
 import com.springboot.bicycle_app.dto.purchase.TossPayDto;
 import com.springboot.bicycle_app.entity.purchase.Order;
 import com.springboot.bicycle_app.entity.userinfo.UserInfo;
+import com.springboot.bicycle_app.repository.JpaCartRepository;
+import com.springboot.bicycle_app.repository.JpaOrderItemServiceRepository;
 import com.springboot.bicycle_app.repository.JpaOrderServiceRepository;
 import com.springboot.bicycle_app.repository.JpaUserInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,20 +25,24 @@ import java.util.*;
 public class OrderServiceImpl implements OrderService {
     private final JpaOrderServiceRepository jpaOrderServiceRepository;
     private final JpaUserInfoRepository jpaUserInfoRepository;
+    private final JpaCartRepository jpaCartRepository;
+    private final JpaOrderItemServiceRepository jpaOrderItemServiceRepository;
     private final RestClient restClient;
     @Value("${toss.widget.secret-key}")
     private String widgetSecretKey;
 
     @Autowired
-    public OrderServiceImpl(JpaOrderServiceRepository jpaOrderServiceRepository, JpaUserInfoRepository jpaUserInfoRepository) {
+    public OrderServiceImpl(JpaOrderServiceRepository jpaOrderServiceRepository, JpaUserInfoRepository jpaUserInfoRepository, JpaCartRepository jpaCartRepository, JpaOrderItemServiceRepository jpaOrderItemServiceRepository) {
+        this.jpaOrderItemServiceRepository = jpaOrderItemServiceRepository;
         this.jpaOrderServiceRepository = jpaOrderServiceRepository;
         this.jpaUserInfoRepository = jpaUserInfoRepository;
+        this.jpaCartRepository = jpaCartRepository;
         this.restClient = RestClient.create();
     }
     @Override
     public Order createOrder(OrderRequestDto requestDto){
         Optional<UserInfo> userInfo = jpaUserInfoRepository.findById(requestDto.getUserId());
-        String orderId = "ORDER-" + UUID.randomUUID().toString();
+        String orderId = "ORDER-" + UUID.randomUUID();
         Order order = new Order();
         order.setOrderId(orderId);
         order.setUser(userInfo.get());
@@ -51,7 +57,7 @@ public class OrderServiceImpl implements OrderService {
         Order order = jpaOrderServiceRepository.findByOrderId(dto.getOrderId())
                 .orElseThrow(() -> new PaymentFailedException("주문 정보를 찾을 수 없습니다."));
         if (dto.getAmount() != order.getTotalPrice()) {
-            throw new PaymentFailedException("결제 금액이 주문 금액과 일치하지 않습니다."); // [수정됨]
+            throw new PaymentFailedException("결제 금액이 주문 금액과 일치하지 않습니다.");
         }
         String encodedAuth = Base64.getEncoder()
                 .encodeToString((widgetSecretKey + ":").getBytes(StandardCharsets.UTF_8));
@@ -70,6 +76,12 @@ public class OrderServiceImpl implements OrderService {
 
             order.setPaymentKey(dto.getPaymentKey());
             order.setStatus("DONE");
+            UserInfo user = order.getUser();
+            int count = jpaOrderItemServiceRepository.insertOrderItem(order,user);
+            if(count == 0){
+                throw new RuntimeException("주문할 상품이 없습니다.");
+            }
+            jpaCartRepository.deleteByUser(user);
 
             return response;
 

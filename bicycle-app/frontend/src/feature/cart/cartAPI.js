@@ -59,15 +59,9 @@ export const checkQty = async(pid, size, id) => {
 }
 export const addCart = (pid, category) => async (dispatch) => {
     try {
-        // const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
-        // if (!loginInfo || !loginInfo.userId) {
-        //     // navigate("/login");
-        //     return;
-        // }
         const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
 
         const url = "/cart/add";
-        // const data = {"product_id": Number(pid), "qty": 1, "checked":true, "unum": Number(userId)};
         const data = {"product_id": Number(pid), "qty": 1, "checked":true, "uid": userId};
 
         const response = await axiosPost(url, data);

@@ -23,7 +23,8 @@ export const requestTossPay = async (widgets, cartList,totalPrice) => {
         };
         const url = "/payment/request";
         const response = await axiosPost(url,orderData);
-        const dbOrderId = response.data.orderId;
+        const dbOrderId = response.orderId;
+        console.log(response);
 
         await widgets.requestPayment({
             orderId: dbOrderId,

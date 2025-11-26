@@ -2,7 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import { loadTossPayments, ANONYMOUS } from "@tosspayments/tosspayments-sdk";
 import {requestTossPay} from "../../feature/payment/PaymentAPI.js";
 
-const clientKey = process.env.REACT_APP_TOSS_CLIENT_KEY;
+const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
 
 export function CheckoutPayment({ totalPrice, cartList }) {
     const widgetRef = useRef(null);
