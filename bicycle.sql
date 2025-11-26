@@ -909,11 +909,7 @@ create table cart(
 use bicycle;
 desc userinfo;
 desc cart;
-select * from cart;
-/***************************************************
-	     주문테이블 : orders 테이블 - 황동주
-****************************************************/
-create table orders(
+select * from cart;create table orders(
 	order_id varchar(50) primary key not null,
     uid varchar(100) not null,
     order_name varchar(300) not null,
@@ -925,6 +921,24 @@ create table orders(
     foreign key(uid) references userinfo(uid)
 );
 desc orders;
+drop table orders;
+select * from orders;
+/******************************************************
+	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여
+******************************************************/
+
+ALTER TABLE `orders` DROP FOREIGN KEY `orders_ibfk_1`;
+
+ALTER TABLE `orders`
+ADD CONSTRAINT `order_ibfk_1` 
+FOREIGN KEY (`uid`) 
+REFERENCES `userinfo` (`uid`) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+/******************************************************
+******************************************************/
+
+
 /***************************************************
 	     주문상세아이템테이블 : orders_items 테이블 - 황동주
 ****************************************************/
