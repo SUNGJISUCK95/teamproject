@@ -92,6 +92,7 @@ DROP TABLE travel_food;
 
 create table travel_food(
 	fid			int				auto_increment primary key,
+    region   	varchar(100) not null,
     fname   	varchar(30) not null,
 	lat			DECIMAL(10,8),
     lng	    	DECIMAL(11,8),
@@ -112,8 +113,9 @@ desc travel_food;
 select * from travel_food;
 
 -- json 파일의 travel_food 정보 매핑
-insert into travel_food(fname, lat, lng, flike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+insert into travel_food(region, fname, lat, lng, flike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
 select 
+	jt.region,
 	jt.fname,
     jt.lat,
     jt.lng,
@@ -133,6 +135,7 @@ from
 		cast(load_file('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelFoods.json') 
 				AS CHAR CHARACTER SET utf8mb4 ),
 		'$[*]' COLUMNS (
+			 region			varchar(100)	PATH '$.region',
 			 fname   		varchar(30) 	PATH '$.fname', 
              lat			DECIMAL(10,8)	PATH '$.lat',
 			 lng			DECIMAL(11,8)   PATH '$.lng',
@@ -156,6 +159,7 @@ select * from travel_food;
 DROP TABLE travel_hotel;
 create table travel_hotel(
 	hid			int				auto_increment primary key,
+    region   	varchar(100) not null,
     hname   	varchar(30) not null,
 	lat			DECIMAL(10,8),
     lng	    	DECIMAL(11,8),
@@ -176,8 +180,9 @@ desc travel_hotel;
 select * from travel_hotel;
 
 -- json 파일의 travel_food 정보 매핑
-insert into travel_hotel(hname, lat, lng, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+insert into travel_hotel(region, hname, lat, lng, hlike, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
 select 
+	jt.region,
 	jt.hname,
     jt.lat,
     jt.lng,
@@ -197,6 +202,7 @@ from
 		cast(load_file('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelHotels.json') 
 				AS CHAR CHARACTER SET utf8mb4 ),
 		'$[*]' COLUMNS (
+			 region				varchar(100)	PATH '$.region',
 			 hname   			varchar(30) 	PATH '$.hname',
              lat				DECIMAL(10,8)	PATH '$.lat',
 			 lng				DECIMAL(11,8)   PATH '$.lng',
@@ -221,6 +227,7 @@ select * from travel_hotel;
 DROP TABLE travel_repair;
 create table travel_repair(
 	rid			int				auto_increment primary key,
+    region   	varchar(100) not null,
     rname   	varchar(30) not null,
     lat			DECIMAL(10,8),
     lng	    	DECIMAL(11,8),
@@ -241,8 +248,9 @@ desc travel_repair;
 select * from travel_repair;
 
 -- json 파일의 travel_food 정보 매핑
-insert into travel_repair(rname, lat, lng, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
+insert into travel_repair(region, rname, lat, lng, `rlike`, score, evaluation, tag, image1, image2, image3, full_image1, full_image2, full_image3, description)
 select 
+	jt.region,
 	jt.rname,
     jt.lat,
     jt.lng,
@@ -262,6 +270,7 @@ from
 		cast(load_file('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/travelRepairs.json') 
 				AS CHAR CHARACTER SET utf8mb4 ),
 		'$[*]' COLUMNS (
+			 region			varchar(100)    PATH '$.region',
 			 rname   		varchar(30) 	PATH '$.rname', 
              lat			DECIMAL(10,8)	PATH '$.lat',
 			 lng			DECIMAL(11,8)   PATH '$.lng',

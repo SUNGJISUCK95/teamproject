@@ -218,7 +218,7 @@ const routeLineRef = useRef(null);
                     image: greenMarkerImage,
                     map: map,
                   });
-  
+
                   // 오버레이 내용
                   const content = `
                     <div class="map-marker-overlay-box" >
@@ -264,7 +264,7 @@ const routeLineRef = useRef(null);
                       goback_btn.style.top = "0.3rem";
                     }
 
-                    handleMenuClick(type);
+                    handleMenuClick(type, mname);
 
                   });
                   markers.push(marker);
