@@ -9,16 +9,14 @@ const initialState = {
         name:'',
         mobile:'',
         email:'',
-        zipcode:'',
+        postcode:'',
         address:'',
-        detailAddress:''
     },
     receiverInfo:{
         name:'',
         mobile:'',
-        zipcode:'',
+        postcode:'',
         address:'',
-        detailAddress: '',
         isSame: false
     }
 }
@@ -77,15 +75,14 @@ export const cartSlice = createSlice({
             state.receiverInfo[name] = value;
         },
         userOrderInfo(state,action){
-            const{uname,uphone,uemail,uaddress} = action.payload;
+            const{uname,uphone,uemail,uaddress,postcode} = action.payload;
             if(!state.orderInfo.name){
                 state.orderInfo = {
                     name : uname || '',
                     mobile : uphone || '',
                     email : uemail || '',
-                    zipcode: '',
+                    postcode: postcode || '',
                     address : uaddress || '',
-                    detailAddress : ''
                 };
             }
         },
@@ -95,15 +92,13 @@ export const cartSlice = createSlice({
             if(isSame){
                 state.receiverInfo.name = state.orderInfo.name;
                 state.receiverInfo.mobile = state.orderInfo.mobile;
-                state.receiverInfo.zipcode = state.orderInfo.zipcode;
+                state.receiverInfo.postcode = state.orderInfo.postcode;
                 state.receiverInfo.address = state.orderInfo.address;
-                state.receiverInfo.detailAddress = state.orderInfo.detailAddress;
             } else {
                 state.receiverInfo.name = '';
                 state.receiverInfo.mobile = '';
-                state.receiverInfo.zipcode = '';
+                state.receiverInfo.postcode = '';
                 state.receiverInfo.address = '';
-                state.receiverInfo.detailAddress = '';
             }
         }
 
