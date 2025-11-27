@@ -16,6 +16,7 @@ public class CartListResponseDto {
     private String uphone;
     private String uemail;
     private String uaddress;
+    private String postcode;
     private long product_id;
     private String category;
     private String name;
