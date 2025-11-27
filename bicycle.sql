@@ -486,31 +486,6 @@ FROM JSON_TABLE(
 	     여행지 추천: travel_food_detail 관련 테이블 (끝)
 ****************************************************/
 
-/***************************************************
-	     여행지 추천: travel_save 관련 테이블 
-****************************************************/
-
-DROP TABLE travel_save;
-create table travel_save(
-	sid					int				auto_increment primary key,
-    uid   				varchar(100) 	not null,
-    fid	    			json,
-    hid	    			json,
-    rid	    			json,    
-    constraint fk_travel_user
-        foreign key (uid)
-        references userinfo(uid)
-        on delete cascade
-        on update cascade
-);
-
-desc travel_save;
-select * from travel_save;
-
-/***************************************************
-	     여행지 추천: travel_save 관련 테이블 (끝)
-****************************************************/
-
 
 /*********************************************
 	     회원정보 테이블 : userinfo 테이블 
@@ -532,27 +507,22 @@ create table userinfo(
     ugender		varchar(10) not null,
     uaddress	varchar(100) not null,
     uemail	varchar(100) default null,
-    uphone	varchar(100) default null,
-    role	ENUM('USER', 'ADMIN') DEFAULT 'USER'
+    uphone	varchar(100) default null
 );
-/*기존에 테이블을 만드신 분은 아래의 ADD column*/
-ALTER TABLE userinfo ADD COLUMN role ENUM('USER','ADMIN') DEFAULT 'USER' AFTER uphone;
 
 insert into userinfo(uid, upass, uname, uage, ugender, uaddress, uemail, uphone)
 value (
 "test111","$2a$10$D/b6eWYeHIL.LWGOmZcMJewK1sj93Emq58YDCyYL32EdN8X97ept2","asdf","102","남성","아리랑로 6 (동선동4가) 121","111@gmail.com","11111111111"
 );
 
-UPDATE userinfo SET uid = "test111" where uid="test112";
-
-
 
 
 /***************************************************
 		대여 자전거 : rental_history 테이블 (시작)
 ****************************************************/
-
+use bicycle;
 drop table rental_history;
+select * from rental_history;
 
 create table rental_history(
 	bid bigint auto_increment primary key,
@@ -563,26 +533,23 @@ create table rental_history(
     method VARCHAR(50) NOT NULL,
     start_time DATETIME NOT NULL,
     end_time DATETIME NULL,
-    FOREIGN KEY (user_id) REFERENCES userinfo(uid) on update cascade
+    FOREIGN KEY (user_id) REFERENCES userinfo(uid)
 );
-select * from rental_history;
-desc rental_history;
+ALTER TABLE rental_history ADD COLUMN status VARCHAR(20) NOT NULL DEFAULT '대기';
 
-/******************************************************
-	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여
-******************************************************/
-
-ALTER TABLE `rental_history` DROP FOREIGN KEY `rental_history_ibfk_1`;
-
-ALTER TABLE `rental_history`
-ADD CONSTRAINT `rental_history_ibfk_1` 
-FOREIGN KEY (`user_id`) 
-REFERENCES `userinfo` (`uid`) 
-ON DELETE CASCADE 
-ON UPDATE CASCADE;
-/******************************************************
-******************************************************/
-
+drop table kakaopay_history;
+select * from kakaopay_history;
+CREATE TABLE kakaopay_history (
+    id				  BIGINT	   AUTO_INCREMENT PRIMARY KEY,
+    tid				  VARCHAR(50)  NOT NULL UNIQUE, 
+    partner_order_id  BIGINT       NOT NULL UNIQUE, 
+    partner_user_id   VARCHAR(100) NOT NULL, 
+    amount            BIGINT       NOT NULL, 
+    status            VARCHAR(20)  NOT NULL, 
+    created_at        DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+    updated_at        DATETIME     NULL, 
+    FOREIGN KEY (partner_user_id) REFERENCES userinfo(uid)
+);
 
 /***************************************************
 		대여 자전거 : rental_history 테이블 (끝)
@@ -656,21 +623,6 @@ CREATE TABLE board_post (
   FOREIGN KEY (bid) REFERENCES board_category(bid) ON DELETE CASCADE,
   FOREIGN KEY (uid) REFERENCES userinfo(uid) ON DELETE CASCADE
 );
-
-/******************************************************
-	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여
-******************************************************/
-
-ALTER TABLE `board_post` DROP FOREIGN KEY `board_post_ibfk_2`;
-
-ALTER TABLE `board_post`
-ADD CONSTRAINT `board_post_ibfk_2` 
-FOREIGN KEY (`uid`) 
-REFERENCES `userinfo` (`uid`) 
-ON DELETE CASCADE 
-ON UPDATE CASCADE;
-/******************************************************
-******************************************************/
 show tables;
 select * from board_post;
 ALTER TABLE board_post ADD COLUMN writer VARCHAR(50);
@@ -813,24 +765,6 @@ create table orders(
     foreign key(uid) references userinfo(uid)
 );
 desc orders;
-drop table orders;
-select * from orders;
-/******************************************************
-	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여
-******************************************************/
-
-ALTER TABLE `orders` DROP FOREIGN KEY `orders_ibfk_1`;
-
-ALTER TABLE `orders`
-ADD CONSTRAINT `order_ibfk_1` 
-FOREIGN KEY (`uid`) 
-REFERENCES `userinfo` (`uid`) 
-ON DELETE CASCADE 
-ON UPDATE CASCADE;
-/******************************************************
-******************************************************/
-
-
 /***************************************************
 	     주문상세아이템테이블 : orders_items 테이블 - 황동주
 ****************************************************/
