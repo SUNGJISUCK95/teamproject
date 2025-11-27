@@ -983,8 +983,13 @@ create table orders(
     foreign key(uid) references userinfo(uid)
 );
 desc orders;
-drop table orders;
 select * from orders;
+desc userinfo;
+/******************************************************
+	251127 -- 주문내역에 우편번호 주소 추가
+******************************************************/
+ALTER TABLE orders ADD COLUMN uaddress varchar(100) AFTER payment_key;
+ALTER TABLE orders ADD COLUMN postcode varchar(100) AFTER uaddress;
 /******************************************************
 	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여
 ******************************************************/
@@ -1015,3 +1020,4 @@ create table orders_items(
     foreign key(product_id) references product(product_id)
 );
 desc orders_items;
+select * from orders_items;

@@ -1,7 +1,7 @@
 .find_address_button {
     font-size: 1.2vh;
     color: white;
-    background-color: #333;
+    background-color: #d9534f;;
     /* 버튼의 배경 색상 */
     border: none;
     border-radius: 0.5vh;
@@ -18,7 +18,7 @@
 }
 
 .find_address_button:hover {
-    background-color: #5593ff;
+    background-color: #c9302c;
     /* 버튼에 마우스를 올렸을 때의 배경 색상 변경 */
 }
 

@@ -2,11 +2,13 @@ import {useEffect, useState} from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import {confirmPayment} from "../feature/payment/PaymentAPI.js";
 import '../styles/successpage.css';
+import {useSelector} from "react-redux";
 
 export function SuccessPage() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const [isConfirm, setIsConfirm] = useState(false);
+    const [orderName, setOrderName] = useState("");
 
     useEffect(() => {
         const orderId =  searchParams.get("orderId");
@@ -19,6 +21,9 @@ export function SuccessPage() {
         const handleConfirm = async () => {
             try {
                 const response = await confirmPayment(paymentKey,orderId,amount);
+                if (response && response.orderName) {
+                    setOrderName(response.orderName);
+                }
                 setIsConfirm(true);
             } catch (error) {
                 navigate(`/fail?message=결제 정보가 올바르지 않습니다.&code=INVALID_PARAMS`);
@@ -47,6 +52,10 @@ export function SuccessPage() {
                 </h1>
                 <p className="success-message">결제가 성공적으로 완료되었습니다.</p>
                 <div className="payment-details-box">
+                    <p>
+                        <span>주문 상품:</span>
+                        <span style={{ fontWeight: 'bold' }}>{orderName}</span>
+                    </p>
                     <p>
                         <span>주문번호:</span>
                         <span>{searchParams.get("orderId")}</span>

@@ -49,6 +49,8 @@ public class OrderServiceImpl implements OrderService {
         order.setOrderName(requestDto.getOrderName());
         order.setTotalPrice((int) requestDto.getAmount());
         order.setStatus("PENDING");
+        order.setUaddress(requestDto.getUaddress());
+        order.setPostcode(requestDto.getPostcode());
         order.setOdate(LocalDateTime.now());
         return jpaOrderServiceRepository.save(order);
     }
