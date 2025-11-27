@@ -1,10 +1,12 @@
 import {useEffect, useRef, useState} from "react";
 import { loadTossPayments, ANONYMOUS } from "@tosspayments/tosspayments-sdk";
 import {requestTossPay} from "../../feature/payment/PaymentAPI.js";
+import {useSelector} from "react-redux";
 
 const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
 
 export function CheckoutPayment({ totalPrice, cartList }) {
+    const { receiverInfo } = useSelector((state) => state.cart);
     const widgetRef = useRef(null);
     useEffect(() => {
         let isCancelled = false;
@@ -64,7 +66,7 @@ export function CheckoutPayment({ totalPrice, cartList }) {
         if(totalPrice <= 0 ){
             alert("결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.");
             return;
-        } await requestTossPay(widgets,cartList,totalPrice);
+        } await requestTossPay(widgets,cartList,totalPrice,receiverInfo);
     };
 
     return (

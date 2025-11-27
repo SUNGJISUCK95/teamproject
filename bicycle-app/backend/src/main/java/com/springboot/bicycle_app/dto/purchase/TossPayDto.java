@@ -12,4 +12,5 @@ public class TossPayDto {
     private String paymentKey;
     private long amount;
     private String userId;
+    private String orderName;
 }

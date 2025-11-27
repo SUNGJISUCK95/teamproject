@@ -7,4 +7,6 @@ public class OrderRequestDto {
     private String userId;
     private long amount;
     private String orderName;
+    private String uaddress;
+    private String postcode;
 }

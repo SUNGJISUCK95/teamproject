@@ -1,6 +1,6 @@
 import {axiosPost} from "../../utils/dataFetch.js";
 
-export const requestTossPay = async (widgets, cartList,totalPrice) => {
+export const requestTossPay = async (widgets, cartList, totalPrice,receiverInfo) => {
     if (!widgets) {
         alert("결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.");
         return;
@@ -19,7 +19,9 @@ export const requestTossPay = async (widgets, cartList,totalPrice) => {
         const orderData = {
             userId: userId,
             amount: totalPrice,
-            orderName: formattedOrderName
+            orderName: formattedOrderName,
+            uaddress: receiverInfo.address,
+            postcode: receiverInfo.postcode
         };
         const url = "/payment/request";
         const response = await axiosPost(url,orderData);
@@ -41,14 +43,24 @@ export const requestTossPay = async (widgets, cartList,totalPrice) => {
     }
 }
 
-export const confirmPayment = async (paymentKey,orderId,amount) => {
+export const confirmPayment = async (paymentKey,orderId,amount,cartList) => {
+    let formattedOrderName = "주문 상품";
+    if (cartList && cartList.length > 0) {
+        const firstItemName = cartList[0].name;
+        const remainingItemsCount = cartList.length - 1;
+        formattedOrderName = remainingItemsCount > 0
+            ? `${firstItemName} 외 ${remainingItemsCount}건`
+            : firstItemName;
+    }
     const url = "/payment/confirm";
     const { userId } = JSON.parse(localStorage.getItem("loginInfo"));
     const data = {
         paymentKey: paymentKey,
         orderId: orderId,
         amount: Number(amount),
-        userId: userId
+        userId: userId,
+        orderName: formattedOrderName
+
     };
     const response = await axiosPost(url,data);
     return response;
