@@ -62,7 +62,7 @@ public class SecurityConfig {
             // 🔥 CSRF 설정 (기존 유지)
             .csrf(csrf -> csrf
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                .ignoringRequestMatchers("/auth/logout", "/cart/**", "/api/chatbot", "/auth/me")  // 그대로 유지
+                .ignoringRequestMatchers("/auth/logout", "/cart/**", "/api/chatbot", "/auth/me", "/kakaopay/success", "/kakaopay/cancel", "/kakaopay/fail")  // 그대로 유지
                 .csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler())
             )
             .authenticationProvider(authenticationProvider())//중간자 겸 공급자?
@@ -75,14 +75,14 @@ public class SecurityConfig {
             .requestCache(rc -> rc.disable()) //로그인 후 리다이렉트 방지
             //                .securityContext(sc -> sc.requireExplicitSave(true)) //인증정보 세션 자동저장 방지
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers(HttpMethod.POST, "/rental/payment").permitAll()
+                .requestMatchers(HttpMethod.POST, "/rental/payment", "/kakaopay/ready").permitAll()
                 // 공개 API (읽기 전용)
                 .requestMatchers(
                     "/member/**", "/products/**", "/auth/**", "/cart/**",
                     "/support/**", "/map/**", "/travel/**", "/csrf/**",
                     "/uploads/**",
                     "/api/chatbot", "/api/upload",
-                    "/rental/**", "/payment/**"
+                    "/rental/**", "/kakaopay/success", "/kakaopay/cancel", "/kakaopay/fail"
                 ).permitAll()
 
                 // 게시판 조회(READ)만 허용 (GET)

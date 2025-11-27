@@ -703,8 +703,9 @@ ALTER TABLE userinfo ADD COLUMN postcode varchar(100) DEFAULT "00000" AFTER uadd
 /***************************************************
 		대여 자전거 : rental_history 테이블 (시작)
 ****************************************************/
-
+use bicycle;
 drop table rental_history;
+select * from rental_history;
 
 create table rental_history(
 	bid bigint auto_increment primary key,
@@ -715,10 +716,27 @@ create table rental_history(
     method VARCHAR(50) NOT NULL,
     start_time DATETIME NOT NULL,
     end_time DATETIME NULL,
-    FOREIGN KEY (user_id) REFERENCES userinfo(uid) on update cascade
+    FOREIGN KEY (user_id) REFERENCES userinfo(uid)
 );
-select * from rental_history;
-desc rental_history;
+ALTER TABLE rental_history ADD COLUMN status VARCHAR(20) NOT NULL DEFAULT '대기';
+
+drop table kakaopay_history;
+select * from kakaopay_history;
+CREATE TABLE kakaopay_history (
+    id				  BIGINT	   AUTO_INCREMENT PRIMARY KEY,
+    tid				  VARCHAR(50)  NOT NULL UNIQUE, 
+    partner_order_id  BIGINT       NOT NULL UNIQUE, 
+    partner_user_id   VARCHAR(100) NOT NULL, 
+    amount            BIGINT       NOT NULL, 
+    status            VARCHAR(20)  NOT NULL, 
+    created_at        DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+    updated_at        DATETIME     NULL, 
+    FOREIGN KEY (partner_user_id) REFERENCES userinfo(uid)
+);
+
+/***************************************************
+		대여 자전거 : rental_history 테이블 (끝)
+****************************************************/
 
 /******************************************************
 	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여

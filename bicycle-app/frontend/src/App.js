@@ -32,6 +32,7 @@ import { useEffect } from 'react';
 import { createCsrfToken } from './feature/csrf/manageCsrfToken.js';
 import { SuccessPage } from "./pages/SuccessPage.jsx";
 import { FailPage } from "./pages/FailPage.jsx";
+import {RentalPaymentResults} from "./components/rental/RentalPaymentResult.jsx";
 
 export default function App() {
 
@@ -54,6 +55,9 @@ export default function App() {
                         {/* 주요 메뉴 */}
                         <Route path="rental" element={<Rental />} />
                         <Route path="travel" element={<Travel />} />
+
+                        {/* 대여(rental)결제 결과 */}
+                        <Route path="/payment/complete" element={<RentalPaymentResults />} />
 
                         {/* Support (고객센터) */}
                         <Route path="support">
