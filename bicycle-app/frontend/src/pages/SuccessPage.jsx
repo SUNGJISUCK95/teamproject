@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import {confirmPayment} from "../feature/payment/PaymentAPI.js";
 import '../styles/successpage.css';
-import {useSelector} from "react-redux";
+
 
 export function SuccessPage() {
     const navigate = useNavigate();
