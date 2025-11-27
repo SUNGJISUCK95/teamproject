@@ -32,19 +32,19 @@ export function Footer() {
         {/* 중앙 링크 섹션 */}
         <div className="footer-links">
           <div>
-            <h4>고객센터</h4>
-            <ul>
-              <li><button onClick={() => navigate("/support/faq")}>자주 묻는 질문</button></li>
-              <li><button onClick={() => navigate("/support/asinfo")}>A/S 안내</button></li>
-              <li><button onClick={() => navigate("/support/resources")}>자료실</button></li>
-            </ul>
-          </div>
-          <div>
             <h4>게시판</h4>
             <ul>
               <li><button onClick={() => navigate("/board/news")}>뉴스</button></li>
               <li><button onClick={() => navigate("/board/event")}>이벤트</button></li>
               <li><button onClick={() => navigate("/board/review")}>리뷰</button></li>
+            </ul>
+          </div>
+          <div>
+            <h4>고객센터</h4>
+            <ul>
+              <li><button onClick={() => navigate("/support/faq")}>자주 묻는 질문</button></li>
+              <li><button onClick={() => navigate("/support/asinfo")}>A/S 안내</button></li>
+              <li><button onClick={() => navigate("/support/resources")}>자료실</button></li>
             </ul>
           </div>
           {/* <div>
@@ -82,11 +82,6 @@ export function Footer() {
             <a href="/policies/internalpolicy">내부정보 관리규정</a>
           </div>
 
-          {/* 언어 선택 */}
-          {/* <select className="footer-lang">
-            <option>한국어</option>
-            <option>English</option>
-          </select> */}
         </div>
       </div>
 
@@ -98,7 +93,7 @@ export function Footer() {
       {/* 🚀 TOP 버튼 */}
       {showTop && (
         <button className="top-btn" onClick={scrollToTop}>
-          ▲
+          <i className="fa-solid fa-angle-up"></i>
         </button>
       )}
     </footer>
