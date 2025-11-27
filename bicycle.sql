@@ -700,6 +700,23 @@ UPDATE userinfo SET uid = "test111" where uid="test112";
 ALTER TABLE userinfo ADD COLUMN postcode varchar(100) DEFAULT "00000" AFTER uaddress;
 
 
+/***********************************************************
+		251127 - 아이디 검색 및 비밀번호 변경 - 확인용 인증 코드 및 유효시간 받는 용도의 테이블 추가
+***********************************************************/
+
+create table userinfoauthsearch(
+    authcode varchar(100) primary key,
+    uemail	varchar(100) not null,
+    uname	    varchar(50) not null,
+    uid   		varchar(100),
+    deadtime DATETIME
+);
+
+select * from userinfoauthsearch;
+drop table userinfoauthsearch;
+
+
+
 /***************************************************
 		대여 자전거 : rental_history 테이블 (시작)
 ****************************************************/
