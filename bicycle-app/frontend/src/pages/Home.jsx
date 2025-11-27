@@ -125,6 +125,42 @@ export function Home() {
         <Link to="/travel" className="btn-outline">더보기</Link>
       </section>
 
+      {/* 게시판 */}
+      <section className="section board">
+        <span className="section-subtitle">Board</span>
+        <h2>라이더 커뮤니티</h2>
+        <div className="board-container">
+          {/* News */}
+          <div className="board-item">
+            <img src="/images/home_board1.jpg" alt="News" />
+            <div className="board-text">
+              <h3>뉴스</h3>
+              <p>브랜드의 최신 소식과 업데이트를 확인하세요.</p>
+              <Link to="/board/news" className="btn-outline">바로가기</Link>
+            </div>
+          </div>
+          {/* Event */}
+          <div className="board-item">
+            <img src="/images/home_board2.jpg" alt="Event" />
+            <div className="board-text">
+              <h3>이벤트</h3>
+              <p>다양한 이벤트에 참여하고 특별한 혜택을 누려보세요.</p>
+              <Link to="/board/event" className="btn-outline">바로가기</Link>
+            </div>
+          </div>
+          {/* Review */}
+          <div className="board-item">
+            <img src="/images/home_board3.jpg" alt="Review" />
+            <div className="board-text">
+              <h3>리뷰</h3>
+              <p>실제 라이더들의 생생한 사용 후기를 만나보세요.</p>
+              <Link to="/board/review" className="btn-outline">바로가기</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* 고객센터 */}
       <section className="section support">
         <span className="section-subtitle">Support</span>

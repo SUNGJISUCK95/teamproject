@@ -13,7 +13,7 @@ export function Header() {
     const [purchaseMenuOpen, setPurchaseMenuOpen] = useState(false);
     const [purchaseActive, setPurchaseActive] = useState(false);
     const [showChatbot, setShowChatbot] = useState(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 1023);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
     const [closing, setClosing] = useState(false);
     const location = useLocation();
     const loginInfo = localStorage.getItem("loginInfo");
@@ -29,7 +29,7 @@ export function Header() {
     // 화면 크기 감지
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 1023);
+            setIsMobile(window.innerWidth <= 767);
         };
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -144,6 +144,17 @@ export function Header() {
                         <FaHeadset className="icon" />
                         {/* <span className="text">고객센터</span> */}
                     </NavLink>
+                    <Link
+                        to="#"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setShowChatbot(!showChatbot);
+                        }}
+                        className={`icon-link ${showChatbot ? "active" : ""}`}
+                    >
+                        <i className="fa-solid fa-comments"></i>
+                        {/* <span className="text">챗봇</span> */}
+                    </Link>
                     {/* ⭐ 마이페이지 (로그인된 경우만 표시) */}
                     {isLogin && (
                         <NavLink to="/mypage" className="icon-link">
@@ -170,17 +181,6 @@ export function Header() {
                         {/* <span className="text">로그인</span> */}
                     </NavLink>
                     )}
-                    <Link
-                        to="#"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            setShowChatbot(!showChatbot);
-                        }}
-                        className={`icon-link ${showChatbot ? "active" : ""}`}
-                    >
-                        <i className="fa-solid fa-comments"></i>
-                        {/* <span className="text">챗봇</span> */}
-                    </Link>
 
                     <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
                         {menuOpen ? <FaTimes /> : <FaBars />}
