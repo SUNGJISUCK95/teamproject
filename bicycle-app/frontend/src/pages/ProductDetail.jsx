@@ -25,6 +25,12 @@ export function ProductDetail() {
         navigate("/location");
     }
     const goToCart = () => {
+        const userInfo = localStorage.getItem('userInfo');
+        if (!userInfo) {
+            alert("로그인이 필요합니다.");
+            navigate("/login");
+            return;
+        }
         dispatch(addCart(product.product_id, category));
     }
 

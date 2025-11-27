@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import {Link, NavLink, useLocation, useNavigate} from "react-router-dom";
 import { FaHeadset, FaUser, FaBars, FaTimes, FaCartArrowDown, FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { Chatbot } from "../../pages/support/Chatbot.jsx";
 import "../../styles/purchaseheader.css";
@@ -20,7 +20,7 @@ export function Header() {
     // const isLogin = loginInfo ? true : false;
     //기존 localStroage에서 가져오는 방식에서 store에 저장된 isLogin값을 가져오는 방식으로 수정
     const isLogin = useSelector((state)=>state.auth.isLogin)
-    
+    const navigate = useNavigate();
 
     
     const dispatch = useDispatch();
@@ -83,6 +83,13 @@ export function Header() {
             setClosing(false);
         }, 300);
     };
+    const handleCartClick = (e) => {
+        if (!isLogin) {
+            e.preventDefault();
+            alert("로그인이 필요합니다.");
+            navigate("/login");
+        }
+    }
 
     return (
         <>
@@ -136,7 +143,7 @@ export function Header() {
                 </nav>
 
                 <div className="header-right">
-                    <NavLink to="/cart" className="icon-link">
+                    <NavLink to="/cart" className="icon-link" onClick={handleCartClick}>
                         <FaCartArrowDown className="icon" />
                         {/* <span className="text">장바구니</span> */}
                     </NavLink>
