@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-self: end; /* ✅ grid 오른쪽 배치 */
-  gap: 10px;
+  gap: 15px;
 }
 
 /* 공통 아이콘 링크 */
@@ -89,7 +89,7 @@ a.icon-link,
   gap: 5px;
   color: var(--color-black);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1;
   vertical-align: middle;
   text-decoration: none;
@@ -116,15 +116,21 @@ a.icon-link,
   color: var(--color-black);
 }
 
-/* 🧩 1200px 이하에서 아이콘 텍스트 숨김 (중앙 메뉴와 충돌 방지) */
-@media (max-width: 1200px) {
-  .icon-link .text {
-    display: none;
+/* 💻 태블릿 구간 (768px ~ 1023px) */
+@media (max-width: 1023px) {
+  /* 우측 메뉴 간격 살짝 좁히기 */
+  .header-right {
+    gap: 10px;
+  }
+
+  a.icon-link,
+  .icon-link {
+    font-size: 1rem;
   }
 }
 
-/* 💻 태블릿 구간 (768px ~ 1023px) */
-@media (max-width: 1023px) {
+/* 📱 모바일 (767px 이하) */
+@media (max-width: 767px) {
   /* grid 대신 flex로 변경 */
   .header {
     display: flex;
@@ -136,7 +142,7 @@ a.icon-link,
   /* 중앙 메뉴 숨기기 (모바일과 동일하게 접기 준비) */
   .header-center {
     position: fixed;
-    top: 57px;
+    top: 55px;
     right: -100%;
     width: 35%;
     height: 100vh;
@@ -178,30 +184,13 @@ a.icon-link,
 
   .menu-btn {
     display: block;
+    position: relative;
+    top: 2px;
+    margin-left: 10px;
   }
 
   .icon-link .text {
     display: none;
-  }
-
-    /* 우측 메뉴 간격 살짝 좁히기 */
-  .header-right {
-    gap: 15px;
-  }
-}
-
-/* 📱 모바일 (767px 이하) */
-@media (max-width: 767px) {
-  .header {
-    padding: 10px 20px;
-  }
-
-  .header-center {
-    width: 50%;
-  }
-
-  .header-center ul {
-    gap: 18px;
   }
 }
 

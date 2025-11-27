@@ -22,7 +22,7 @@ export const getLogin = (formData,param) => async(dispatch) => {
         if(result.login)
         {
             //"로그인 성공"
-            dispatch(login({"userId":result.userId,"isSocial":true}));
+            dispatch(login({"userId":result.userId,"isSocial":true,"role":result.role}));
             await refreshCsrfToken();
 
             //장바구니 갯수를 카운트하는 함수 호출
@@ -40,7 +40,7 @@ export const getLogin = (formData,param) => async(dispatch) => {
             {
                 await refreshCsrfToken();
                 //"로그인 성공"
-                dispatch(login({"userId":result.userId,"isSocial":false}));
+                dispatch(login({"userId":result.userId,"isSocial":false,"role":result.role}));
 
                 //장바구니 갯수를 카운트하는 함수 호출
     //            const count = await getCartCount(formData.id);
@@ -53,18 +53,12 @@ export const getLogin = (formData,param) => async(dispatch) => {
 }
 
 
-// export const getLogout = () => async(dispatch) => {
-//     dispatch(logout());
-//     return true;
-// }
-
 export const getLogout = () => async(dispatch) => {
     const url = "/auth/logout";
     const result = await axiosPost(url, {});
     if(result) {
         await refreshCsrfToken();
         dispatch(logout());
-        // dispatch(resetCartCount());
     }
 
     return result;
@@ -118,7 +112,7 @@ export const usePostCode= (formData,setFormData)=>{
         fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
     }
 
-    setFormData({...formData,  mainAddress : fullAddress})
+    setFormData({...formData,  mainAddress : fullAddress, postcode: placezonecode})
     };
     const handleClick = () => {
     open({ onComplete: handleComplete });
@@ -139,6 +133,7 @@ export const idDuplCheck = async(incomeId) => {
 //SignUp.jsx 사용
 export const sendSignUpData = async(formData) =>
 {
+    console.log(formData)
     let emailAddress_full = "";
     if(formData.emailList==="default"){
         emailAddress_full = formData.emailAddress;
@@ -153,6 +148,7 @@ export const sendSignUpData = async(formData) =>
         uage : formData.age,
         ugender : formData.gender,
         uaddress : formData.mainAddress+ " " +formData.detailAddress,
+        postcode : formData.postcode,
         uemail : emailAddress_full,
         uphone : formData.phone,
         jwToken : formData.jwToken,
@@ -192,7 +188,10 @@ export const randomString8to16 = () =>{
 export const updateUser = async (newUserData) =>{
     
     const url = "/auth/updateUser";
-    console.log("update newUserData:>>>>>",newUserData);
+    newUserData["postcode"]=newUserData["uaddress_main"].split(" *** ")[1]
+    newUserData["uaddress_main"]=newUserData["uaddress_main"].split(" *** ")[0]
+    newUserData["uaddress"] = newUserData.uaddress_main + " " + newUserData.uaddress_sub;
+    console.log("update newUserData:>>>>>",newUserData);    
     for( const [key, value] of Object.entries(newUserData))
         {
             if(newUserData[key]==="")
@@ -208,4 +207,20 @@ export const updateUser = async (newUserData) =>{
     }
 
     return 1;//어차피 1 반환함
+}
+
+export const IdDrop = async(dropUserData)=>{
+    const url = "/auth/iddrop";
+    const idDropResult = await axiosPost(url,dropUserData)
+    console.log("ID delete end");
+
+    return null;
+}
+
+export const SearchingUserInfo = async(searchUserInfo) =>{
+    console.log("SearchingUserInfo : >>", searchUserInfo);
+    const url = "/auth/searchuserinfo";
+    const result = await axiosPost(url,searchUserInfo);
+    return result;
+    
 }

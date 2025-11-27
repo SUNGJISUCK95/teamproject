@@ -211,7 +211,7 @@ public class OauthServiceImpl implements OauthService{
     public boolean idDuplChecker(String incomeId){
 //        return userInfoRepository.idDuplChecker(incomeId);
         boolean result = false;
-        Optional<UserInfoDto> newone = jpaUserInfoRepository.findByUserInfo(incomeId);
+        Optional<UserInfo> newone = jpaUserInfoRepository.findByUid(incomeId);
         if(newone.isPresent()){//중복이 있으면 true
             System.out.println("newone is : "+newone.get().getUid());
             result = true;
@@ -293,6 +293,9 @@ public class OauthServiceImpl implements OauthService{
         if (userInfoDto.getUphone() != null) {
             existingUser.setUphone(userInfoDto.getUphone());
         }
+        if (userInfoDto.getPostcode() != null) {
+            existingUser.setPostcode(userInfoDto.getPostcode());
+        }
 
         // 3. 트랜잭션이 종료될 때, JPA가 변경된 필드만 감지(Dirty Checking)합니다.
         //    UserInfo 엔티티에 붙은 @DynamicUpdate 덕분에 변경된 필드만 포함된
@@ -308,5 +311,22 @@ public class OauthServiceImpl implements OauthService{
     @Transactional
     public int updateuserId(UserInfoDto userInfoDto){
         return jpaUserInfoRepository.updateByUid(userInfoDto.getUid(),userInfoDto.getIncludedId());
+    }
+    
+    @Override
+    @Transactional
+    public int deleteuserId(UserInfoDto userInfoDto){
+        jpaUserInfoRepository.deleteByUid(userInfoDto.getUid());
+        return 1;
+    }
+
+    @Override
+    public boolean searchuserinfo(UserInfoDto userInfoDto){
+        boolean result = false;
+        Optional<UserInfo> userInfoData = jpaUserInfoRepository
+                                            .findByUemailAndUname(userInfoDto.getUemail(),
+                                                                    userInfoDto.getUname());
+        result = userInfoData.isPresent();
+        return result;
     }
 }

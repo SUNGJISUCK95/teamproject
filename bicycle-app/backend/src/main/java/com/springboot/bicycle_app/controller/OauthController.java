@@ -2,10 +2,7 @@ package com.springboot.bicycle_app.controller;
 
 import com.springboot.bicycle_app.dto.Token;
 import com.springboot.bicycle_app.dto.UserInfoDto;
-import com.springboot.bicycle_app.service.OauthJWTService;
-import com.springboot.bicycle_app.service.OauthJWTServiceImpl;
-import com.springboot.bicycle_app.service.OauthService;
-import com.springboot.bicycle_app.service.TravelService;
+import com.springboot.bicycle_app.service.*;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Cookie;
@@ -33,18 +30,21 @@ public class OauthController {
     private final HttpSessionSecurityContextRepository contextRepository;
     private final OauthJWTService oauthJWTService;
     private final TravelService travelService;
+    private final MailSenderRunner mailSenderRunner;
 
     public OauthController(OauthService oauthService,
                            AuthenticationManager authenticationManager,
                            HttpSessionSecurityContextRepository contextRepository,
                            OauthJWTService oauthJWTService,
-                           TravelService travelService)
+                           TravelService travelService,
+                           MailSenderRunner mailSenderRunner)
     {
         this.oauthService = oauthService;
         this.authenticationManager = authenticationManager;
         this.contextRepository = contextRepository;
         this.oauthJWTService = oauthJWTService;
         this.travelService = travelService;
+        this.mailSenderRunner=mailSenderRunner;
     }
 
     @PostMapping("/token")
@@ -144,6 +144,8 @@ public class OauthController {
             Authentication authenticationResponse =
                     this.authenticationManager.authenticate(authenticationRequest);
 
+            var authorities = authenticationResponse.getAuthorities();
+
             //3. 컨텍스트에 보관: 세션과 함께 저장, 만료때까지 저장됨.
             var context = SecurityContextHolder.createEmptyContext();
             context.setAuthentication(authenticationResponse);
@@ -162,13 +164,27 @@ public class OauthController {
             response.addCookie(xsrf);
 
 
+            // if(userInfo.isSocialDupl()) {
+            //     return ResponseEntity.ok(Map.of("login", true,
+            //             "userId", userInfo.getJwToken()));
+            // }
+            // else {
+            //     return ResponseEntity.ok(Map.of("login", true,
+            //             "userId", userInfo.getUid()));
+            // }
             if(userInfo.isSocialDupl()) {
-                return ResponseEntity.ok(Map.of("login", true,
-                        "userId", userInfo.getJwToken()));
+                return ResponseEntity.ok(Map.of(
+                        "login", true,
+                        "userId", userInfo.getJwToken(),
+                        "role", authorities
+                ));
             }
             else {
-                return ResponseEntity.ok(Map.of("login", true,
-                        "userId", userInfo.getUid()));
+                return ResponseEntity.ok(Map.of(
+                        "login", true,
+                        "userId", userInfo.getUid(),
+                        "role", authorities
+                ));
             }
         }catch(Exception e) {
             //로그인 실패
@@ -243,6 +259,35 @@ public class OauthController {
             userId_edit_or_not=true;
         }
         return userId_edit_or_not;
+    }
+
+    @PostMapping("/iddrop")
+    @Transactional
+    public int idDrop(@RequestBody UserInfoDto userInfoDto){
+        System.out.println("you try to delete ID");
+        return oauthService.deleteuserId(userInfoDto);
+    }
+
+    @PostMapping("/searchuserinfo")
+    public boolean searchuserinfo(@RequestBody UserInfoDto userInfoDto){
+        boolean searchResult = false;
+        System.out.println(userInfoDto.getUemail());
+        System.out.println(userInfoDto.getUname());
+        System.out.println(userInfoDto.getUid());
+        if(oauthService.searchuserinfo(userInfoDto))
+        {
+            searchResult=true;
+            try {
+                String authcode="";
+                mailSenderRunner.sendTestMail(authcode);
+                return searchResult;
+            }
+            catch(Exception e){
+                e.printStackTrace();
+                System.out.println("Failed to send mail: " + e.getMessage());
+            }
+        }
+        return searchResult;
     }
 
 }
