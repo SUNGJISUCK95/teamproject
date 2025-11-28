@@ -44,49 +44,6 @@ export function Header() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // PC에서 header 밖으로 나가면 서브메뉴 닫기
-    const handleMouseLeaveHeader = () => {
-        if (!isMobile) {
-            setPurchaseMenuOpen(false);
-        }
-    };
-
-    // PC에서 다른 메뉴 hover 시 서브메뉴 닫기
-    const handleMouseEnterOther = () => {
-        if (!isMobile) {
-            setPurchaseMenuOpen(false);
-        }
-    };
-
-    // 모바일에서만 '자전거 구매' 클릭으로 열고 닫기
-    const handleMobilePurchaseClick = () => {
-        if (isMobile) {
-            setPurchaseMenuOpen(prev => !prev);
-        }
-    };
-
-    // 모바일 메뉴 닫기 + 슬라이드 애니메이션
-    const closeMobileMenu = () => {
-        if (!isMobile) return;
-
-        setClosing(true);
-        setTimeout(() => {
-            setMenuOpen(false);
-            setPurchaseMenuOpen(false);
-            setClosing(false);
-        }, 300);
-    };
-    const handleCartClick = (e) => {
-        if (!isLogin) {
-            e.preventDefault();
-            Swal.fire({
-                icon: "warning",
-                title: "로그인 필요",
-                text: "로그인이 필요합니다.",
-            });
-            navigate("/login");
-        }
-
         /**
          * 현재 URL이 '자전거 구매' 관련 페이지인지 체크하여 active 표시
          */
@@ -286,5 +243,4 @@ export function Header() {
                 )}
             </>
         );
-    }
 }
