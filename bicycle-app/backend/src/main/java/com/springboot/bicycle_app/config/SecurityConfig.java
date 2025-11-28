@@ -47,19 +47,19 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            // 🔥 CORS 설정 (모든 IP 허용)
+            // CORS 설정 (모든 IP 허용)
             .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration config = new CorsConfiguration();
 
-                config.setAllowCredentials(true); // 쿠키 허용
-                config.addAllowedOriginPattern("*"); // 🔥 모든 IP Origin 허용
+                config.setAllowCredentials(true);    // 쿠키 허용
+                config.addAllowedOriginPattern("*"); // 모든 IP Origin 허용
                 config.addAllowedHeader("*");
                 config.addAllowedMethod("*");
 
                 return config;
             }))
 
-            // 🔥 CSRF 설정 (기존 유지)
+            // CSRF 설정 (기존 유지)
             .csrf(csrf -> csrf
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .ignoringRequestMatchers("/auth/logout", "/cart/**", "/api/chatbot", "/auth/me", "/kakaopay/success", "/kakaopay/cancel", "/kakaopay/fail")  // 그대로 유지
@@ -140,7 +140,7 @@ public class SecurityConfig {
     }
 
 
-//    //CORS 보안정책 수행 객체
+    //CORS 보안정책 수행 객체
     @Bean
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

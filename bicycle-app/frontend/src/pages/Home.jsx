@@ -6,9 +6,21 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "../styles/home.css";
 
+/**
+ * Home
+ *
+ * 기능:
+ * - 메인 랜딩 페이지
+ * - Hero 섹션 이미지 슬라이드 (Swiper)
+ * - 스크롤 시 Hero 이미지 투명도 조절 효과
+ * - 인기 자전거 / 대여 / 여행지 추천 / 게시판 / 고객센터 각 섹션 연결
+ */
 export function Home() {
   const [scrollY, setScrollY] = useState(0);
 
+  /**
+   * 스크롤 값 감지 → Hero 섹션 opacity 조절
+   */
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
@@ -19,6 +31,7 @@ export function Home() {
 
   return (
     <div className="home">
+      
       {/* Hero 섹션 */}
       <section className="hero-section" style={{ opacity }}>
         <Swiper
@@ -118,7 +131,7 @@ export function Home() {
             <div className="travel-card" key={idx}>
               <img src={`/images/${course.img}`} alt={course.name} />
               <h3>{course.name}</h3>
-              <p>{course.desc}</p> {/* ✅ 설명 추가 */}
+              <p>{course.desc}</p> {/* 설명 추가 */}
             </div>
           ))}
         </div>
@@ -130,6 +143,7 @@ export function Home() {
         <span className="section-subtitle">Board</span>
         <h2>라이더 커뮤니티</h2>
         <div className="board-container">
+          
           {/* News */}
           <div className="board-item">
             <img src="/images/home_board1.jpg" alt="News" />
@@ -139,6 +153,7 @@ export function Home() {
               <Link to="/board/news" className="btn-outline">바로가기</Link>
             </div>
           </div>
+
           {/* Event */}
           <div className="board-item">
             <img src="/images/home_board2.jpg" alt="Event" />
@@ -148,6 +163,7 @@ export function Home() {
               <Link to="/board/event" className="btn-outline">바로가기</Link>
             </div>
           </div>
+
           {/* Review */}
           <div className="board-item">
             <img src="/images/home_board3.jpg" alt="Review" />
@@ -159,7 +175,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
 
       {/* 고객센터 */}
       <section className="section support">

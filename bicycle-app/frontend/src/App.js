@@ -12,7 +12,7 @@ import { IdPwSearch } from './pages/IdPwSearch.jsx';
 import { Terms } from './pages/policies/Terms.jsx';
 import { Privacy } from './pages/policies/Privacy.jsx';
 import { InternalPolicy } from './pages/policies/InternalPolicy.jsx';
-import ScrollToTop from "./components/ScrollToTop.jsx";
+import { ScrollToTop } from "./components/commons/ScrollToTop.jsx";
 import { Products } from "./pages/Products.jsx";
 import { ProductDetail } from "./pages/ProductDetail.jsx";
 import { Board } from "./pages/Board.jsx";
