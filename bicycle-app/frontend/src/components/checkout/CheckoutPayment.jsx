@@ -10,13 +10,17 @@ export function CheckoutPayment({ totalPrice, cartList }) {
     const { receiverInfo } = useSelector((state) => state.cart);
     const widgetRef = useRef(null);
     useEffect(() => {
-        let isCancelled = false;
-
         const initializeWidget = async () => {
             try {
-                const tossPayments = await loadTossPayments(clientKey);
-                if (isCancelled) return;
+                if (widgetRef.current) {
+                    await widgetRef.current.setAmount({
+                        currency: "KRW",
+                        value: totalPrice,
+                    });
+                    return;
+                }
 
+                const tossPayments = await loadTossPayments(clientKey);
                 const widgets = tossPayments.widgets({
                     customerKey: ANONYMOUS,
                 });
@@ -26,25 +30,17 @@ export function CheckoutPayment({ totalPrice, cartList }) {
                     value: totalPrice,
                 });
 
-                if (isCancelled) return; // await 후에도 체크
-
                 widgetRef.current = widgets;
 
-                const methodContainer = document.getElementById("payment-methods");
-                if (methodContainer && methodContainer.innerHTML === "") {
-                    await widgets.renderPaymentMethods({
-                        selector: "#payment-methods",
-                        variantKey: "DEFAULT",
-                    });
-                }
+                await widgets.renderPaymentMethods({
+                    selector: "#payment-methods",
+                    variantKey: "DEFAULT",
+                });
 
-                const agreementContainer = document.getElementById("payment-agreement");
-                if (agreementContainer && agreementContainer.innerHTML === "") {
-                    await widgets.renderAgreement({
-                        selector: "#payment-agreement",
-                        variantKey: "DEFAULT",
-                    });
-                }
+                await widgets.renderAgreement({
+                    selector: "#payment-agreement",
+                    variantKey: "DEFAULT",
+                });
 
             } catch (error) {
                 console.error("Error initializing widgets:", error);
@@ -52,26 +48,20 @@ export function CheckoutPayment({ totalPrice, cartList }) {
         };
 
         initializeWidget();
-        return () => {
-            isCancelled = true;
-            const paymentMethods = document.getElementById("payment-methods");
-            if (paymentMethods) paymentMethods.innerHTML = "";
+    }, [totalPrice]);
 
-            const agreement = document.getElementById("payment-agreement");
-            if (agreement) agreement.innerHTML = "";
-        };
-    }, []);
 
     const handlePayment = async () => {
-        const widgets = widgetRef.current;
-        if(totalPrice <= 0 ){
+        const widgets = widgetRef.current; // ref에 저장해둔 위젯을 가져옵니다.
+        if (!widgets || totalPrice <= 0) {
             await Swal.fire({
                 icon: "warning",
                 title: "",
                 text: "결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.",
             });
             return;
-        } await requestTossPay(widgets,cartList,totalPrice,receiverInfo);
+        }
+        await requestTossPay(widgets, cartList, totalPrice, receiverInfo);
     };
 
     return (

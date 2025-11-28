@@ -105,9 +105,9 @@ export function Header() {
             if (!isLogin) {
                 e.preventDefault();
                 Swal.fire({
-                        icon: "warning",
-                        title: "로그인",
-                        text: "로그인이 필요합니다.",
+                    icon: "warning",
+                    title: "로그인 필요",
+                    text: "로그인이 필요합니다.",
                 });
                 navigate("/login");
             }
