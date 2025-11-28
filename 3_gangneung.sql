@@ -223,47 +223,47 @@ INSERT INTO travel_repair
  image1, image2, image3, full_image1, full_image2, full_image3, description)
 VALUES
 -- 1
-('강릉 경포호 산소길', '강릉 경포 사이클링샵', 37.7528, 128.8790, 4.6, 92, 110,
+('강릉 경포호 산소길', '바이크 마트', 37.7528, 128.8790, 4.6, 92, 110,
  JSON_ARRAY('자전거판매','정비','로드','MTB'),
- 'https://picsum.photos/seed/repair101/200/200',
- 'https://picsum.photos/seed/repair102/200/200',
- 'https://picsum.photos/seed/repair103/200/200',
- 'https://picsum.photos/seed/repair101_full/600/400',
- 'https://picsum.photos/seed/repair102_full/600/400',
- 'https://picsum.photos/seed/repair103_full/600/400',
+ '/images/travel_repairs/bike/bike_1.jfif',
+ '/images/travel_repairs/bike/bike_2.jfif',
+ '/images/travel_repairs/bike/bike_3.jfif',
+ '/images/travel_repairs/bike/bike_1.jfif',
+ '/images/travel_repairs/bike/bike_2.jfif',
+ '/images/travel_repairs/bike/bike_3.jfif',
  '강릉 경포 지역에 위치한 자전거 전문 정비점으로 로드 및 MTB 자전거 수리가 가능합니다.'),
 
 -- 2
-('강릉 경포호 산소길', '경포 자전거 클리닉', 37.7532, 128.8798, 4.7, 90, 100,
+('강릉 경포호 산소길', '홀리데이바이크', 37.7532, 128.8798, 4.7, 90, 100,
  JSON_ARRAY('정비','전문수리','튜닝','입문자'),
- 'https://picsum.photos/seed/repair104/200/200',
- 'https://picsum.photos/seed/repair105/200/200',
- 'https://picsum.photos/seed/repair106/200/200',
- 'https://picsum.photos/seed/repair104_full/600/400',
- 'https://picsum.photos/seed/repair105_full/600/400',
- 'https://picsum.photos/seed/repair106_full/600/400',
+ '/images/travel_repairs/holy/holy_1.jfif',
+ '/images/travel_repairs/holy/holy_2.jfif',
+ '/images/travel_repairs/holy/holy_3.jfif',
+ '/images/travel_repairs/holy/holy_1.jfif',
+ '/images/travel_repairs/holy/holy_2.jfif',
+ '/images/travel_repairs/holy/holy_3.jfif',
  '입문자부터 전문가까지 이용 가능한 강릉 경포 자전거 정비 전문점입니다.'),
 
 -- 3
-('강릉 경포호 산소길', '경포 MTB 센터', 37.7535, 128.8805, 4.5, 88, 105,
+('강릉 경포호 산소길', '삼천리자전거 자이언트 동명점', 37.7535, 128.8805, 4.5, 88, 105,
  JSON_ARRAY('MTB','정비','튜닝'),
- 'https://picsum.photos/seed/repair107/200/200',
- 'https://picsum.photos/seed/repair108/200/200',
- 'https://picsum.photos/seed/repair109/200/200',
- 'https://picsum.photos/seed/repair107_full/600/400',
- 'https://picsum.photos/seed/repair108_full/600/400',
- 'https://picsum.photos/seed/repair109_full/600/400',
+ '/images/travel_repairs/giant/giant_1.jfif',
+ '/images/travel_repairs/giant/giant_2.jfif',
+ '/images/travel_repairs/giant/giant_3.jfif',
+ '/images/travel_repairs/giant/giant_1.jfif',
+ '/images/travel_repairs/giant/giant_2.jfif',
+ '/images/travel_repairs/giant/giant_3.jfif',
  '강릉 경포 MTB 전문점. 산악자전거 수리와 튜닝 가능.'),
 
 -- 4
-('강릉 경포호 산소길', '초당 자전거공방', 37.7540, 128.8800, 4.4, 87, 100,
+('강릉 경포호 산소길', '삼천리자전거 교동점', 37.7540, 128.8800, 4.4, 87, 100,
  JSON_ARRAY('자전거판매','튜닝','전문수리'),
- 'https://picsum.photos/seed/repair110/200/200',
- 'https://picsum.photos/seed/repair111/200/200',
- 'https://picsum.photos/seed/repair112/200/200',
- 'https://picsum.photos/seed/repair110_full/600/400',
- 'https://picsum.photos/seed/repair111_full/600/400',
- 'https://picsum.photos/seed/repair112_full/600/400',
+ '/images/travel_repairs/gyodong/gyodong_1.jfif',
+ '/images/travel_repairs/gyodong/gyodong_2.jfif',
+ '/images/travel_repairs/gyodong/gyodong_3.jfif',
+ '/images/travel_repairs/gyodong/gyodong_1.jfif',
+ '/images/travel_repairs/gyodong/gyodong_2.jfif',
+ '/images/travel_repairs/gyodong/gyodong_3.jfif',
  '초당동 근처 자전거 전문 공방. 체인, 기어 수리 가능.'),
 
 -- 5
@@ -1542,7 +1542,7 @@ VALUES
 
 -- 1
 (
-'강릉 경포 사이클링샵',
+'바이크마트',
 4.6,
 92,
 JSON_ARRAY('자전거판매','정비','로드','MTB'),
@@ -1570,34 +1570,34 @@ JSON_ARRAY(
   JSON_OBJECT('rname','풀튜닝','price','120000')
 ),
 JSON_ARRAY(
-  'https://picsum.photos/seed/repair101/600/400',
-  'https://picsum.photos/seed/repair102/600/400',
-  'https://picsum.photos/seed/repair103/600/400'
+  '/images/travel_repairs/bike/bike_1.jfif',
+  '/images/travel_repairs/bike/bike_2.jfif',
+  '/images/travel_repairs/bike/bike_3.jfif'
 ),
 JSON_ARRAY(
   JSON_OBJECT(
     'category','업체',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/repair101_full/400/300',
-      'https://picsum.photos/seed/repair102_full/400/300',
-      'https://picsum.photos/seed/repair103_full/400/300'
+      '/images/travel_repairs/bike/company/bike_company_1.jfif',
+      '/images/travel_repairs/bike/company/bike_company_2.jfif',
+      '/images/travel_repairs/bike/company/bike_company_3.jfif'
     )
   ),
   JSON_OBJECT(
     'category','블로그',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/repair101_blog1/400/300',
-      'https://picsum.photos/seed/repair101_blog2/400/300',
-      'https://picsum.photos/seed/repair101_blog3/400/300',
-      'https://picsum.photos/seed/repair101_blog4/400/300',
-      'https://picsum.photos/seed/repair101_blog5/400/300',
-      'https://picsum.photos/seed/repair101_blog6/400/300',
-      'https://picsum.photos/seed/repair101_blog7/400/300',
-      'https://picsum.photos/seed/repair101_blog8/400/300',
-      'https://picsum.photos/seed/repair101_blog9/400/300',
-      'https://picsum.photos/seed/repair101_blog10/400/300',
-      'https://picsum.photos/seed/repair101_blog11/400/300',
-      'https://picsum.photos/seed/repair101_blog12/400/300'
+      '/images/travel_repairs/bike/blog/bike_blog_1.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_2.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_3.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_4.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_5.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_6.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_7.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_8.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_9.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_10.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_11.jfif',
+      '/images/travel_repairs/bike/blog/bike_blog_12.jfif'
     )
   )
 )
@@ -1605,7 +1605,7 @@ JSON_ARRAY(
 
 -- 2
 (
-'경포 자전거 클리닉',
+'홀리데이바이크',
 4.7,
 90,
 JSON_ARRAY('정비','전문수리','튜닝','입문자'),
@@ -1633,34 +1633,34 @@ JSON_ARRAY(
   JSON_OBJECT('rname','풀튜닝','price','120000')
 ),
 JSON_ARRAY(
-  'https://picsum.photos/seed/repair104/600/400',
-  'https://picsum.photos/seed/repair105/600/400',
-  'https://picsum.photos/seed/repair106/600/400'
+  '/images/travel_repairs/holy/holy_1.jfif',
+  '/images/travel_repairs/holy/holy_2.jfif',
+  '/images/travel_repairs/holy/holy_3.jfif'
 ),
 JSON_ARRAY(
   JSON_OBJECT(
     'category','업체',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/repair104_full/400/300',
-      'https://picsum.photos/seed/repair105_full/400/300',
-      'https://picsum.photos/seed/repair106_full/400/300'
+      '/images/travel_repairs/holy/company/holy_company_1.jfif',
+      '/images/travel_repairs/holy/company/holy_company_2.jfif',
+      '/images/travel_repairs/holy/company/holy_company_3.jfif'
     )
   ),
   JSON_OBJECT(
     'category','블로그',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/repair104_blog1/400/300',
-      'https://picsum.photos/seed/repair104_blog2/400/300',
-      'https://picsum.photos/seed/repair104_blog3/400/300',
-      'https://picsum.photos/seed/repair104_blog4/400/300',
-      'https://picsum.photos/seed/repair104_blog5/400/300',
-      'https://picsum.photos/seed/repair104_blog6/400/300',
-      'https://picsum.photos/seed/repair104_blog7/400/300',
-      'https://picsum.photos/seed/repair104_blog8/400/300',
-      'https://picsum.photos/seed/repair104_blog9/400/300',
-      'https://picsum.photos/seed/repair104_blog10/400/300',
-      'https://picsum.photos/seed/repair104_blog11/400/300',
-      'https://picsum.photos/seed/repair104_blog12/400/300'
+      '/images/travel_repairs/holy/blog/holy_blog_1.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_2.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_3.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_4.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_5.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_6.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_7.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_8.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_9.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_10.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_11.jfif',
+      '/images/travel_repairs/holy/blog/holy_blog_12.jfif'
     )
   )
 )
@@ -1668,7 +1668,7 @@ JSON_ARRAY(
 
 -- 3
 (
-'경포 MTB 센터',
+'삼천리자전거 자이언트 동명점',
 4.5,
 88,
 JSON_ARRAY('MTB','정비','튜닝'),
@@ -1696,34 +1696,34 @@ JSON_ARRAY(
   JSON_OBJECT('rname','풀튜닝','price','120000')
 ),
 JSON_ARRAY(
-  'https://picsum.photos/seed/repair107/600/400',
-  'https://picsum.photos/seed/repair108/600/400',
-  'https://picsum.photos/seed/repair109/600/400'
+  '/images/travel_repairs/giant/giant_1.jfif',
+  '/images/travel_repairs/giant/giant_2.jfif',
+  '/images/travel_repairs/giant/giant_3.jfif'
 ),
 JSON_ARRAY(
   JSON_OBJECT(
     'category','업체',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/repair107_full/400/300',
-      'https://picsum.photos/seed/repair108_full/400/300',
-      'https://picsum.photos/seed/repair109_full/400/300'
+      '/images/travel_repairs/giant/company/giant_company_1.jfif',
+      '/images/travel_repairs/giant/company/giant_company_2.jfif',
+      '/images/travel_repairs/giant/company/giant_company_3.jfif'
     )
   ),
   JSON_OBJECT(
     'category','블로그',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/repair107_blog1/400/300',
-      'https://picsum.photos/seed/repair107_blog2/400/300',
-      'https://picsum.photos/seed/repair107_blog3/400/300',
-      'https://picsum.photos/seed/repair107_blog4/400/300',
-      'https://picsum.photos/seed/repair107_blog5/400/300',
-      'https://picsum.photos/seed/repair107_blog6/400/300',
-      'https://picsum.photos/seed/repair107_blog7/400/300',
-      'https://picsum.photos/seed/repair107_blog8/400/300',
-      'https://picsum.photos/seed/repair107_blog9/400/300',
-      'https://picsum.photos/seed/repair107_blog10/400/300',
-      'https://picsum.photos/seed/repair107_blog11/400/300',
-      'https://picsum.photos/seed/repair107_blog12/400/300'
+      '/images/travel_repairs/giant/blog/giant_blog_1.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_2.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_3.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_4.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_5.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_6.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_7.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_8.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_9.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_10.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_11.jfif',
+      '/images/travel_repairs/giant/blog/giant_blog_12.jfif'
     )
   )
 )
@@ -1731,7 +1731,7 @@ JSON_ARRAY(
 
 -- 4
 (
-'초당 자전거공방',
+'삼천리자전거 교동점',
 4.4,
 87,
 JSON_ARRAY('자전거판매','튜닝','전문수리'),
@@ -1759,34 +1759,34 @@ JSON_ARRAY(
   JSON_OBJECT('rname','풀튜닝','price','120000')
 ),
 JSON_ARRAY(
-  'https://picsum.photos/seed/repair110/600/400',
-  'https://picsum.photos/seed/repair111/600/400',
-  'https://picsum.photos/seed/repair112/600/400'
+  '/images/travel_repairs/gyodong/gyodong_1.jfif',
+  '/images/travel_repairs/gyodong/gyodong_2.jfif',
+  '/images/travel_repairs/gyodong/gyodong_3.jfif'
 ),
 JSON_ARRAY(
   JSON_OBJECT(
     'category','업체',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/repair110_full/400/300',
-      'https://picsum.photos/seed/repair111_full/400/300',
-      'https://picsum.photos/seed/repair112_full/400/300'
+      '/images/travel_repairs/gyodong/company/gyodong_company_1.jfif',
+      '/images/travel_repairs/gyodong/company/gyodong_company_2.jfif',
+      '/images/travel_repairs/gyodong/company/gyodong_company_3.jfif'
     )
   ),
   JSON_OBJECT(
     'category','블로그',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/repair110_blog1/400/300',
-      'https://picsum.photos/seed/repair110_blog2/400/300',
-      'https://picsum.photos/seed/repair110_blog3/400/300',
-      'https://picsum.photos/seed/repair110_blog4/400/300',
-      'https://picsum.photos/seed/repair110_blog5/400/300',
-      'https://picsum.photos/seed/repair110_blog6/400/300',
-      'https://picsum.photos/seed/repair110_blog7/400/300',
-      'https://picsum.photos/seed/repair110_blog8/400/300',
-      'https://picsum.photos/seed/repair110_blog9/400/300',
-      'https://picsum.photos/seed/repair110_blog10/400/300',
-      'https://picsum.photos/seed/repair110_blog11/400/300',
-      'https://picsum.photos/seed/repair110_blog12/400/300'
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_1.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_2.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_3.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_4.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_5.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_6.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_7.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_8.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_9.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_10.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_11.jfif',
+      '/images/travel_repairs/gyodong/blog/gyodong_blog_12.jfif'
     )
   )
 )
@@ -2714,25 +2714,25 @@ VALUES
  '자전거 수리가 빠르고 친절합니다. 장비 상태도 좋아요.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair24_1/600/400',
-    'https://picsum.photos/seed/repair24_2/600/400',
-    'https://picsum.photos/seed/repair24_3/600/400'
+    '/images/travel_repairs/bike/blog/bike_blog_1.jfif',
+    '/images/travel_repairs/bike/blog/bike_blog_2.jfif',
+    '/images/travel_repairs/bike/blog/bike_blog_3.jfif'
  )),
 ('test222', 24, 'https://picsum.photos/seed/user2/100/100', '8', 4.0,
  '정비가 꼼꼼하고 가격도 합리적입니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair24_1/600/400',
-    'https://picsum.photos/seed/repair24_2/600/400',
-    'https://picsum.photos/seed/repair24_3/600/400'
+    '/images/travel_repairs/bike/blog/bike_blog_4.jfif',
+    '/images/travel_repairs/bike/blog/bike_blog_5.jfif',
+    '/images/travel_repairs/bike/blog/bike_blog_6.jfif'
  )),
 ('test333', 24, 'https://picsum.photos/seed/user3/100/100', '5', 4.7,
  'MTB 튜닝 상담도 잘 해주고 만족스러웠어요.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair24_1/600/400',
-    'https://picsum.photos/seed/repair24_2/600/400',
-    'https://picsum.photos/seed/repair24_3/600/400'
+    '/images/travel_repairs/bike/blog/bike_blog_7.jfif',
+    '/images/travel_repairs/bike/blog/bike_blog_8.jfif',
+    '/images/travel_repairs/bike/blog/bike_blog_9.jfif'
  )),
 
 -- rid 25
@@ -2740,25 +2740,25 @@ VALUES
  '친절하고 신속한 서비스가 좋았습니다.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair25_1/600/400',
-    'https://picsum.photos/seed/repair25_2/600/400',
-    'https://picsum.photos/seed/repair25_3/600/400'
+    '/images/travel_repairs/holy/blog/holy_blog_1.jfif',
+    '/images/travel_repairs/holy/blog/holy_blog_2.jfif',
+    '/images/travel_repairs/holy/blog/holy_blog_3.jfif'
  )),
 ('test444', 25, 'https://picsum.photos/seed/user5/100/100', '6', 4.6,
  '체인 교체도 빠르고 만족스러웠습니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair25_1/600/400',
-    'https://picsum.photos/seed/repair25_2/600/400',
-    'https://picsum.photos/seed/repair25_3/600/400'
+    '/images/travel_repairs/holy/blog/holy_blog_4.jfif',
+    '/images/travel_repairs/holy/blog/holy_blog_5.jfif',
+    '/images/travel_repairs/holy/blog/holy_blog_6.jfif'
  )),
 ('test666', 25, 'https://picsum.photos/seed/user6/100/100', '9', 4.3,
  '로드바이크 튜닝 잘 해주네요. 재방문 의사 있습니다.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair25_1/600/400',
-    'https://picsum.photos/seed/repair25_2/600/400',
-    'https://picsum.photos/seed/repair25_3/600/400'
+    '/images/travel_repairs/holy/blog/holy_blog_7.jfif',
+    '/images/travel_repairs/holy/blog/holy_blog_8.jfif',
+    '/images/travel_repairs/holy/blog/holy_blog_9.jfif'
  )),
 
 -- rid 26
@@ -2766,25 +2766,25 @@ VALUES
  '전기자전거 배터리 점검 꼼꼼히 해주셔서 좋아요.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair26_1/600/400',
-    'https://picsum.photos/seed/repair26_2/600/400',
-    'https://picsum.photos/seed/repair26_3/600/400'
+    '/images/travel_repairs/giant/blog/giant_blog_1.jfif',
+    '/images/travel_repairs/giant/blog/giant_blog_2.jfif',
+    '/images/travel_repairs/giant/blog/giant_blog_3.jfif'
  )),
 ('test222', 26, 'https://picsum.photos/seed/user2/100/100', '8', 4.1,
  '모터 점검도 잘 해주고 친절했습니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair26_1/600/400',
-    'https://picsum.photos/seed/repair26_2/600/400',
-    'https://picsum.photos/seed/repair26_3/600/400'
+    '/images/travel_repairs/giant/blog/giant_blog_4.jfif',
+    '/images/travel_repairs/giant/blog/giant_blog_5.jfif',
+    '/images/travel_repairs/giant/blog/giant_blog_6.jfif'
  )),
 ('test333', 26, 'https://picsum.photos/seed/user3/100/100', '5', 4.7,
  '전기자전거 튜닝 서비스 만족스러워요.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair26_1/600/400',
-    'https://picsum.photos/seed/repair26_2/600/400',
-    'https://picsum.photos/seed/repair26_3/600/400'
+    '/images/travel_repairs/giant/blog/giant_blog_7.jfif',
+    '/images/travel_repairs/giant/blog/giant_blog_8.jfif',
+    '/images/travel_repairs/giant/blog/giant_blog_9.jfif'
  )),
 
 -- rid 27
@@ -2792,25 +2792,25 @@ VALUES
  '로드바이크 수리 빠르고 정확합니다.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair27_1/600/400',
-    'https://picsum.photos/seed/repair27_2/600/400',
-    'https://picsum.photos/seed/repair27_3/600/400'
+    '/images/travel_repairs/gyodong/blog/gyodong_blog_1.jfif',
+    '/images/travel_repairs/gyodong/blog/gyodong_blog_2.jfif',
+    '/images/travel_repairs/gyodong/blog/gyodong_blog_3.jfif'
  )),
 ('test444', 27, 'https://picsum.photos/seed/user5/100/100', '6', 4.5,
  '체인/기어 정비 잘 해주셨습니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair27_1/600/400',
-    'https://picsum.photos/seed/repair27_2/600/400',
-    'https://picsum.photos/seed/repair27_3/600/400'
+    '/images/travel_repairs/gyodong/blog/gyodong_blog_4.jfif',
+    '/images/travel_repairs/gyodong/blog/gyodong_blog_5.jfif',
+    '/images/travel_repairs/gyodong/blog/gyodong_blog_6.jfif'
  )),
 ('test666', 27, 'https://picsum.photos/seed/user6/100/100', '9', 4.2,
  '로드 전문 수리점, 만족스러웠습니다.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair27_1/600/400',
-    'https://picsum.photos/seed/repair27_2/600/400',
-    'https://picsum.photos/seed/repair27_3/600/400'
+    '/images/travel_repairs/gyodong/blog/gyodong_blog_7.jfif',
+    '/images/travel_repairs/gyodong/blog/gyodong_blog_8.jfif',
+    '/images/travel_repairs/gyodong/blog/gyodong_blog_9.jfif'
  )),
 
 -- rid 28
