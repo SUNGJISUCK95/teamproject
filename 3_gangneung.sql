@@ -9,45 +9,45 @@ VALUES
 -- 1. 강릉경포물회
 ('강릉 경포호 산소길', '강릉경포물회', 37.7511, 128.8772, 4.5, 90, 120,
  JSON_ARRAY('물회','해산물','회'),
- 'https://picsum.photos/seed/food101/200/200',
- 'https://picsum.photos/seed/food102/200/200',
- 'https://picsum.photos/seed/food103/200/200',
- 'https://picsum.photos/seed/food101_full/800/600',
- 'https://picsum.photos/seed/food102_full/800/600',
- 'https://picsum.photos/seed/food103_full/800/600',
+ '/images/travel_foods/gangneung/gangneung_1.jfif',
+ '/images/travel_foods/gangneung/gangneung_2.jfif',
+ '/images/travel_foods/gangneung/gangneung_3.jfif',
+ '/images/travel_foods/gangneung/gangneung_1.jfif',
+ '/images/travel_foods/gangneung/gangneung_2.jfif',
+ '/images/travel_foods/gangneung/gangneung_3.jfif',
  '신선한 해산물로 만든 강릉경포물회, 시원한 국물과 탱글한 재료가 특징입니다.'),
 
 -- 2. 강문가
 ('강릉 경포호 산소길', '강문가', 37.7523, 128.8759, 4.3, 88, 100,
  JSON_ARRAY('회','한식','해산물'),
- 'https://picsum.photos/seed/food104/200/200',
- 'https://picsum.photos/seed/food105/200/200',
- 'https://picsum.photos/seed/food106/200/200',
- 'https://picsum.photos/seed/food104_full/800/600',
- 'https://picsum.photos/seed/food105_full/800/600',
- 'https://picsum.photos/seed/food106_full/800/600',
+ '/images/travel_foods/gangmunga/gangmunga_1.jfif',
+ '/images/travel_foods/gangmunga/gangmunga_2.jfif',
+ '/images/travel_foods/gangmunga/gangmunga_3.jfif',
+ '/images/travel_foods/gangmunga/gangmunga_1.jfif',
+ '/images/travel_foods/gangmunga/gangmunga_2.jfif',
+ '/images/travel_foods/gangmunga/gangmunga_3.jfif',
  '강릉의 신선한 회와 다양한 한식 메뉴를 제공하는 강문가입니다.'),
 
 -- 3. 강문어화횟집
 ('강릉 경포호 산소길', '강문어화횟집', 37.7740, 128.9060, 4.6, 92, 110,
  JSON_ARRAY('회','신선한','해산물'),
- 'https://picsum.photos/seed/food107/200/200',
- 'https://picsum.photos/seed/food108/200/200',
- 'https://picsum.photos/seed/food109/200/200',
- 'https://picsum.photos/seed/food107_full/800/600',
- 'https://picsum.photos/seed/food108_full/800/600',
- 'https://picsum.photos/seed/food109_full/800/600',
+ '/images/travel_foods/munnu/munnu_1.jfif',
+ '/images/travel_foods/munnu/munnu_2.jfif',
+ '/images/travel_foods/munnu/munnu_3.jfif',
+ '/images/travel_foods/munnu/munnu_1.jfif',
+ '/images/travel_foods/munnu/munnu_2.jfif',
+ '/images/travel_foods/munnu/munnu_3.jfif',
  '해안가 위치, 신선한 회 전문점으로 가족 단위 방문에 좋습니다.'),
 
 -- 4. 건도리
 ('강릉 경포호 산소길', '건도리', 37.7747, 128.9085, 4.4, 89, 105,
  JSON_ARRAY('회','한식','신선한'),
- 'https://picsum.photos/seed/food110/200/200',
- 'https://picsum.photos/seed/food111/200/200',
- 'https://picsum.photos/seed/food112/200/200',
- 'https://picsum.photos/seed/food110_full/800/600',
- 'https://picsum.photos/seed/food111_full/800/600',
- 'https://picsum.photos/seed/food112_full/800/600',
+ '/images/travel_foods/gundori/gundori_1.jfif',
+ '/images/travel_foods/gundori/gundori_2.jfif',
+ '/images/travel_foods/gundori/gundori_3.jfif',
+ '/images/travel_foods/gundori/gundori_1.jfif',
+ '/images/travel_foods/gundori/gundori_2.jfif',
+ '/images/travel_foods/gundori/gundori_3.jfif',
  '전통적인 한식 회 전문점으로 현지 주민과 관광객에게 인기입니다.'),
 
 -- 5. 경포한미회대게
@@ -127,42 +127,42 @@ INSERT INTO travel_hotel (
 
 -- 씨마크호텔 (위치: 경포해변 / 경포호 인근)
 ('강릉 경포호 산소길', '씨마크호텔', 37.7976880, 128.9147800, 4.8, 95, 120, '["5성급","럭셔리","해변"]',
- 'https://picsum.photos/seed/hotel101/400/300',
- 'https://picsum.photos/seed/hotel102/400/300',
- 'https://picsum.photos/seed/hotel103/400/300',
- 'https://picsum.photos/seed/hotel101_full/800/600',
- 'https://picsum.photos/seed/hotel102_full/800/600',
- 'https://picsum.photos/seed/hotel103_full/800/600',
+ '/images/travel_hotels/seamark/seamark_1.jfif',
+ '/images/travel_hotels/seamark/seamark_2.jfif',
+ '/images/travel_hotels/seamark/seamark_3.jfif',
+ '/images/travel_hotels/seamark/seamark_1.jfif',
+ '/images/travel_hotels/seamark/seamark_2.jfif',
+ '/images/travel_hotels/seamark/seamark_3.jfif',
  '강릉 경포해변과 경포호 인근의 5성급 호텔로, 바다 및 호수 뷰와 고급 숙박 경험을 제공합니다.'),
 
 -- 경포비치호텔 (근처 — 경포해변 인근)
 ('강릉 경포호 산소길', '경포비치호텔', 37.7989, 128.9150, 4.3, 88, 100, '["3성급","바다","편안함"]',
- 'https://picsum.photos/seed/hotel104/400/300',
- 'https://picsum.photos/seed/hotel105/400/300',
- 'https://picsum.photos/seed/hotel106/400/300',
- 'https://picsum.photos/seed/hotel104_full/800/600',
- 'https://picsum.photos/seed/hotel105_full/800/600',
- 'https://picsum.photos/seed/hotel106_full/800/600',
+ '/images/travel_hotels/gyeongpo/gyeongpo_1.jfif',
+ '/images/travel_hotels/gyeongpo/gyeongpo_2.jfif',
+ '/images/travel_hotels/gyeongpo/gyeongpo_3.jfif',
+ '/images/travel_hotels/gyeongpo/gyeongpo_1.jfif',
+ '/images/travel_hotels/gyeongpo/gyeongpo_2.jfif',
+ '/images/travel_hotels/gyeongpo/gyeongpo_3.jfif',
  '경포해변과 가까운 3성급 호텔 — 강문동 해안로406번길 13‑6 근처.'),
 
 -- 강릉관광호텔 (근처 추정 — 시내 근교)
 ('강릉 경포호 산소길', '강릉관광호텔', 37.7640, 128.8790, 4.0, 80, 90, '["2성급","가성비","관광"]',
- 'https://picsum.photos/seed/hotel107/400/300',
- 'https://picsum.photos/seed/hotel108/400/300',
- 'https://picsum.photos/seed/hotel109/400/300',
- 'https://picsum.photos/seed/hotel107_full/800/600',
- 'https://picsum.photos/seed/hotel108_full/800/600',
- 'https://picsum.photos/seed/hotel109_full/800/600',
+ '/images/travel_hotels/gangneung/gangneung_1.jfif',
+ '/images/travel_hotels/gangneung/gangneung_2.jfif',
+ '/images/travel_hotels/gangneung/gangneung_3.jfif',
+ '/images/travel_hotels/gangneung/gangneung_1.jfif',
+ '/images/travel_hotels/gangneung/gangneung_2.jfif',
+ '/images/travel_hotels/gangneung/gangneung_3.jfif',
  '가성비 좋은 2성급 숙소 — 금성로 62 근처, 경포/강릉 시내 접근 용이.'),
 
 -- Hotel Tops10 (근처 추정 — 옥계면 주변)
 ('강릉 경포호 산소길', 'Hotel Tops10', 37.8150, 128.9000, 4.5, 85, 95, '["4성급","가족","바다"]',
- 'https://picsum.photos/seed/hotel110/400/300',
- 'https://picsum.photos/seed/hotel111/400/300',
- 'https://picsum.photos/seed/hotel112/400/300',
- 'https://picsum.photos/seed/hotel110_full/800/600',
- 'https://picsum.photos/seed/hotel111_full/800/600',
- 'https://picsum.photos/seed/hotel112_full/800/600',
+ '/images/travel_hotels/tops/tops_1.jfif',
+ '/images/travel_hotels/tops/tops_2.jfif',
+ '/images/travel_hotels/tops/tops_3.jfif',
+ '/images/travel_hotels/tops/tops_1.jfif',
+ '/images/travel_hotels/tops/tops_2.jfif',
+ '/images/travel_hotels/tops/tops_3.jfif',
  '4성급 호텔 — 옥계면 헌화로 455‑34 근처 (강릉 외곽, 바다/해안 접근 가능).'),
 
 -- THE HONG C HOTEL Gangneung (근처 추정 — 강릉 시내 / 교동 지역)
@@ -364,42 +364,31 @@ VALUES
    JSON_OBJECT("mname","성게미역국","price","12000")
  ),
  JSON_ARRAY(
-   "https://picsum.photos/seed/gangneung1/200/200",
-   "https://picsum.photos/seed/gangneung2/200/200",
-   "https://picsum.photos/seed/gangneung3/600/400"
+   '/images/travel_foods/gangneung/gangneung_1.jfif',
+   '/images/travel_foods/gangneung/gangneung_2.jfif',
+   '/images/travel_foods/gangneung/gangneung_3.jfif'
  ),
  JSON_ARRAY(
    JSON_OBJECT("category","음식","images", JSON_ARRAY(
-      "https://picsum.photos/seed/g_food1/400/300",
-      "https://picsum.photos/seed/g_food2/400/300",
-      "https://picsum.photos/seed/g_food3/400/300",
-      "https://picsum.photos/seed/g_food4/400/300",
-      "https://picsum.photos/seed/g_food5/400/300",
-      "https://picsum.photos/seed/g_food6/400/300"
+      '/images/travel_foods/gangneung/food/gangneung_food_1.jfif',
+      '/images/travel_foods/gangneung/food/gangneung_food_2.jfif',
+      '/images/travel_foods/gangneung/food/gangneung_food_3.jfif',
+      '/images/travel_foods/gangneung/food/gangneung_food_4.jfif'
    )),
    JSON_OBJECT("category","실내","images", JSON_ARRAY(
-      "https://picsum.photos/seed/g_in1/400/300",
-      "https://picsum.photos/seed/g_in2/400/300",
-      "https://picsum.photos/seed/g_in3/400/300",
-      "https://picsum.photos/seed/g_in4/400/300",
-      "https://picsum.photos/seed/g_in5/400/300",
-      "https://picsum.photos/seed/g_in6/400/300"
+      '/images/travel_foods/gangneung/inside/gangneung_inside_1.jfif',
+      '/images/travel_foods/gangneung/inside/gangneung_inside_2.jfif',
+      '/images/travel_foods/gangneung/inside/gangneung_inside_3.jfif',
+      '/images/travel_foods/gangneung/inside/gangneung_inside_4.jfif'
    )),
    JSON_OBJECT("category","실외","images", JSON_ARRAY(
-      "https://picsum.photos/seed/g_out1/400/300",
-      "https://picsum.photos/seed/g_out2/400/300",
-      "https://picsum.photos/seed/g_out3/400/300",
-      "https://picsum.photos/seed/g_out4/400/300",
-      "https://picsum.photos/seed/g_out5/400/300",
-      "https://picsum.photos/seed/g_out6/400/300"
+      '/images/travel_foods/gangneung/outside/gangneung_outside_1.jfif',
+      '/images/travel_foods/gangneung/outside/gangneung_outside_2.jfif',
+      '/images/travel_foods/gangneung/outside/gangneung_outside_3.jfif',
+      '/images/travel_foods/gangneung/outside/gangneung_outside_4.jfif'
    )),
    JSON_OBJECT("category","주차","images", JSON_ARRAY(
-      "https://picsum.photos/seed/g_park1/400/300",
-      "https://picsum.photos/seed/g_park2/400/300",
-      "https://picsum.photos/seed/g_park3/400/300",
-      "https://picsum.photos/seed/g_park4/400/300",
-      "https://picsum.photos/seed/g_park5/400/300",
-      "https://picsum.photos/seed/g_park6/400/300"
+      '/images/travel_foods/gangneung/parking/gangneung_parking_1.jfif'
    ))
  )
 ),
@@ -430,42 +419,31 @@ VALUES
    JSON_OBJECT("mname","회정식","price","25000")
  ),
  JSON_ARRAY(
-   "https://picsum.photos/seed/kangmoon1/200/200",
-   "https://picsum.photos/seed/kangmoon2/200/200",
-   "https://picsum.photos/seed/kangmoon3/600/400"
+   '/images/travel_foods/gangmunga/gangmunga_1.jfif',
+   '/images/travel_foods/gangmunga/gangmunga_2.jfif',
+   '/images/travel_foods/gangmunga/gangmunga_3.jfif'
  ),
  JSON_ARRAY(
    JSON_OBJECT("category","음식","images", JSON_ARRAY(
-      "https://picsum.photos/seed/km_food1/400/300",
-      "https://picsum.photos/seed/km_food2/400/300",
-      "https://picsum.photos/seed/km_food3/400/300",
-      "https://picsum.photos/seed/km_food4/400/300",
-      "https://picsum.photos/seed/km_food5/400/300",
-      "https://picsum.photos/seed/km_food6/400/300"
+      '/images/travel_foods/gangmunga/food/gangmunga_food_1.jfif',
+      '/images/travel_foods/gangmunga/food/gangmunga_food_2.jfif',
+      '/images/travel_foods/gangmunga/food/gangmunga_food_3.jfif',
+      '/images/travel_foods/gangmunga/food/gangmunga_food_4.jfif'
    )),
    JSON_OBJECT("category","실내","images", JSON_ARRAY(
-      "https://picsum.photos/seed/km_in1/400/300",
-      "https://picsum.photos/seed/km_in2/400/300",
-      "https://picsum.photos/seed/km_in3/400/300",
-      "https://picsum.photos/seed/km_in4/400/300",
-      "https://picsum.photos/seed/km_in5/400/300",
-      "https://picsum.photos/seed/km_in6/400/300"
+      '/images/travel_foods/gangmunga/inside/gangmunga_inside_1.jfif',
+      '/images/travel_foods/gangmunga/inside/gangmunga_inside_2.jfif',
+      '/images/travel_foods/gangmunga/inside/gangmunga_inside_3.jfif',
+      '/images/travel_foods/gangmunga/inside/gangmunga_inside_4.jfif'
    )),
    JSON_OBJECT("category","실외","images", JSON_ARRAY(
-      "https://picsum.photos/seed/km_out1/400/300",
-      "https://picsum.photos/seed/km_out2/400/300",
-      "https://picsum.photos/seed/km_out3/400/300",
-      "https://picsum.photos/seed/km_out4/400/300",
-      "https://picsum.photos/seed/km_out5/400/300",
-      "https://picsum.photos/seed/km_out6/400/300"
+      '/images/travel_foods/gangmunga/outside/gangmunga_outside_1.jfif',
+      '/images/travel_foods/gangmunga/outside/gangmunga_outside_2.jfif',
+      '/images/travel_foods/gangmunga/outside/gangmunga_outside_3.jfif',
+      '/images/travel_foods/gangmunga/outside/gangmunga_outside_4.jfif'
    )),
    JSON_OBJECT("category","주차","images", JSON_ARRAY(
-      "https://picsum.photos/seed/km_park1/400/300",
-      "https://picsum.photos/seed/km_park2/400/300",
-      "https://picsum.photos/seed/km_park3/400/300",
-      "https://picsum.photos/seed/km_park4/400/300",
-      "https://picsum.photos/seed/km_park5/400/300",
-      "https://picsum.photos/seed/km_park6/400/300"
+      '/images/travel_foods/gangmunga/parking/gangmunga_parking_1.jfif'
    ))
  )
 ),
@@ -496,42 +474,33 @@ VALUES
    JSON_OBJECT("mname","회정식","price","22000")
  ),
  JSON_ARRAY(
-   "https://picsum.photos/seed/gmun1/200/200",
-   "https://picsum.photos/seed/gmun2/200/200",
-   "https://picsum.photos/seed/gmun3/600/400"
+   '/images/travel_foods/munnu/munnu_1.jfif',
+   '/images/travel_foods/munnu/munnu_2.jfif',
+   '/images/travel_foods/munnu/munnu_3.jfif'
  ),
  JSON_ARRAY(
    JSON_OBJECT("category","음식","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gmun_food1/400/300",
-      "https://picsum.photos/seed/gmun_food2/400/300",
-      "https://picsum.photos/seed/gmun_food3/400/300",
-      "https://picsum.photos/seed/gmun_food4/400/300",
-      "https://picsum.photos/seed/gmun_food5/400/300",
-      "https://picsum.photos/seed/gmun_food6/400/300"
+      '/images/travel_foods/munnu/food/munnu_food_1.jfif',
+      '/images/travel_foods/munnu/food/munnu_food_2.jfif',
+      '/images/travel_foods/munnu/food/munnu_food_3.jfif',
+      '/images/travel_foods/munnu/food/munnu_food_4.jfif'
    )),
    JSON_OBJECT("category","실내","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gmun_in1/400/300",
-      "https://picsum.photos/seed/gmun_in2/400/300",
-      "https://picsum.photos/seed/gmun_in3/400/300",
-      "https://picsum.photos/seed/gmun_in4/400/300",
-      "https://picsum.photos/seed/gmun_in5/400/300",
-      "https://picsum.photos/seed/gmun_in6/400/300"
+      '/images/travel_foods/munnu/inside/munnu_inside_1.jfif',
+      '/images/travel_foods/munnu/inside/munnu_inside_2.jfif',
+      '/images/travel_foods/munnu/inside/munnu_inside_3.jfif',
+      '/images/travel_foods/munnu/inside/munnu_inside_4.jfif'
    )),
    JSON_OBJECT("category","실외","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gmun_out1/400/300",
-      "https://picsum.photos/seed/gmun_out2/400/300",
-      "https://picsum.photos/seed/gmun_out3/400/300",
-      "https://picsum.photos/seed/gmun_out4/400/300",
-      "https://picsum.photos/seed/gmun_out5/400/300",
-      "https://picsum.photos/seed/gmun_out6/400/300"
+      '/images/travel_foods/munnu/outside/munnu_outside_1.jfif',
+      '/images/travel_foods/munnu/outside/munnu_outside_2.jfif',
+      '/images/travel_foods/munnu/outside/munnu_outside_3.jfif',
+      '/images/travel_foods/munnu/outside/munnu_outside_4.jfif'
    )),
    JSON_OBJECT("category","주차","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gmun_park1/400/300",
-      "https://picsum.photos/seed/gmun_park2/400/300",
-      "https://picsum.photos/seed/gmun_park3/400/300",
-      "https://picsum.photos/seed/gmun_park4/400/300",
-      "https://picsum.photos/seed/gmun_park5/400/300",
-      "https://picsum.photos/seed/gmun_park6/400/300"
+      '/images/travel_foods/munnu/parking/munnu_parking_1.jfif',
+      '/images/travel_foods/munnu/parking/munnu_parking_2.jfif',
+      '/images/travel_foods/munnu/parking/munnu_parking_3.jfif'
    ))
  )
 ),
@@ -562,42 +531,31 @@ VALUES
    JSON_OBJECT("mname","매운탕","price","15000")
  ),
  JSON_ARRAY(
-   "https://picsum.photos/seed/gundo1/200/200",
-   "https://picsum.photos/seed/gundo2/200/200",
-   "https://picsum.photos/seed/gundo3/600/400"
+   '/images/travel_foods/gundori/gundori_1.jfif',
+   '/images/travel_foods/gundori/gundori_2.jfif',
+   '/images/travel_foods/gundori/gundori_3.jfif'
  ),
  JSON_ARRAY(
    JSON_OBJECT("category","음식","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gundo_food1/400/300",
-      "https://picsum.photos/seed/gundo_food2/400/300",
-      "https://picsum.photos/seed/gundo_food3/400/300",
-      "https://picsum.photos/seed/gundo_food4/400/300",
-      "https://picsum.photos/seed/gundo_food5/400/300",
-      "https://picsum.photos/seed/gundo_food6/400/300"
+      '/images/travel_foods/gundori/food/gundori_food_1.jfif',
+      '/images/travel_foods/gundori/food/gundori_food_2.jfif',
+      '/images/travel_foods/gundori/food/gundori_food_3.jfif',
+      '/images/travel_foods/gundori/food/gundori_food_4.jfif'
    )),
    JSON_OBJECT("category","실내","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gundo_in1/400/300",
-      "https://picsum.photos/seed/gundo_in2/400/300",
-      "https://picsum.photos/seed/gundo_in3/400/300",
-      "https://picsum.photos/seed/gundo_in4/400/300",
-      "https://picsum.photos/seed/gundo_in5/400/300",
-      "https://picsum.photos/seed/gundo_in6/400/300"
+      '/images/travel_foods/gundori/inside/gundori_inside_1.jfif',
+      '/images/travel_foods/gundori/inside/gundori_inside_2.jfif',
+      '/images/travel_foods/gundori/inside/gundori_inside_3.jfif',
+      '/images/travel_foods/gundori/inside/gundori_inside_4.jfif'
    )),
    JSON_OBJECT("category","실외","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gundo_out1/400/300",
-      "https://picsum.photos/seed/gundo_out2/400/300",
-      "https://picsum.photos/seed/gundo_out3/400/300",
-      "https://picsum.photos/seed/gundo_out4/400/300",
-      "https://picsum.photos/seed/gundo_out5/400/300",
-      "https://picsum.photos/seed/gundo_out6/400/300"
+      '/images/travel_foods/gundori/outside/gundori_outside_1.jfif',
+      '/images/travel_foods/gundori/outside/gundori_outside_2.jfif',
+      '/images/travel_foods/gundori/outside/gundori_outside_3.jfif',
+      '/images/travel_foods/gundori/outside/gundori_outside_4.jfif'
    )),
    JSON_OBJECT("category","주차","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gundo_park1/400/300",
-      "https://picsum.photos/seed/gundo_park2/400/300",
-      "https://picsum.photos/seed/gundo_park3/400/300",
-      "https://picsum.photos/seed/gundo_park4/400/300",
-      "https://picsum.photos/seed/gundo_park5/400/300",
-      "https://picsum.photos/seed/gundo_park6/400/300"
+      '/images/travel_foods/gundori/parking/gundori_parking_1.jfif'
    ))
  )
 ),
@@ -1024,40 +982,40 @@ VALUES
  '033-123-4567',
  JSON_ARRAY("럭셔리","바다뷰","무료주차"),
  JSON_ARRAY(
-   JSON_OBJECT("hname","스탠다드","image","","mainRoom","150000","lodgment","200000"),
-   JSON_OBJECT("hname","디럭스","image","","mainRoom","200000","lodgment","300000"),
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","150000","lodgment","200000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","200000","lodgment","300000"),
    JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","250000","lodgment","350000"),
-   JSON_OBJECT("hname","스위트","image","","mainRoom","300000","lodgment","450000")
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","300000","lodgment","450000")
  ),
  JSON_ARRAY(
-   "https://picsum.photos/seed/hotel101/400/300",
-   "https://picsum.photos/seed/hotel102/400/300",
-   "https://picsum.photos/seed/hotel103/400/300"
+   "/images/travel_hotels/seamark/seamark_1.jfif",
+   "/images/travel_hotels/seamark/seamark_2.jfif",
+   "/images/travel_hotels/seamark/seamark_3.jfif"
  ),
  JSON_ARRAY(
-   JSON_OBJECT("category","스탠다드","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel101/400/300",
-      "https://picsum.photos/seed/hotel102/400/300",
-      "https://picsum.photos/seed/hotel103/400/300",
-      "https://picsum.photos/seed/hotel104/400/300"
-   )),
    JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel105/400/300",
-      "https://picsum.photos/seed/hotel106/400/300",
-      "https://picsum.photos/seed/hotel107/400/300",
-      "https://picsum.photos/seed/hotel108/400/300"
-   )),
-   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel109/400/300",
-      "https://picsum.photos/seed/hotel110/400/300",
-      "https://picsum.photos/seed/hotel111/400/300",
-      "https://picsum.photos/seed/hotel112/400/300"
+      "/images/travel_hotels/seamark/deluxe/seamark_deluxe_1.jfif",
+      "/images/travel_hotels/seamark/deluxe/seamark_deluxe_2.jfif",
+      "/images/travel_hotels/seamark/deluxe/seamark_deluxe_3.jfif",
+      "/images/travel_hotels/seamark/deluxe/seamark_deluxe_4.jfif"
    )),
    JSON_OBJECT("category","스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel113/400/300",
-      "https://picsum.photos/seed/hotel114/400/300",
-      "https://picsum.photos/seed/hotel115/400/300",
-      "https://picsum.photos/seed/hotel116/400/300"
+      "/images/travel_hotels/seamark/suite/seamark_suite_1.jfif",
+      "/images/travel_hotels/seamark/suite/seamark_suite_2.jfif",
+      "/images/travel_hotels/seamark/suite/seamark_suite_3.jfif",
+      "/images/travel_hotels/seamark/suite/seamark_suite_4.jfif"
+   )),
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
+      "/images/travel_hotels/seamark/family/seamark_family_1.jfif",
+      "/images/travel_hotels/seamark/family/seamark_family_2.jfif",
+      "/images/travel_hotels/seamark/family/seamark_family_3.jfif",
+      "/images/travel_hotels/seamark/family/seamark_family_4.jfif"
+   )),
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/seamark/royal/seamark_royal_1.jfif",
+      "/images/travel_hotels/seamark/royal/seamark_royal_2.jfif",
+      "/images/travel_hotels/seamark/royal/seamark_royal_3.jfif",
+      "/images/travel_hotels/seamark/royal/seamark_royal_4.jfif"
    ))
  )
 ),
@@ -1081,40 +1039,40 @@ VALUES
  '033-234-5678',
  JSON_ARRAY("바다뷰","가성비","무료주차"),
  JSON_ARRAY(
-   JSON_OBJECT("hname","스탠다드","image","","mainRoom","100000","lodgment","150000"),
-   JSON_OBJECT("hname","디럭스","image","","mainRoom","150000","lodgment","200000"),
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","100000","lodgment","150000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","150000","lodgment","200000"),
    JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","200000","lodgment","250000"),
-   JSON_OBJECT("hname","스위트","image","","mainRoom","250000","lodgment","300000")
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","250000","lodgment","300000")
  ),
  JSON_ARRAY(
-   "https://picsum.photos/seed/hotel104/400/300",
-   "https://picsum.photos/seed/hotel105/400/300",
-   "https://picsum.photos/seed/hotel106/400/300"
+   "/images/travel_hotels/gyeongpo/gyeongpo_1.jfif",
+   "/images/travel_hotels/gyeongpo/gyeongpo_2.jfif",
+   "/images/travel_hotels/gyeongpo/gyeongpo_3.jfif"
  ),
  JSON_ARRAY(
-   JSON_OBJECT("category","스탠다드","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel104/400/300",
-      "https://picsum.photos/seed/hotel105/400/300",
-      "https://picsum.photos/seed/hotel106/400/300",
-      "https://picsum.photos/seed/hotel107/400/300"
-   )),
    JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel108/400/300",
-      "https://picsum.photos/seed/hotel109/400/300",
-      "https://picsum.photos/seed/hotel110/400/300",
-      "https://picsum.photos/seed/hotel111/400/300"
-   )),
-   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel112/400/300",
-      "https://picsum.photos/seed/hotel113/400/300",
-      "https://picsum.photos/seed/hotel114/400/300",
-      "https://picsum.photos/seed/hotel115/400/300"
+      "/images/travel_hotels/gyeongpo/deluxe/gyeongpo_deluxe_1.jfif",
+      "/images/travel_hotels/gyeongpo/deluxe/gyeongpo_deluxe_2.jfif",
+      "/images/travel_hotels/gyeongpo/deluxe/gyeongpo_deluxe_3.jfif",
+      "/images/travel_hotels/gyeongpo/deluxe/gyeongpo_deluxe_4.jfif"
    )),
    JSON_OBJECT("category","스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel116/400/300",
-      "https://picsum.photos/seed/hotel117/400/300",
-      "https://picsum.photos/seed/hotel118/400/300",
-      "https://picsum.photos/seed/hotel119/400/300"
+      "/images/travel_hotels/gyeongpo/suite/gyeongpo_suite_1.jfif",
+      "/images/travel_hotels/gyeongpo/suite/gyeongpo_suite_2.jfif",
+      "/images/travel_hotels/gyeongpo/suite/gyeongpo_suite_3.jfif",
+      "/images/travel_hotels/gyeongpo/suite/gyeongpo_suite_4.jfif"
+   )),
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
+      "/images/travel_hotels/gyeongpo/family/gyeongpo_family_1.jfif",
+      "/images/travel_hotels/gyeongpo/family/gyeongpo_family_2.jfif",
+      "/images/travel_hotels/gyeongpo/family/gyeongpo_family_3.jfif",
+      "/images/travel_hotels/gyeongpo/family/gyeongpo_family_4.jfif"
+   )),
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/gyeongpo/royal/gyeongpo_royal_1.jfif",
+      "/images/travel_hotels/gyeongpo/royal/gyeongpo_royal_2.jfif",
+      "/images/travel_hotels/gyeongpo/royal/gyeongpo_royal_3.jfif",
+      "/images/travel_hotels/gyeongpo/royal/gyeongpo_royal_4.jfif"
    ))
  )
 ),
@@ -1138,40 +1096,40 @@ VALUES
  '033-345-6789',
  JSON_ARRAY("가성비","편안함","무료주차"),
  JSON_ARRAY(
-   JSON_OBJECT("hname","스탠다드","image","","mainRoom","90000","lodgment","120000"),
-   JSON_OBJECT("hname","디럭스","image","","mainRoom","120000","lodgment","150000"),
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","90000","lodgment","120000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","120000","lodgment","150000"),
    JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","150000","lodgment","180000"),
-   JSON_OBJECT("hname","스위트","image","","mainRoom","180000","lodgment","220000")
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","180000","lodgment","220000")
  ),
  JSON_ARRAY(
-   "https://picsum.photos/seed/hotel107/400/300",
-   "https://picsum.photos/seed/hotel108/400/300",
-   "https://picsum.photos/seed/hotel109/400/300"
+   "/images/travel_hotels/gangneung/gangneung_1.jfif",
+   "/images/travel_hotels/gangneung/gangneung_2.jfif",
+   "/images/travel_hotels/gangneung/gangneung_3.jfif"
  ),
  JSON_ARRAY(
-   JSON_OBJECT("category","스탠다드","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel107/400/300",
-      "https://picsum.photos/seed/hotel108/400/300",
-      "https://picsum.photos/seed/hotel109/400/300",
-      "https://picsum.photos/seed/hotel110/400/300"
-   )),
    JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel111/400/300",
-      "https://picsum.photos/seed/hotel112/400/300",
-      "https://picsum.photos/seed/hotel113/400/300",
-      "https://picsum.photos/seed/hotel114/400/300"
-   )),
-   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel115/400/300",
-      "https://picsum.photos/seed/hotel116/400/300",
-      "https://picsum.photos/seed/hotel117/400/300",
-      "https://picsum.photos/seed/hotel118/400/300"
+      "/images/travel_hotels/gangneung/deluxe/gangneung_deluxe_1.jfif",
+      "/images/travel_hotels/gangneung/deluxe/gangneung_deluxe_2.jfif",
+      "/images/travel_hotels/gangneung/deluxe/gangneung_deluxe_3.jfif",
+      "/images/travel_hotels/gangneung/deluxe/gangneung_deluxe_4.jfif"
    )),
    JSON_OBJECT("category","스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel119/400/300",
-      "https://picsum.photos/seed/hotel120/400/300",
-      "https://picsum.photos/seed/hotel121/400/300",
-      "https://picsum.photos/seed/hotel122/400/300"
+      "/images/travel_hotels/gangneung/suite/gangneung_suite_1.jfif",
+      "/images/travel_hotels/gangneung/suite/gangneung_suite_2.jfif",
+      "/images/travel_hotels/gangneung/suite/gangneung_suite_3.jfif",
+      "/images/travel_hotels/gangneung/suite/gangneung_suite_4.jfif"
+   )),
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
+      "/images/travel_hotels/gangneung/family/gangneung_family_1.jfif",
+      "/images/travel_hotels/gangneung/family/gangneung_family_2.jfif",
+      "/images/travel_hotels/gangneung/family/gangneung_family_3.jfif",
+      "/images/travel_hotels/gangneung/family/gangneung_family_4.jfif"
+   )),
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/gangneung/royal/gangneung_royal_1.jfif",
+      "/images/travel_hotels/gangneung/royal/gangneung_royal_2.jfif",
+      "/images/travel_hotels/gangneung/royal/gangneung_royal_3.jfif",
+      "/images/travel_hotels/gangneung/royal/gangneung_royal_4.jfif"
    ))
  )
 ),
@@ -1201,34 +1159,34 @@ VALUES
    JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","210000","lodgment","310000")
  ),
  JSON_ARRAY(
-   "https://picsum.photos/seed/hotel110/400/300",
-   "https://picsum.photos/seed/hotel111/400/300",
-   "https://picsum.photos/seed/hotel112/400/300"
+   "/images/travel_hotels/tops/tops_1.jfif",
+   "/images/travel_hotels/tops/tops_2.jfif",
+   "/images/travel_hotels/tops/tops_3.jfif"
  ),
  JSON_ARRAY(
    JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel110/400/300",
-      "https://picsum.photos/seed/hotel111/400/300",
-      "https://picsum.photos/seed/hotel112/400/300",
-      "https://picsum.photos/seed/hotel113/400/300"
+      "/images/travel_hotels/tops/deluxe/tops_deluxe_1.jfif",
+      "/images/travel_hotels/tops/deluxe/tops_deluxe_2.jfif",
+      "/images/travel_hotels/tops/deluxe/tops_deluxe_3.jfif",
+      "/images/travel_hotels/tops/deluxe/tops_deluxe_4.jfif"
    )),
    JSON_OBJECT("category","스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel114/400/300",
-      "https://picsum.photos/seed/hotel115/400/300",
-      "https://picsum.photos/seed/hotel116/400/300",
-      "https://picsum.photos/seed/hotel117/400/300"
+      "/images/travel_hotels/tops/suite/tops_suite_1.jfif",
+      "/images/travel_hotels/tops/suite/tops_suite_2.jfif",
+      "/images/travel_hotels/tops/suite/tops_suite_3.jfif",
+      "/images/travel_hotels/tops/suite/tops_suite_4.jfif"
    )),
    JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel118/400/300",
-      "https://picsum.photos/seed/hotel119/400/300",
-      "https://picsum.photos/seed/hotel120/400/300",
-      "https://picsum.photos/seed/hotel121/400/300"
+      "/images/travel_hotels/tops/family/tops_family_1.jfif",
+      "/images/travel_hotels/tops/family/tops_family_2.jfif",
+      "/images/travel_hotels/tops/family/tops_family_3.jfif",
+      "/images/travel_hotels/tops/family/tops_family_4.jfif"
    )),
    JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/hotel122/400/300",
-      "https://picsum.photos/seed/hotel123/400/300",
-      "https://picsum.photos/seed/hotel124/400/300",
-      "https://picsum.photos/seed/hotel125/400/300"
+      "/images/travel_hotels/tops/royal/tops_royal_1.jfif",
+      "/images/travel_hotels/tops/royal/tops_royal_2.jfif",
+      "/images/travel_hotels/tops/royal/tops_royal_3.jfif",
+      "/images/travel_hotels/tops/royal/tops_royal_4.jfif"
    ))
  )
 ),
@@ -2223,25 +2181,25 @@ VALUES
  '음식 맛이 정말 좋았어요. 분위기도 편안하고 직원분들도 친절했습니다.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food24_1/600/400',
-    'https://picsum.photos/seed/food24_2/600/400',
-    'https://picsum.photos/seed/food24_3/600/400'
+    '/images/travel_foods/gangneung/food/gangneung_food_1.jfif',
+    '/images/travel_foods/gangneung/inside/gangneung_inside_1.jfif',
+    '/images/travel_foods/gangneung/outside/gangneung_outside_1.jfif'
  )),
 ('test222', 24, 'https://picsum.photos/seed/user2/100/100', '8', 4.0,
  '점심 세트 메뉴가 가성비 최고! 재방문 의사 있습니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food24_1/600/400',
-    'https://picsum.photos/seed/food24_2/600/400',
-    'https://picsum.photos/seed/food24_3/600/400'
+    '/images/travel_foods/gangneung/food/gangneung_food_2.jfif',
+    '/images/travel_foods/gangneung/inside/gangneung_inside_2.jfif',
+    '/images/travel_foods/gangneung/outside/gangneung_outside_2.jfif'
  )),
 ('test333', 24, 'https://picsum.photos/seed/user3/100/100', '20', 4.2,
  '신선한 재료와 깔끔한 플레이팅이 인상적이었어요.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food24_1/600/400',
-    'https://picsum.photos/seed/food24_2/600/400',
-    'https://picsum.photos/seed/food24_3/600/400'
+    '/images/travel_foods/gangneung/food/gangneung_food_3.jfif',
+    '/images/travel_foods/gangneung/inside/gangneung_inside_3.jfif',
+    '/images/travel_foods/gangneung/outside/gangneung_outside_3.jfif'
  )),
 
 -- fid 25
@@ -2249,25 +2207,25 @@ VALUES
  '분위기 좋고 서비스도 만족스러웠습니다. 강추!',
  '2025-11-04',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food25_1/600/400',
-    'https://picsum.photos/seed/food25_2/600/400',
-    'https://picsum.photos/seed/food25_3/600/400'
+    '/images/travel_foods/gangnmunga/food/gangmunga_food_1.jfif',
+    '/images/travel_foods/gangnmunga/inside/gangmunga_inside_1.jfif',
+    '/images/travel_foods/gangnmunga/outside/gangmunga_outside_1.jfif'
  )),
 ('test666', 25, 'https://picsum.photos/seed/user6/100/100', '18', 4.6,
  '맛, 양, 서비스 모두 만족! 특히 해산물이 신선했습니다.',
  '2025-11-05',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food25_1/600/400',
-    'https://picsum.photos/seed/food25_2/600/400',
-    'https://picsum.photos/seed/food25_3/600/400'
+    '/images/travel_foods/gangnmunga/food/gangmunga_food_2.jfif',
+    '/images/travel_foods/gangnmunga/inside/gangmunga_inside_2.jfif',
+    '/images/travel_foods/gangnmunga/outside/gangmunga_outside_2.jfif'
  )),
 ('test', 25, 'https://picsum.photos/seed/user1/100/100', '12', 4.1,
  '다음에도 친구와 함께 방문하고 싶은 곳이에요.',
  '2025-11-06',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food25_1/600/400',
-    'https://picsum.photos/seed/food25_2/600/400',
-    'https://picsum.photos/seed/food25_3/600/400'
+    '/images/travel_foods/gangnmunga/food/gangmunga_food_3.jfif',
+    '/images/travel_foods/gangnmunga/inside/gangmunga_inside_3.jfif',
+    '/images/travel_foods/gangnmunga/outside/gangmunga_outside_3.jfif'
  )),
 
 -- fid 26
@@ -2275,25 +2233,25 @@ VALUES
  '편안한 분위기에서 맛있는 한끼, 만족스럽습니다.',
  '2025-11-07',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food26_1/600/400',
-    'https://picsum.photos/seed/food26_2/600/400',
-    'https://picsum.photos/seed/food26_3/600/400'
+    '/images/travel_foods/munnu/food/munnu_food_1.jfif',
+    '/images/travel_foods/munnu/inside/munnu_inside_1.jfif',
+    '/images/travel_foods/munnu/outside/munnu_outside_1.jfif'
  )),
 ('test222', 26, 'https://picsum.photos/seed/user2/100/100', '8', 4.0,
  '깔끔하고 맛있는 요리, 재방문 의사 있습니다.',
  '2025-11-08',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food26_1/600/400',
-    'https://picsum.photos/seed/food26_2/600/400',
-    'https://picsum.photos/seed/food26_3/600/400'
+    '/images/travel_foods/munnu/food/munnu_food_2.jfif',
+    '/images/travel_foods/munnu/inside/munnu_inside_2.jfif',
+    '/images/travel_foods/munnu/outside/munnu_outside_2.jfif'
  )),
 ('test333', 26, 'https://picsum.photos/seed/user3/100/100', '20', 4.4,
  '전통적인 맛과 신선함이 느껴지는 곳이에요.',
  '2025-11-09',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food26_1/600/400',
-    'https://picsum.photos/seed/food26_2/600/400',
-    'https://picsum.photos/seed/food26_3/600/400'
+    '/images/travel_foods/munnu/food/munnu_food_3.jfif',
+    '/images/travel_foods/munnu/inside/munnu_inside_3.jfif',
+    '/images/travel_foods/munnu/outside/munnu_outside_3.jfif'
  )),
 
 -- fid 27
@@ -2301,25 +2259,25 @@ VALUES
  '가족 단위 방문에도 좋고, 서비스 친절합니다.',
  '2025-11-10',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food27_1/600/400',
-    'https://picsum.photos/seed/food27_2/600/400',
-    'https://picsum.photos/seed/food27_3/600/400'
+    '/images/travel_foods/gundori/food/gundori_food_1.jfif',
+    '/images/travel_foods/gundori/inside/gundori_inside_1.jfif',
+    '/images/travel_foods/gundori/outside/gundori_outside_1.jfif'
  )),
 ('test666', 27, 'https://picsum.photos/seed/user6/100/100', '18', 4.3,
  '신선한 재료와 서비스 모두 만족스러웠어요.',
  '2025-11-11',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food27_1/600/400',
-    'https://picsum.photos/seed/food27_2/600/400',
-    'https://picsum.photos/seed/food27_3/600/400'
+    '/images/travel_foods/gundori/food/gundori_food_2.jfif',
+    '/images/travel_foods/gundori/inside/gundori_inside_2.jfif',
+    '/images/travel_foods/gundori/outside/gundori_outside_2.jfif'
  )),
 ('test', 27, 'https://picsum.photos/seed/user1/100/100', '12', 4.2,
  '정갈하고 맛있는 음식이 만족스러웠습니다.',
  '2025-11-12',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food27_1/600/400',
-    'https://picsum.photos/seed/food27_2/600/400',
-    'https://picsum.photos/seed/food27_3/600/400'
+    '/images/travel_foods/gundori/food/gundori_food_3.jfif',
+    '/images/travel_foods/gundori/inside/gundori_inside_3.jfif',
+    '/images/travel_foods/gundori/outside/gundori_outside_3.jfif'
  )),
 
 -- fid 28
@@ -2489,25 +2447,25 @@ VALUES
  '객실이 넓고 전망이 정말 좋았어요. 직원분들도 친절했습니다.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel24_1/600/400',
-    'https://picsum.photos/seed/hotel24_2/600/400',
-    'https://picsum.photos/seed/hotel24_3/600/400'
+    '/images/travel_hotels/seamark/deluxe/seamark_deluxe_1.jfif',
+    '/images/travel_hotels/seamark/deluxe/seamark_deluxe_2.jfif',
+    '/images/travel_hotels/seamark/deluxe/seamark_deluxe_3.jfif'
  )),
 ('test222', 24, 'https://picsum.photos/seed/user102/100/100', '8', 4.0,
  '조용하고 깔끔한 호텔, 가족 여행에 적합합니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel24_1/600/400',
-    'https://picsum.photos/seed/hotel24_2/600/400',
-    'https://picsum.photos/seed/hotel24_3/600/400'
+    '/images/travel_hotels/seamark/suite/seamark_suite_1.jfif',
+    '/images/travel_hotels/seamark/suite/seamark_suite_2.jfif',
+    '/images/travel_hotels/seamark/suite/seamark_suite_3.jfif'
  )),
 ('test333', 24, 'https://picsum.photos/seed/user103/100/100', '20', 5.0,
  '조식이 맛있고 바다 전망이 최고입니다!',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel24_1/600/400',
-    'https://picsum.photos/seed/hotel24_2/600/400',
-    'https://picsum.photos/seed/hotel24_3/600/400'
+    '/images/travel_hotels/seamark/family/seamark_family_1.jfif',
+    '/images/travel_hotels/seamark/family/seamark_family_2.jfif',
+    '/images/travel_hotels/seamark/family/seamark_family_3.jfif'
  )),
 
 -- hid 25
@@ -2515,25 +2473,25 @@ VALUES
  '경포 해변과 가까워 산책하기 좋았어요.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel25_1/600/400',
-    'https://picsum.photos/seed/hotel25_2/600/400',
-    'https://picsum.photos/seed/hotel25_3/600/400'
+    '/images/travel_hotels/gyeongpo/deluxe/gyeongpo_deluxe_1.jfif',
+    '/images/travel_hotels/gyeongpo/deluxe/gyeongpo_deluxe_2.jfif',
+    '/images/travel_hotels/gyeongpo/deluxe/gyeongpo_deluxe_3.jfif'
  )),
 ('test666', 25, 'https://picsum.photos/seed/user105/100/100', '5', 3.8,
  '가성비 괜찮은 호텔, 방음은 조금 아쉽습니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel25_1/600/400',
-    'https://picsum.photos/seed/hotel25_2/600/400',
-    'https://picsum.photos/seed/hotel25_3/600/400'
+    '/images/travel_hotels/gyeongpo/suite/gyeongpo_suite_1.jfif',
+    '/images/travel_hotels/gyeongpo/suite/gyeongpo_suite_2.jfif',
+    '/images/travel_hotels/gyeongpo/suite/gyeongpo_suite_3.jfif'
  )),
 ('test', 25, 'https://picsum.photos/seed/user106/100/100', '10', 4.5,
  '친절하고 청결한 호텔, 재방문 의사 있습니다.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel25_1/600/400',
-    'https://picsum.photos/seed/hotel25_2/600/400',
-    'https://picsum.photos/seed/hotel25_3/600/400'
+    '/images/travel_hotels/gyeongpo/family/gyeongpo_family_1.jfif',
+    '/images/travel_hotels/gyeongpo/family/gyeongpo_family_2.jfif',
+    '/images/travel_hotels/gyeongpo/family/gyeongpo_family_3.jfif'
  )),
 
 -- hid 26
@@ -2541,25 +2499,25 @@ VALUES
  '편안한 객실과 접근성 좋음, 가격대비 만족.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel26_1/600/400',
-    'https://picsum.photos/seed/hotel26_2/600/400',
-    'https://picsum.photos/seed/hotel26_3/600/400'
+    '/images/travel_hotels/gangneung/deluxe/gangneung_deluxe_1.jfif',
+    '/images/travel_hotels/gangneung/deluxe/gangneung_deluxe_2.jfif',
+    '/images/travel_hotels/gangneung/deluxe/gangneung_deluxe_3.jfif'
  )),
 ('test222', 26, 'https://picsum.photos/seed/user108/100/100', '8', 4.3,
  '주변 편의시설 많고, 가족 여행에 추천합니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel26_1/600/400',
-    'https://picsum.photos/seed/hotel26_2/600/400',
-    'https://picsum.photos/seed/hotel26_3/600/400'
+    '/images/travel_hotels/gangneung/suite/gangneung_suite_1.jfif',
+    '/images/travel_hotels/gangneung/suite/gangneung_suite_2.jfif',
+    '/images/travel_hotels/gangneung/suite/gangneung_suite_3.jfif'
  )),
 ('test333', 26, 'https://picsum.photos/seed/user109/100/100', '20', 4.8,
  '조식과 서비스 모두 만족, 뷰도 좋습니다.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel26_1/600/400',
-    'https://picsum.photos/seed/hotel26_2/600/400',
-    'https://picsum.photos/seed/hotel26_3/600/400'
+    '/images/travel_hotels/gangneung/family/gangneung_family_1.jfif',
+    '/images/travel_hotels/gangneung/family/gangneung_family_2.jfif',
+    '/images/travel_hotels/gangneung/family/gangneung_family_3.jfif'
  )),
 
 -- hid 27
@@ -2567,25 +2525,25 @@ VALUES
  '위치가 좋아 관광하기 편리했습니다.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel27_1/600/400',
-    'https://picsum.photos/seed/hotel27_2/600/400',
-    'https://picsum.photos/seed/hotel27_3/600/400'
+    '/images/travel_hotels/tops/deluxe/tops_deluxe_1.jfif',
+    '/images/travel_hotels/tops/deluxe/tops_deluxe_2.jfif',
+    '/images/travel_hotels/tops/deluxe/tops_deluxe_3.jfif'
  )),
 ('test666', 27, 'https://picsum.photos/seed/user111/100/100', '7', 3.9,
  '조용하고 깔끔한 객실이 인상적이었습니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel27_1/600/400',
-    'https://picsum.photos/seed/hotel27_2/600/400',
-    'https://picsum.photos/seed/hotel27_3/600/400'
+    '/images/travel_hotels/tops/suite/tops_suite_1.jfif',
+    '/images/travel_hotels/tops/suite/tops_suite_2.jfif',
+    '/images/travel_hotels/tops/suite/tops_suite_3.jfif'
  )),
 ('test', 27, 'https://picsum.photos/seed/user112/100/100', '18', 4.6,
  '뷰가 아름다워 휴식하기 좋았습니다.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel27_1/600/400',
-    'https://picsum.photos/seed/hotel27_2/600/400',
-    'https://picsum.photos/seed/hotel27_3/600/400'
+    '/images/travel_hotels/tops/family/tops_family_1.jfif',
+    '/images/travel_hotels/tops/family/tops_family_2.jfif',
+    '/images/travel_hotels/tops/family/tops_family_3.jfif'
  )),
 
 -- hid 28
