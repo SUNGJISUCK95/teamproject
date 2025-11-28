@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -259,8 +260,17 @@ public class OauthServiceImpl implements OauthService{
     public int updateUser(UserInfoDto userInfoDto){
         // 1. DTO에서 ID 값을 가져와서 DB의 기존 엔티티를 조회 (영속성 컨텍스트에 로드)
         // includedId를 사용하여 기존 엔티티를 찾습니다.
-        Optional<UserInfo> existingUserOptional = jpaUserInfoRepository.findByUid(userInfoDto.getIncludedId());
+        // `아이디 찾기/비밀번호 변경`일때는 전달받은 uid값으로 진행
+        System.out.println(userInfoDto);
 
+        Optional<UserInfo> existingUserOptional;
+        if(userInfoDto.getIncludedId() == null)
+        {
+            existingUserOptional = jpaUserInfoRepository.findByUid(userInfoDto.getUid());
+        }
+        else {
+            existingUserOptional = jpaUserInfoRepository.findByUid(userInfoDto.getIncludedId());
+        }
         if (existingUserOptional.isEmpty()) {
             // ID에 해당하는 사용자가 없는 경우 처리
             return 0;
@@ -274,6 +284,7 @@ public class OauthServiceImpl implements OauthService{
 //            existingUser.setUid(userInfoDto.getUid());
 //        }
         if (userInfoDto.getUpass() != null) {
+            System.out.println(userInfoDto);
             String newEncodePwd = passwordEncoder.encode(userInfoDto.getUpass());
             existingUser.setUpass(newEncodePwd);
         }
@@ -351,24 +362,31 @@ public class OauthServiceImpl implements OauthService{
         //auth코드 확인했으면 지워버리기
         Optional<UserInfoAuthSearch> userInfoAuthSearch;
         userInfoAuthSearch = jpaUserInfoAuthSearchRepository.findByAuthcode(userInfoDto.getAuthCodeIdPw());
+        LocalDateTime timer;
+        
         if(userInfoAuthSearch.isPresent()) {
-            Optional<UserInfo> userInfoData = null;
-            userInfoData = jpaUserInfoRepository
-                    .findByUemailAndUname(userInfoAuthSearch.get().getUemail(),
-                        userInfoAuthSearch.get().getUname());
-            //나중에 활성화 시키기.
-//            jpaUserInfoAuthSearchRepository.deleteByAuthcode(userInfoDto.getAuthCodeIdPw());
-            if(userInfoDto.getUid()==null)
+            timer = userInfoAuthSearch.get().getDeadtime();
+            if(timer.isAfter(LocalDateTime.now()))
             {
-                result = userInfoData.get().getUid();
-            }
-            else
-            {
-                result = "PW";
+                Optional<UserInfo> userInfoData = null;
+                userInfoData = jpaUserInfoRepository
+                        .findByUemailAndUname(userInfoAuthSearch.get().getUemail(),
+                            userInfoAuthSearch.get().getUname());
+                //나중에 활성화 시키기. ->재시도하게 하려면 비활성화, 재시도 없으면 활성화
+    //            jpaUserInfoAuthSearchRepository.deleteByAuthcode(userInfoDto.getAuthCodeIdPw());
+                if(userInfoDto.getUid()==null)
+                {
+                    result = userInfoData.get().getUid();
+                }
+                else
+                {
+                    result = "PW";
+                }
             }
         }
         else{
             System.out.println("no auth");
+            result = "wrong or late";
         }
         //pw는 auth코드 확인후에 일반 문자열 리턴?
 
