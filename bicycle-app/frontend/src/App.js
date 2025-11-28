@@ -34,6 +34,7 @@ import { createCsrfToken } from './feature/csrf/manageCsrfToken.js';
 import { SuccessPage } from "./pages/SuccessPage.jsx";
 import { FailPage } from "./pages/FailPage.jsx";
 import {RentalPaymentResults} from "./components/rental/RentalPaymentResult.jsx";
+import {OrderList} from "./pages/OrderList.jsx";
 
 export default function App() {
 
@@ -88,6 +89,7 @@ export default function App() {
                         <Route path="checkout" element={<CheckoutInfo/>}/>
                         <Route path="checkout/success" element={<SuccessPage/>}/>
                         <Route path="checkout/fail" element={<FailPage/>}/>
+                        <Route path="payment/order" element={<OrderList/>}/>
 
                         {/* Board (게시판) */}
                         <Route path="board">

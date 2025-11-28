@@ -1,8 +1,14 @@
 import {axiosPost} from "../../utils/dataFetch.js";
+import Swal from "sweetalert2";
+import {showOrderItem} from "./PaymentSlice.js";
 
 export const requestTossPay = async (widgets, cartList, totalPrice,receiverInfo) => {
     if (!widgets) {
-        alert("결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.");
+        await Swal.fire({
+            icon: "warning",
+            title: "",
+            text: "결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.",
+        });
         return;
     }
     let formattedOrderName = "주문 상품";
@@ -64,4 +70,15 @@ export const confirmPayment = async (paymentKey,orderId,amount,cartList) => {
     };
     const response = await axiosPost(url,data);
     return response;
+}
+
+export const findOrderList = () =>async (dispatch) => {
+    const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+    if (!loginInfo || !loginInfo.userId) {
+        return;
+    }
+    const url = "/payment/order";
+    const data = {"userId":loginInfo.userId};
+    const response = await axiosPost(url,data);
+    dispatch(showOrderItem({"items":response}));
 }

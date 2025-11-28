@@ -2,6 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import { loadTossPayments, ANONYMOUS } from "@tosspayments/tosspayments-sdk";
 import {requestTossPay} from "../../feature/payment/PaymentAPI.js";
 import {useSelector} from "react-redux";
+import Swal from "sweetalert2";
 
 const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
 
@@ -64,7 +65,11 @@ export function CheckoutPayment({ totalPrice, cartList }) {
     const handlePayment = async () => {
         const widgets = widgetRef.current;
         if(totalPrice <= 0 ){
-            alert("결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.");
+            await Swal.fire({
+                icon: "warning",
+                title: "",
+                text: "결제 위젯이 준비되지 않았거나 결제 금액이 올바르지 않습니다.",
+            });
             return;
         } await requestTossPay(widgets,cartList,totalPrice,receiverInfo);
     };
