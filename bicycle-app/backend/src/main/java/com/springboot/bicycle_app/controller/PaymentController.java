@@ -1,16 +1,15 @@
 package com.springboot.bicycle_app.controller;
 
 import com.springboot.bicycle_app.dto.purchase.OrderRequestDto;
+import com.springboot.bicycle_app.dto.purchase.OrderResponseDto;
 import com.springboot.bicycle_app.dto.purchase.TossPayDto;
 import com.springboot.bicycle_app.service.purchase.OrderService;
 import com.springboot.bicycle_app.service.purchase.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -52,5 +51,9 @@ public class PaymentController {
                     .internalServerError()
                     .body(Map.of("message", "서버 내부 오류가 발생했습니다."));
         }
+    }
+    @PostMapping("/order")
+    public List<OrderResponseDto> findList(@RequestBody OrderRequestDto dto){
+        return orderService.findList(dto);
     }
 }

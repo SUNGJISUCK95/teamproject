@@ -2,6 +2,7 @@ package com.springboot.bicycle_app.service.purchase;
 
 import com.springboot.bicycle_app.controller.PaymentFailedException;
 import com.springboot.bicycle_app.dto.purchase.OrderRequestDto;
+import com.springboot.bicycle_app.dto.purchase.OrderResponseDto;
 import com.springboot.bicycle_app.dto.purchase.TossPayDto;
 import com.springboot.bicycle_app.entity.purchase.Order;
 import com.springboot.bicycle_app.entity.userinfo.UserInfo;
@@ -39,8 +40,9 @@ public class OrderServiceImpl implements OrderService {
         this.jpaCartRepository = jpaCartRepository;
         this.restClient = RestClient.create();
     }
+
     @Override
-    public Order createOrder(OrderRequestDto requestDto){
+    public Order createOrder(OrderRequestDto requestDto) {
         Optional<UserInfo> userInfo = jpaUserInfoRepository.findById(requestDto.getUserId());
         String orderId = "ORDER-" + UUID.randomUUID();
         Order order = new Order();
@@ -54,6 +56,7 @@ public class OrderServiceImpl implements OrderService {
         order.setOdate(LocalDateTime.now());
         return jpaOrderServiceRepository.save(order);
     }
+
     @Override
     public Object confirmPayment(TossPayDto dto) {
         Order order = jpaOrderServiceRepository.findByOrderId(dto.getOrderId())
@@ -79,8 +82,8 @@ public class OrderServiceImpl implements OrderService {
             order.setPaymentKey(dto.getPaymentKey());
             order.setStatus("DONE");
             UserInfo user = order.getUser();
-            int count = jpaOrderItemServiceRepository.insertOrderItem(order,user);
-            if(count == 0){
+            int count = jpaOrderItemServiceRepository.insertOrderItem(order, user);
+            if (count == 0) {
                 throw new RuntimeException("주문할 상품이 없습니다.");
             }
             jpaCartRepository.deleteByUser(user);
@@ -90,6 +93,15 @@ public class OrderServiceImpl implements OrderService {
         } catch (Exception e) {
             throw new PaymentFailedException("결제 승인 중 오류가 발생했습니다: " + e.getMessage());
         }
+    }
+    @Override
+    public List<OrderResponseDto> findList(OrderRequestDto dto){
+        List<Order> orders = jpaOrderServiceRepository.findByUserUid(dto.getUserId());
+        List<OrderResponseDto> orderList = new ArrayList<>();
+        for(Order order : orders) {
+            orderList.add(new OrderResponseDto(order));
+        }
+        return orderList;
     }
 }
 

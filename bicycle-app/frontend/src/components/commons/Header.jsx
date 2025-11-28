@@ -7,6 +7,7 @@ import "../../styles/purchaseheader.css";
 
 import { getLogout} from '../../feature/auth/authAPI';
 import { useDispatch , useSelector } from 'react-redux';
+import Swal from "sweetalert2";
 
 export function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -86,7 +87,11 @@ export function Header() {
     const handleCartClick = (e) => {
         if (!isLogin) {
             e.preventDefault();
-            alert("로그인이 필요합니다.");
+            Swal.fire({
+                icon: "warning",
+                title: "로그인 필요",
+                text: "로그인이 필요합니다.",
+            });
             navigate("/login");
         }
     }
