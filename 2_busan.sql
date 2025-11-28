@@ -232,47 +232,47 @@ INSERT INTO travel_repair
  image1, image2, image3, full_image1, full_image2, full_image3, description)
 VALUES
 -- 1. Trek Bicycle 광안점 (실존)
-('부산 삼락생태공원', 'Trek Bicycle 광안점', 35.1491516, 129.1140527, 4.9, 98, 158,
+('부산 삼락생태공원', '바퀴달린자전거', 35.1491516, 129.1140527, 4.9, 98, 158,
  JSON_ARRAY('자전거판매','자전거정비','로드/MTB','광안리'),
- 'https://picsum.photos/seed/trek1/200/200',
- 'https://picsum.photos/seed/trek1_2/200/200',
- 'https://picsum.photos/seed/trek1_3/200/200',
- 'https://picsum.photos/seed/trek1_full1/600/400',
- 'https://picsum.photos/seed/trek1_full2/600/400',
- 'https://picsum.photos/seed/trek1_full3/600/400',
+ '/images/travel_repairs/baki/baki_1.jfif',
+ '/images/travel_repairs/baki/baki_2.jfif',
+ '/images/travel_repairs/baki/baki_3.jfif',
+ '/images/travel_repairs/baki/baki_1.jfif',
+ '/images/travel_repairs/baki/baki_2.jfif',
+ '/images/travel_repairs/baki/baki_3.jfif',
  '공식 브랜드 자전거 매장 + 정비 가능 — 로드/MTB, 전기자전거 정비 및 부품 교체, 그룹 라이딩 안내까지 제공'),
 
 -- 2. 부산 자전거샵 또또바이크 (실존)
-('부산 삼락생태공원', '또또바이크', 35.1034232, 129.0031612, 5.0, 90, 3,
+('부산 삼락생태공원', '펀바이크', 35.1034232, 129.0031612, 5.0, 90, 3,
  JSON_ARRAY('자전거샵','정비','입문용','픽시/미니벨로'),
- 'https://picsum.photos/seed/totto1/200/200',
- 'https://picsum.photos/seed/totto1_2/200/200',
- 'https://picsum.photos/seed/totto1_3/200/200',
- 'https://picsum.photos/seed/totto1_full1/600/400',
- 'https://picsum.photos/seed/totto1_full2/600/400',
- 'https://picsum.photos/seed/totto1_full3/600/400',
+ '/images/travel_repairs/pun/pun_1.jfif',
+ '/images/travel_repairs/pun/pun_2.jfif',
+ '/images/travel_repairs/pun/pun_3.jfif',
+ '/images/travel_repairs/pun/pun_1.jfif',
+ '/images/travel_repairs/pun/pun_2.jfif',
+ '/images/travel_repairs/pun/pun_3.jfif',
  '입문용 자전거 판매와 기본 정비를 함께 제공하는 지역 자전거샵'),
 
 -- 3. 자이언트 프리미엄 스토어 부산 (실존)
-('부산 삼락생태공원', '자이언트 프리미엄 스토어 부산', 35.1483310, 129.1128860, 4.6, 92, 16,
+('부산 삼락생태공원', '삼천리자전거 학장점', 35.1483310, 129.1128860, 4.6, 92, 16,
  JSON_ARRAY('자전거판매','정비','로드/MTB','자이언트'),
- 'https://picsum.photos/seed/giant1/200/200',
- 'https://picsum.photos/seed/giant1_2/200/200',
- 'https://picsum.photos/seed/giant1_3/200/200',
- 'https://picsum.photos/seed/giant1_full1/600/400',
- 'https://picsum.photos/seed/giant1_full2/600/400',
- 'https://picsum.photos/seed/giant1_full3/600/400',
+ '/images/travel_repairs/hakjang/hakjang_1.jfif',
+ '/images/travel_repairs/hakjang/hakjang_2.jfif',
+ '/images/travel_repairs/hakjang/hakjang_3.jfif',
+ '/images/travel_repairs/hakjang/hakjang_1.jfif',
+ '/images/travel_repairs/hakjang/hakjang_2.jfif',
+ '/images/travel_repairs/hakjang/hakjang_3.jfif',
  '공식 자이언트 브랜드 자전거 판매 및 정비, 입문자부터 마니아까지 대응 가능한 매장'),
 
 -- 4. 삼천리자전거 가야점 (실존)
-('부산 삼락생태공원', '삼천리자전거 가야점', 35.1554575, 129.0389803, 4.5, 88, 10,
+('부산 삼락생태공원', '스페셜라이즈드 메리다 칼리버바이크', 35.1554575, 129.0389803, 4.5, 88, 10,
  JSON_ARRAY('자전거판매','정비','일상용','체인샵'),
- 'https://picsum.photos/seed/samch1/200/200',
- 'https://picsum.photos/seed/samch1_2/200/200',
- 'https://picsum.photos/seed/samch1_3/200/200',
- 'https://picsum.photos/seed/samch1_full1/600/400',
- 'https://picsum.photos/seed/samch1_full2/600/400',
- 'https://picsum.photos/seed/samch1_full3/600/400',
+ '/images/travel_repairs/special/special_1.jfif',
+ '/images/travel_repairs/special/special_2.jfif',
+ '/images/travel_repairs/special/special_3.jfif',
+ '/images/travel_repairs/special/special_1.jfif',
+ '/images/travel_repairs/special/special_2.jfif',
+ '/images/travel_repairs/special/special_3.jfif',
  '도심형 체인 매장 — 생활 자전거 판매/수리, 튜브·타이어 교체 포함'),
 
 -- 5~10. 가상 매장들도 동일하게 region '부산 삼락생태공원' 적용
@@ -1530,7 +1530,7 @@ INSERT INTO travel_repair_detail
 VALUES
 -- 1. Trek Bicycle 광안점
 (
-'Trek Bicycle 광안점',
+'바퀴달린자전거',
 4.9,
 98,
 JSON_ARRAY('자전거판매','자전거정비','로드/MTB','광안리'),
@@ -1558,34 +1558,34 @@ JSON_ARRAY(
   JSON_OBJECT('rname','풀튜닝','price','120000')
 ),
 JSON_ARRAY(
-  'https://picsum.photos/seed/trek1/600/400',
-  'https://picsum.photos/seed/trek1_2/600/400',
-  'https://picsum.photos/seed/trek1_3/600/400'
+  '/images/travel_repairs/baki/baki_1.jfif',
+  '/images/travel_repairs/baki/baki_2.jfif',
+  '/images/travel_repairs/baki/baki_3.jfif'
 ),
 JSON_ARRAY(
   JSON_OBJECT(
     'category','업체',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/trek1_up1/400/300',
-      'https://picsum.photos/seed/trek1_up2/400/300',
-      'https://picsum.photos/seed/trek1_up3/400/300'
+      '/images/travel_repairs/baki/company/baki_company_1.jfif',
+      '/images/travel_repairs/baki/company/baki_company_2.jfif',
+      '/images/travel_repairs/baki/company/baki_company_3.jfif'
     )
   ),
   JSON_OBJECT(
     'category','블로그',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/trek1_blog1/400/300',
-      'https://picsum.photos/seed/trek1_blog2/400/300',
-      'https://picsum.photos/seed/trek1_blog3/400/300',
-      'https://picsum.photos/seed/trek1_blog4/400/300',
-      'https://picsum.photos/seed/trek1_blog5/400/300',
-      'https://picsum.photos/seed/trek1_blog6/400/300',
-      'https://picsum.photos/seed/trek1_blog7/400/300',
-      'https://picsum.photos/seed/trek1_blog8/400/300',
-      'https://picsum.photos/seed/trek1_blog9/400/300',
-      'https://picsum.photos/seed/trek1_blog10/400/300',
-      'https://picsum.photos/seed/trek1_blog11/400/300',
-      'https://picsum.photos/seed/trek1_blog12/400/300'
+      '/images/travel_repairs/baki/blog/baki_blog_1.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_2.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_3.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_4.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_5.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_6.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_7.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_8.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_9.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_10.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_11.jfif',
+      '/images/travel_repairs/baki/blog/baki_blog_12.jfif'
     )
   )
 )
@@ -1593,7 +1593,7 @@ JSON_ARRAY(
 
 -- 2. 또또바이크
 (
-'또또바이크',
+'펀바이크',
 5.0,
 90,
 JSON_ARRAY('자전거샵','정비','입문용','픽시/미니벨로'),
@@ -1618,33 +1618,34 @@ JSON_ARRAY(
   JSON_OBJECT('rname','타이어교체','price','20000')
 ),
 JSON_ARRAY(
-  'https://picsum.photos/seed/totto1/600/400',
-  'https://picsum.photos/seed/totto1_2/600/400',
-  'https://picsum.photos/seed/totto1_3/600/400'
+  '/images/travel_repairs/pun/pun_1.jfif',
+  '/images/travel_repairs/pun/pun_2.jfif',
+  '/images/travel_repairs/pun/pun_3.jfif'
 ),
 JSON_ARRAY(
   JSON_OBJECT(
     'category','업체',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/totto1_up1/400/300',
-      'https://picsum.photos/seed/totto1_up2/400/300'
+      '/images/travel_repairs/pun/company/pun_company_1.jfif',
+      '/images/travel_repairs/pun/company/pun_company_2.jfif',
+      '/images/travel_repairs/pun/company/pun_company_3.jfif'
     )
   ),
   JSON_OBJECT(
     'category','블로그',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/totto1_blog1/400/300',
-      'https://picsum.photos/seed/totto1_blog2/400/300',
-      'https://picsum.photos/seed/totto1_blog3/400/300',
-      'https://picsum.photos/seed/totto1_blog4/400/300',
-      'https://picsum.photos/seed/totto1_blog5/400/300',
-      'https://picsum.photos/seed/totto1_blog6/400/300',
-      'https://picsum.photos/seed/totto1_blog7/400/300',
-      'https://picsum.photos/seed/totto1_blog8/400/300',
-      'https://picsum.photos/seed/totto1_blog9/400/300',
-      'https://picsum.photos/seed/totto1_blog10/400/300',
-      'https://picsum.photos/seed/totto1_blog11/400/300',
-      'https://picsum.photos/seed/totto1_blog12/400/300'
+      '/images/travel_repairs/pun/blog/pun_blog_1.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_2.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_3.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_4.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_5.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_6.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_7.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_8.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_9.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_10.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_11.jfif',
+      '/images/travel_repairs/pun/blog/pun_blog_12.jfif'
     )
   )
 )
@@ -1652,7 +1653,7 @@ JSON_ARRAY(
 
 -- 3. 자이언트 프리미엄 스토어 부산
 (
-'자이언트 프리미엄 스토어 부산',
+'삼천리자전거 학장점',
 4.6,
 92,
 JSON_ARRAY('자전거판매','정비','로드/MTB','자이언트'),
@@ -1678,33 +1679,34 @@ JSON_ARRAY(
   JSON_OBJECT('rname','오버홀','price','150000')
 ),
 JSON_ARRAY(
-  'https://picsum.photos/seed/giant1/600/400',
-  'https://picsum.photos/seed/giant1_2/600/400',
-  'https://picsum.photos/seed/giant1_3/600/400'
+  '/images/travel_repairs/hakjang/hakjang_1.jfif',
+  '/images/travel_repairs/hakjang/hakjang_2.jfif',
+  '/images/travel_repairs/hakjang/hakjang_3.jfif'
 ),
 JSON_ARRAY(
   JSON_OBJECT(
     'category','업체',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/giant1_up1/400/300',
-      'https://picsum.photos/seed/giant1_up2/400/300'
+      '/images/travel_repairs/hakjang/company/hakjang_company_1.jfif',
+      '/images/travel_repairs/hakjang/company/hakjang_company_2.jfif',
+      '/images/travel_repairs/hakjang/company/hakjang_company_3.jfif'
     )
   ),
   JSON_OBJECT(
     'category','블로그',
     'images', JSON_ARRAY(
-      'https://picsum.photos/seed/giant1_blog1/400/300',
-      'https://picsum.photos/seed/giant1_blog2/400/300',
-      'https://picsum.photos/seed/giant1_blog3/400/300',
-      'https://picsum.photos/seed/giant1_blog4/400/300',
-      'https://picsum.photos/seed/giant1_blog5/400/300',
-      'https://picsum.photos/seed/giant1_blog6/400/300',
-      'https://picsum.photos/seed/giant1_blog7/400/300',
-      'https://picsum.photos/seed/giant1_blog8/400/300',
-      'https://picsum.photos/seed/giant1_blog9/400/300',
-      'https://picsum.photos/seed/giant1_blog10/400/300',
-      'https://picsum.photos/seed/giant1_blog11/400/300',
-      'https://picsum.photos/seed/giant1_blog12/400/300'
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_1.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_2.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_3.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_4.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_5.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_6.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_7.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_8.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_9.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_10.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_11.jfif',
+      '/images/travel_repairs/hakjang/blog/hakjang_blog_12.jfif'
     )
   )
 )
@@ -1712,7 +1714,7 @@ JSON_ARRAY(
 
 -- 4. 삼천리자전거 가야점
 (
-'삼천리자전거 가야점',
+'스페셜라이즈드 메리다 칼리버바이크',
 4.5,
 88,
 JSON_ARRAY('자전거판매','정비','일상용','체인샵'),
@@ -1737,29 +1739,29 @@ JSON_ARRAY(
   JSON_OBJECT('rname','타이어교체','price','20000')
 ),
 JSON_ARRAY(
-  'https://picsum.photos/seed/samch1/600/400',
-  'https://picsum.photos/seed/samch1_2/600/400',
-  'https://picsum.photos/seed/samch1_3/600/400'
+  '/images/travel_repairs/special/special_1.jfif',
+  '/images/travel_repairs/special/special_2.jfif',
+  '/images/travel_repairs/special/special_3.jfif'
 ),
 JSON_ARRAY(
   JSON_OBJECT('category','업체', 'images', JSON_ARRAY(
-    'https://picsum.photos/seed/samch1_up1/400/300',
-    'https://picsum.photos/seed/samch1_up2/400/300',
-    'https://picsum.photos/seed/samch1_up3/400/300'
+    '/images/travel_repairs/special/company/special_company_1.jfif',
+    '/images/travel_repairs/special/company/special_company_2.jfif',
+    '/images/travel_repairs/special/company/special_company_3.jfif'
   )),
   JSON_OBJECT('category','블로그', 'images', JSON_ARRAY(
-    'https://picsum.photos/seed/samch1_blog1/400/300',
-    'https://picsum.photos/seed/samch1_blog2/400/300',
-    'https://picsum.photos/seed/samch1_blog3/400/300',
-    'https://picsum.photos/seed/samch1_blog4/400/300',
-    'https://picsum.photos/seed/samch1_blog5/400/300',
-    'https://picsum.photos/seed/samch1_blog6/400/300',
-    'https://picsum.photos/seed/samch1_blog7/400/300',
-    'https://picsum.photos/seed/samch1_blog8/400/300',
-    'https://picsum.photos/seed/samch1_blog9/400/300',
-    'https://picsum.photos/seed/samch1_blog10/400/300',
-    'https://picsum.photos/seed/samch1_blog11/400/300',
-    'https://picsum.photos/seed/samch1_blog12/400/300'
+    '/images/travel_repairs/special/blog/special_blog_1.jfif',
+    '/images/travel_repairs/special/blog/special_blog_2.jfif',
+    '/images/travel_repairs/special/blog/special_blog_3.jfif',
+    '/images/travel_repairs/special/blog/special_blog_4.jfif',
+    '/images/travel_repairs/special/blog/special_blog_5.jfif',
+    '/images/travel_repairs/special/blog/special_blog_6.jfif',
+    '/images/travel_repairs/special/blog/special_blog_7.jfif',
+    '/images/travel_repairs/special/blog/special_blog_8.jfif',
+    '/images/travel_repairs/special/blog/special_blog_9.jfif',
+    '/images/travel_repairs/special/blog/special_blog_10.jfif',
+    '/images/travel_repairs/special/blog/special_blog_11.jfif',
+    '/images/travel_repairs/special/blog/special_blog_12.jfif'
   ))
 )
 ),
@@ -2626,25 +2628,25 @@ VALUES
  '친절하고 정비가 빨라서 만족했습니다.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair14_1/600/400',
-    'https://picsum.photos/seed/repair14_2/600/400',
-    'https://picsum.photos/seed/repair14_3/600/400'
+    '/images/travel_repairs/baki/blog/baki_blog_1.jfif',
+    '/images/travel_repairs/baki/blog/baki_blog_2.jfif',
+    '/images/travel_repairs/baki/blog/baki_blog_3.jfif'
  )),
 ('test222', 14, 'https://picsum.photos/seed/user202/100/100', '8', 4.0,
  '기본 점검과 튜브 교체까지 문제없이 처리되었습니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair14_1/600/400',
-    'https://picsum.photos/seed/repair14_2/600/400',
-    'https://picsum.photos/seed/repair14_3/600/400'
+    '/images/travel_repairs/baki/blog/baki_blog_4.jfif',
+    '/images/travel_repairs/baki/blog/baki_blog_5.jfif',
+    '/images/travel_repairs/baki/blog/baki_blog_6.jfif'
  )),
 ('test333', 14, 'https://picsum.photos/seed/user203/100/100', '5', 5.0,
  '매장 분위기도 좋고 전문성이 느껴졌습니다.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair14_1/600/400',
-    'https://picsum.photos/seed/repair14_2/600/400',
-    'https://picsum.photos/seed/repair14_3/600/400'
+    '/images/travel_repairs/baki/blog/baki_blog_7.jfif',
+    '/images/travel_repairs/baki/blog/baki_blog_8.jfif',
+    '/images/travel_repairs/baki/blog/baki_blog_9.jfif'
  )),
 
 -- rid 15
@@ -2652,25 +2654,25 @@ VALUES
  '입문용 자전거 정비에 적합한 매장이네요.',
  '2025-11-04',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair15_1/600/400',
-    'https://picsum.photos/seed/repair15_2/600/400',
-    'https://picsum.photos/seed/repair15_3/600/400'
+    '/images/travel_repairs/pun/blog/pun_blog_1.jfif',
+    '/images/travel_repairs/pun/blog/pun_blog_2.jfif',
+    '/images/travel_repairs/pun/blog/pun_blog_3.jfif'
  )),
 ('test222', 15, 'https://picsum.photos/seed/user202/100/100', '8', 4.0,
  '가격도 합리적이고 서비스도 만족스러웠습니다.',
  '2025-11-05',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair15_1/600/400',
-    'https://picsum.photos/seed/repair15_2/600/400',
-    'https://picsum.photos/seed/repair15_3/600/400'
+    '/images/travel_repairs/pun/blog/pun_blog_4.jfif',
+    '/images/travel_repairs/pun/blog/pun_blog_5.jfif',
+    '/images/travel_repairs/pun/blog/pun_blog_6.jfif'
  )),
 ('test333', 15, 'https://picsum.photos/seed/user203/100/100', '5', 3.8,
  '약간 대기 시간이 있었지만 전반적으로 만족합니다.',
  '2025-11-06',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair15_1/600/400',
-    'https://picsum.photos/seed/repair15_2/600/400',
-    'https://picsum.photos/seed/repair15_3/600/400'
+    '/images/travel_repairs/pun/blog/pun_blog_7.jfif',
+    '/images/travel_repairs/pun/blog/pun_blog_8.jfif',
+    '/images/travel_repairs/pun/blog/pun_blog_9.jfif'
  )),
 
 -- rid 16
@@ -2678,25 +2680,25 @@ VALUES
  '자이언트 공식 매장이라 믿고 맡길 수 있습니다.',
  '2025-11-07',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair16_1/600/400',
-    'https://picsum.photos/seed/repair16_2/600/400',
-    'https://picsum.photos/seed/repair16_3/600/400'
+    '/images/travel_repairs/hakjang/blog/hakjang_blog_1.jfif',
+    '/images/travel_repairs/hakjang/blog/hakjang_blog_2.jfif',
+    '/images/travel_repairs/hakjang/blog/hakjang_blog_3.jfif'
  )),
 ('test222', 16, 'https://picsum.photos/seed/user202/100/100', '8', 4.5,
  '로드바이크 정비가 빠르고 정확합니다.',
  '2025-11-08',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair16_1/600/400',
-    'https://picsum.photos/seed/repair16_2/600/400',
-    'https://picsum.photos/seed/repair16_3/600/400'
+    '/images/travel_repairs/hakjang/blog/hakjang_blog_4.jfif',
+    '/images/travel_repairs/hakjang/blog/hakjang_blog_5.jfif',
+    '/images/travel_repairs/hakjang/blog/hakjang_blog_6.jfif'
  )),
 ('test333', 16, 'https://picsum.photos/seed/user203/100/100', '5', 5.0,
  '매장 친절도 최고, 재방문 의사 있습니다.',
  '2025-11-09',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair16_1/600/400',
-    'https://picsum.photos/seed/repair16_2/600/400',
-    'https://picsum.photos/seed/repair16_3/600/400'
+    '/images/travel_repairs/hakjang/blog/hakjang_blog_7.jfif',
+    '/images/travel_repairs/hakjang/blog/hakjang_blog_8.jfif',
+    '/images/travel_repairs/hakjang/blog/hakjang_blog_9.jfif'
  )),
 
 -- rid 17
@@ -2704,25 +2706,25 @@ VALUES
  '생활 자전거 정비에 딱 맞는 매장이네요.',
  '2025-11-10',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair17_1/600/400',
-    'https://picsum.photos/seed/repair17_2/600/400',
-    'https://picsum.photos/seed/repair17_3/600/400'
+    '/images/travel_repairs/special/blog/special_blog_1.jfif',
+    '/images/travel_repairs/special/blog/special_blog_2.jfif',
+    '/images/travel_repairs/special/blog/special_blog_3.jfif'
  )),
 ('test222', 17, 'https://picsum.photos/seed/user202/100/100', '8', 4.2,
  '체인과 타이어 교체 서비스 만족합니다.',
  '2025-11-11',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair17_1/600/400',
-    'https://picsum.photos/seed/repair17_2/600/400',
-    'https://picsum.photos/seed/repair17_3/600/400'
+    '/images/travel_repairs/special/blog/special_blog_4.jfif',
+    '/images/travel_repairs/special/blog/special_blog_5.jfif',
+    '/images/travel_repairs/special/blog/special_blog_6.jfif'
  )),
 ('test333', 17, 'https://picsum.photos/seed/user203/100/100', '5', 4.5,
  '입문자도 쉽게 방문할 수 있는 매장입니다.',
  '2025-11-12',
  JSON_ARRAY(
-    'https://picsum.photos/seed/repair17_1/600/400',
-    'https://picsum.photos/seed/repair17_2/600/400',
-    'https://picsum.photos/seed/repair17_3/600/400'
+    '/images/travel_repairs/special/blog/special_blog_7.jfif',
+    '/images/travel_repairs/special/blog/special_blog_8.jfif',
+    '/images/travel_repairs/special/blog/special_blog_9.jfif'
  )),
 
 -- rid 18
