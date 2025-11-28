@@ -9,12 +9,48 @@ VALUES
 ('부산 삼락생태공원', '만드리곤드레밥', 35.177387, 128.95245, 4.6, 92, 480,
  JSON_ARRAY('한식','곤드레밥','정식','돌솥요리'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20191209162810545_thumbL',
- 'https://picsum.photos/seed/gondre1/200/200',
- 'https://picsum.photos/seed/gondre2/200/200',
+ '/images/travel_foods/mandri/mandri_1.webp',
+ '/images/travel_foods/mandri/mandri_2.webp',
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20191209162810545_ttiel',
- 'https://picsum.photos/seed/gondre3/600/400',
- 'https://picsum.photos/seed/gondre4/600/400',
+ '/images/travel_foods/mandri/mandri_1.webp',
+ '/images/travel_foods/mandri/mandri_2.webp',
  '생 곤드레나물을 사용한 돌솥 정식이 인기인 건강한 한식 전문점입니다.'
+),
+
+-- 3. 가야할매밀면
+('부산 삼락생태공원', '가야할매밀면', 35.185196, 129.07988, 4.7, 95, 910,
+ JSON_ARRAY('밀면','부산맛집','냉면류','전통식당'),
+ 'https://www.visitbusan.net/uploadImgs/files/cntnts/20191217201857896_thumbL',
+ '/images/travel_foods/gaya/gaya_1.jfif',
+ '/images/travel_foods/gaya/gaya_2.jfif',
+ 'https://www.visitbusan.net/uploadImgs/files/cntnts/20191217201857896_ttiel',
+ '/images/travel_foods/gaya/gaya_1.jfif',
+ '/images/travel_foods/gaya/gaya_2.jfif',
+ '쫄깃한 면발과 깊고 시원한 육수가 특징인 부산 대표 밀면 전문점입니다.'
+),
+
+-- 4. 국제밀면본점
+('부산 삼락생태공원', '국제밀면본점', 35.19689, 129.07785, 4.8, 97, 1320,
+ JSON_ARRAY('밀면','부산맛집','전통식당'),
+ 'https://www.visitbusan.net/uploadImgs/files/cntnts/20240418134454110_thumbL',
+ '/images/travel_foods/gukje/gukje_1.jfif',
+ '/images/travel_foods/gukje/gukje_2.jfif',
+ 'https://www.visitbusan.net/uploadImgs/files/cntnts/20240418134454110_ttiel',
+ '/images/travel_foods/gukje/gukje_1.jfif',
+ '/images/travel_foods/gukje/gukje_2.jfif',
+ '사골 육수와 손으로 찢은 양지머리가 어우러진 최상급 밀면을 맛볼 수 있는 곳입니다.'
+),
+
+-- 5. 할매가야밀면
+('부산 삼락생태공원', '할매가야밀면', 35.098934, 129.03122, 4.5, 90, 780,
+ JSON_ARRAY('밀면','중구맛집','노포'),
+ 'https://www.visitbusan.net/uploadImgs/files/cntnts/20230605153300303_thumbL',
+ '/images/travel_foods/halme/halme_1.jfif',
+ '/images/travel_foods/halme/halme_2.jfif',
+ 'https://www.visitbusan.net/uploadImgs/files/cntnts/20230605153300303_ttiel',
+ '/images/travel_foods/halme/halme_1.jfif',
+ '/images/travel_foods/halme/halme_2.jfif',
+ '40년 전통의 밀면 맛집으로 깔끔한 육수 맛과 넉넉한 좌석으로 유명합니다.'
 ),
 
 -- 2. 민물가든
@@ -27,42 +63,6 @@ VALUES
  'https://picsum.photos/seed/fish3/600/400',
  'https://picsum.photos/seed/fish4/600/400',
  '30년 전통 생선찜 전문점으로 묵은지 붕어조림이 특히 유명합니다.'
-),
-
--- 3. 가야할매밀면
-('부산 삼락생태공원', '가야할매밀면', 35.185196, 129.07988, 4.7, 95, 910,
- JSON_ARRAY('밀면','부산맛집','냉면류','전통식당'),
- 'https://www.visitbusan.net/uploadImgs/files/cntnts/20191217201857896_thumbL',
- 'https://picsum.photos/seed/milmyeon1/200/200',
- 'https://picsum.photos/seed/milmyeon2/200/200',
- 'https://www.visitbusan.net/uploadImgs/files/cntnts/20191217201857896_ttiel',
- 'https://picsum.photos/seed/milmyeon3/600/400',
- 'https://picsum.photos/seed/milmyeon4/600/400',
- '쫄깃한 면발과 깊고 시원한 육수가 특징인 부산 대표 밀면 전문점입니다.'
-),
-
--- 4. 국제밀면본점
-('부산 삼락생태공원', '국제밀면본점', 35.19689, 129.07785, 4.8, 97, 1320,
- JSON_ARRAY('밀면','부산맛집','전통식당'),
- 'https://www.visitbusan.net/uploadImgs/files/cntnts/20240418134454110_thumbL',
- 'https://picsum.photos/seed/milmyeon2_1/200/200',
- 'https://picsum.photos/seed/milmyeon2_2/200/200',
- 'https://www.visitbusan.net/uploadImgs/files/cntnts/20240418134454110_ttiel',
- 'https://picsum.photos/seed/milmyeon2_3/600/400',
- 'https://picsum.photos/seed/milmyeon2_4/600/400',
- '사골 육수와 손으로 찢은 양지머리가 어우러진 최상급 밀면을 맛볼 수 있는 곳입니다.'
-),
-
--- 5. 할매가야밀면
-('부산 삼락생태공원', '할매가야밀면', 35.098934, 129.03122, 4.5, 90, 780,
- JSON_ARRAY('밀면','중구맛집','노포'),
- 'https://www.visitbusan.net/uploadImgs/files/cntnts/20230605153300303_thumbL',
- 'https://picsum.photos/seed/milmyeon3_1/200/200',
- 'https://picsum.photos/seed/milmyeon3_2/200/200',
- 'https://www.visitbusan.net/uploadImgs/files/cntnts/20230605153300303_ttiel',
- 'https://picsum.photos/seed/milmyeon3_3/600/400',
- 'https://picsum.photos/seed/milmyeon3_4/600/400',
- '40년 전통의 밀면 맛집으로 깔끔한 육수 맛과 넉넉한 좌석으로 유명합니다.'
 ),
 
 -- 6. 거인통닭
@@ -132,6 +132,42 @@ INSERT INTO travel_hotel (
     region, hname, lat, lng, hlike, score, evaluation, tag,
     image1, image2, image3, full_image1, full_image2, full_image3, description
 ) VALUES
+('부산 삼락생태공원', '토요코인 부산서면', 35.1578, 129.0590, 4.3, 88, 120, '["가성비","비즈니스","편리함"]',
+ '/images/travel_hotels/toyo/toyo_1.jfif',
+ '/images/travel_hotels/toyo/toyo_2.jfif',
+ '/images/travel_hotels/toyo/toyo_3.jfif',
+ '/images/travel_hotels/toyo/toyo_1.jfif',
+ '/images/travel_hotels/toyo/toyo_2.jfif',
+ '/images/travel_hotels/toyo/toyo_3.jfif',
+ '서면 중심지에 위치한 합리적인 가격의 비즈니스 호텔입니다.'
+),
+('부산 삼락생태공원', '퀸스호텔', 35.1590, 129.0600, 4.0, 80, 90, '["호스텔","가성비","여행자"]',
+ '/images/travel_hotels/queens/queens_1.jfif',
+ '/images/travel_hotels/queens/queens_2.jfif',
+ '/images/travel_hotels/queens/queens_3.jfif',
+ '/images/travel_hotels/queens/queens_1.jfif',
+ '/images/travel_hotels/queens/queens_2.jfif',
+ '/images/travel_hotels/queens/queens_3.jfif',
+ '부전동에 위치한 저렴하고 편안한 숙소, 배낭여행객과 단기 여행객에게 적합합니다.'
+),
+('부산 삼락생태공원', 'STAY고우담', 35.1585, 129.0615, 4.2, 85, 100, '["호스텔","편안함","젊은층"]',
+ '/images/travel_hotels/stay/stay_1.jfif',
+ '/images/travel_hotels/stay/stay_2.jfif',
+ '/images/travel_hotels/stay/stay_3.jfif',
+ '/images/travel_hotels/stay/stay_1.jfif',
+ '/images/travel_hotels/stay/stay_2.jfif',
+ '/images/travel_hotels/stay/stay_3.jfif',
+ '전포동에 위치한 깔끔한 호스텔로, 젊은 여행객들에게 인기 있는 숙소입니다.'
+),
+('부산 삼락생태공원', '지앤지(G&G)관광호텔', 35.1345, 129.1040, 4.1, 75, 41, '["관광호텔","2성급","편안함"]',
+ '/images/travel_hotels/gng/gng_1.jfif',
+ '/images/travel_hotels/gng/gng_2.jfif',
+ '/images/travel_hotels/gng/gng_3.jfif',
+ '/images/travel_hotels/gng/gng_1.jfif',
+ '/images/travel_hotels/gng/gng_2.jfif',
+ '/images/travel_hotels/gng/gng_3.jfif',
+ '대연동에 위치한 합리적인 가격의 2성급 관광호텔로, 편안한 숙박을 제공합니다.'
+),
 ('부산 삼락생태공원', '삼락호텔', 35.205432, 129.010123, 4.5, 90, 120, '["편안함","가족","도심"]',
  'https://picsum.photos/seed/hotel1/400/300',
  'https://picsum.photos/seed/hotel2/400/300',
@@ -177,42 +213,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/lotte3/800/600',
  '부산 중심가에 위치한 최고급 호텔로, 관광객과 비즈니스 여행객 모두에게 적합합니다.'
 ),
-('부산 삼락생태공원', '토요코인 부산서면', 35.1578, 129.0590, 4.3, 88, 120, '["가성비","비즈니스","편리함"]',
- 'https://picsum.photos/seed/toyoko1/400/300',
- 'https://picsum.photos/seed/toyoko2/400/300',
- 'https://picsum.photos/seed/toyoko3/400/300',
- 'https://picsum.photos/seed/toyoko1/800/600',
- 'https://picsum.photos/seed/toyoko2/800/600',
- 'https://picsum.photos/seed/toyoko3/800/600',
- '서면 중심지에 위치한 합리적인 가격의 비즈니스 호텔입니다.'
-),
-('부산 삼락생태공원', '퀸스호텔', 35.1590, 129.0600, 4.0, 80, 90, '["호스텔","가성비","여행자"]',
- 'https://picsum.photos/seed/queens1/400/300',
- 'https://picsum.photos/seed/queens2/400/300',
- 'https://picsum.photos/seed/queens3/400/300',
- 'https://picsum.photos/seed/queens1/800/600',
- 'https://picsum.photos/seed/queens2/800/600',
- 'https://picsum.photos/seed/queens3/800/600',
- '부전동에 위치한 저렴하고 편안한 숙소, 배낭여행객과 단기 여행객에게 적합합니다.'
-),
-('부산 삼락생태공원', 'STAY고우담', 35.1585, 129.0615, 4.2, 85, 100, '["호스텔","편안함","젊은층"]',
- 'https://picsum.photos/seed/stay1/400/300',
- 'https://picsum.photos/seed/stay2/400/300',
- 'https://picsum.photos/seed/stay3/400/300',
- 'https://picsum.photos/seed/stay1/800/600',
- 'https://picsum.photos/seed/stay2/800/600',
- 'https://picsum.photos/seed/stay3/800/600',
- '전포동에 위치한 깔끔한 호스텔로, 젊은 여행객들에게 인기 있는 숙소입니다.'
-),
-('부산 삼락생태공원', '지앤지(G&G)관광호텔', 35.1345, 129.1040, 4.1, 75, 41, '["관광호텔","2성급","편안함"]',
- 'https://picsum.photos/seed/gghotel1/400/300',
- 'https://picsum.photos/seed/gghotel2/400/300',
- 'https://picsum.photos/seed/gghotel3/400/300',
- 'https://picsum.photos/seed/gghotel1/800/600',
- 'https://picsum.photos/seed/gghotel2/800/600',
- 'https://picsum.photos/seed/gghotel3/800/600',
- '대연동에 위치한 합리적인 가격의 2성급 관광호텔로, 편안한 숙박을 제공합니다.'
-),
+
 ('부산 삼락생태공원', '아바니센트럴 부산', 35.1298, 129.1005, 4.6, 90, 281, '["관광호텔","4성급","럭셔리"]',
  'https://picsum.photos/seed/avani1/400/300',
  'https://picsum.photos/seed/avani2/400/300',
@@ -371,42 +372,185 @@ VALUES
    JSON_OBJECT("mname","된장찌개","price","7000")
  ),
  JSON_ARRAY(
-   "https://picsum.photos/seed/gondre1/200/200",
-   "https://picsum.photos/seed/gondre2/200/200",
-   "https://picsum.photos/seed/gondre3/600/400"
+   "/images/travel_foods/mandri/mandri_1.webp",
+   "/images/travel_foods/mandri/mandri_2.webp",
+   "/images/travel_foods/mandri/mandri_3.webp"
  ),
  JSON_ARRAY(
    JSON_OBJECT("category","음식","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gondre_food1/400/300",
-      "https://picsum.photos/seed/gondre_food2/400/300",
-      "https://picsum.photos/seed/gondre_food3/400/300",
-      "https://picsum.photos/seed/gondre_food4/400/300",
-      "https://picsum.photos/seed/gondre_food5/400/300",
-      "https://picsum.photos/seed/gondre_food6/400/300"
+      "/images/travel_foods/mandri/food/mandri_food_1.webp",
+      "/images/travel_foods/mandri/food/mandri_food_2.webp",
+      "/images/travel_foods/mandri/food/mandri_food_3.webp",
+      "/images/travel_foods/mandri/food/mandri_food_4.webp"
    )),
    JSON_OBJECT("category","실내","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gondre_in1/400/300",
-      "https://picsum.photos/seed/gondre_in2/400/300",
-      "https://picsum.photos/seed/gondre_in3/400/300",
-      "https://picsum.photos/seed/gondre_in4/400/300",
-      "https://picsum.photos/seed/gondre_in5/400/300",
-      "https://picsum.photos/seed/gondre_in6/400/300"
+      "/images/travel_foods/mandri/inside/mandri_inside_1.webp",
+      "/images/travel_foods/mandri/inside/mandri_inside_2.webp",
+      "/images/travel_foods/mandri/inside/mandri_inside_3.webp",
+      "/images/travel_foods/mandri/inside/mandri_inside_4.webp"
    )),
    JSON_OBJECT("category","실외","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gondre_out1/400/300",
-      "https://picsum.photos/seed/gondre_out2/400/300",
-      "https://picsum.photos/seed/gondre_out3/400/300",
-      "https://picsum.photos/seed/gondre_out4/400/300",
-      "https://picsum.photos/seed/gondre_out5/400/300",
-      "https://picsum.photos/seed/gondre_out6/400/300"
+      "/images/travel_foods/mandri/outside/mandri_outside_1.webp",
+      "/images/travel_foods/mandri/outside/mandri_outside_2.jfif",
+      "/images/travel_foods/mandri/outside/mandri_outside_3.jfif",
+      "/images/travel_foods/mandri/outside/mandri_outside_4.jfif"
+   ))
+ )
+),
+
+-- 3. 가야할매밀면
+('가야할매밀면', 4.7, 95,
+ JSON_ARRAY('밀면','부산맛집'),
+ '가야밀면거리',
+ '밀면 전문점',
+ '부산 부산진구 가야대로 734',
+ '부산 부산진구 가야동 234-18',
+ JSON_ARRAY(
+   JSON_OBJECT('day','월','hours','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','화','hours','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','수','hours','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','목','hours','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','금','hours','10:30 - 22:00','last','21:30'),
+   JSON_OBJECT('day','토','hours','10:30 - 22:00','last','21:30'),
+   JSON_OBJECT('day','일','hours','10:30 - 21:00','last','20:30')
+ ),
+ '051-897-1122',
+ JSON_ARRAY('가성비좋음','빠른회전율','깔끔한맛'),
+ JSON_ARRAY(
+   JSON_OBJECT('mname','밀면','price','7000'),
+   JSON_OBJECT('mname','비빔밀면','price','7500'),
+   JSON_OBJECT('mname','만두','price','5000'),
+   JSON_OBJECT('mname','수육','price','17000')
+ ),
+ JSON_ARRAY(
+   '/images/travel_foods/gaya/gaya_1.jfif',
+   '/images/travel_foods/gaya/gaya_2.jfif',
+   '/images/travel_foods/gaya/gaya_3.jfif'
+ ),
+ JSON_ARRAY(
+   JSON_OBJECT('category','음식','images', JSON_ARRAY(
+       '/images/travel_foods/gaya/food/gaya_food_1.jfif',
+       '/images/travel_foods/gaya/food/gaya_food_2.jfif',
+       '/images/travel_foods/gaya/food/gaya_food_3.jfif',
+       '/images/travel_foods/gaya/food/gaya_food_4.jfif'
    )),
-   JSON_OBJECT("category","주차","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gondre_park1/400/300",
-      "https://picsum.photos/seed/gondre_park2/400/300",
-      "https://picsum.photos/seed/gondre_park3/400/300",
-      "https://picsum.photos/seed/gondre_park4/400/300",
-      "https://picsum.photos/seed/gondre_park5/400/300",
-      "https://picsum.photos/seed/gondre_park6/400/300"
+   JSON_OBJECT('category','실내','images', JSON_ARRAY(
+       '/images/travel_foods/gaya/inside/gaya_inside_1.jfif',
+       '/images/travel_foods/gaya/inside/gaya_inside_2.jfif',
+       '/images/travel_foods/gaya/inside/gaya_inside_3.jfif',
+       '/images/travel_foods/gaya/inside/gaya_inside_4.jfif'
+   )),
+   JSON_OBJECT('category','실외','images', JSON_ARRAY(
+       '/images/travel_foods/gaya/outside/gaya_outside_1.jfif',
+       '/images/travel_foods/gaya/outside/gaya_outside_2.jfif',
+       '/images/travel_foods/gaya/outside/gaya_outside_3.jfif',
+       '/images/travel_foods/gaya/outside/gaya_outside_4.jfif'
+   ))
+ )
+),
+
+-- 4. 국제밀면본점
+('국제밀면본점', 4.5, 90,
+ JSON_ARRAY('밀면','국물요리','면요리'),
+ '감천문화마을거리',
+ '밀면 전문점',
+ '부산 사하구 감내로 45',
+ '부산 사하구 감천동 123-7',
+ JSON_ARRAY(
+   JSON_OBJECT('day','월','hours','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','화','hours','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','수','hours','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','목','hours','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','금','hours','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','토','hours','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','일','hours','11:00 - 22:00','last','21:30')
+ ),
+ '051-204-5566',
+ JSON_ARRAY('시원한육수','가성비좋음','로컬맛집'),
+ JSON_ARRAY(
+   JSON_OBJECT('mname','물밀면','price','8000'),
+   JSON_OBJECT('mname','비빔밀면','price','8500'),
+   JSON_OBJECT('mname','곱빼기 밀면','price','10000'),
+   JSON_OBJECT('mname','돼지수육','price','12000')
+ ),
+ JSON_ARRAY(
+   '/images/travel_foods/gukje/gukje_1.jfif',
+   '/images/travel_foods/gukje/gukje_2.jfif',
+   '/images/travel_foods/gukje/gukje_3.jfif'
+ ),
+ JSON_ARRAY(
+   JSON_OBJECT('category','음식','images', JSON_ARRAY(
+       '/images/travel_foods/gukje/food/gukje_food_1.jfif',
+       '/images/travel_foods/gukje/food/gukje_food_2.jfif',
+       '/images/travel_foods/gukje/food/gukje_food_3.jfif',
+       '/images/travel_foods/gukje/food/gukje_food_4.jfif'
+   )),
+   JSON_OBJECT('category','실내','images', JSON_ARRAY(
+       '/images/travel_foods/gukje/inside/gukje_inside_1.jfif',
+       '/images/travel_foods/gukje/inside/gukje_inside_2.jfif',
+       '/images/travel_foods/gukje/inside/gukje_inside_3.jfif',
+       '/images/travel_foods/gukje/inside/gukje_inside_4.jfif'
+   )),
+   JSON_OBJECT('category','실외','images', JSON_ARRAY(
+       '/images/travel_foods/gukje/outside/gukje_outside_1.jfif',
+       '/images/travel_foods/gukje/outside/gukje_outside_2.jfif',
+       '/images/travel_foods/gukje/outside/gukje_outside_3.jfif',
+       '/images/travel_foods/gukje/outside/gukje_outside_4.jfif'
+   )),
+   JSON_OBJECT('category','주차','images', JSON_ARRAY(
+       '/images/travel_foods/gukje/parking/gukje_parking_1.jfif'
+   ))
+ )
+),
+
+
+-- 5. 할매가야밀면
+('할매가야밀면', 4.6, 93,
+ JSON_ARRAY('밀면','부산맛집','면요리'),
+ '해운대맛집거리',
+ '밀면 전문점',
+ '부산 해운대구 구남로 12',
+ '부산 해운대구 우동 1410-3',
+ JSON_ARRAY(
+   JSON_OBJECT('day','월','hours','08:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','화','hours','08:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','수','hours','08:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','목','hours','08:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','금','hours','08:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','토','hours','08:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','일','hours','08:00 - 22:00','last','21:30')
+ ),
+ '051-742-1122',
+ JSON_ARRAY('시원한육수','가성비좋음','깔끔한맛'),
+ JSON_ARRAY(
+   JSON_OBJECT('mname','물밀면','price','8000'),
+   JSON_OBJECT('mname','비빔밀면','price','8500'),
+   JSON_OBJECT('mname','수육(소)','price','12000'),
+   JSON_OBJECT('mname','만두','price','7000')
+ ),
+ JSON_ARRAY(
+   '/images/travel_foods/halme/halme_1.jfif',
+   '/images/travel_foods/halme/halme_2.jfif',
+   '/images/travel_foods/halme/halme_3.jfif'
+ ),
+ JSON_ARRAY(
+   JSON_OBJECT('category','음식','images', JSON_ARRAY(
+       '/images/travel_foods/halme/food/halme_food_1.jfif',
+       '/images/travel_foods/halme/food/halme_food_2.jfif',
+       '/images/travel_foods/halme/food/halme_food_3.jfif',
+       '/images/travel_foods/halme/food/halme_food_4.jfif'
+   )),
+   JSON_OBJECT('category','실내','images', JSON_ARRAY(
+       '/images/travel_foods/halme/inside/halme_inside_1.jfif',
+       '/images/travel_foods/halme/inside/halme_inside_2.jfif',
+       '/images/travel_foods/halme/inside/halme_inside_3.jfif',
+       '/images/travel_foods/halme/inside/halme_inside_4.jfif'
+   )),
+   JSON_OBJECT('category','실외','images', JSON_ARRAY(
+       '/images/travel_foods/halme/outside/halme_outside_1.jfif',
+       '/images/travel_foods/halme/outside/halme_outside_2.jfif',
+       '/images/travel_foods/halme/outside/halme_outside_3.jfif',
+       '/images/travel_foods/halme/outside/halme_outside_4.jfif'
    ))
  )
 ),
@@ -472,201 +616,6 @@ VALUES
       "https://picsum.photos/seed/fish_park4/400/300",
       "https://picsum.photos/seed/fish_park5/400/300",
       "https://picsum.photos/seed/fish_park6/400/300"
-   ))
- )
-),
-
--- 3. 가야할매밀면
-('가야할매밀면', 4.7, 95,
- JSON_ARRAY('밀면','부산맛집'),
- '가야밀면거리',
- '밀면 전문점',
- '부산 부산진구 가야대로 734',
- '부산 부산진구 가야동 234-18',
- JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','화','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','수','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','목','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','금','hours','10:30 - 22:00','last','21:30'),
-   JSON_OBJECT('day','토','hours','10:30 - 22:00','last','21:30'),
-   JSON_OBJECT('day','일','hours','10:30 - 21:00','last','20:30')
- ),
- '051-897-1122',
- JSON_ARRAY('가성비좋음','빠른회전율','깔끔한맛'),
- JSON_ARRAY(
-   JSON_OBJECT('mname','밀면','price','7000'),
-   JSON_OBJECT('mname','비빔밀면','price','7500'),
-   JSON_OBJECT('mname','만두','price','5000'),
-   JSON_OBJECT('mname','수육','price','17000')
- ),
- JSON_ARRAY(
-   'https://picsum.photos/seed/milmyeon1/200/200',
-   'https://picsum.photos/seed/milmyeon2/200/200',
-   'https://picsum.photos/seed/milmyeon3/600/400'
- ),
- JSON_ARRAY(
-   JSON_OBJECT('category','음식','images', JSON_ARRAY(
-       'https://picsum.photos/seed/milm_food1/400/300',
-       'https://picsum.photos/seed/milm_food2/400/300',
-       'https://picsum.photos/seed/milm_food3/400/300',
-       'https://picsum.photos/seed/milm_food4/400/300',
-       'https://picsum.photos/seed/milm_food5/400/300',
-       'https://picsum.photos/seed/milm_food6/400/300'
-   )),
-   JSON_OBJECT('category','실내','images', JSON_ARRAY(
-       'https://picsum.photos/seed/milm_in1/400/300',
-       'https://picsum.photos/seed/milm_in2/400/300',
-       'https://picsum.photos/seed/milm_in3/400/300',
-       'https://picsum.photos/seed/milm_in4/400/300',
-       'https://picsum.photos/seed/milm_in5/400/300',
-       'https://picsum.photos/seed/milm_in6/400/300'
-   )),
-   JSON_OBJECT('category','실외','images', JSON_ARRAY(
-       'https://picsum.photos/seed/milm_out1/400/300',
-       'https://picsum.photos/seed/milm_out2/400/300',
-       'https://picsum.photos/seed/milm_out3/400/300',
-       'https://picsum.photos/seed/milm_out4/400/300',
-       'https://picsum.photos/seed/milm_out5/400/300',
-       'https://picsum.photos/seed/milm_out6/400/300'
-   )),
-   JSON_OBJECT('category','주차','images', JSON_ARRAY(
-       'https://picsum.photos/seed/milm_park1/400/300',
-       'https://picsum.photos/seed/milm_park2/400/300',
-       'https://picsum.photos/seed/milm_park3/400/300',
-       'https://picsum.photos/seed/milm_park4/400/300',
-       'https://picsum.photos/seed/milm_park5/400/300',
-       'https://picsum.photos/seed/milm_park6/400/300'
-   ))
- )
-),
-
--- 4. 감천횟집
-('감천횟집', 4.5, 90,
- JSON_ARRAY('회','해산물','생선회'),
- '감천문화마을거리',
- '회 전문점',
- '부산 사하구 감내로 45',
- '부산 사하구 감천동 123-7',
- JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','화','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','수','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','목','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','금','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','토','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','일','hours','11:00 - 22:00','last','21:30')
- ),
- '051-204-5566',
- JSON_ARRAY('신선한재료','바다전망','주차가능'),
- JSON_ARRAY(
-   JSON_OBJECT('mname','광어회','price','50000'),
-   JSON_OBJECT('mname','우럭회','price','45000'),
-   JSON_OBJECT('mname','모둠회','price','60000'),
-   JSON_OBJECT('mname','해물탕','price','35000')
- ),
- JSON_ARRAY(
-   'https://picsum.photos/seed/hoejip1/200/200',
-   'https://picsum.photos/seed/hoejip2/200/200',
-   'https://picsum.photos/seed/hoejip3/600/400'
- ),
- JSON_ARRAY(
-   JSON_OBJECT('category','음식','images', JSON_ARRAY(
-       'https://picsum.photos/seed/hoejip_food1/400/300',
-       'https://picsum.photos/seed/hoejip_food2/400/300',
-       'https://picsum.photos/seed/hoejip_food3/400/300',
-       'https://picsum.photos/seed/hoejip_food4/400/300',
-       'https://picsum.photos/seed/hoejip_food5/400/300',
-       'https://picsum.photos/seed/hoejip_food6/400/300'
-   )),
-   JSON_OBJECT('category','실내','images', JSON_ARRAY(
-       'https://picsum.photos/seed/hoejip_in1/400/300',
-       'https://picsum.photos/seed/hoejip_in2/400/300',
-       'https://picsum.photos/seed/hoejip_in3/400/300',
-       'https://picsum.photos/seed/hoejip_in4/400/300',
-       'https://picsum.photos/seed/hoejip_in5/400/300',
-       'https://picsum.photos/seed/hoejip_in6/400/300'
-   )),
-   JSON_OBJECT('category','실외','images', JSON_ARRAY(
-       'https://picsum.photos/seed/hoejip_out1/400/300',
-       'https://picsum.photos/seed/hoejip_out2/400/300',
-       'https://picsum.photos/seed/hoejip_out3/400/300',
-       'https://picsum.photos/seed/hoejip_out4/400/300',
-       'https://picsum.photos/seed/hoejip_out5/400/300',
-       'https://picsum.photos/seed/hoejip_out6/400/300'
-   )),
-   JSON_OBJECT('category','주차','images', JSON_ARRAY(
-       'https://picsum.photos/seed/hoejip_park1/400/300',
-       'https://picsum.photos/seed/hoejip_park2/400/300',
-       'https://picsum.photos/seed/hoejip_park3/400/300',
-       'https://picsum.photos/seed/hoejip_park4/400/300',
-       'https://picsum.photos/seed/hoejip_park5/400/300',
-       'https://picsum.photos/seed/hoejip_park6/400/300'
-   ))
- )
-),
-
--- 5. 해운대소문난돼지국밥
-('해운대소문난돼지국밥', 4.6, 93,
- JSON_ARRAY('돼지국밥','한식','부산맛집'),
- '해운대맛집거리',
- '돼지국밥 전문점',
- '부산 해운대구 구남로 12',
- '부산 해운대구 우동 1410-3',
- JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','08:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','화','hours','08:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','수','hours','08:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','목','hours','08:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','금','hours','08:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','토','hours','08:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','일','hours','08:00 - 22:00','last','21:30')
- ),
- '051-742-1122',
- JSON_ARRAY('가성비좋음','24시간','깔끔한'),
- JSON_ARRAY(
-   JSON_OBJECT('mname','돼지국밥','price','8000'),
-   JSON_OBJECT('mname','수육백반','price','12000'),
-   JSON_OBJECT('mname','내장국밥','price','8500'),
-   JSON_OBJECT('mname','순대','price','7000')
- ),
- JSON_ARRAY(
-   'https://picsum.photos/seed/hd_gukbap1/200/200',
-   'https://picsum.photos/seed/hd_gukbap2/200/200',
-   'https://picsum.photos/seed/hd_gukbap3/600/400'
- ),
- JSON_ARRAY(
-   JSON_OBJECT('category','음식','images', JSON_ARRAY(
-       'https://picsum.photos/seed/hd_food1/400/300',
-       'https://picsum.photos/seed/hd_food2/400/300',
-       'https://picsum.photos/seed/hd_food3/400/300',
-       'https://picsum.photos/seed/hd_food4/400/300',
-       'https://picsum.photos/seed/hd_food5/400/300',
-       'https://picsum.photos/seed/hd_food6/400/300'
-   )),
-   JSON_OBJECT('category','실내','images', JSON_ARRAY(
-       'https://picsum.photos/seed/hd_in1/400/300',
-       'https://picsum.photos/seed/hd_in2/400/300',
-       'https://picsum.photos/seed/hd_in3/400/300',
-       'https://picsum.photos/seed/hd_in4/400/300',
-       'https://picsum.photos/seed/hd_in5/400/300',
-       'https://picsum.photos/seed/hd_in6/400/300'
-   )),
-   JSON_OBJECT('category','실외','images', JSON_ARRAY(
-       'https://picsum.photos/seed/hd_out1/400/300',
-       'https://picsum.photos/seed/hd_out2/400/300',
-       'https://picsum.photos/seed/hd_out3/400/300',
-       'https://picsum.photos/seed/hd_out4/400/300',
-       'https://picsum.photos/seed/hd_out5/400/300',
-       'https://picsum.photos/seed/hd_out6/400/300'
-   )),
-   JSON_OBJECT('category','주차','images', JSON_ARRAY(
-       'https://picsum.photos/seed/hd_park1/400/300',
-       'https://picsum.photos/seed/hd_park2/400/300',
-       'https://picsum.photos/seed/hd_park3/400/300',
-       'https://picsum.photos/seed/hd_park4/400/300',
-       'https://picsum.photos/seed/hd_park5/400/300',
-       'https://picsum.photos/seed/hd_park6/400/300'
    ))
  )
 ),
@@ -1000,6 +949,234 @@ INSERT INTO travel_hotel_detail
 (hname, hlike, score, tag, location, hotel, address, local_address, business, phone, other, menu, main_images, image_list)
 VALUES
 
+/* 6. 토요코인 부산서면 */
+('토요코인 부산서면', 4.3, 88,
+ JSON_ARRAY("가성비","비즈니스","편리함"),
+ '부산 부산진구 서면',
+ '예약, 무료 Wi-Fi, 주차, 조식',
+ '부산 부산진구 중앙대로 200',
+ '부산 부산진구 전포동 110-5',
+ JSON_ARRAY(
+   JSON_OBJECT("day","월","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","화","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","수","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","목","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","금","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","토","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","일","houers","07:00 - 23:00","last","22:30")
+ ),
+ '051-567-8901',
+ JSON_ARRAY("비즈니스","가성비","편리함"),
+ JSON_ARRAY(
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","70000","lodgment","100000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","120000","lodgment","170000"),
+   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","150000","lodgment","220000"),
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","200000","lodgment","300000")
+ ),
+ JSON_ARRAY(
+   "/images/travel_hotels/toyo/toyo_1.jfif",
+   "/images/travel_hotels/toyo/toyo_2.jfif",
+   "/images/travel_hotels/toyo/toyo_3.jfif"
+ ),
+ JSON_ARRAY(
+   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
+      "/images/travel_hotels/toyo/deluxe/toyo_deluxe_1.jfif",
+      "/images/travel_hotels/toyo/deluxe/toyo_deluxe_2.jfif",
+      "/images/travel_hotels/toyo/deluxe/toyo_deluxe_3.jfif",
+      "/images/travel_hotels/toyo/deluxe/toyo_deluxe_4.jfif"
+   )),
+   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/toyo/suite/toyo_suite_1.jfif",
+      "/images/travel_hotels/toyo/suite/toyo_suite_2.jfif",
+      "/images/travel_hotels/toyo/suite/toyo_suite_3.jfif",
+      "/images/travel_hotels/toyo/suite/toyo_suite_4.jfif"
+   )),
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
+      "/images/travel_hotels/toyo/family/toyo_family_1.jfif",
+      "/images/travel_hotels/toyo/family/toyo_family_2.jfif",
+      "/images/travel_hotels/toyo/family/toyo_family_3.jfif",
+      "/images/travel_hotels/toyo/family/toyo_family_4.jfif"
+   )),
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/toyo/royal/toyo_royal_1.jfif",
+      "/images/travel_hotels/toyo/royal/toyo_royal_2.jfif",
+      "/images/travel_hotels/toyo/royal/toyo_royal_3.jfif",
+      "/images/travel_hotels/toyo/royal/toyo_royal_4.jfif"
+   ))
+ )
+),
+
+/* 7. 퀸스호텔 */
+('퀸스호텔', 4.0, 80,
+ JSON_ARRAY("호스텔","가성비","여행자"),
+ '부산 부산진구 부전동',
+ '예약, 무료 Wi-Fi, 공동 주방, 편안함',
+ '부산 부산진구 중앙대로 250',
+ '부산 부산진구 부전동 55-2',
+ JSON_ARRAY(
+   JSON_OBJECT("day","월","houers","08:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","화","houers","08:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","수","houers","08:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","목","houers","08:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","금","houers","08:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","토","houers","08:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","일","houers","08:00 - 22:00","last","21:30")
+ ),
+ '051-234-5678',
+ JSON_ARRAY("가성비","여행자추천","편안함"),
+ JSON_ARRAY(
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","55000","lodgment","85000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","95000","lodgment","150000"),
+   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","120000","lodgment","180000"),
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","160000","lodgment","250000")
+ ),
+ JSON_ARRAY(
+   "/images/travel_hotels/queens/queens_1.jfif",
+   "/images/travel_hotels/queens/queens_2.jfif",
+   "/images/travel_hotels/queens/queens_3.jfif"
+ ),
+ JSON_ARRAY(
+   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
+      "/images/travel_hotels/queens/deluxe/queens_deluxe_1.jfif",
+      "/images/travel_hotels/queens/deluxe/queens_deluxe_2.jfif",
+      "/images/travel_hotels/queens/deluxe/queens_deluxe_3.jfif",
+      "/images/travel_hotels/queens/deluxe/queens_deluxe_4.jfif"
+   )),
+   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/queens/suite/queens_suite_1.jfif",
+      "/images/travel_hotels/queens/suite/queens_suite_2.jfif",
+      "/images/travel_hotels/queens/suite/queens_suite_3.jfif",
+      "/images/travel_hotels/queens/suite/queens_suite_4.jfif"
+   )),
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
+      "/images/travel_hotels/queens/family/queens_family_1.jfif",
+      "/images/travel_hotels/queens/family/queens_family_2.jfif",
+      "/images/travel_hotels/queens/family/queens_family_3.jfif",
+      "/images/travel_hotels/queens/family/queens_family_4.jfif"
+   )),
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/queens/royal/queens_royal_1.jfif",
+      "/images/travel_hotels/queens/royal/queens_royal_2.jfif",
+      "/images/travel_hotels/queens/royal/queens_royal_3.jfif",
+      "/images/travel_hotels/queens/royal/queens_royal_4.jfif"
+   ))
+ )
+),
+
+/* 8. STAY고우담 */
+('STAY고우담', 4.2, 85,
+ JSON_ARRAY("호스텔","편안함","젊은층"),
+ '부산 부산진구 전포동',
+ '예약, 무료 Wi-Fi, 조식, 공동 라운지',
+ '부산 부산진구 전포대로 50',
+ '부산 부산진구 전포동 22-1',
+ JSON_ARRAY(
+   JSON_OBJECT("day","월","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","화","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","수","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","목","houers","07:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","금","houers","07:00 - 24:00","last","23:30"),
+   JSON_OBJECT("day","토","houers","07:00 - 24:00","last","23:30"),
+   JSON_OBJECT("day","일","houers","07:00 - 23:00","last","22:30")
+ ),
+ '051-678-9012',
+ JSON_ARRAY("젊은층추천","편안함","호스텔"),
+ JSON_ARRAY(
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","60000","lodgment","95000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","110000","lodgment","170000"),
+   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","140000","lodgment","210000"),
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","190000","lodgment","280000")
+ ),
+ JSON_ARRAY(
+   "/images/travel_hotels/stay/stay_1.jfif",
+   "/images/travel_hotels/stay/stay_2.jfif",
+   "/images/travel_hotels/stay/stay_3.jfif"
+ ),
+ JSON_ARRAY(
+   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
+      "/images/travel_hotels/stay/deluxe/stay_deluxe_1.jfif",
+      "/images/travel_hotels/stay/deluxe/stay_deluxe_2.jfif",
+      "/images/travel_hotels/stay/deluxe/stay_deluxe_3.jfif",
+      "/images/travel_hotels/stay/deluxe/stay_deluxe_4.jfif"
+   )),
+   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/stay/suite/stay_suite_1.jfif",
+      "/images/travel_hotels/stay/suite/stay_suite_2.jfif",
+      "/images/travel_hotels/stay/suite/stay_suite_3.jfif",
+      "/images/travel_hotels/stay/suite/stay_suite_4.jfif"
+   )),
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
+      "/images/travel_hotels/stay/family/stay_family_1.jfif",
+      "/images/travel_hotels/stay/family/stay_family_2.jfif",
+      "/images/travel_hotels/stay/family/stay_family_3.jfif",
+      "/images/travel_hotels/stay/family/stay_family_4.jfif"
+   )),
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/stay/royal/stay_royal_1.jfif",
+      "/images/travel_hotels/stay/royal/stay_royal_2.jfif",
+      "/images/travel_hotels/stay/royal/stay_royal_3.jfif",
+      "/images/travel_hotels/stay/royal/stay_royal_4.jfif"
+   ))
+ )
+),
+
+/* 9. 지앤지(G&G)관광호텔 */
+('지앤지관광호텔', 4.1, 75,
+ JSON_ARRAY("관광호텔","2성급","편안함"),
+ '부산 남구 대연동',
+ '예약, 무료 Wi-Fi, 조식, 편안함',
+ '부산 남구 대연로 20',
+ '부산 남구 대연동 120-1',
+ JSON_ARRAY(
+   JSON_OBJECT("day","월","houers","08:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","화","houers","08:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","수","houers","08:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","목","houers","08:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","금","houers","08:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","토","houers","08:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","일","houers","08:00 - 22:00","last","21:30")
+ ),
+ '051-345-6789',
+ JSON_ARRAY("2성급","관광추천","편안함"),
+ JSON_ARRAY(
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","45000","lodgment","75000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","85000","lodgment","135000"),
+   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","120000","lodgment","180000"),
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","150000","lodgment","230000")
+ ),
+ JSON_ARRAY(
+   "/images/travel_hotels/gng/gng_1.jfif",
+   "/images/travel_hotels/gng/gng_2.jfif",
+   "/images/travel_hotels/gng/gng_3.jfif"
+ ),
+ JSON_ARRAY(
+   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
+      "/images/travel_hotels/gng/deluxe/gng_deluxe_1.jfif",
+      "/images/travel_hotels/gng/deluxe/gng_deluxe_2.jfif",
+      "/images/travel_hotels/gng/deluxe/gng_deluxe_3.jfif",
+      "/images/travel_hotels/gng/deluxe/gng_deluxe_4.jfif"
+   )),
+   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/gng/suite/gng_suite_1.jfif",
+      "/images/travel_hotels/gng/suite/gng_suite_2.jfif",
+      "/images/travel_hotels/gng/suite/gng_suite_3.jfif",
+      "/images/travel_hotels/gng/suite/gng_suite_4.jfif"
+   )),
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
+      "/images/travel_hotels/gng/family/gng_family_1.jfif",
+      "/images/travel_hotels/gng/family/gng_family_2.jfif",
+      "/images/travel_hotels/gng/family/gng_family_3.jfif",
+      "/images/travel_hotels/gng/family/gng_family_4.jfif"
+   )),
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
+      "/images/travel_hotels/gng/royal/gng_royal_1.jfif",
+      "/images/travel_hotels/gng/royal/gng_royal_2.jfif",
+      "/images/travel_hotels/gng/royal/gng_royal_3.jfif",
+      "/images/travel_hotels/gng/royal/gng_royal_4.jfif"
+   ))
+ )
+),
+
 /* 1. 삼락호텔 */
 ('삼락호텔', 4.5, 90,
  JSON_ARRAY("편안함","가족","도심"),
@@ -1285,233 +1462,7 @@ VALUES
  )
 ),
 
-/* 6. 토요코인 부산서면 */
-('토요코인 부산서면', 4.3, 88,
- JSON_ARRAY("가성비","비즈니스","편리함"),
- '부산 부산진구 서면',
- '예약, 무료 Wi-Fi, 주차, 조식',
- '부산 부산진구 중앙대로 200',
- '부산 부산진구 전포동 110-5',
- JSON_ARRAY(
-   JSON_OBJECT("day","월","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","화","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","수","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","목","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","금","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","토","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","일","houers","07:00 - 23:00","last","22:30")
- ),
- '051-567-8901',
- JSON_ARRAY("비즈니스","가성비","편리함"),
- JSON_ARRAY(
-   JSON_OBJECT("hname","디럭스","image","","mainRoom","70000","lodgment","100000"),
-   JSON_OBJECT("hname","스위트","image","","mainRoom","120000","lodgment","170000"),
-   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","150000","lodgment","220000"),
-   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","200000","lodgment","300000")
- ),
- JSON_ARRAY(
-   "https://picsum.photos/seed/toyoko1/400/300",
-   "https://picsum.photos/seed/toyoko2/400/300",
-   "https://picsum.photos/seed/toyoko3/400/300"
- ),
- JSON_ARRAY(
-   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
-      "https://picsum.photos/seed/toyoko1/400/300",
-      "https://picsum.photos/seed/toyoko2/400/300",
-      "https://picsum.photos/seed/toyoko3/400/300",
-      "https://picsum.photos/seed/toyoko4/400/300"
-   )),
-   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/toyoko5/400/300",
-      "https://picsum.photos/seed/toyoko6/400/300",
-      "https://picsum.photos/seed/toyoko7/400/300",
-      "https://picsum.photos/seed/toyoko8/400/300"
-   )),
-   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
-      "https://picsum.photos/seed/toyoko9/400/300",
-      "https://picsum.photos/seed/toyoko10/400/300",
-      "https://picsum.photos/seed/toyoko11/400/300",
-      "https://picsum.photos/seed/toyoko12/400/300"
-   )),
-   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/toyoko13/400/300",
-      "https://picsum.photos/seed/toyoko14/400/300",
-      "https://picsum.photos/seed/toyoko15/400/300",
-      "https://picsum.photos/seed/toyoko16/400/300"
-   ))
- )
-),
 
-/* 7. 퀸스호텔 */
-('퀸스호텔', 4.0, 80,
- JSON_ARRAY("호스텔","가성비","여행자"),
- '부산 부산진구 부전동',
- '예약, 무료 Wi-Fi, 공동 주방, 편안함',
- '부산 부산진구 중앙대로 250',
- '부산 부산진구 부전동 55-2',
- JSON_ARRAY(
-   JSON_OBJECT("day","월","houers","08:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","화","houers","08:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","수","houers","08:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","목","houers","08:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","금","houers","08:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","토","houers","08:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","일","houers","08:00 - 22:00","last","21:30")
- ),
- '051-234-5678',
- JSON_ARRAY("가성비","여행자추천","편안함"),
- JSON_ARRAY(
-   JSON_OBJECT("hname","디럭스","image","","mainRoom","55000","lodgment","85000"),
-   JSON_OBJECT("hname","스위트","image","","mainRoom","95000","lodgment","150000"),
-   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","120000","lodgment","180000"),
-   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","160000","lodgment","250000")
- ),
- JSON_ARRAY(
-   "https://picsum.photos/seed/queens1/400/300",
-   "https://picsum.photos/seed/queens2/400/300",
-   "https://picsum.photos/seed/queens3/400/300"
- ),
- JSON_ARRAY(
-   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
-      "https://picsum.photos/seed/queens1/400/300",
-      "https://picsum.photos/seed/queens2/400/300",
-      "https://picsum.photos/seed/queens3/400/300",
-      "https://picsum.photos/seed/queens4/400/300"
-   )),
-   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/queens5/400/300",
-      "https://picsum.photos/seed/queens6/400/300",
-      "https://picsum.photos/seed/queens7/400/300",
-      "https://picsum.photos/seed/queens8/400/300"
-   )),
-   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
-      "https://picsum.photos/seed/queens9/400/300",
-      "https://picsum.photos/seed/queens10/400/300",
-      "https://picsum.photos/seed/queens11/400/300",
-      "https://picsum.photos/seed/queens12/400/300"
-   )),
-   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/queens13/400/300",
-      "https://picsum.photos/seed/queens14/400/300",
-      "https://picsum.photos/seed/queens15/400/300",
-      "https://picsum.photos/seed/queens16/400/300"
-   ))
- )
-),
-
-/* 8. STAY고우담 */
-('STAY고우담', 4.2, 85,
- JSON_ARRAY("호스텔","편안함","젊은층"),
- '부산 부산진구 전포동',
- '예약, 무료 Wi-Fi, 조식, 공동 라운지',
- '부산 부산진구 전포대로 50',
- '부산 부산진구 전포동 22-1',
- JSON_ARRAY(
-   JSON_OBJECT("day","월","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","화","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","수","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","목","houers","07:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","금","houers","07:00 - 24:00","last","23:30"),
-   JSON_OBJECT("day","토","houers","07:00 - 24:00","last","23:30"),
-   JSON_OBJECT("day","일","houers","07:00 - 23:00","last","22:30")
- ),
- '051-678-9012',
- JSON_ARRAY("젊은층추천","편안함","호스텔"),
- JSON_ARRAY(
-   JSON_OBJECT("hname","디럭스","image","","mainRoom","60000","lodgment","95000"),
-   JSON_OBJECT("hname","스위트","image","","mainRoom","110000","lodgment","170000"),
-   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","140000","lodgment","210000"),
-   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","190000","lodgment","280000")
- ),
- JSON_ARRAY(
-   "https://picsum.photos/seed/stay1/400/300",
-   "https://picsum.photos/seed/stay2/400/300",
-   "https://picsum.photos/seed/stay3/400/300"
- ),
- JSON_ARRAY(
-   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
-      "https://picsum.photos/seed/stay1/400/300",
-      "https://picsum.photos/seed/stay2/400/300",
-      "https://picsum.photos/seed/stay3/400/300",
-      "https://picsum.photos/seed/stay4/400/300"
-   )),
-   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/stay5/400/300",
-      "https://picsum.photos/seed/stay6/400/300",
-      "https://picsum.photos/seed/stay7/400/300",
-      "https://picsum.photos/seed/stay8/400/300"
-   )),
-   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
-      "https://picsum.photos/seed/stay9/400/300",
-      "https://picsum.photos/seed/stay10/400/300",
-      "https://picsum.photos/seed/stay11/400/300",
-      "https://picsum.photos/seed/stay12/400/300"
-   )),
-   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/stay13/400/300",
-      "https://picsum.photos/seed/stay14/400/300",
-      "https://picsum.photos/seed/stay15/400/300",
-      "https://picsum.photos/seed/stay16/400/300"
-   ))
- )
-),
-
-/* 9. 지앤지(G&G)관광호텔 */
-('지앤지관광호텔', 4.1, 75,
- JSON_ARRAY("관광호텔","2성급","편안함"),
- '부산 남구 대연동',
- '예약, 무료 Wi-Fi, 조식, 편안함',
- '부산 남구 대연로 20',
- '부산 남구 대연동 120-1',
- JSON_ARRAY(
-   JSON_OBJECT("day","월","houers","08:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","화","houers","08:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","수","houers","08:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","목","houers","08:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","금","houers","08:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","토","houers","08:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","일","houers","08:00 - 22:00","last","21:30")
- ),
- '051-345-6789',
- JSON_ARRAY("2성급","관광추천","편안함"),
- JSON_ARRAY(
-   JSON_OBJECT("hname","디럭스","image","","mainRoom","45000","lodgment","75000"),
-   JSON_OBJECT("hname","스위트","image","","mainRoom","85000","lodgment","135000"),
-   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","120000","lodgment","180000"),
-   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","150000","lodgment","230000")
- ),
- JSON_ARRAY(
-   "https://picsum.photos/seed/gghotel1/400/300",
-   "https://picsum.photos/seed/gghotel2/400/300",
-   "https://picsum.photos/seed/gghotel3/400/300"
- ),
- JSON_ARRAY(
-   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gghotel1/400/300",
-      "https://picsum.photos/seed/gghotel2/400/300",
-      "https://picsum.photos/seed/gghotel3/400/300",
-      "https://picsum.photos/seed/gghotel4/400/300"
-   )),
-   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gghotel5/400/300",
-      "https://picsum.photos/seed/gghotel6/400/300",
-      "https://picsum.photos/seed/gghotel7/400/300",
-      "https://picsum.photos/seed/gghotel8/400/300"
-   )),
-   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gghotel9/400/300",
-      "https://picsum.photos/seed/gghotel10/400/300",
-      "https://picsum.photos/seed/gghotel11/400/300",
-      "https://picsum.photos/seed/gghotel12/400/300"
-   )),
-   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
-      "https://picsum.photos/seed/gghotel13/400/300",
-      "https://picsum.photos/seed/gghotel14/400/300",
-      "https://picsum.photos/seed/gghotel15/400/300",
-      "https://picsum.photos/seed/gghotel16/400/300"
-   ))
- )
-),
 
 /* 10. 아바니센트럴 부산 */
 ('아바니센트럴 부산', 4.6, 90,
@@ -2140,25 +2091,25 @@ VALUES
  '음식 맛이 정말 좋았어요. 분위기도 편안하고 직원분들도 친절했습니다.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food8_1/600/400',
-    'https://picsum.photos/seed/food8_2/600/400',
-    'https://picsum.photos/seed/food8_3/600/400'
+    '/images/travel_foods/mandri/food/mandri_food_1.webp',
+    '/images/travel_foods/mandri/inside/mandri_inside_1.webp',
+    '/images/travel_foods/mandri/outside/mandri_outside_1.webp'
  )),
 ('test666', 14, 'https://picsum.photos/seed/user2/100/100', '8', 4.0,
  '점심 세트 메뉴가 가성비 최고! 재방문 의사 있습니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food8_1/600/400',
-    'https://picsum.photos/seed/food8_2/600/400',
-    'https://picsum.photos/seed/food8_3/600/400'
+    '/images/travel_foods/mandri/food/mandri_food_2.webp',
+    '/images/travel_foods/mandri/inside/mandri_inside_2.webp',
+    '/images/travel_foods/mandri/outside/mandri_outside_2.jfif'
  )),
 ('test', 14, 'https://picsum.photos/seed/user3/100/100', '20', 5.0,
  '최고의 점심 식사! 디저트까지 완벽했습니다.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food8_1/600/400',
-    'https://picsum.photos/seed/food8_2/600/400',
-    'https://picsum.photos/seed/food8_3/600/400'
+    '/images/travel_foods/mandri/food/mandri_food_3.webp',
+    '/images/travel_foods/mandri/inside/mandri_inside_3.webp',
+    '/images/travel_foods/mandri/outside/mandri_outside_3.jfif'
  )),
  
  -- fid 15
@@ -2166,25 +2117,25 @@ VALUES
  '재료 신선하고 플레이팅 예쁨. 친구들과 함께 와도 좋아요.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food9_1/600/400',
-    'https://picsum.photos/seed/food9_2/600/400',
-    'https://picsum.photos/seed/food9_3/600/400'
+    '/images/travel_foods/gaya/food/gaya_food_1.jfif',
+    '/images/travel_foods/gaya/inside/gaya_inside_1.jfif',
+    '/images/travel_foods/gaya/outside/gaya_outside_1.jfif'
  )),
 ('test222', 15, 'https://picsum.photos/seed/user5/100/100', '7', 3.5,
  '맛은 괜찮지만 주문이 늦은 점 아쉬움.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food9_1/600/400',
-    'https://picsum.photos/seed/food9_2/600/400',
-    'https://picsum.photos/seed/food9_3/600/400'
+    '/images/travel_foods/gaya/food/gaya_food_2.jfif',
+    '/images/travel_foods/gaya/inside/gaya_inside_2.jfif',
+    '/images/travel_foods/gaya/outside/gaya_outside_2.jfif'
  )),
 ('test444', 15, 'https://picsum.photos/seed/user6/100/100', '30', 4.5,
  '아이들과 함께 즐기기 좋은 메뉴 구성입니다.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food9_1/600/400',
-    'https://picsum.photos/seed/food9_2/600/400',
-    'https://picsum.photos/seed/food9_3/600/400'
+    '/images/travel_foods/gaya/food/gaya_food_3.jfif',
+    '/images/travel_foods/gaya/inside/gaya_inside_3.jfif',
+    '/images/travel_foods/gaya/outside/gaya_outside_3.jfif'
  )),
 
 -- fid 16
@@ -2192,25 +2143,25 @@ VALUES
  '서비스 친절하고 음식도 만족스러움.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food10_1/600/400',
-    'https://picsum.photos/seed/food10_2/600/400',
-    'https://picsum.photos/seed/food10_3/600/400'
+    '/images/travel_foods/gukje/food/gukje_food_1.jfif',
+    '/images/travel_foods/gukje/inside/gukje_inside_1.jfif',
+    '/images/travel_foods/gukje/outside/gukje_outside_1.jfif'
  )),
 ('test666', 16, 'https://picsum.photos/seed/user8/100/100', '22', 4.5,
  '점심 시간에 방문했는데 웨이팅이 있었지만 괜찮았습니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food10_1/600/400',
-    'https://picsum.photos/seed/food10_2/600/400',
-    'https://picsum.photos/seed/food10_3/600/400'
+    '/images/travel_foods/gukje/food/gukje_food_2.jfif',
+    '/images/travel_foods/gukje/inside/gukje_inside_2.jfif',
+    '/images/travel_foods/gukje/outside/gukje_outside_2.jfif'
  )),
 ('test', 16, 'https://picsum.photos/seed/user9/100/100', '10', 4.0,
  '가성비 좋은 음식점, 재방문 의사 있음.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food10_1/600/400',
-    'https://picsum.photos/seed/food10_2/600/400',
-    'https://picsum.photos/seed/food10_3/600/400'
+    '/images/travel_foods/gukje/food/gukje_food_3.jfif',
+    '/images/travel_foods/gukje/inside/gukje_inside_3.jfif',
+    '/images/travel_foods/gukje/outside/gukje_outside_3.jfif'
  )),
  
 -- fid 17
@@ -2218,25 +2169,25 @@ VALUES
  '정말 맛있게 식사했습니다. 분위기도 좋고 서비스도 훌륭했어요.',
  '2025-11-15',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food11_1/600/400',
-    'https://picsum.photos/seed/food11_2/600/400',
-    'https://picsum.photos/seed/food11_3/600/400'
+    '/images/travel_foods/halme/food/halme_food_1.jfif',
+    '/images/travel_foods/halme/inside/halme_inside_1.jfif',
+    '/images/travel_foods/halme/outside/halme_outside_1.jfif'
  )),
 ('test666', 17, 'https://picsum.photos/seed/user11_2/100/100', '23', 4.0,
  '메뉴가 다양하고 재료 신선도가 뛰어납니다. 재방문 의사 있음.',
  '2025-11-16',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food11_1/600/400',
-    'https://picsum.photos/seed/food11_2/600/400',
-    'https://picsum.photos/seed/food11_3/600/400'
+    '/images/travel_foods/halme/food/halme_food_2.jfif',
+    '/images/travel_foods/halme/inside/halme_inside_2.jfif',
+    '/images/travel_foods/halme/outside/halme_outside_2.jfif'
  )),
 ('test', 17, 'https://picsum.photos/seed/user11_3/100/100', '8', 5.0,
  '친절한 서비스와 맛있는 음식. 가족과 함께 방문 추천!',
  '2025-11-17',
  JSON_ARRAY(
-    'https://picsum.photos/seed/food11_1/600/400',
-    'https://picsum.photos/seed/food11_2/600/400',
-    'https://picsum.photos/seed/food11_3/600/400'
+    '/images/travel_foods/halme/food/halme_food_3.jfif',
+    '/images/travel_foods/halme/inside/halme_inside_3.jfif',
+    '/images/travel_foods/halme/outside/halme_outside_3.jfif'
  )),
 
 -- fid 18
@@ -2407,25 +2358,25 @@ VALUES
  '객실이 넓고 전망이 좋았어요. 직원분들도 친절했습니다.',
  '2025-11-01',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel14_1/600/400',
-    'https://picsum.photos/seed/hotel14_2/600/400',
-    'https://picsum.photos/seed/hotel14_3/600/400'
+    '/images/travel_hotels/toyo/deluxe/toyo_deluxe_1.jfif',
+    '/images/travel_hotels/toyo/suite/toyo_suite_1.jfif',
+    '/images/travel_hotels/toyo/family/toyo_family_1.jfif'
  )),
 ('test222', 14, 'https://picsum.photos/seed/user202/100/100', '8', 4.0,
  '조용하고 깔끔한 호텔, 가족 여행에 적합합니다.',
  '2025-11-02',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel14_1/600/400',
-    'https://picsum.photos/seed/hotel14_2/600/400',
-    'https://picsum.photos/seed/hotel14_3/600/400'
+    '/images/travel_hotels/toyo/deluxe/toyo_deluxe_2.jfif',
+    '/images/travel_hotels/toyo/suite/toyo_suite_2.jfif',
+    '/images/travel_hotels/toyo/family/toyo_family_2.jfif'
  )),
 ('test333', 14, 'https://picsum.photos/seed/user203/100/100', '22', 5.0,
  '시설이 최신식이고 청결합니다. 다시 방문하고 싶어요.',
  '2025-11-03',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel14_1/600/400',
-    'https://picsum.photos/seed/hotel14_2/600/400',
-    'https://picsum.photos/seed/hotel14_3/600/400'
+    '/images/travel_hotels/toyo/deluxe/toyo_deluxe_3.jfif',
+    '/images/travel_hotels/toyo/suite/toyo_suite_3.jfif',
+    '/images/travel_hotels/toyo/family/toyo_family_3.jfif'
  )),
 
 -- hid 15
@@ -2433,25 +2384,25 @@ VALUES
  '위치가 편리하고 주변 시설도 좋아요.',
  '2025-11-04',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel15_1/600/400',
-    'https://picsum.photos/seed/hotel15_2/600/400',
-    'https://picsum.photos/seed/hotel15_3/600/400'
+	'/images/travel_hotels/queens/deluxe/queens_deluxe_1.jfif',
+    '/images/travel_hotels/queens/suite/queens_suite_1.jfif',
+    '/images/travel_hotels/queens/family/queens_family_1.jfif'    
  )),
 ('test222', 15, 'https://picsum.photos/seed/user205/100/100', '12', 3.8,
  '조식이 조금 아쉬웠지만 방은 넓습니다.',
  '2025-11-05',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel15_1/600/400',
-    'https://picsum.photos/seed/hotel15_2/600/400',
-    'https://picsum.photos/seed/hotel15_3/600/400'
+    '/images/travel_hotels/queens/deluxe/queens_deluxe_2.jfif',
+    '/images/travel_hotels/queens/suite/queens_suite_2.jfif',
+    '/images/travel_hotels/queens/family/queens_family_2.jfif'  
  )),
 ('test333', 15, 'https://picsum.photos/seed/user206/100/100', '20', 4.5,
  '주차 공간이 넓고 서비스가 친절합니다.',
  '2025-11-06',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel15_1/600/400',
-    'https://picsum.photos/seed/hotel15_2/600/400',
-    'https://picsum.photos/seed/hotel15_3/600/400'
+    '/images/travel_hotels/queens/deluxe/queens_deluxe_3.jfif',
+    '/images/travel_hotels/queens/suite/queens_suite_3.jfif',
+    '/images/travel_hotels/queens/family/queens_family_3.jfif'  
  )),
 
 -- hid 16
@@ -2459,25 +2410,25 @@ VALUES
  '가성비 좋고 위치도 편리합니다.',
  '2025-11-07',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel16_1/600/400',
-    'https://picsum.photos/seed/hotel16_2/600/400',
-    'https://picsum.photos/seed/hotel16_3/600/400'
+	'/images/travel_hotels/stay/deluxe/stay_deluxe_1.jfif',
+    '/images/travel_hotels/stay/suite/stay_suite_1.jfif',
+    '/images/travel_hotels/stay/family/stay_family_1.jfif'
  )),
 ('test222', 16, 'https://picsum.photos/seed/user208/100/100', '25', 4.5,
  '깨끗하고 조용한 숙소였습니다.',
  '2025-11-08',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel16_1/600/400',
-    'https://picsum.photos/seed/hotel16_2/600/400',
-    'https://picsum.photos/seed/hotel16_3/600/400'
+    '/images/travel_hotels/stay/deluxe/stay_deluxe_2.jfif',
+    '/images/travel_hotels/stay/suite/stay_suite_2.jfif',
+    '/images/travel_hotels/stay/family/stay_family_2.jfif'
  )),
 ('test333', 16, 'https://picsum.photos/seed/user209/100/100', '14', 4.8,
  '방이 넓고 시설이 훌륭합니다.',
  '2025-11-09',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel16_1/600/400',
-    'https://picsum.photos/seed/hotel16_2/600/400',
-    'https://picsum.photos/seed/hotel16_3/600/400'
+    '/images/travel_hotels/stay/deluxe/stay_deluxe_3.jfif',
+    '/images/travel_hotels/stay/suite/stay_suite_3.jfif',
+    '/images/travel_hotels/stay/family/stay_family_3.jfif'
  )),
  
  -- hid 17
@@ -2485,25 +2436,25 @@ VALUES
  '방이 깨끗하고 직원이 친절했습니다.',
  '2025-11-10',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel17_1/600/400',
-    'https://picsum.photos/seed/hotel17_2/600/400',
-    'https://picsum.photos/seed/hotel17_3/600/400'
+    '/images/travel_hotels/gng/deluxe/gng_deluxe_1.jfif',
+    '/images/travel_hotels/gng/suite/gng_suite_1.jfif',
+    '/images/travel_hotels/gng/family/gng_family_1.jfif'
  )),
 ('test222', 17, 'https://picsum.photos/seed/user211/100/100', '22', 4.6,
  '위치가 좋고 조식이 만족스러웠습니다.',
  '2025-11-11',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel17_1/600/400',
-    'https://picsum.photos/seed/hotel17_2/600/400',
-    'https://picsum.photos/seed/hotel17_3/600/400'
+    '/images/travel_hotels/gng/deluxe/gng_deluxe_2.jfif',
+    '/images/travel_hotels/gng/suite/gng_suite_2.jfif',
+    '/images/travel_hotels/gng/family/gng_family_2.jfif'
  )),
 ('test333', 17, 'https://picsum.photos/seed/user212/100/100', '10', 4.0,
  '가격 대비 만족스러운 숙소였습니다.',
  '2025-11-12',
  JSON_ARRAY(
-    'https://picsum.photos/seed/hotel17_1/600/400',
-    'https://picsum.photos/seed/hotel17_2/600/400',
-    'https://picsum.photos/seed/hotel17_3/600/400'
+    '/images/travel_hotels/gng/deluxe/gng_deluxe_3.jfif',
+    '/images/travel_hotels/gng/suite/gng_suite_3.jfif',
+    '/images/travel_hotels/gng/family/gng_family_3.jfif'
  )),
 
 -- hid 18
