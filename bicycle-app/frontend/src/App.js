@@ -35,6 +35,7 @@ import { SuccessPage } from "./pages/SuccessPage.jsx";
 import { FailPage } from "./pages/FailPage.jsx";
 import {RentalPaymentResults} from "./components/rental/RentalPaymentResult.jsx";
 import {OrderList} from "./pages/OrderList.jsx";
+import ProtectedRoute from "./utils/ProtectedRoute.js";
 
 export default function App() {
 
@@ -84,12 +85,27 @@ export default function App() {
                         <Route path="products/:category" element={<Products />} />
                         <Route path="products/:category/:pid" element={<ProductDetail />} />
                         <Route path="location" element={<StoreLocation/>}/>
-                        <Route path="cart" element={<Cart/>}/>
+                        <Route path="cart" element={
+                            <ProtectedRoute>
+                                <Cart/>
+                            </ProtectedRoute>}/>
                         <Route path="compare" element={<ComparedProduct/>}/>
-                        <Route path="checkout" element={<CheckoutInfo/>}/>
-                        <Route path="checkout/success" element={<SuccessPage/>}/>
-                        <Route path="checkout/fail" element={<FailPage/>}/>
-                        <Route path="payment/order" element={<OrderList/>}/>
+                        <Route path="checkout" element={
+                            <ProtectedRoute>
+                                <CheckoutInfo/>
+                            </ProtectedRoute>}/>
+                        <Route path="checkout/success" element={
+                            <ProtectedRoute>
+                                <SuccessPage/>
+                            </ProtectedRoute>}/>
+                        <Route path="checkout/fail" element={
+                            <ProtectedRoute>
+                                <FailPage/>
+                            </ProtectedRoute>}/>
+                        <Route path="payment/order" element={
+                            <ProtectedRoute>
+                                <OrderList/>
+                            </ProtectedRoute>}/>
 
                         {/* Board (게시판) */}
                         <Route path="board">
