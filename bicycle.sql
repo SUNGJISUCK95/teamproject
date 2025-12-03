@@ -700,28 +700,11 @@ UPDATE userinfo SET uid = "test111" where uid="test112";
 ALTER TABLE userinfo ADD COLUMN postcode varchar(100) DEFAULT "00000" AFTER uaddress;
 
 
-/***********************************************************
-		251127 - 아이디 검색 및 비밀번호 변경 - 확인용 인증 코드 및 유효시간 받는 용도의 테이블 추가
-***********************************************************/
-
-create table userinfoauthsearch(
-    authcode varchar(100) primary key,
-    uemail	varchar(100) not null,
-    uname	    varchar(50) not null,
-    uid   		varchar(100),
-    deadtime DATETIME
-);
-
-select * from userinfoauthsearch;
-drop table userinfoauthsearch;
-
-
-
 /***************************************************
 		대여 자전거 : rental_history 테이블 (시작)
 ****************************************************/
 use bicycle;
-drop table rental_history;
+-- drop table rental_history;
 select * from rental_history;
 
 create table rental_history(
@@ -1000,13 +983,8 @@ create table orders(
     foreign key(uid) references userinfo(uid)
 );
 desc orders;
+drop table orders;
 select * from orders;
-desc userinfo;
-/******************************************************
-	251127 -- 주문내역에 우편번호 주소 추가
-******************************************************/
-ALTER TABLE orders ADD COLUMN uaddress varchar(100) AFTER payment_key;
-ALTER TABLE orders ADD COLUMN postcode varchar(100) AFTER uaddress;
 /******************************************************
 	251124 - 조 해성 -- 개인정보 수정을 위해 ID와 FK로 연결된 컬럼에 on Update Cascade 부여
 ******************************************************/
@@ -1037,4 +1015,3 @@ create table orders_items(
     foreign key(product_id) references product(product_id)
 );
 desc orders_items;
-select * from orders_items;

@@ -10,7 +10,7 @@ const getCookie = (name) => {
 
 const axiosPost = async (url, formData) => {
 
-    // 1. 쿠키에서 CSRF 토큰 (기본 이름: XSRF-TOKEN)을 가져옵니다.
+    // 1. 쿠키에서 CSRF 토큰 (기본 이름: XSRF-TOKEN)을 가져옴.
     const csrfToken = getCookie('XSRF-TOKEN');
     console.log("획득된 CSRF 토큰 값:", csrfToken);
 
@@ -20,7 +20,7 @@ const axiosPost = async (url, formData) => {
 
     // 2. 토큰이 있다면 요청 헤더에 추가 (Spring Security 기본 헤더 이름: X-XSRF-TOKEN)
     if (csrfToken) {
-        headers['X-XSRF-TOKEN'] = csrfToken; // 👈 이 헤더 이름이 중요합니다.
+        headers['X-XSRF-TOKEN'] = csrfToken;
     }
     console.log("전송될 HTTP 헤더:", headers);
 
@@ -54,11 +54,11 @@ export const getRentalPayment = (priceInfo, paymentMethod) => async(dispatch, ge
 
     try {
         const url = "http://localhost:8080/kakaopay/ready";
-        const result = await axiosPost(url, rentalPayload); // 👈 result는 DTO 객체
+        const result = await axiosPost(url, rentalPayload); // result는 DTO 객체
 
         console.log("백엔드로부터의 최종 응답:", result);
 
-        // 🚨🚨🚨 수정: 백엔드 DTO 대신, 프론트엔드 상태 객체로 랩핑하여 반환 🚨🚨🚨
+        // 백엔드 DTO 대신, 프론트엔드 상태 객체로 랩핑하여 반환
         if (result && result.next_redirect_pc_url) {
             // 리다이렉션은 handlePayment의 책임이 아니라,
             // 이 액션 내부에서 즉시 실행되어야 오류 발생을 줄일 수 있습니다.

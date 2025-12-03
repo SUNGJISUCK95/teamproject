@@ -44,7 +44,7 @@ const Rantal = () => {
     // useDispatch()를 사용하기 위해서 dispatch 변수 선언 그리고 할당 함.
     const dispatch = useDispatch();
 
-    //마커의 정보를 담고있는 store에 등록된 데이터
+    // 마커의 정보를 담고있는 store에 등록된 데이터
     const selectedMarker = useSelector((state) => state.rentalData.selectedStation);
 
     // store에 등록된 전체 데이터를 사용하기 위해 useSelector로 데이터 추출
