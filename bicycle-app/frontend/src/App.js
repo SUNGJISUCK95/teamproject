@@ -6,8 +6,8 @@ import Rental from './pages/Rental.jsx';
 import { Support } from './pages/Support.jsx';
 import { Login } from './pages/Login.jsx';
 import { Auth } from './pages/Auth.jsx';
-import { SignUp } from './pages/SignUp.jsx';
-import { MyPage } from './pages/MyPage.jsx';
+import { SignUp2 } from './pages/SignUp2.jsx';
+import { MyPage2 } from './pages/MyPage2.jsx';
 import { IdPwSearch } from './pages/IdPwSearch.jsx';
 import { Terms } from './pages/policies/Terms.jsx';
 import { Privacy } from './pages/policies/Privacy.jsx';
@@ -71,9 +71,12 @@ export default function App() {
                         {/* Auth */}
                         <Route path="login" element={<Login />} />
                         <Route path="auth" element={<Auth />} />
-                        <Route path="signUp" element={<SignUp />} />
-                        <Route path="socialsignUp" element={<SignUp excludeItems={['social']} />} />
-                        <Route path="mypage" element={<MyPage />} />
+                        <Route path="signUp" element={<SignUp2 />} />
+                        <Route path="socialsignUp" element={<SignUp2 excludeItems={['social']} />} />
+                        <Route path="mypage" element={
+                            <ProtectedRoute>
+                                <MyPage2 />
+                            </ProtectedRoute>} />
                         <Route path="IdPwSearch" element={<IdPwSearch />} />
 
                         {/* Policy */}
