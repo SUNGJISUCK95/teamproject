@@ -6,7 +6,7 @@ INSERT INTO travel_food
  image1, image2, image3, full_image1, full_image2, full_image3, description)
 VALUES
 -- 1. 만드리곤드레밥
-('부산 삼락생태공원', '만드리곤드레밥', 35.177387, 128.95245, 4.6, 92, 480,
+('부산 삼락생태공원', '만드리곤드레밥', 35.177387, 128.95245, 4.0, 92, 3,
  JSON_ARRAY('한식','곤드레밥','정식','돌솥요리'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20191209162810545_thumbL',
  '/images/travel_foods/mandri/mandri_1.webp',
@@ -18,7 +18,7 @@ VALUES
 ),
 
 -- 3. 가야할매밀면
-('부산 삼락생태공원', '가야할매밀면', 35.185196, 129.07988, 4.7, 95, 910,
+('부산 삼락생태공원', '가야할매밀면', 35.185196, 129.07988, 4.0, 95, 3,
  JSON_ARRAY('밀면','부산맛집','냉면류','전통식당'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20191217201857896_thumbL',
  '/images/travel_foods/gaya/gaya_1.jfif',
@@ -30,7 +30,7 @@ VALUES
 ),
 
 -- 4. 국제밀면본점
-('부산 삼락생태공원', '국제밀면본점', 35.19689, 129.07785, 4.8, 97, 1320,
+('부산 삼락생태공원', '국제밀면본점', 35.19689, 129.07785, 4.0, 97, 3,
  JSON_ARRAY('밀면','부산맛집','전통식당'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20240418134454110_thumbL',
  '/images/travel_foods/gukje/gukje_1.jfif',
@@ -42,7 +42,7 @@ VALUES
 ),
 
 -- 5. 할매가야밀면
-('부산 삼락생태공원', '할매가야밀면', 35.098934, 129.03122, 4.5, 90, 780,
+('부산 삼락생태공원', '할매가야밀면', 35.098934, 129.03122, 4.0, 90, 3,
  JSON_ARRAY('밀면','중구맛집','노포'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20230605153300303_thumbL',
  '/images/travel_foods/halme/halme_1.jfif',
@@ -54,7 +54,7 @@ VALUES
 ),
 
 -- 2. 민물가든
-('부산 삼락생태공원', '민물가든', 35.16055, 128.89468, 4.4, 88, 350,
+('부산 삼락생태공원', '민물가든', 35.16055, 128.89468, 4.0, 88, 3,
  JSON_ARRAY('생선찜','붕어조림','전통요리','한식'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20191217101816206_thumbL',
  'https://picsum.photos/seed/fish1/200/200',
@@ -66,7 +66,7 @@ VALUES
 ),
 
 -- 6. 거인통닭
-('부산 삼락생태공원', '거인통닭', 35.102345, 129.02612, 4.9, 98, 1500,
+('부산 삼락생태공원', '거인통닭', 35.102345, 129.02612, 4.0, 98, 3,
  JSON_ARRAY('치킨','후라이드','노포','부산맛집'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20240419092440105_thumbL',
  'https://picsum.photos/seed/chicken1/200/200',
@@ -78,7 +78,7 @@ VALUES
 ),
 
 -- 7. 부산꼼장어맛집 성일집
-('부산 삼락생태공원', '부산꼼장어맛집 성일집', 35.099426, 129.03749, 4.8, 96, 1120,
+('부산 삼락생태공원', '부산꼼장어맛집 성일집', 35.099426, 129.03749, 4.0, 96, 3,
  JSON_ARRAY('꼼장어','해산물','구이','노포'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20240419100256721_thumbL',
  'https://picsum.photos/seed/eel1/200/200',
@@ -90,7 +90,7 @@ VALUES
 ),
 
 -- 8. 배비장보쌈구서본점
-('부산 삼락생태공원', '배비장보쌈구서본점', 35.245174, 129.09143, 4.6, 92, 540,
+('부산 삼락생태공원', '배비장보쌈구서본점', 35.245174, 129.09143, 4.0, 92, 3,
  JSON_ARRAY('보쌈','한식','고기','부산맛집'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20230608145054469_thumbL',
  'https://picsum.photos/seed/bossam1/200/200',
@@ -102,7 +102,7 @@ VALUES
 ),
 
 -- 9. 장수장 꼬리곰탕
-('부산 삼락생태공원', '장수장 꼬리곰탕', 35.19576, 128.99043, 4.5, 90, 460,
+('부산 삼락생태공원', '장수장 꼬리곰탕', 35.19576, 128.99043, 4.0, 90, 3,
  JSON_ARRAY('곰탕','국물요리','노포'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20230607170754019_thumbL',
  'https://picsum.photos/seed/soup1/200/200',
@@ -114,7 +114,7 @@ VALUES
 ),
 
 -- 10. 금수복국 해운대본점
-('부산 삼락생태공원', '금수복국 해운대본점', 35.16243, 129.1645, 4.7, 94, 820,
+('부산 삼락생태공원', '금수복국 해운대본점', 35.16243, 129.1645, 4.0, 94, 3,
  JSON_ARRAY('복국','해산물','24시간','부산맛집'),
  'https://www.visitbusan.net/uploadImgs/files/cntnts/20240419130448560_thumbL',
  'https://picsum.photos/seed/puffer1/200/200',
@@ -132,7 +132,7 @@ INSERT INTO travel_hotel (
     region, hname, lat, lng, hlike, score, evaluation, tag,
     image1, image2, image3, full_image1, full_image2, full_image3, description
 ) VALUES
-('부산 삼락생태공원', '토요코인 부산서면', 35.1578, 129.0590, 4.3, 88, 120, '["가성비","비즈니스","편리함"]',
+('부산 삼락생태공원', '토요코인 부산서면', 35.1578, 129.0590, 4.0, 88, 3, '["가성비","비즈니스","편리함"]',
  '/images/travel_hotels/toyo/toyo_1.jfif',
  '/images/travel_hotels/toyo/toyo_2.jfif',
  '/images/travel_hotels/toyo/toyo_3.jfif',
@@ -141,7 +141,7 @@ INSERT INTO travel_hotel (
  '/images/travel_hotels/toyo/toyo_3.jfif',
  '서면 중심지에 위치한 합리적인 가격의 비즈니스 호텔입니다.'
 ),
-('부산 삼락생태공원', '퀸스호텔', 35.1590, 129.0600, 4.0, 80, 90, '["호스텔","가성비","여행자"]',
+('부산 삼락생태공원', '퀸스호텔', 35.1590, 129.0600, 4.0, 80, 3, '["호스텔","가성비","여행자"]',
  '/images/travel_hotels/queens/queens_1.jfif',
  '/images/travel_hotels/queens/queens_2.jfif',
  '/images/travel_hotels/queens/queens_3.jfif',
@@ -150,7 +150,7 @@ INSERT INTO travel_hotel (
  '/images/travel_hotels/queens/queens_3.jfif',
  '부전동에 위치한 저렴하고 편안한 숙소, 배낭여행객과 단기 여행객에게 적합합니다.'
 ),
-('부산 삼락생태공원', 'STAY고우담', 35.1585, 129.0615, 4.2, 85, 100, '["호스텔","편안함","젊은층"]',
+('부산 삼락생태공원', 'STAY고우담', 35.1585, 129.0615, 4.0, 85, 3, '["호스텔","편안함","젊은층"]',
  '/images/travel_hotels/stay/stay_1.jfif',
  '/images/travel_hotels/stay/stay_2.jfif',
  '/images/travel_hotels/stay/stay_3.jfif',
@@ -159,7 +159,7 @@ INSERT INTO travel_hotel (
  '/images/travel_hotels/stay/stay_3.jfif',
  '전포동에 위치한 깔끔한 호스텔로, 젊은 여행객들에게 인기 있는 숙소입니다.'
 ),
-('부산 삼락생태공원', '지앤지(G&G)관광호텔', 35.1345, 129.1040, 4.1, 75, 41, '["관광호텔","2성급","편안함"]',
+('부산 삼락생태공원', '지앤지(G&G)관광호텔', 35.1345, 129.1040, 4.0, 75, 3, '["관광호텔","2성급","편안함"]',
  '/images/travel_hotels/gng/gng_1.jfif',
  '/images/travel_hotels/gng/gng_2.jfif',
  '/images/travel_hotels/gng/gng_3.jfif',
@@ -168,7 +168,7 @@ INSERT INTO travel_hotel (
  '/images/travel_hotels/gng/gng_3.jfif',
  '대연동에 위치한 합리적인 가격의 2성급 관광호텔로, 편안한 숙박을 제공합니다.'
 ),
-('부산 삼락생태공원', '삼락호텔', 35.205432, 129.010123, 4.5, 90, 120, '["편안함","가족","도심"]',
+('부산 삼락생태공원', '삼락호텔', 35.205432, 129.010123, 4.0, 90, 3, '["편안함","가족","도심"]',
  'https://picsum.photos/seed/hotel1/400/300',
  'https://picsum.photos/seed/hotel2/400/300',
  'https://picsum.photos/seed/hotel3/400/300',
@@ -177,7 +177,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/hotel3/800/600',
  '부산 삼락생태공원 근처의 편안한 숙박 시설로, 가족 단위 여행객에게 적합합니다.'
 ),
-('부산 삼락생태공원', '에코호텔', 35.206890, 129.012345, 4.2, 85, 98, '["친환경","조식","데이트"]',
+('부산 삼락생태공원', '에코호텔', 35.206890, 129.012345, 4.0, 85, 3, '["친환경","조식","데이트"]',
  'https://picsum.photos/seed/hotel4/400/300',
  'https://picsum.photos/seed/hotel5/400/300',
  'https://picsum.photos/seed/hotel6/400/300',
@@ -186,7 +186,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/hotel6/800/600',
  '삼락생태공원 산책 후 편하게 쉴 수 있는 친환경 호텔입니다.'
 ),
-('부산 삼락생태공원', '그린스테이', 35.207654, 129.009876, 4.7, 95, 150, '["조용함","가성비","출장"]',
+('부산 삼락생태공원', '그린스테이', 35.207654, 129.009876, 4.0, 95, 3, '["조용함","가성비","출장"]',
  'https://picsum.photos/seed/hotel7/400/300',
  'https://picsum.photos/seed/hotel8/400/300',
  'https://picsum.photos/seed/hotel9/400/300',
@@ -195,7 +195,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/hotel9/800/600',
  '출장이나 단기 숙박에 적합한 깔끔하고 조용한 호텔입니다.'
 ),
-('부산 삼락생태공원', '블루호텔', 35.204321, 129.011234, 4.3, 88, 110, '["뷰좋음","조식","커플"]',
+('부산 삼락생태공원', '블루호텔', 35.204321, 129.011234, 4.0, 88, 3, '["뷰좋음","조식","커플"]',
  'https://picsum.photos/seed/hotel10/400/300',
  'https://picsum.photos/seed/hotel11/400/300',
  'https://picsum.photos/seed/hotel12/400/300',
@@ -204,7 +204,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/hotel12/800/600',
  '커플 여행객에게 추천하는 부산 삼락생태공원 근처 호텔입니다.'
 ),
-('부산 삼락생태공원', '(주)부산롯데호텔', 35.1595, 129.0605, 4.7, 95, 150, '["럭셔리","관광","도심"]',
+('부산 삼락생태공원', '(주)부산롯데호텔', 35.1595, 129.0605, 4.0, 95, 3, '["럭셔리","관광","도심"]',
  'https://picsum.photos/seed/lotte1/400/300',
  'https://picsum.photos/seed/lotte2/400/300',
  'https://picsum.photos/seed/lotte3/400/300',
@@ -214,7 +214,7 @@ INSERT INTO travel_hotel (
  '부산 중심가에 위치한 최고급 호텔로, 관광객과 비즈니스 여행객 모두에게 적합합니다.'
 ),
 
-('부산 삼락생태공원', '아바니센트럴 부산', 35.1298, 129.1005, 4.6, 90, 281, '["관광호텔","4성급","럭셔리"]',
+('부산 삼락생태공원', '아바니센트럴 부산', 35.1298, 129.1005, 4.0, 90, 3, '["관광호텔","4성급","럭셔리"]',
  'https://picsum.photos/seed/avani1/400/300',
  'https://picsum.photos/seed/avani2/400/300',
  'https://picsum.photos/seed/avani3/400/300',
@@ -232,7 +232,7 @@ INSERT INTO travel_repair
  image1, image2, image3, full_image1, full_image2, full_image3, description)
 VALUES
 -- 1. Trek Bicycle 광안점 (실존)
-('부산 삼락생태공원', '바퀴달린자전거', 35.1491516, 129.1140527, 4.9, 98, 158,
+('부산 삼락생태공원', '바퀴달린자전거', 35.1491516, 129.1140527, 4.0, 98, 3,
  JSON_ARRAY('자전거판매','자전거정비','로드/MTB','광안리'),
  '/images/travel_repairs/baki/baki_1.jfif',
  '/images/travel_repairs/baki/baki_2.jfif',
@@ -254,7 +254,7 @@ VALUES
  '입문용 자전거 판매와 기본 정비를 함께 제공하는 지역 자전거샵'),
 
 -- 3. 자이언트 프리미엄 스토어 부산 (실존)
-('부산 삼락생태공원', '삼천리자전거 학장점', 35.1483310, 129.1128860, 4.6, 92, 16,
+('부산 삼락생태공원', '삼천리자전거 학장점', 35.1483310, 129.1128860, 4.0, 92, 3,
  JSON_ARRAY('자전거판매','정비','로드/MTB','자이언트'),
  '/images/travel_repairs/hakjang/hakjang_1.jfif',
  '/images/travel_repairs/hakjang/hakjang_2.jfif',
@@ -265,7 +265,7 @@ VALUES
  '공식 자이언트 브랜드 자전거 판매 및 정비, 입문자부터 마니아까지 대응 가능한 매장'),
 
 -- 4. 삼천리자전거 가야점 (실존)
-('부산 삼락생태공원', '스페셜라이즈드 메리다 칼리버바이크', 35.1554575, 129.0389803, 4.5, 88, 10,
+('부산 삼락생태공원', '스페셜라이즈드 메리다 칼리버바이크', 35.1554575, 129.0389803, 4.0, 88, 3,
  JSON_ARRAY('자전거판매','정비','일상용','체인샵'),
  '/images/travel_repairs/special/special_1.jfif',
  '/images/travel_repairs/special/special_2.jfif',
@@ -276,7 +276,7 @@ VALUES
  '도심형 체인 매장 — 생활 자전거 판매/수리, 튜브·타이어 교체 포함'),
 
 -- 5~10. 가상 매장들도 동일하게 region '부산 삼락생태공원' 적용
-('부산 삼락생태공원', '부산자전거수리 A샵', 35.200000, 129.050000, 4.3, 85, 120,
+('부산 삼락생태공원', '부산자전거수리 A샵', 35.200000, 129.050000, 4.0, 85, 3,
  JSON_ARRAY('정비','출퇴근용','픽시/미니벨로'),
  'https://picsum.photos/seed/bike_a1/200/200',
  'https://picsum.photos/seed/bike_a1_2/200/200',
@@ -286,7 +286,7 @@ VALUES
  'https://picsum.photos/seed/bike_a1_full3/600/400',
  '출퇴근용/픽시 중심 정비: 타이어, 체인, 브레이크 조정 등 기본 유지보수 제공'),
 
-('부산 삼락생태공원', '로드바이크 튜닝샵 B', 35.180500, 129.090500, 4.4, 88, 150,
+('부산 삼락생태공원', '로드바이크 튜닝샵 B', 35.180500, 129.090500, 4.0, 88, 3,
  JSON_ARRAY('튜닝','로드바이크','정비','튜닝샵'),
  'https://picsum.photos/seed/bike_b1/200/200',
  'https://picsum.photos/seed/bike_b1_2/200/200',
@@ -296,7 +296,7 @@ VALUES
  'https://picsum.photos/seed/bike_b1_full3/600/400',
  '로드바이크 휠 정렬, 기어/브레이크 튜닝, 경량 휠 교체 등 전문 튜닝샵'),
 
-('부산 삼락생태공원', 'E‑bike 정비센터 C', 35.160000, 129.100000, 4.5, 90, 200,
+('부산 삼락생태공원', 'E‑bike 정비센터 C', 35.160000, 129.100000, 4.0, 90, 3,
  JSON_ARRAY('전기자전거','정비','배터리교체','출퇴근'),
  'https://picsum.photos/seed/ebike_c1/200/200',
  'https://picsum.photos/seed/ebike_c1_2/200/200',
@@ -306,7 +306,7 @@ VALUES
  'https://picsum.photos/seed/ebike_c1_full3/600/400',
  '전기자전거 배터리/모터 점검 및 정비, 충전 서비스 제공'),
 
-('부산 삼락생태공원', '미니벨로 수리샵 D', 35.195000, 129.070000, 4.2, 82, 95,
+('부산 삼락생태공원', '미니벨로 수리샵 D', 35.195000, 129.070000, 4.0, 82, 3,
  JSON_ARRAY('미니벨로','정비','튜브교체','생활자전거'),
  'https://picsum.photos/seed/bike_d1/200/200',
  'https://picsum.photos/seed/bike_d1_2/200/200',
@@ -316,7 +316,7 @@ VALUES
  'https://picsum.photos/seed/bike_d1_full3/600/400',
  '시티/미니벨로 전용 정비, 튜브·타이어 교체, 체인/기어 점검 제공'),
 
-('부산 삼락생태공원', '자전거 정비 E센터', 35.170000, 129.080000, 4.3, 86, 110,
+('부산 삼락생태공원', '자전거 정비 E센터', 35.170000, 129.080000, 4.0, 86, 3,
  JSON_ARRAY('정비','브레이크교체','타이어교체','유지보수'),
  'https://picsum.photos/seed/bike_e1/200/200',
  'https://picsum.photos/seed/bike_e1_2/200/200',
@@ -326,7 +326,7 @@ VALUES
  'https://picsum.photos/seed/bike_e1_full3/600/400',
  '브레이크, 타이어, 튜브 등 기본 유지보수 특화 샵 — 입문자/생활자전거 대상'),
 
-('부산 삼락생태공원', '튜닝 & 정비샵 F', 35.185000, 129.100000, 4.4, 89, 130,
+('부산 삼락생태공원', '튜닝 & 정비샵 F', 35.185000, 129.100000, 4.0, 89, 3,
  JSON_ARRAY('튜닝','정비','로드/MTB','입문용'),
  'https://picsum.photos/seed/bike_f1/200/200',
  'https://picsum.photos/seed/bike_f1_2/200/200',
@@ -354,13 +354,13 @@ VALUES
  '부산 북구 낙동대로 1750',
  '부산 북구 화명동 227-3',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","화","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","수","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","목","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","금","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","houres","10:00 - 21:00","last","20:30")
+   JSON_OBJECT("day","월","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","화","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","수","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","목","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","금","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","10:00 - 21:00","last","20:30")
  ),
  '051-893-2211',
  JSON_ARRAY("조용한","깔끔한","가성비좋은","단체석","가족모임"),
@@ -406,13 +406,13 @@ VALUES
  '부산 부산진구 가야대로 734',
  '부산 부산진구 가야동 234-18',
  JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','화','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','수','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','목','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','금','hours','10:30 - 22:00','last','21:30'),
-   JSON_OBJECT('day','토','hours','10:30 - 22:00','last','21:30'),
-   JSON_OBJECT('day','일','hours','10:30 - 21:00','last','20:30')
+   JSON_OBJECT('day','월','houers','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','화','houers','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','수','houers','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','목','houers','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','금','houers','10:30 - 22:00','last','21:30'),
+   JSON_OBJECT('day','토','houers','10:30 - 22:00','last','21:30'),
+   JSON_OBJECT('day','일','houers','10:30 - 21:00','last','20:30')
  ),
  '051-897-1122',
  JSON_ARRAY('가성비좋음','빠른회전율','깔끔한맛'),
@@ -450,20 +450,20 @@ VALUES
 ),
 
 -- 4. 국제밀면본점
-('국제밀면본점', 4.5, 90,
+('국제밀면본점', 4.5, 97,
  JSON_ARRAY('밀면','국물요리','면요리'),
  '감천문화마을거리',
  '밀면 전문점',
  '부산 사하구 감내로 45',
  '부산 사하구 감천동 123-7',
  JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','화','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','수','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','목','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','금','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','토','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','일','hours','11:00 - 22:00','last','21:30')
+   JSON_OBJECT('day','월','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','화','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','수','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','목','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','금','houers','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','토','houers','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','일','houers','11:00 - 22:00','last','21:30')
  ),
  '051-204-5566',
  JSON_ARRAY('시원한육수','가성비좋음','로컬맛집'),
@@ -505,20 +505,20 @@ VALUES
 
 
 -- 5. 할매가야밀면
-('할매가야밀면', 4.6, 93,
+('할매가야밀면', 4.6, 90,
  JSON_ARRAY('밀면','부산맛집','면요리'),
  '해운대맛집거리',
  '밀면 전문점',
  '부산 해운대구 구남로 12',
  '부산 해운대구 우동 1410-3',
  JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','08:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','화','hours','08:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','수','hours','08:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','목','hours','08:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','금','hours','08:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','토','hours','08:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','일','hours','08:00 - 22:00','last','21:30')
+   JSON_OBJECT('day','월','houers','08:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','화','houers','08:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','수','houers','08:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','목','houers','08:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','금','houers','08:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','토','houers','08:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','일','houers','08:00 - 22:00','last','21:30')
  ),
  '051-742-1122',
  JSON_ARRAY('시원한육수','가성비좋음','깔끔한맛'),
@@ -563,13 +563,13 @@ VALUES
  '부산 사상구 삼락로 113',
  '부산 사상구 삼락동 423-9',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","hours","11:00 - 21:30","last","21:00"),
-   JSON_OBJECT("day","화","hours","11:00 - 21:30","last","21:00"),
-   JSON_OBJECT("day","수","hours","11:00 - 21:30","last","21:00"),
-   JSON_OBJECT("day","목","hours","11:00 - 21:30","last","21:00"),
-   JSON_OBJECT("day","금","hours","11:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","hours","11:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","hours","11:00 - 21:30","last","21:00")
+   JSON_OBJECT("day","월","houers","11:00 - 21:30","last","21:00"),
+   JSON_OBJECT("day","화","houers","11:00 - 21:30","last","21:00"),
+   JSON_OBJECT("day","수","houers","11:00 - 21:30","last","21:00"),
+   JSON_OBJECT("day","목","houers","11:00 - 21:30","last","21:00"),
+   JSON_OBJECT("day","금","houers","11:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","11:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","11:00 - 21:30","last","21:00")
  ),
  '051-322-9911',
  JSON_ARRAY("조용한 분위기","단체석 가능","주차편함"),
@@ -620,324 +620,335 @@ VALUES
  )
 ),
 
--- 6. 광안리횟집
-('광안리횟집', 4.4, 89,
- JSON_ARRAY('회','해산물','횟집'),
+-- 6.거인통닭
+(
+ '거인통닭',
+ 4.4,
+ 98,
+ JSON_ARRAY('치킨','호프','술집'),
  '광안리해변거리',
- '회 전문점',
+ '치킨 전문점',
  '부산 수영구 광안해변로 123',
  '부산 수영구 민락동 140-9',
  JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','화','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','수','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','목','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','금','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','토','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','일','hours','11:00 - 22:00','last','21:30')
+   JSON_OBJECT('day','월','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','화','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','수','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','목','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','금','houers','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','토','houers','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','일','houers','11:00 - 22:00','last','21:30')
  ),
  '051-753-2211',
- JSON_ARRAY('바다전망','신선한재료','단체석'),
+ JSON_ARRAY('바삭한치킨','가성비좋음','단체석'),
  JSON_ARRAY(
-   JSON_OBJECT('mname','모둠회','price','65000'),
-   JSON_OBJECT('mname','광어회','price','50000'),
-   JSON_OBJECT('mname','연어회','price','55000'),
-   JSON_OBJECT('mname','해물탕','price','40000')
+   JSON_OBJECT('mname','후라이드 치킨','price','18000'),
+   JSON_OBJECT('mname','양념 치킨','price','19000'),
+   JSON_OBJECT('mname','간장 치킨','price','19000'),
+   JSON_OBJECT('mname','감자튀김','price','6000')
  ),
  JSON_ARRAY(
-   'https://picsum.photos/seed/gwangan1/200/200',
-   'https://picsum.photos/seed/gwangan2/200/200',
-   'https://picsum.photos/seed/gwangan3/600/400'
+   'https://picsum.photos/seed/goindak1/200/200',
+   'https://picsum.photos/seed/goindak2/200/200',
+   'https://picsum.photos/seed/goindak3/600/400'
  ),
  JSON_ARRAY(
    JSON_OBJECT('category','음식','images', JSON_ARRAY(
-       'https://picsum.photos/seed/gwangan_food1/400/300',
-       'https://picsum.photos/seed/gwangan_food2/400/300',
-       'https://picsum.photos/seed/gwangan_food3/400/300',
-       'https://picsum.photos/seed/gwangan_food4/400/300',
-       'https://picsum.photos/seed/gwangan_food5/400/300',
-       'https://picsum.photos/seed/gwangan_food6/400/300'
+       'https://picsum.photos/seed/goindak_food1/400/300',
+       'https://picsum.photos/seed/goindak_food2/400/300',
+       'https://picsum.photos/seed/goindak_food3/400/300',
+       'https://picsum.photos/seed/goindak_food4/400/300',
+       'https://picsum.photos/seed/goindak_food5/400/300',
+       'https://picsum.photos/seed/goindak_food6/400/300'
    )),
    JSON_OBJECT('category','실내','images', JSON_ARRAY(
-       'https://picsum.photos/seed/gwangan_in1/400/300',
-       'https://picsum.photos/seed/gwangan_in2/400/300',
-       'https://picsum.photos/seed/gwangan_in3/400/300',
-       'https://picsum.photos/seed/gwangan_in4/400/300',
-       'https://picsum.photos/seed/gwangan_in5/400/300',
-       'https://picsum.photos/seed/gwangan_in6/400/300'
+       'https://picsum.photos/seed/goindak_in1/400/300',
+       'https://picsum.photos/seed/goindak_in2/400/300',
+       'https://picsum.photos/seed/goindak_in3/400/300',
+       'https://picsum.photos/seed/goindak_in4/400/300',
+       'https://picsum.photos/seed/goindak_in5/400/300',
+       'https://picsum.photos/seed/goindak_in6/400/300'
    )),
    JSON_OBJECT('category','실외','images', JSON_ARRAY(
-       'https://picsum.photos/seed/gwangan_out1/400/300',
-       'https://picsum.photos/seed/gwangan_out2/400/300',
-       'https://picsum.photos/seed/gwangan_out3/400/300',
-       'https://picsum.photos/seed/gwangan_out4/400/300',
-       'https://picsum.photos/seed/gwangan_out5/400/300',
-       'https://picsum.photos/seed/gwangan_out6/400/300'
+       'https://picsum.photos/seed/goindak_out1/400/300',
+       'https://picsum.photos/seed/goindak_out2/400/300',
+       'https://picsum.photos/seed/goindak_out3/400/300',
+       'https://picsum.photos/seed/goindak_out4/400/300',
+       'https://picsum.photos/seed/goindak_out5/400/300',
+       'https://picsum.photos/seed/goindak_out6/400/300'
    )),
    JSON_OBJECT('category','주차','images', JSON_ARRAY(
-       'https://picsum.photos/seed/gwangan_park1/400/300',
-       'https://picsum.photos/seed/gwangan_park2/400/300',
-       'https://picsum.photos/seed/gwangan_park3/400/300',
-       'https://picsum.photos/seed/gwangan_park4/400/300',
-       'https://picsum.photos/seed/gwangan_park5/400/300',
-       'https://picsum.photos/seed/gwangan_park6/400/300'
+       'https://picsum.photos/seed/goindak_park1/400/300',
+       'https://picsum.photos/seed/goindak_park2/400/300',
+       'https://picsum.photos/seed/goindak_park3/400/300',
+       'https://picsum.photos/seed/goindak_park4/400/300',
+       'https://picsum.photos/seed/goindak_park5/400/300',
+       'https://picsum.photos/seed/goindak_park6/400/300'
    ))
  )
 ),
 
--- 7. 남포동국제시장떡볶이
-('남포동국제시장떡볶이', 4.5, 90,
- JSON_ARRAY('분식','떡볶이','튀김'),
+-- 7. 부산꼼장어 맛집 성일집
+('부산꼼장어 맛집 성일집',
+ 4.5,
+ 90,
+ JSON_ARRAY('꼼장어','해산물','술집'),
  '남포동맛집거리',
- '분식 전문점',
+ '꼼장어 전문점',
  '부산 중구 광복로 12',
  '부산 중구 남포동 25-7',
  JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','10:00 - 21:00','last','20:30'),
-   JSON_OBJECT('day','화','hours','10:00 - 21:00','last','20:30'),
-   JSON_OBJECT('day','수','hours','10:00 - 21:00','last','20:30'),
-   JSON_OBJECT('day','목','hours','10:00 - 21:00','last','20:30'),
-   JSON_OBJECT('day','금','hours','10:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','토','hours','10:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','일','hours','10:00 - 21:00','last','20:30')
+   JSON_OBJECT('day','월','houers','10:00 - 21:00','last','20:30'),
+   JSON_OBJECT('day','화','houers','10:00 - 21:00','last','20:30'),
+   JSON_OBJECT('day','수','houers','10:00 - 21:00','last','20:30'),
+   JSON_OBJECT('day','목','houers','10:00 - 21:00','last','20:30'),
+   JSON_OBJECT('day','금','houers','10:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','토','houers','10:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','일','houers','10:00 - 21:00','last','20:30')
  ),
  '051-123-4567',
- JSON_ARRAY('가성비좋음','길거리맛집','줄서서먹음'),
+ JSON_ARRAY('신선한재료','바닷가전망','단체석'),
  JSON_ARRAY(
-   JSON_OBJECT('mname','떡볶이','price','3500'),
-   JSON_OBJECT('mname','튀김모듬','price','5000'),
-   JSON_OBJECT('mname','순대','price','4000')
+   JSON_OBJECT('mname','양념꼼장어','price','22000'),
+   JSON_OBJECT('mname','소금구이꼼장어','price','22000'),
+   JSON_OBJECT('mname','꼼장어볶음밥','price','5000')
  ),
  JSON_ARRAY(
-   'https://picsum.photos/seed/nampo1/200/200',
-   'https://picsum.photos/seed/nampo2/200/200',
-   'https://picsum.photos/seed/nampo3/600/400'
+   'https://picsum.photos/seed/seongil1/200/200',
+   'https://picsum.photos/seed/seongil2/200/200',
+   'https://picsum.photos/seed/seongil3/600/400'
  ),
  JSON_ARRAY(
    JSON_OBJECT('category','음식','images', JSON_ARRAY(
-       'https://picsum.photos/seed/nampo_food1/400/300',
-       'https://picsum.photos/seed/nampo_food2/400/300',
-       'https://picsum.photos/seed/nampo_food3/400/300',
-       'https://picsum.photos/seed/nampo_food4/400/300',
-       'https://picsum.photos/seed/nampo_food5/400/300',
-       'https://picsum.photos/seed/nampo_food6/400/300'
+       'https://picsum.photos/seed/seongil_food1/400/300',
+       'https://picsum.photos/seed/seongil_food2/400/300',
+       'https://picsum.photos/seed/seongil_food3/400/300',
+       'https://picsum.photos/seed/seongil_food4/400/300',
+       'https://picsum.photos/seed/seongil_food5/400/300',
+       'https://picsum.photos/seed/seongil_food6/400/300'
    )),
    JSON_OBJECT('category','실내','images', JSON_ARRAY(
-       'https://picsum.photos/seed/nampo_in1/400/300',
-       'https://picsum.photos/seed/nampo_in2/400/300',
-       'https://picsum.photos/seed/nampo_in3/400/300',
-       'https://picsum.photos/seed/nampo_in4/400/300',
-       'https://picsum.photos/seed/nampo_in5/400/300',
-       'https://picsum.photos/seed/nampo_in6/400/300'
+       'https://picsum.photos/seed/seongil_in1/400/300',
+       'https://picsum.photos/seed/seongil_in2/400/300',
+       'https://picsum.photos/seed/seongil_in3/400/300',
+       'https://picsum.photos/seed/seongil_in4/400/300',
+       'https://picsum.photos/seed/seongil_in5/400/300',
+       'https://picsum.photos/seed/seongil_in6/400/300'
    )),
    JSON_OBJECT('category','실외','images', JSON_ARRAY(
-       'https://picsum.photos/seed/nampo_out1/400/300',
-       'https://picsum.photos/seed/nampo_out2/400/300',
-       'https://picsum.photos/seed/nampo_out3/400/300',
-       'https://picsum.photos/seed/nampo_out4/400/300',
-       'https://picsum.photos/seed/nampo_out5/400/300',
-       'https://picsum.photos/seed/nampo_out6/400/300'
+       'https://picsum.photos/seed/seongil_out1/400/300',
+       'https://picsum.photos/seed/seongil_out2/400/300',
+       'https://picsum.photos/seed/seongil_out3/400/300',
+       'https://picsum.photos/seed/seongil_out4/400/300',
+       'https://picsum.photos/seed/seongil_out5/400/300',
+       'https://picsum.photos/seed/seongil_out6/400/300'
    )),
    JSON_OBJECT('category','주차','images', JSON_ARRAY(
-       'https://picsum.photos/seed/nampo_park1/400/300',
-       'https://picsum.photos/seed/nampo_park2/400/300',
-       'https://picsum.photos/seed/nampo_park3/400/300',
-       'https://picsum.photos/seed/nampo_park4/400/300',
-       'https://picsum.photos/seed/nampo_park5/400/300',
-       'https://picsum.photos/seed/nampo_park6/400/300'
+       'https://picsum.photos/seed/seongil_park1/400/300',
+       'https://picsum.photos/seed/seongil_park2/400/300',
+       'https://picsum.photos/seed/seongil_park3/400/300',
+       'https://picsum.photos/seed/seongil_park4/400/300',
+       'https://picsum.photos/seed/seongil_park5/400/300',
+       'https://picsum.photos/seed/seongil_park6/400/300'
    ))
  )
 ),
 
--- 8. 동래밀면
-('동래밀면', 4.7, 94,
- JSON_ARRAY('밀면','한식','부산맛집'),
+-- 8. 배비장보쌈구서본점
+('배비장보쌈구서본점',
+ 4.7,
+ 94,
+ JSON_ARRAY('보쌈','족발','한식'),
  '동래맛집거리',
- '밀면 전문점',
+ '보쌈 전문점',
  '부산 동래구 명륜로 45',
  '부산 동래구 명륜동 42-7',
  JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','화','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','수','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','목','hours','10:30 - 21:00','last','20:30'),
-   JSON_OBJECT('day','금','hours','10:30 - 22:00','last','21:30'),
-   JSON_OBJECT('day','토','hours','10:30 - 22:00','last','21:30'),
-   JSON_OBJECT('day','일','hours','10:30 - 21:00','last','20:30')
+   JSON_OBJECT('day','월','houers','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','화','houers','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','수','houers','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','목','houers','10:30 - 21:00','last','20:30'),
+   JSON_OBJECT('day','금','houers','10:30 - 22:00','last','21:30'),
+   JSON_OBJECT('day','토','houers','10:30 - 22:00','last','21:30'),
+   JSON_OBJECT('day','일','houers','10:30 - 21:00','last','20:30')
  ),
  '051-555-1122',
- JSON_ARRAY('가성비좋음','빠른회전율','깔끔한맛'),
+ JSON_ARRAY('신선한재료','가성비좋음','단체석'),
  JSON_ARRAY(
-   JSON_OBJECT('mname','물밀면','price','7000'),
-   JSON_OBJECT('mname','비빔밀면','price','7500'),
-   JSON_OBJECT('mname','만두','price','5000'),
-   JSON_OBJECT('mname','수육','price','17000')
+   JSON_OBJECT('mname','보쌈','price','22000'),
+   JSON_OBJECT('mname','족발','price','25000'),
+   JSON_OBJECT('mname','보쌈정식','price','18000'),
+   JSON_OBJECT('mname','김치전','price','7000')
  ),
  JSON_ARRAY(
-   'https://picsum.photos/seed/dongrae1/200/200',
-   'https://picsum.photos/seed/dongrae2/200/200',
-   'https://picsum.photos/seed/dongrae3/600/400'
+   'https://picsum.photos/seed/baebijang1/200/200',
+   'https://picsum.photos/seed/baebijang2/200/200',
+   'https://picsum.photos/seed/baebijang3/600/400'
  ),
  JSON_ARRAY(
    JSON_OBJECT('category','음식','images', JSON_ARRAY(
-       'https://picsum.photos/seed/dongrae_food1/400/300',
-       'https://picsum.photos/seed/dongrae_food2/400/300',
-       'https://picsum.photos/seed/dongrae_food3/400/300',
-       'https://picsum.photos/seed/dongrae_food4/400/300',
-       'https://picsum.photos/seed/dongrae_food5/400/300',
-       'https://picsum.photos/seed/dongrae_food6/400/300'
+       'https://picsum.photos/seed/baebijang_food1/400/300',
+       'https://picsum.photos/seed/baebijang_food2/400/300',
+       'https://picsum.photos/seed/baebijang_food3/400/300',
+       'https://picsum.photos/seed/baebijang_food4/400/300',
+       'https://picsum.photos/seed/baebijang_food5/400/300',
+       'https://picsum.photos/seed/baebijang_food6/400/300'
    )),
    JSON_OBJECT('category','실내','images', JSON_ARRAY(
-       'https://picsum.photos/seed/dongrae_in1/400/300',
-       'https://picsum.photos/seed/dongrae_in2/400/300',
-       'https://picsum.photos/seed/dongrae_in3/400/300',
-       'https://picsum.photos/seed/dongrae_in4/400/300',
-       'https://picsum.photos/seed/dongrae_in5/400/300',
-       'https://picsum.photos/seed/dongrae_in6/400/300'
+       'https://picsum.photos/seed/baebijang_in1/400/300',
+       'https://picsum.photos/seed/baebijang_in2/400/300',
+       'https://picsum.photos/seed/baebijang_in3/400/300',
+       'https://picsum.photos/seed/baebijang_in4/400/300',
+       'https://picsum.photos/seed/baebijang_in5/400/300',
+       'https://picsum.photos/seed/baebijang_in6/400/300'
    )),
    JSON_OBJECT('category','실외','images', JSON_ARRAY(
-       'https://picsum.photos/seed/dongrae_out1/400/300',
-       'https://picsum.photos/seed/dongrae_out2/400/300',
-       'https://picsum.photos/seed/dongrae_out3/400/300',
-       'https://picsum.photos/seed/dongrae_out4/400/300',
-       'https://picsum.photos/seed/dongrae_out5/400/300',
-       'https://picsum.photos/seed/dongrae_out6/400/300'
+       'https://picsum.photos/seed/baebijang_out1/400/300',
+       'https://picsum.photos/seed/baebijang_out2/400/300',
+       'https://picsum.photos/seed/baebijang_out3/400/300',
+       'https://picsum.photos/seed/baebijang_out4/400/300',
+       'https://picsum.photos/seed/baebijang_out5/400/300',
+       'https://picsum.photos/seed/baebijang_out6/400/300'
    )),
    JSON_OBJECT('category','주차','images', JSON_ARRAY(
-       'https://picsum.photos/seed/dongrae_park1/400/300',
-       'https://picsum.photos/seed/dongrae_park2/400/300',
-       'https://picsum.photos/seed/dongrae_park3/400/300',
-       'https://picsum.photos/seed/dongrae_park4/400/300',
-       'https://picsum.photos/seed/dongrae_park5/400/300',
-       'https://picsum.photos/seed/dongrae_park6/400/300'
+       'https://picsum.photos/seed/baebijang_park1/400/300',
+       'https://picsum.photos/seed/baebijang_park2/400/300',
+       'https://picsum.photos/seed/baebijang_park3/400/300',
+       'https://picsum.photos/seed/baebijang_park4/400/300',
+       'https://picsum.photos/seed/baebijang_park5/400/300',
+       'https://picsum.photos/seed/baebijang_park6/400/300'
    ))
  )
 ),
 
--- 9. 해운대암소갈비
-('해운대암소갈비', 4.8, 97,
- JSON_ARRAY('한식','갈비','고기집'),
+-- 9. 장수장 꼬리곰탕
+('장수장 꼬리곰탕',
+ 4.8,
+ 97,
+ JSON_ARRAY('꼬리곰탕','한우','한식'),
  '해운대맛집거리',
- '한우 전문점',
+ '한식 전문점',
  '부산 해운대구 우동 1234',
  '부산 해운대구 우동 987-5',
  JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','화','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','수','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','목','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','금','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','토','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','일','hours','11:00 - 22:00','last','21:30')
+   JSON_OBJECT('day','월','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','화','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','수','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','목','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','금','houers','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','토','houers','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','일','houers','11:00 - 22:00','last','21:30')
  ),
  '051-777-8899',
- JSON_ARRAY('프리미엄한우','단체석','주차가능'),
+ JSON_ARRAY('프리미엄한우','신선한재료','단체석'),
  JSON_ARRAY(
-   JSON_OBJECT('mname','갈비살','price','35000'),
-   JSON_OBJECT('mname','꽃등심','price','40000'),
-   JSON_OBJECT('mname','한우모둠','price','60000')
+   JSON_OBJECT('mname','꼬리곰탕','price','15000'),
+   JSON_OBJECT('mname','한우모둠','price','60000'),
+   JSON_OBJECT('mname','갈비찜','price','35000')
  ),
  JSON_ARRAY(
-   'https://picsum.photos/seed/haeundae1/200/200',
-   'https://picsum.photos/seed/haeundae2/200/200',
-   'https://picsum.photos/seed/haeundae3/600/400'
+   'https://picsum.photos/seed/jangsujang1/200/200',
+   'https://picsum.photos/seed/jangsujang2/200/200',
+   'https://picsum.photos/seed/jangsujang3/600/400'
  ),
  JSON_ARRAY(
    JSON_OBJECT('category','음식','images', JSON_ARRAY(
-       'https://picsum.photos/seed/haeundae_food1/400/300',
-       'https://picsum.photos/seed/haeundae_food2/400/300',
-       'https://picsum.photos/seed/haeundae_food3/400/300',
-       'https://picsum.photos/seed/haeundae_food4/400/300',
-       'https://picsum.photos/seed/haeundae_food5/400/300',
-       'https://picsum.photos/seed/haeundae_food6/400/300'
+       'https://picsum.photos/seed/jangsujang_food1/400/300',
+       'https://picsum.photos/seed/jangsujang_food2/400/300',
+       'https://picsum.photos/seed/jangsujang_food3/400/300',
+       'https://picsum.photos/seed/jangsujang_food4/400/300',
+       'https://picsum.photos/seed/jangsujang_food5/400/300',
+       'https://picsum.photos/seed/jangsujang_food6/400/300'
    )),
    JSON_OBJECT('category','실내','images', JSON_ARRAY(
-       'https://picsum.photos/seed/haeundae_in1/400/300',
-       'https://picsum.photos/seed/haeundae_in2/400/300',
-       'https://picsum.photos/seed/haeundae_in3/400/300',
-       'https://picsum.photos/seed/haeundae_in4/400/300',
-       'https://picsum.photos/seed/haeundae_in5/400/300',
-       'https://picsum.photos/seed/haeundae_in6/400/300'
+       'https://picsum.photos/seed/jangsujang_in1/400/300',
+       'https://picsum.photos/seed/jangsujang_in2/400/300',
+       'https://picsum.photos/seed/jangsujang_in3/400/300',
+       'https://picsum.photos/seed/jangsujang_in4/400/300',
+       'https://picsum.photos/seed/jangsujang_in5/400/300',
+       'https://picsum.photos/seed/jangsujang_in6/400/300'
    )),
    JSON_OBJECT('category','실외','images', JSON_ARRAY(
-       'https://picsum.photos/seed/haeundae_out1/400/300',
-       'https://picsum.photos/seed/haeundae_out2/400/300',
-       'https://picsum.photos/seed/haeundae_out3/400/300',
-       'https://picsum.photos/seed/haeundae_out4/400/300',
-       'https://picsum.photos/seed/haeundae_out5/400/300',
-       'https://picsum.photos/seed/haeundae_out6/400/300'
+       'https://picsum.photos/seed/jangsujang_out1/400/300',
+       'https://picsum.photos/seed/jangsujang_out2/400/300',
+       'https://picsum.photos/seed/jangsujang_out3/400/300',
+       'https://picsum.photos/seed/jangsujang_out4/400/300',
+       'https://picsum.photos/seed/jangsujang_out5/400/300',
+       'https://picsum.photos/seed/jangsujang_out6/400/300'
    )),
    JSON_OBJECT('category','주차','images', JSON_ARRAY(
-       'https://picsum.photos/seed/haeundae_park1/400/300',
-       'https://picsum.photos/seed/haeundae_park2/400/300',
-       'https://picsum.photos/seed/haeundae_park3/400/300',
-       'https://picsum.photos/seed/haeundae_park4/400/300',
-       'https://picsum.photos/seed/haeundae_park5/400/300',
-       'https://picsum.photos/seed/haeundae_park6/400/300'
+       'https://picsum.photos/seed/jangsujang_park1/400/300',
+       'https://picsum.photos/seed/jangsujang_park2/400/300',
+       'https://picsum.photos/seed/jangsujang_park3/400/300',
+       'https://picsum.photos/seed/jangsujang_park4/400/300',
+       'https://picsum.photos/seed/jangsujang_park5/400/300',
+       'https://picsum.photos/seed/jangsujang_park6/400/300'
    ))
  )
 ),
 
--- 10. 광안리횟집
-('광안리횟집', 4.9, 98,
- JSON_ARRAY('회','해산물','한식'),
- '광안리맛집거리',
- '횟집 전문점',
- '부산 수영구 광안해변로 77',
- '부산 수영구 광안동 85-12',
+-- 10. 금수복국 해운대본점
+('금수복국 해운대본점',
+ 4.9,
+ 98,
+ JSON_ARRAY('복국','해산물','한식'),
+ '해운대맛집거리',
+ '복국 전문점',
+ '부산 해운대구 우동 123-45',
+ '부산 해운대구 우동 67-8',
  JSON_ARRAY(
-   JSON_OBJECT('day','월','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','화','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','수','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','목','hours','11:00 - 22:00','last','21:30'),
-   JSON_OBJECT('day','금','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','토','hours','11:00 - 23:00','last','22:30'),
-   JSON_OBJECT('day','일','hours','11:00 - 22:00','last','21:30')
+   JSON_OBJECT('day','월','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','화','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','수','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','목','houers','11:00 - 22:00','last','21:30'),
+   JSON_OBJECT('day','금','houers','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','토','houers','11:00 - 23:00','last','22:30'),
+   JSON_OBJECT('day','일','houers','11:00 - 22:00','last','21:30')
  ),
  '051-888-3344',
  JSON_ARRAY('신선한재료','뷰맛집','가족모임추천'),
  JSON_ARRAY(
-   JSON_OBJECT('mname','광어회','price','45000'),
-   JSON_OBJECT('mname','모듬회','price','60000'),
-   JSON_OBJECT('mname','연어회','price','50000')
+   JSON_OBJECT('mname','복국','price','25000'),
+   JSON_OBJECT('mname','복튀김','price','18000'),
+   JSON_OBJECT('mname','모듬회','price','60000')
  ),
  JSON_ARRAY(
-   'https://picsum.photos/seed/gwangalli1/200/200',
-   'https://picsum.photos/seed/gwangalli2/200/200',
-   'https://picsum.photos/seed/gwangalli3/600/400'
+   'https://picsum.photos/seed/geumsu1/200/200',
+   'https://picsum.photos/seed/geumsu2/200/200',
+   'https://picsum.photos/seed/geumsu3/600/400'
  ),
  JSON_ARRAY(
    JSON_OBJECT('category','음식','images', JSON_ARRAY(
-       'https://picsum.photos/seed/gwangalli_food1/400/300',
-       'https://picsum.photos/seed/gwangalli_food2/400/300',
-       'https://picsum.photos/seed/gwangalli_food3/400/300',
-       'https://picsum.photos/seed/gwangalli_food4/400/300',
-       'https://picsum.photos/seed/gwangalli_food5/400/300',
-       'https://picsum.photos/seed/gwangalli_food6/400/300'
+       'https://picsum.photos/seed/geumsu_food1/400/300',
+       'https://picsum.photos/seed/geumsu_food2/400/300',
+       'https://picsum.photos/seed/geumsu_food3/400/300',
+       'https://picsum.photos/seed/geumsu_food4/400/300',
+       'https://picsum.photos/seed/geumsu_food5/400/300',
+       'https://picsum.photos/seed/geumsu_food6/400/300'
    )),
    JSON_OBJECT('category','실내','images', JSON_ARRAY(
-       'https://picsum.photos/seed/gwangalli_in1/400/300',
-       'https://picsum.photos/seed/gwangalli_in2/400/300',
-       'https://picsum.photos/seed/gwangalli_in3/400/300',
-       'https://picsum.photos/seed/gwangalli_in4/400/300',
-       'https://picsum.photos/seed/gwangalli_in5/400/300',
-       'https://picsum.photos/seed/gwangalli_in6/400/300'
+       'https://picsum.photos/seed/geumsu_in1/400/300',
+       'https://picsum.photos/seed/geumsu_in2/400/300',
+       'https://picsum.photos/seed/geumsu_in3/400/300',
+       'https://picsum.photos/seed/geumsu_in4/400/300',
+       'https://picsum.photos/seed/geumsu_in5/400/300',
+       'https://picsum.photos/seed/geumsu_in6/400/300'
    )),
    JSON_OBJECT('category','실외','images', JSON_ARRAY(
-       'https://picsum.photos/seed/gwangalli_out1/400/300',
-       'https://picsum.photos/seed/gwangalli_out2/400/300',
-       'https://picsum.photos/seed/gwangalli_out3/400/300',
-       'https://picsum.photos/seed/gwangalli_out4/400/300',
-       'https://picsum.photos/seed/gwangalli_out5/400/300',
-       'https://picsum.photos/seed/gwangalli_out6/400/300'
+       'https://picsum.photos/seed/geumsu_out1/400/300',
+       'https://picsum.photos/seed/geumsu_out2/400/300',
+       'https://picsum.photos/seed/geumsu_out3/400/300',
+       'https://picsum.photos/seed/geumsu_out4/400/300',
+       'https://picsum.photos/seed/geumsu_out5/400/300',
+       'https://picsum.photos/seed/geumsu_out6/400/300'
    )),
    JSON_OBJECT('category','주차','images', JSON_ARRAY(
-       'https://picsum.photos/seed/gwangalli_park1/400/300',
-       'https://picsum.photos/seed/gwangalli_park2/400/300',
-       'https://picsum.photos/seed/gwangalli_park3/400/300',
-       'https://picsum.photos/seed/gwangalli_park4/400/300',
-       'https://picsum.photos/seed/gwangalli_park5/400/300',
-       'https://picsum.photos/seed/gwangalli_park6/400/300'
+       'https://picsum.photos/seed/geumsu_park1/400/300',
+       'https://picsum.photos/seed/geumsu_park2/400/300',
+       'https://picsum.photos/seed/geumsu_park3/400/300',
+       'https://picsum.photos/seed/geumsu_park4/400/300',
+       'https://picsum.photos/seed/geumsu_park5/400/300',
+       'https://picsum.photos/seed/geumsu_park6/400/300'
    ))
  )
 );
