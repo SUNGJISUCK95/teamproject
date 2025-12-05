@@ -1,42 +1,29 @@
 ```mermaid
-flowchart TD
-    subgraph Pages ["View Layer (React Components)"]
-        ProductPage[Product List & Detail]
-        CartPage[Cart Page]
-        CheckoutPage[Checkout & Payment]
-        MyPage[Order List & MyPage]
-        Header[Header & Navigation]
-    end
+sequenceDiagram
+    participant User
+    participant Frontend as Frontend (React)
+    participant Backend as Backend (Spring Boot)
+    participant DB as Database (MySQL)
 
-    subgraph Redux_Store ["Redux Global State"]
-        ProductSlice["Product Slice<br/>(products, storeList)"]
-        CompareSlice["Compare Slice<br/>(compareList - Client Only)"]
-        CartSlice["Cart Slice<br/>(cartList, totalPrice, receiverInfo)"]
-        PaymentSlice["Payment Slice<br/>(orderList, paymentStatus)"]
-        AuthSlice["Auth Slice<br/>(isLogin, userInfo)"]
-    end
+    %% 1. 상품 목록 조회
+    User->>Frontend: 카테고리 페이지 접속 (/products/road)
+    Frontend->>Backend: GET /products/road (API 요청)
+    Backend->>DB: 조회: findByCategory("road")
+    DB-->>Backend: Entity List 반환
+    Backend-->>Frontend: ProductDto List (JSON) 반환
+    
+    Note right of Frontend: [Redux] 성공 응답 수신 후<br/>dispatch(createProduct)<br/>→ Store에 상품 목록 저장
+    
+    Frontend-->>User: 상품 목록 화면 렌더링
 
-    subgraph Server ["Backend API"]
-        API[Spring Boot Server]
-    end
-
-    %% Connections
-    ProductPage -->|Dispatch| ProductSlice
-    ProductPage -->|Dispatch| CompareSlice
+    %% 2. 상품 상세 조회
+    User->>Frontend: 상품 클릭 (상세 페이지 이동)
+    Frontend->>Backend: GET /products/road/{pid}
+    Backend->>DB: 조회: findByCategoryAndPid(cat, pid)
+    DB-->>Backend: Product Entity
+    Backend-->>Frontend: ProductDto (상세 정보)
     
-    CartPage -->|Dispatch| CartSlice
+    Note right of Frontend: [Redux] 성공 응답 수신 후<br/>dispatch(setProduct)<br/>→ Store에 현재 상품 정보 업데이트
     
-    CheckoutPage -->|Selector| CartSlice
-    CheckoutPage -->|Dispatch| PaymentSlice
-    
-    MyPage -->|Dispatch| PaymentSlice
-    
-    Header -->|Selector| AuthSlice
-    Header -->|Selector| CartSlice
-
-    %% Async Thunks
-    ProductSlice <-->|Axios Get| API
-    CartSlice <-->|Axios Post| API
-    PaymentSlice <-->|Axios Post| API
-    AuthSlice <-->|Axios Post| API
+    Frontend-->>User: 상세 정보 및 옵션 표시
 ```
