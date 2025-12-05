@@ -7,7 +7,7 @@ INSERT INTO travel_food
 VALUES
 
 -- 1. (주)남원추어탕
-('서울 한강 잠실지구', '(주)남원추어탕', 37.5426714, 127.0646503, 4.4, 89, 520,
+('서울 한강 잠실지구', '(주)남원추어탕', 37.5426714, 127.0646503, 4.0, 89, 3,
  JSON_ARRAY('한식','추어탕','국물요리'),
  'https://picsum.photos/seed/food1_1/200/200',
  'https://picsum.photos/seed/food1_2/200/200',
@@ -19,7 +19,7 @@ VALUES
 ),
 
 -- 2. (주)장군갈비
-('서울 한강 잠실지구', '(주)장군갈비', 37.5547181, 127.08812, 4.6, 92, 610,
+('서울 한강 잠실지구', '(주)장군갈비', 37.5547181, 127.08812, 4.0, 92, 3,
  JSON_ARRAY('한식','갈비탕','고기집'),
  'https://picsum.photos/seed/food2_1/200/200',
  'https://picsum.photos/seed/food2_2/200/200',
@@ -31,7 +31,7 @@ VALUES
 ),
 
 -- 3. 가마솥도가니탕 장수옥
-('서울 한강 잠실지구', '가마솥도가니탕 장수옥', 37.56468, 127.0869436, 4.3, 87, 455,
+('서울 한강 잠실지구', '가마솥도가니탕 장수옥', 37.56468, 127.0869436, 4.0, 87, 3,
  JSON_ARRAY('한식','도가니탕','보양식'),
  'https://picsum.photos/seed/food3_1/200/200',
  'https://picsum.photos/seed/food3_2/200/200',
@@ -43,7 +43,7 @@ VALUES
 ),
 
 -- 4. 거보주
-('서울 한강 잠실지구', '거보주', 37.5380016, 127.0851621, 4.5, 90, 580,
+('서울 한강 잠실지구', '거보주', 37.5380016, 127.0851621, 4.0, 90, 3,
  JSON_ARRAY('한식','돼지갈비','삼겹살'),
  'https://picsum.photos/seed/food4_1/200/200',
  'https://picsum.photos/seed/food4_2/200/200',
@@ -55,7 +55,7 @@ VALUES
 ),
 
 -- 5. 건국갈비
-('서울 한강 잠실지구', '건국갈비', 37.5456713, 127.0759066, 4.4, 88, 540,
+('서울 한강 잠실지구', '건국갈비', 37.5456713, 127.0759066, 4.0, 88, 3,
  JSON_ARRAY('한식','돼지갈비','고기집'),
  'https://picsum.photos/seed/food5_1/200/200',
  'https://picsum.photos/seed/food5_2/200/200',
@@ -67,7 +67,7 @@ VALUES
 ),
 
 -- 6. 광장동 가온
-('서울 한강 잠실지구', '광장동 가온', 37.551573, 127.1109741, 4.7, 95, 620,
+('서울 한강 잠실지구', '광장동 가온', 37.551573, 127.1109741, 4.0, 95, 3,
  JSON_ARRAY('한식','곰국수','국수'),
  'https://picsum.photos/seed/food6_1/200/200',
  'https://picsum.photos/seed/food6_2/200/200',
@@ -85,7 +85,7 @@ INSERT INTO travel_hotel (
     region, hname, lat, lng, hlike, score, evaluation, tag,
     image1, image2, image3, full_image1, full_image2, full_image3, description
 ) VALUES
-('서울 한강 잠실지구', '아모렉스 관광호텔', 37.5642, 127.0371, 4.5, 90, 120, '["편안함","가족","도심"]',
+('서울 한강 잠실지구', '아모렉스 관광호텔', 37.5642, 127.0371, 4.0, 90, 3, '["편안함","가족","도심"]',
  'https://picsum.photos/seed/amorex1/400/300',
  'https://picsum.photos/seed/amorex2/400/300',
  'https://picsum.photos/seed/amorex3/400/300',
@@ -94,7 +94,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/amorex3/800/600',
  '잠실지구 근처의 편안한 관광 호텔로 가족 단위 여행객에게 적합합니다.'
 ),
-('서울 한강 잠실지구', '새턴호텔(SATURN HOTEL)', 37.5648, 127.0395, 4.2, 85, 98, '["조식","비즈니스","도심"]',
+('서울 한강 잠실지구', '새턴호텔(SATURN HOTEL)', 37.5648, 127.0395, 4.0, 85, 3, '["조식","비즈니스","도심"]',
  'https://picsum.photos/seed/saturn1/400/300',
  'https://picsum.photos/seed/saturn2/400/300',
  'https://picsum.photos/seed/saturn3/400/300',
@@ -103,7 +103,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/saturn3/800/600',
  '잠실지구에서 접근성 좋은 호텔로 비즈니스 및 관광 모두 적합합니다.'
 ),
-('서울 한강 잠실지구', '호텔컬리넌 도선', 37.5635, 127.0358, 4.3, 87, 105, '["럭셔리","조식","도심"]',
+('서울 한강 잠실지구', '호텔컬리넌 도선', 37.5635, 127.0358, 4.0, 87, 3, '["럭셔리","조식","도심"]',
  'https://picsum.photos/seed/culinan1/400/300',
  'https://picsum.photos/seed/culinan2/400/300',
  'https://picsum.photos/seed/culinan3/400/300',
@@ -112,7 +112,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/culinan3/800/600',
  '잠실지구 중심에 위치한 럭셔리 호텔로 편안한 숙박 경험을 제공합니다.'
 ),
-('서울 한강 잠실지구', '호스텔 27', 37.5652, 127.0382, 4.0, 80, 90, '["저렴","백패커","도심"]',
+('서울 한강 잠실지구', '호스텔 27', 37.5652, 127.0382, 4.0, 80, 3, '["저렴","백패커","도심"]',
  'https://picsum.photos/seed/hostel27-1/400/300',
  'https://picsum.photos/seed/hostel27-2/400/300',
  'https://picsum.photos/seed/hostel27-3/400/300',
@@ -121,7 +121,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/hostel27-3/800/600',
  '잠실지구에서 가성비 좋은 호스텔로, 백패커 및 단기 여행객에게 적합합니다.'
 ),
-('서울 한강 잠실지구', '케이그랜드 호스텔(K-Grand Hostel)', 37.5660, 127.0365, 4.1, 82, 95, '["가성비","편안함","도심"]',
+('서울 한강 잠실지구', '케이그랜드 호스텔(K-Grand Hostel)', 37.5660, 127.0365, 4.0, 82, 3, '["가성비","편안함","도심"]',
  'https://picsum.photos/seed/kgrand1/400/300',
  'https://picsum.photos/seed/kgrand2/400/300',
  'https://picsum.photos/seed/kgrand3/400/300',
@@ -130,7 +130,7 @@ INSERT INTO travel_hotel (
  'https://picsum.photos/seed/kgrand3/800/600',
  '잠실지구 근처 합리적인 가격의 숙박시설로 단기 체류에 적합합니다.'
 ),
-('서울 한강 잠실지구', '밸류플레이스 호스텔 왕십리역점', 37.5645, 127.0342, 4.2, 84, 100, '["저렴","도심","백패커"]',
+('서울 한강 잠실지구', '밸류플레이스 호스텔 왕십리역점', 37.5645, 127.0342, 4.0, 84, 3, '["저렴","도심","백패커"]',
  'https://picsum.photos/seed/valueplace1/400/300',
  'https://picsum.photos/seed/valueplace2/400/300',
  'https://picsum.photos/seed/valueplace3/400/300',
@@ -148,7 +148,7 @@ INSERT INTO travel_repair
  image1, image2, image3, full_image1, full_image2, full_image3, description)
 VALUES
 -- 1. 잠실 사이클링샵
-('서울 한강 잠실지구', '잠실 사이클링샵', 37.5152, 127.0975, 4.8, 95, 120,
+('서울 한강 잠실지구', '잠실 사이클링샵', 37.5152, 127.0975, 4.0, 95, 3,
  JSON_ARRAY('자전거판매','정비','로드/MTB','체인/기어'),
  'https://picsum.photos/seed/jamsil1/200/200',
  'https://picsum.photos/seed/jamsil2/200/200',
@@ -159,7 +159,7 @@ VALUES
  '잠실지구 중심의 자전거 전문점. 로드, MTB, 전기자전거 모두 정비 가능.'),
 
 -- 2. 한강 자전거 클리닉
-('서울 한강 잠실지구', '한강 자전거 클리닉', 37.5178, 127.0923, 4.7, 90, 100,
+('서울 한강 잠실지구', '한강 자전거 클리닉', 37.5178, 127.0923, 4.0, 90, 3,
  JSON_ARRAY('정비','전문수리','입문용','튜닝'),
  'https://picsum.photos/seed/jamsil4/200/200',
  'https://picsum.photos/seed/jamsil5/200/200',
@@ -170,7 +170,7 @@ VALUES
  '한강 근처의 자전거 정비 전문점으로 입문자부터 전문 라이더까지 이용 가능.'),
 
 -- 3. 잠실 자전거월드
-('서울 한강 잠실지구', '잠실 자전거월드', 37.5135, 127.0998, 4.6, 88, 90,
+('서울 한강 잠실지구', '잠실 자전거월드', 37.5135, 127.0998, 4.0, 88, 3,
  JSON_ARRAY('자전거판매','정비','부품','MTB'),
  'https://picsum.photos/seed/jamsil7/200/200',
  'https://picsum.photos/seed/jamsil8/200/200',
@@ -181,7 +181,7 @@ VALUES
  'MTB와 로드 자전거 판매 및 전문 정비 서비스 제공.'),
 
 -- 4. 잠실 바이크랩
-('서울 한강 잠실지구', '잠실 바이크랩', 37.5160, 127.0950, 4.5, 85, 80,
+('서울 한강 잠실지구', '잠실 바이크랩', 37.5160, 127.0950, 4.0, 85, 3,
  JSON_ARRAY('정비','튜닝','체인/기어','전기자전거'),
  'https://picsum.photos/seed/jamsil10/200/200',
  'https://picsum.photos/seed/jamsil11/200/200',
@@ -192,7 +192,7 @@ VALUES
  '전기자전거 및 체인/기어 튜닝 전문점으로 잠실지구 인기 매장.'),
 
 -- 5. 한강 자전거센터
-('서울 한강 잠실지구', '한강 자전거센터', 37.5145, 127.0942, 4.9, 92, 110,
+('서울 한강 잠실지구', '한강 자전거센터', 37.5145, 127.0942, 4.0, 92, 3,
  JSON_ARRAY('자전거판매','정비','로드','MTB'),
  'https://picsum.photos/seed/jamsil13/200/200',
  'https://picsum.photos/seed/jamsil14/200/200',
@@ -203,7 +203,7 @@ VALUES
  '로드/MTB 자전거 구매 및 정비 가능, 한강 라이딩 후 방문 추천.'),
 
 -- 6. 잠실 퀵바이크 (마지막)
-('서울 한강 잠실지구', '잠실 퀵바이크', 37.5158, 127.0965, 4.6, 87, 95,
+('서울 한강 잠실지구', '잠실 퀵바이크', 37.5158, 127.0965, 4.0, 87, 3,
  JSON_ARRAY('정비','수리','픽시/미니벨로','단기대여'),
  'https://picsum.photos/seed/jamsil16/200/200',
  'https://picsum.photos/seed/jamsil17/200/200',
@@ -230,13 +230,13 @@ VALUES
  '서울특별시 광진구 동일로 114 (화양동)',
  '광진구 화양동 114',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","hours","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","화","hours","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","수","hours","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","목","hours","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","금","hours","10:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","토","hours","10:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","일","hours","10:00 - 22:00","last","21:30")
+   JSON_OBJECT("day","월","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","화","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","수","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","목","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","금","houers","10:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","토","houers","10:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","일","houers","10:00 - 22:00","last","21:30")
  ),
  '02-498-8649',
  JSON_ARRAY('전통있는','국물맛좋은','깔끔한'),
@@ -294,13 +294,13 @@ VALUES
  '서울특별시 광진구 용마산로 11 (중곡2동)',
  '광진구 중곡2동 11',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","hours","10:30 - 22:30","last","22:00"),
-   JSON_OBJECT("day","화","hours","10:30 - 22:30","last","22:00"),
-   JSON_OBJECT("day","수","hours","10:30 - 22:30","last","22:00"),
-   JSON_OBJECT("day","목","hours","10:30 - 22:30","last","22:00"),
-   JSON_OBJECT("day","금","hours","10:30 - 23:00","last","22:30"),
-   JSON_OBJECT("day","토","hours","10:30 - 23:00","last","22:30"),
-   JSON_OBJECT("day","일","hours","10:30 - 22:30","last","22:00")
+   JSON_OBJECT("day","월","houers","10:30 - 22:30","last","22:00"),
+   JSON_OBJECT("day","화","houers","10:30 - 22:30","last","22:00"),
+   JSON_OBJECT("day","수","houers","10:30 - 22:30","last","22:00"),
+   JSON_OBJECT("day","목","houers","10:30 - 22:30","last","22:00"),
+   JSON_OBJECT("day","금","houers","10:30 - 23:00","last","22:30"),
+   JSON_OBJECT("day","토","houers","10:30 - 23:00","last","22:30"),
+   JSON_OBJECT("day","일","houers","10:30 - 22:30","last","22:00")
  ),
  '02-457-3241',
  JSON_ARRAY('고기질좋은','진한국물','가족모임추천'),
@@ -358,13 +358,13 @@ VALUES
  '서울특별시 광진구 용마산로 124 (중곡4동)',
  '광진구 중곡4동 124',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","hours","11:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","화","hours","11:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","수","hours","11:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","목","hours","11:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","금","hours","11:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","hours","11:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","hours","11:00 - 21:00","last","20:30")
+   JSON_OBJECT("day","월","houers","11:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","화","houers","11:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","수","houers","11:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","목","houers","11:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","금","houers","11:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","11:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","11:00 - 21:00","last","20:30")
  ),
  '02-444-6888',
  JSON_ARRAY('전통보양식','국물진한','단골많음'),
@@ -422,13 +422,13 @@ VALUES
  '서울특별시 광진구 아차산로51길 24 (구의1동)',
  '광진구 구의1동 24',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","hours","11:30 - 22:00","last","21:30"),
-   JSON_OBJECT("day","화","hours","11:30 - 22:00","last","21:30"),
-   JSON_OBJECT("day","수","hours","11:30 - 22:00","last","21:30"),
-   JSON_OBJECT("day","목","hours","11:30 - 22:00","last","21:30"),
-   JSON_OBJECT("day","금","hours","11:30 - 23:00","last","22:30"),
-   JSON_OBJECT("day","토","hours","11:30 - 23:00","last","22:30"),
-   JSON_OBJECT("day","일","hours","11:30 - 22:00","last","21:30")
+   JSON_OBJECT("day","월","houers","11:30 - 22:00","last","21:30"),
+   JSON_OBJECT("day","화","houers","11:30 - 22:00","last","21:30"),
+   JSON_OBJECT("day","수","houers","11:30 - 22:00","last","21:30"),
+   JSON_OBJECT("day","목","houers","11:30 - 22:00","last","21:30"),
+   JSON_OBJECT("day","금","houers","11:30 - 23:00","last","22:30"),
+   JSON_OBJECT("day","토","houers","11:30 - 23:00","last","22:30"),
+   JSON_OBJECT("day","일","houers","11:30 - 22:00","last","21:30")
  ),
  '02-456-2266',
  JSON_ARRAY('고기질좋음','가성비','단체석'),
@@ -486,13 +486,13 @@ VALUES
  '서울특별시 광진구 광나루로22가길18(화양동)',
  '광진구 화양동 18',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","hours","11:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","화","hours","11:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","수","hours","11:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","목","hours","11:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","금","hours","11:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","토","hours","11:00 - 23:00","last","22:30"),
-   JSON_OBJECT("day","일","hours","11:00 - 22:00","last","21:30")
+   JSON_OBJECT("day","월","houers","11:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","화","houers","11:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","수","houers","11:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","목","houers","11:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","금","houers","11:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","토","houers","11:00 - 23:00","last","22:30"),
+   JSON_OBJECT("day","일","houers","11:00 - 22:00","last","21:30")
  ),
  '02-2201-0018',
  JSON_ARRAY('양념맛좋음','전통','가족모임'),
@@ -550,13 +550,13 @@ VALUES
  '서울특별시 광진구 아차산로78길 75 (광장동, 현대골든텔 106호)',
  '광진구 광장동 75',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","hours","10:30 - 21:00","last","20:30"),
-   JSON_OBJECT("day","화","hours","10:30 - 21:00","last","20:30"),
-   JSON_OBJECT("day","수","hours","10:30 - 21:00","last","20:30"),
-   JSON_OBJECT("day","목","hours","10:30 - 21:00","last","20:30"),
-   JSON_OBJECT("day","금","hours","10:30 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","hours","10:30 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","hours","10:30 - 21:00","last","20:30")
+   JSON_OBJECT("day","월","houers","10:30 - 21:00","last","20:30"),
+   JSON_OBJECT("day","화","houers","10:30 - 21:00","last","20:30"),
+   JSON_OBJECT("day","수","houers","10:30 - 21:00","last","20:30"),
+   JSON_OBJECT("day","목","houers","10:30 - 21:00","last","20:30"),
+   JSON_OBJECT("day","금","houers","10:30 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","10:30 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","10:30 - 21:00","last","20:30")
  ),
  '02-3436-7100',
  JSON_ARRAY('담백','국물진함','현지인추천'),

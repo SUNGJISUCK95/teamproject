@@ -21,7 +21,6 @@ import com.springboot.bicycle_app.entity.travel.TravelRepairReview;
 import com.springboot.bicycle_app.dto.travel.TravelSaveDto;
 import com.springboot.bicycle_app.entity.travel.TravelSave;
 import com.springboot.bicycle_app.repository.JpaTravelRepository;
-import com.springboot.bicycle_app.repository.TravelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,13 +32,10 @@ import java.util.List;
 @Service
 @Transactional
 public class TravelServiceImpl implements TravelService{
-    private TravelRepository travelRepository;
     private final JpaTravelRepository jpaTravelRepository;
 
     @Autowired
-    public TravelServiceImpl(TravelRepository travelRepository,
-                             JpaTravelRepository jpaTravelRepository) {
-        this.travelRepository = travelRepository;
+    public TravelServiceImpl(JpaTravelRepository jpaTravelRepository) {
         this.jpaTravelRepository = jpaTravelRepository;
     }
 

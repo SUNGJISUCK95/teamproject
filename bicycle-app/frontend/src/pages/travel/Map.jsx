@@ -13,7 +13,7 @@ function Map({ handleMenuClick, handleMapGoBack, handleListDetail, type, selecte
   const markersRef = useRef([]); // 기존 + 새 마커 모두 저장
   const defaultCenter = useRef({ lat: 36.5, lng: 127.8 }); // 중심좌표(남한)
 
-  const baseMarkersRef = useRef([]); // 처음 getMarkerList로 찍은 마커
+  const baseMarkersRef = useRef([]); // 대표 추천 여행지 마커
   const typeMarkersRef = useRef([]); // type별 리스트 마커
   const markerMapRef = useRef({
      food: {},
@@ -24,7 +24,9 @@ function Map({ handleMenuClick, handleMapGoBack, handleListDetail, type, selecte
 const pointRef = useRef({ startPoint: null, endPoint: null });
 const routeLineRef = useRef(null);
 
-  // 마커 클릭 시 경로 설정
+  // -----------------------------
+  // 마커 클릭 → 시작/도착 지점 설정
+  // -----------------------------
   function handleMarkerClick(lat, lng) {
     // startPoint 설정
     if (!pointRef.current.startPoint) {
@@ -39,6 +41,9 @@ const routeLineRef = useRef(null);
     }
   }
 
+  // -----------------------------
+  // 경로 정보 오버레이 표시
+  // -----------------------------
   function showRouteInfoOnMap(distance, duration, startPoint, endPoint) {
     if (!mapRef.current) return;
 
@@ -69,7 +74,9 @@ const routeLineRef = useRef(null);
     routeLineRef.current.infoOverlay = infoOverlay;
   }
 
-
+  // -----------------------------
+  // Kakao Mobility API — 자전거 경로 요청
+  // -----------------------------
   async function getCarDirection(startPoint, endPoint) {
     const REST_API_KEY = 'dc7443a72307e740e0624e32834a863e';
     const url = 'https://apis-navi.kakaomobility.com/v1/directions';
@@ -113,9 +120,6 @@ const routeLineRef = useRef(null);
 
       drawRouteOnMap(linePath, distanceKm, durationMin);
 
-
-      console.log(`거리: ${distanceKm} km, 예상 시간: ${durationMin} 분`);
-
       // 지도에 표시
       showRouteInfoOnMap(distanceKm, durationMin, startPoint, endPoint);
 
@@ -126,7 +130,9 @@ const routeLineRef = useRef(null);
 
 
 
-  // 지도에 경로 그리기
+  // -----------------------------
+  // 지도에 경로(Polyline) 그리기
+  // -----------------------------
   function drawRouteOnMap(linePath, distance, duration) {
     if (!mapRef.current) return;
 
@@ -173,6 +179,9 @@ const routeLineRef = useRef(null);
     routeLineRef.current = routeLine;
   }
 
+  // -----------------------------
+  // 초기 지도 및 대표 여행지 마커 렌더링
+  // -----------------------------
   useEffect(() => {
       const fetch = async() => {
         const data = await getMarkerList(number);
@@ -209,6 +218,9 @@ const routeLineRef = useRef(null);
                 const markers = [];
                 let activeOverlay = null;
 
+                // -----------------------------
+                // 대표 여행지 마커 생성
+                // -----------------------------
                 data.forEach(({ mname, lat, lng, mlink, type }) => {
                   const markerPosition = new window.kakao.maps.LatLng(lat, lng);
 
@@ -276,7 +288,9 @@ const routeLineRef = useRef(null);
 
   }, [number]);
 
-  // type이 바뀔 때마다 마커 변경
+  // -----------------------------
+  // 메뉴 타입 변경 시(type) — 타입별 마커 표시
+  // -----------------------------
   useEffect(() => {
     if (!window.kakao || !window.kakao.maps) return;
 
@@ -384,7 +398,10 @@ const routeLineRef = useRef(null);
     });
   }, [type, travelFoodList, travelHotelList, travelRepairList]);
 
-  // 리스트에서 선택 항목 지도 마커 클릭
+
+  // -----------------------------
+  // 리스트에서 선택 → 해당 마커 자동 클릭
+  // -----------------------------
   useEffect(() => {
     if (!selectedDid || !type) return;
 
@@ -395,6 +412,9 @@ const routeLineRef = useRef(null);
     }
   }, [selectedDid, type]);
 
+  // -----------------------------
+  // 뒤로가기 버튼 클릭 — 지도 상태 초기화
+  // -----------------------------
   const handleGoBack = () => {
      if (mapRef.current) {
        const centerLatLng = new window.kakao.maps.LatLng(

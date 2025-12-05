@@ -18,7 +18,7 @@ export const travelFoodSlice = createSlice({
   },
 })
 
-export const { createFood, createFoodDetail } = travelFoodSlice.actions //API 함수 또는 컴포넌트에서 dispatch(액션함수)
+export const { createFood } = travelFoodSlice.actions //API 함수 또는 컴포넌트에서 dispatch(액션함수)
 
 export default travelFoodSlice.reducer
 
