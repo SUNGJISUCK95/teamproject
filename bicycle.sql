@@ -877,6 +877,7 @@ drop table product;
 use bicycle;
 desc product;
 select * from product;
+
 create table product (
 	product_id int not null primary key auto_increment,
     pid varchar(50) not null,

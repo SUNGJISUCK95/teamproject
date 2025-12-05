@@ -14,7 +14,6 @@ export function ProductDetail() {
     const dispatch = useDispatch();
     const product = useSelector((state) => state.product.product);
     const imgList = useSelector((state) => state.product.imgList);
-    const cartList = useSelector((state)=>state.cart.cartList);
 
     useEffect(()=> {
         if (category && pid) {
