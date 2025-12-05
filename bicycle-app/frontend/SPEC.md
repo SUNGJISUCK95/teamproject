@@ -1,4 +1,4 @@
-1. Product
+1. Product(상품목록조회, 상품 상세조회)
 ```mermaid
 sequenceDiagram
     participant User
