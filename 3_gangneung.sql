@@ -7,7 +7,7 @@ INSERT INTO travel_food
 VALUES
 
 -- 1. 강릉경포물회
-('강릉 경포호 산소길', '강릉경포물회', 37.7511, 128.8772, 4.5, 90, 120,
+('강릉 경포호 산소길', '강릉경포물회', 37.7511, 128.8772, 4.0, 90, 3,
  JSON_ARRAY('물회','해산물','회'),
  '/images/travel_foods/gangneung/gangneung_1.jfif',
  '/images/travel_foods/gangneung/gangneung_2.jfif',
@@ -18,7 +18,7 @@ VALUES
  '신선한 해산물로 만든 강릉경포물회, 시원한 국물과 탱글한 재료가 특징입니다.'),
 
 -- 2. 강문가
-('강릉 경포호 산소길', '강문가', 37.7523, 128.8759, 4.3, 88, 100,
+('강릉 경포호 산소길', '강문가', 37.7523, 128.8759, 4.0, 88, 3,
  JSON_ARRAY('회','한식','해산물'),
  '/images/travel_foods/gangmunga/gangmunga_1.jfif',
  '/images/travel_foods/gangmunga/gangmunga_2.jfif',
@@ -29,7 +29,7 @@ VALUES
  '강릉의 신선한 회와 다양한 한식 메뉴를 제공하는 강문가입니다.'),
 
 -- 3. 강문어화횟집
-('강릉 경포호 산소길', '강문어화횟집', 37.7740, 128.9060, 4.6, 92, 110,
+('강릉 경포호 산소길', '강문어화횟집', 37.7740, 128.9060, 4.0, 92, 3,
  JSON_ARRAY('회','신선한','해산물'),
  '/images/travel_foods/munnu/munnu_1.jfif',
  '/images/travel_foods/munnu/munnu_2.jfif',
@@ -40,7 +40,7 @@ VALUES
  '해안가 위치, 신선한 회 전문점으로 가족 단위 방문에 좋습니다.'),
 
 -- 4. 건도리
-('강릉 경포호 산소길', '건도리', 37.7747, 128.9085, 4.4, 89, 105,
+('강릉 경포호 산소길', '건도리', 37.7747, 128.9085, 4.0, 89, 3,
  JSON_ARRAY('회','한식','신선한'),
  '/images/travel_foods/gundori/gundori_1.jfif',
  '/images/travel_foods/gundori/gundori_2.jfif',
@@ -51,7 +51,7 @@ VALUES
  '전통적인 한식 회 전문점으로 현지 주민과 관광객에게 인기입니다.'),
 
 -- 5. 경포한미회대게
-('강릉 경포호 산소길', '경포한미회대게', 37.7755, 128.9098, 4.5, 90, 115,
+('강릉 경포호 산소길', '경포한미회대게', 37.7755, 128.9098, 4.0, 90, 3,
  JSON_ARRAY('회','게','해산물'),
  'https://picsum.photos/seed/food113/200/200',
  'https://picsum.photos/seed/food114/200/200',
@@ -62,7 +62,7 @@ VALUES
  '신선한 대게와 회를 즐길 수 있는 강릉 대표 음식점입니다.'),
 
 -- 6. 김윤미전복삼계탕
-('강릉 경포호 산소길', '김윤미전복삼계탕', 37.7660, 128.9152, 4.2, 85, 95,
+('강릉 경포호 산소길', '김윤미전복삼계탕', 37.7660, 128.9152, 4.0, 85, 3,
  JSON_ARRAY('삼계탕','보양식','한식'),
  'https://picsum.photos/seed/food116/200/200',
  'https://picsum.photos/seed/food117/200/200',
@@ -73,7 +73,7 @@ VALUES
  '전복과 삼계탕을 함께 즐길 수 있는 보양식 전문점입니다.'),
 
 -- 7. 까막장이야기
-('강릉 경포호 산소길', '까막장이야기', 37.7548, 128.8820, 4.3, 87, 100,
+('강릉 경포호 산소길', '까막장이야기', 37.7548, 128.8820, 4.0, 87, 3,
  JSON_ARRAY('한식','전통','밥집'),
  'https://picsum.photos/seed/food119/200/200',
  'https://picsum.photos/seed/food120/200/200',
@@ -84,7 +84,7 @@ VALUES
  '전통 한식과 건강한 메뉴를 제공하는 지역 맛집입니다.'),
 
 -- 8. 농촌순두부
-('강릉 경포호 산소길', '농촌순두부', 37.7750, 128.9105, 4.4, 88, 105,
+('강릉 경포호 산소길', '농촌순두부', 37.7750, 128.9105, 4.0, 88, 3,
  JSON_ARRAY('순두부','한식','건강식'),
  'https://picsum.photos/seed/food122/200/200',
  'https://picsum.photos/seed/food123/200/200',
@@ -95,7 +95,7 @@ VALUES
  '강릉 초당순두부 전문점으로 신선한 순두부 요리를 제공합니다.'),
 
 -- 9. 동궁염소탕
-('강릉 경포호 산소길', '동궁염소탕', 37.7637, 128.9065, 4.5, 90, 110,
+('강릉 경포호 산소길', '동궁염소탕', 37.7637, 128.9065, 4.0, 90, 3,
  JSON_ARRAY('탕류','한식','보양식'),
  'https://picsum.photos/seed/food125/200/200',
  'https://picsum.photos/seed/food126/200/200',
@@ -106,7 +106,7 @@ VALUES
  '염소탕 전문점으로 진한 국물과 부드러운 고기를 제공합니다.'),
 
 -- 10. 동화가든원조짬순
-('강릉 경포호 산소길', '동화가든원조짬순', 37.7757, 128.9020, 4.3, 87, 100,
+('강릉 경포호 산소길', '동화가든원조짬순', 37.7757, 128.9020, 4.0, 87, 3,
  JSON_ARRAY('순두부','한식','매운맛'),
  'https://picsum.photos/seed/food128/200/200',
  'https://picsum.photos/seed/food129/200/200',
@@ -126,7 +126,7 @@ INSERT INTO travel_hotel (
 ) VALUES
 
 -- 씨마크호텔 (위치: 경포해변 / 경포호 인근)
-('강릉 경포호 산소길', '씨마크호텔', 37.7976880, 128.9147800, 4.8, 95, 120, '["5성급","럭셔리","해변"]',
+('강릉 경포호 산소길', '씨마크호텔', 37.7976880, 128.9147800, 4.0, 95, 3, '["5성급","럭셔리","해변"]',
  '/images/travel_hotels/seamark/seamark_1.jfif',
  '/images/travel_hotels/seamark/seamark_2.jfif',
  '/images/travel_hotels/seamark/seamark_3.jfif',
@@ -136,7 +136,7 @@ INSERT INTO travel_hotel (
  '강릉 경포해변과 경포호 인근의 5성급 호텔로, 바다 및 호수 뷰와 고급 숙박 경험을 제공합니다.'),
 
 -- 경포비치호텔 (근처 — 경포해변 인근)
-('강릉 경포호 산소길', '경포비치호텔', 37.7989, 128.9150, 4.3, 88, 100, '["3성급","바다","편안함"]',
+('강릉 경포호 산소길', '경포비치호텔', 37.7989, 128.9150, 4.0, 88, 3, '["3성급","바다","편안함"]',
  '/images/travel_hotels/gyeongpo/gyeongpo_1.jfif',
  '/images/travel_hotels/gyeongpo/gyeongpo_2.jfif',
  '/images/travel_hotels/gyeongpo/gyeongpo_3.jfif',
@@ -146,7 +146,7 @@ INSERT INTO travel_hotel (
  '경포해변과 가까운 3성급 호텔 — 강문동 해안로406번길 13‑6 근처.'),
 
 -- 강릉관광호텔 (근처 추정 — 시내 근교)
-('강릉 경포호 산소길', '강릉관광호텔', 37.7640, 128.8790, 4.0, 80, 90, '["2성급","가성비","관광"]',
+('강릉 경포호 산소길', '강릉관광호텔', 37.7640, 128.8790, 4.0, 80, 3, '["2성급","가성비","관광"]',
  '/images/travel_hotels/gangneung/gangneung_1.jfif',
  '/images/travel_hotels/gangneung/gangneung_2.jfif',
  '/images/travel_hotels/gangneung/gangneung_3.jfif',
@@ -156,7 +156,7 @@ INSERT INTO travel_hotel (
  '가성비 좋은 2성급 숙소 — 금성로 62 근처, 경포/강릉 시내 접근 용이.'),
 
 -- Hotel Tops10 (근처 추정 — 옥계면 주변)
-('강릉 경포호 산소길', 'Hotel Tops10', 37.8150, 128.9000, 4.5, 85, 95, '["4성급","가족","바다"]',
+('강릉 경포호 산소길', 'Hotel Tops10', 37.8150, 128.9000, 4.0, 85, 3, '["4성급","가족","바다"]',
  '/images/travel_hotels/tops/tops_1.jfif',
  '/images/travel_hotels/tops/tops_2.jfif',
  '/images/travel_hotels/tops/tops_3.jfif',
@@ -166,7 +166,7 @@ INSERT INTO travel_hotel (
  '4성급 호텔 — 옥계면 헌화로 455‑34 근처 (강릉 외곽, 바다/해안 접근 가능).'),
 
 -- THE HONG C HOTEL Gangneung (근처 추정 — 강릉 시내 / 교동 지역)
-('강릉 경포호 산소길', 'THE HONG C HOTEL Gangneung', 37.7620, 128.8800, 4.2, 82, 90, '["3성급","비즈니스","편안함"]',
+('강릉 경포호 산소길', 'THE HONG C HOTEL Gangneung', 37.7620, 128.8800, 4.0, 82, 3, '["3성급","비즈니스","편안함"]',
  'https://picsum.photos/seed/hotel113/400/300',
  'https://picsum.photos/seed/hotel114/400/300',
  'https://picsum.photos/seed/hotel115/400/300',
@@ -176,7 +176,7 @@ INSERT INTO travel_hotel (
  '3성급 호텔 — 교동광장로100번길 8 근처, 시내 접근성 양호.'),
 
 -- 호텔이스트나인 (근처 추정 — 동일 교동 지역 주변)
-('강릉 경포호 산소길', '호텔이스트나인', 37.7615, 128.8820, 4.0, 78, 85, '["2성급","가성비","편안함"]',
+('강릉 경포호 산소길', '호텔이스트나인', 37.7615, 128.8820, 4.0, 78, 3, '["2성급","가성비","편안함"]',
  'https://picsum.photos/seed/hotel116/400/300',
  'https://picsum.photos/seed/hotel117/400/300',
  'https://picsum.photos/seed/hotel118/400/300',
@@ -186,7 +186,7 @@ INSERT INTO travel_hotel (
  '가성비 좋은 2성급 숙소 — 교동광장로100번길 8‑6 근처.'),
 
 -- 메이플비치 골프&리조트 (근처 추정 — 강동면 해안/주변)
-('강릉 경포호 산소길', '메이플비치 골프&리조트', 37.7850, 128.9200, 4.6, 88, 95, '["리조트","골프","휴양"]',
+('강릉 경포호 산소길', '메이플비치 골프&리조트', 37.7850, 128.9200, 4.0, 88, 3, '["리조트","골프","휴양"]',
  'https://picsum.photos/seed/hotel119/400/300',
  'https://picsum.photos/seed/hotel120/400/300',
  'https://picsum.photos/seed/hotel121/400/300',
@@ -196,7 +196,7 @@ INSERT INTO travel_hotel (
  '골프 & 리조트형 숙소 — 강동면 염전길 255 근처, 휴양과 자연을 동시에.'),
 
 -- 썬옥(SUNOK) (근처 추정 — 옥계면 헌화로 인근)
-('강릉 경포호 산소길', '썬옥(SUNOK)', 37.8100, 128.8950, 4.0, 75, 80, '["호스텔","가성비","편안함"]',
+('강릉 경포호 산소길', '썬옥(SUNOK)', 37.8100, 128.8950, 4.0, 75, 3, '["호스텔","가성비","편안함"]',
  'https://picsum.photos/seed/hotel122/400/300',
  'https://picsum.photos/seed/hotel123/400/300',
  'https://picsum.photos/seed/hotel124/400/300',
@@ -206,7 +206,7 @@ INSERT INTO travel_hotel (
  '저렴하고 깔끔한 호스텔 — 옥계면 헌화로 189 근처.'),
 
 -- 지브 (근처 추정 — 주문진 해안로 인근)
-('강릉 경포호 산소길', '지브', 37.9270, 128.7980, 4.0, 75, 80, '["호스텔","편안함","가성비"]',
+('강릉 경포호 산소길', '지브', 37.9270, 128.7980, 4.0, 75, 3, '["호스텔","편안함","가성비"]',
  'https://picsum.photos/seed/hotel125/400/300',
  'https://picsum.photos/seed/hotel126/400/300',
  'https://picsum.photos/seed/hotel127/400/300',
@@ -223,7 +223,7 @@ INSERT INTO travel_repair
  image1, image2, image3, full_image1, full_image2, full_image3, description)
 VALUES
 -- 1
-('강릉 경포호 산소길', '바이크 마트', 37.7528, 128.8790, 4.6, 92, 110,
+('강릉 경포호 산소길', '바이크 마트', 37.7528, 128.8790, 4.0, 92, 3,
  JSON_ARRAY('자전거판매','정비','로드','MTB'),
  '/images/travel_repairs/bike/bike_1.jfif',
  '/images/travel_repairs/bike/bike_2.jfif',
@@ -234,7 +234,7 @@ VALUES
  '강릉 경포 지역에 위치한 자전거 전문 정비점으로 로드 및 MTB 자전거 수리가 가능합니다.'),
 
 -- 2
-('강릉 경포호 산소길', '홀리데이바이크', 37.7532, 128.8798, 4.7, 90, 100,
+('강릉 경포호 산소길', '홀리데이바이크', 37.7532, 128.8798, 4.0, 90, 3,
  JSON_ARRAY('정비','전문수리','튜닝','입문자'),
  '/images/travel_repairs/holy/holy_1.jfif',
  '/images/travel_repairs/holy/holy_2.jfif',
@@ -245,7 +245,7 @@ VALUES
  '입문자부터 전문가까지 이용 가능한 강릉 경포 자전거 정비 전문점입니다.'),
 
 -- 3
-('강릉 경포호 산소길', '삼천리자전거 자이언트 동명점', 37.7535, 128.8805, 4.5, 88, 105,
+('강릉 경포호 산소길', '삼천리자전거 자이언트 동명점', 37.7535, 128.8805, 4.0, 88, 3,
  JSON_ARRAY('MTB','정비','튜닝'),
  '/images/travel_repairs/giant/giant_1.jfif',
  '/images/travel_repairs/giant/giant_2.jfif',
@@ -256,7 +256,7 @@ VALUES
  '강릉 경포 MTB 전문점. 산악자전거 수리와 튜닝 가능.'),
 
 -- 4
-('강릉 경포호 산소길', '삼천리자전거 교동점', 37.7540, 128.8800, 4.4, 87, 100,
+('강릉 경포호 산소길', '삼천리자전거 교동점', 37.7540, 128.8800, 4.0, 87, 3,
  JSON_ARRAY('자전거판매','튜닝','전문수리'),
  '/images/travel_repairs/gyodong/gyodong_1.jfif',
  '/images/travel_repairs/gyodong/gyodong_2.jfif',
@@ -267,7 +267,7 @@ VALUES
  '초당동 근처 자전거 전문 공방. 체인, 기어 수리 가능.'),
 
 -- 5
-('강릉 경포호 산소길', '경포 로드바이크샵', 37.7545, 128.8810, 4.6, 91, 110,
+('강릉 경포호 산소길', '경포 로드바이크샵', 37.7545, 128.8810, 4.0, 91, 3,
  JSON_ARRAY('로드','정비','튜닝'),
  'https://picsum.photos/seed/repair113/200/200',
  'https://picsum.photos/seed/repair114/200/200',
@@ -278,7 +278,7 @@ VALUES
  '로드바이크 전문점, 빠른 정비와 튜닝 서비스를 제공합니다.'),
 
 -- 6
-('강릉 경포호 산소길', '경포 전기자전거 센터', 37.7550, 128.8815, 4.7, 93, 115,
+('강릉 경포호 산소길', '경포 전기자전거 센터', 37.7550, 128.8815, 4.0, 93, 3,
  JSON_ARRAY('전기자전거','정비','튜닝'),
  'https://picsum.photos/seed/repair116/200/200',
  'https://picsum.photos/seed/repair117/200/200',
@@ -289,7 +289,7 @@ VALUES
  '전기자전거 전문 정비점, 배터리와 모터 점검 가능합니다.'),
 
 -- 7
-('강릉 경포호 산소길', '경포 스포츠 바이크', 37.7538, 128.8820, 4.5, 89, 105,
+('강릉 경포호 산소길', '경포 스포츠 바이크', 37.7538, 128.8820, 4.0, 89, 3,
  JSON_ARRAY('로드','MTB','체인','기어'),
  'https://picsum.photos/seed/repair119/200/200',
  'https://picsum.photos/seed/repair120/200/200',
@@ -300,7 +300,7 @@ VALUES
  '로드, MTB, 체인/기어 수리 가능한 강릉 경포 스포츠 전문점.'),
 
 -- 8
-('강릉 경포호 산소길', '경포 자전거 워크샵', 37.7542, 128.8825, 4.6, 90, 110,
+('강릉 경포호 산소길', '경포 자전거 워크샵', 37.7542, 128.8825, 4.0, 90, 3,
  JSON_ARRAY('정비','전문수리','튜닝'),
  'https://picsum.photos/seed/repair122/200/200',
  'https://picsum.photos/seed/repair123/200/200',
@@ -311,7 +311,7 @@ VALUES
  '강릉 경포 자전거 워크샵, 입문자와 전문가 모두 정비 가능.'),
 
 -- 9
-('강릉 경포호 산소길', '경포 바이크 스튜디오', 37.7530, 128.8808, 4.4, 88, 105,
+('강릉 경포호 산소길', '경포 바이크 스튜디오', 37.7530, 128.8808, 4.0, 88, 3,
  JSON_ARRAY('로드','MTB','튜닝'),
  'https://picsum.photos/seed/repair125/200/200',
  'https://picsum.photos/seed/repair126/200/200',
@@ -322,7 +322,7 @@ VALUES
  '로드와 MTB 전문 수리점, 강릉 경포호 산소길 인근.'),
 
 -- 10
-('강릉 경포호 산소길', '경포 레저 바이크', 37.7547, 128.8812, 4.7, 92, 110,
+('강릉 경포호 산소길', '경포 레저 바이크', 37.7547, 128.8812, 4.0, 92, 3,
  JSON_ARRAY('정비','체인','기어','튜닝'),
  'https://picsum.photos/seed/repair128/200/200',
  'https://picsum.photos/seed/repair129/200/200',
@@ -346,13 +346,13 @@ VALUES
  '강원특별자치도 강릉시 해안로 609 (안현동)',
  '강릉시 해안로 609',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","화","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","수","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","목","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","금","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","houres","10:00 - 21:00","last","20:30")
+   JSON_OBJECT("day","월","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","화","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","수","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","목","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","금","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","10:00 - 21:00","last","20:30")
  ),
  '033-655-0800',
  JSON_ARRAY("신선한","깔끔한","가성비좋은","단체석","가족모임"),
@@ -401,13 +401,13 @@ VALUES
  '강원특별자치도 강릉시 경포로463번길 29, 1층 (안현동)',
  '강릉시 경포로463번길 29',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","화","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","수","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","목","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","금","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","houres","10:00 - 21:00","last","20:30")
+   JSON_OBJECT("day","월","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","화","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","수","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","목","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","금","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","10:00 - 21:00","last","20:30")
  ),
  '033-653-2622',
  JSON_ARRAY("깔끔한","신선한","모던한","단체석","가족모임"),
@@ -456,13 +456,13 @@ VALUES
  '강원특별자치도 강릉시 강문로 123',
  '강릉시 강문로 123',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","화","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","수","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","목","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","금","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","houres","10:00 - 21:00","last","20:30")
+   JSON_OBJECT("day","월","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","화","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","수","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","목","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","금","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","10:00 - 21:00","last","20:30")
  ),
  '033-600-1234',
  JSON_ARRAY("신선한","깔끔한","단체석","가성비","가족모임"),
@@ -513,13 +513,13 @@ VALUES
  '강원특별자치도 강릉시 주문진로 45',
  '강릉시 주문진로 45',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","화","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","수","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","목","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","금","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","houres","10:00 - 21:00","last","20:30")
+   JSON_OBJECT("day","월","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","화","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","수","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","목","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","금","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","10:00 - 21:00","last","20:30")
  ),
  '033-640-5678',
  JSON_ARRAY("깔끔한","신선한","단체석","모던","가족모임"),
@@ -568,13 +568,13 @@ VALUES
  '강원특별자치도 강릉시 경포로 88',
  '강릉시 경포로 88',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","화","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","수","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","목","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","금","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","houres","10:00 - 21:00","last","20:30")
+   JSON_OBJECT("day","월","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","화","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","수","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","목","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","금","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","10:00 - 21:00","last","20:30")
  ),
  '033-670-1122',
  JSON_ARRAY("신선한","깔끔한","단체석","가족모임","모던"),
@@ -634,13 +634,13 @@ VALUES
  '강원특별자치도 강릉시 송정동 55-1',
  '강릉시 송정동 55-1',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","10:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","화","houres","10:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","수","houres","10:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","목","houres","10:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","금","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","토","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","일","houres","10:00 - 20:00","last","19:30")
+   JSON_OBJECT("day","월","houers","10:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","화","houers","10:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","수","houers","10:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","목","houers","10:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","금","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","토","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","일","houers","10:00 - 20:00","last","19:30")
  ),
  '033-612-3344',
  JSON_ARRAY("신선한","깔끔한","가족모임","편안한","정성"),
@@ -700,13 +700,13 @@ VALUES
  '강원특별자치도 강릉시 주문진읍 77-3',
  '강릉시 주문진읍 77-3',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","화","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","수","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","목","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","금","houres","09:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","토","houres","09:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","일","houres","09:00 - 20:00","last","19:30")
+   JSON_OBJECT("day","월","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","화","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","수","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","목","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","금","houers","09:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","토","houers","09:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","일","houers","09:00 - 20:00","last","19:30")
  ),
  '033-670-9988',
  JSON_ARRAY("신선한","가성비","깔끔한","단체석","모던"),
@@ -766,13 +766,13 @@ VALUES
  '강원특별자치도 강릉시 강동면 22-1',
  '강릉시 강동면 22-1',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","화","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","수","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","목","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","금","houres","09:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","토","houres","09:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","일","houres","09:00 - 20:00","last","19:30")
+   JSON_OBJECT("day","월","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","화","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","수","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","목","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","금","houers","09:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","토","houers","09:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","일","houers","09:00 - 20:00","last","19:30")
  ),
  '033-612-5566',
  JSON_ARRAY("신선한","깔끔한","가성비","단체석","모던"),
@@ -832,13 +832,13 @@ VALUES
  '강원특별자치도 강릉시 성남동 44-2',
  '강릉시 성남동 44-2',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","화","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","수","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","목","houres","09:00 - 20:00","last","19:30"),
-   JSON_OBJECT("day","금","houres","09:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","토","houres","09:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","일","houres","09:00 - 20:00","last","19:30")
+   JSON_OBJECT("day","월","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","화","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","수","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","목","houers","09:00 - 20:00","last","19:30"),
+   JSON_OBJECT("day","금","houers","09:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","토","houers","09:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","일","houers","09:00 - 20:00","last","19:30")
  ),
  '033-612-7788',
  JSON_ARRAY("신선한","깔끔한","단체석","모던","가족모임"),
@@ -898,13 +898,13 @@ VALUES
  '강원특별자치도 강릉시 교동 88-1',
  '강릉시 교동 88-1',
  JSON_ARRAY(
-   JSON_OBJECT("day","월","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","화","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","수","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","목","houres","10:00 - 21:00","last","20:30"),
-   JSON_OBJECT("day","금","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","토","houres","10:00 - 22:00","last","21:30"),
-   JSON_OBJECT("day","일","houres","10:00 - 21:00","last","20:30")
+   JSON_OBJECT("day","월","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","화","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","수","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","목","houers","10:00 - 21:00","last","20:30"),
+   JSON_OBJECT("day","금","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","토","houers","10:00 - 22:00","last","21:30"),
+   JSON_OBJECT("day","일","houers","10:00 - 21:00","last","20:30")
  ),
  '033-612-9900',
  JSON_ARRAY("신선한","깔끔한","단체석","가성비","모던"),

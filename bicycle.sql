@@ -860,6 +860,7 @@ drop table product;
 use bicycle;
 desc product;
 select * from product;
+
 create table product (
 	product_id int not null primary key auto_increment,
     pid varchar(50) not null,
@@ -911,6 +912,7 @@ select * from product;
 /***************************************************
 	     스토어위치테이블 : store_location 테이블 - 황동주
 ****************************************************/
+use bicycle;
 drop table store_location;
 create table store_location(
 	sid int not null primary key auto_increment,
@@ -920,18 +922,21 @@ create table store_location(
     lat decimal(10,8),
     lng decimal(11,8)
 );
+ALTER TABLE store_location ADD COLUMN url varchar(1000) AFTER lng;
 -- json 파일의 productlocation 정보 매핑
 INSERT INTO store_location(name,
 					address,
                     phone,
                     lat,
-                    lng)
+                    lng,
+                    url)
 SELECT
     jt.name,
     jt.address,
     jt.phone,
     jt.lat,
-    jt.lng
+    jt.lng,
+    jt.url
 FROM JSON_TABLE(
     CAST(LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/productLocation.json') AS CHAR CHARACTER SET utf8mb4),
     '$[*]' COLUMNS (
@@ -939,7 +944,8 @@ FROM JSON_TABLE(
             address    VARCHAR(150)  PATH '$.address',
             phone       VARCHAR(20)  PATH '$.phone',
             lat        decimal(10,8)  PATH '$.lat',
-            lng       decimal(11,8)           PATH '$.lng'
+            lng       decimal(11,8)           PATH '$.lng',
+            url		VARCHAR(1000) PATH '$.url'
     )
 ) AS jt;
 select * from store_location;

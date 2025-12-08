@@ -61,7 +61,7 @@ export const getRentalPayment = (priceInfo, paymentMethod) => async(dispatch, ge
         // 백엔드 DTO 대신, 프론트엔드 상태 객체로 랩핑하여 반환
         if (result && result.next_redirect_pc_url) {
             // 리다이렉션은 handlePayment의 책임이 아니라,
-            // 이 액션 내부에서 즉시 실행되어야 오류 발생을 줄일 수 있습니다.
+            // 이 액션 내부에서 즉시 실행되어야 오류 발생을 줄일 수 있다.
             const redirectUrl = result.next_redirect_pc_url;
 
             console.log("카카오페이 결제창으로 이동:", redirectUrl);
@@ -82,18 +82,4 @@ export const getRentalPayment = (priceInfo, paymentMethod) => async(dispatch, ge
         const errorMessage = error.response ? error.response.data : error.message;
         return { status: "ERROR", message: errorMessage };
     }
-
-    // try {
-    //     // const url = "http://172.16.250.24:8080/rental/payment";
-    //     const url = "http://localhost:8080/rental/payment";
-    //     // const url = "http://localhost:8080/payment/kakao/ready";
-    //     const result = await axiosPost(url, rentalPayload);
-
-    //     console.log("백엔드로부터의 최종 응답:", result);
-
-    //     return result;
-    // } catch(error) {
-    //     console.error("결제 요청 중 서버 통신 에러 발생:", error);
-    //     return { status: "ERROR", message: error.message };
-    // }
 }

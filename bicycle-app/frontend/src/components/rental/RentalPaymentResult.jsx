@@ -2,13 +2,16 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+// 로컬주소를 통해 백엔드 연결하기 위해 엔드포인트 주소를 변수에 할당
 const API_URL = "http://localhost:8080/api/rental/status";
 
 export function RentalPaymentResults() {
+
+    // URL 쿼리를 읽기 위해 선언 useSearchParams() 훅선언
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
 
-    // 1. URL에서 주문번호(orderId)를 가져옴. (카카오페이 콜백 URL에는 pg_token도 있지만 여기서는 orderId만 사용)
+    // 1. URL에서 주문번호(orderId)를 get (카카오페이 콜백 URL에는 pg_token도 있지만 여기서는 orderId만 사용)
     const orderId = searchParams.get("orderId");
 
     // 2. 컴포넌트 상태 정의
@@ -29,7 +32,7 @@ export function RentalPaymentResults() {
 
         const fetchFinalStatus = async () => {
             try {
-                // 🚨 핵심: 백엔드 API를 호출하여 DB 상태를 검증
+                // 백엔드 API를 호출하여 DB 상태를 검증
                 const response = await axios.get(`${API_URL}?orderId=${orderId}`);
                 const data = response.data;
 

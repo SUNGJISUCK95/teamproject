@@ -14,7 +14,6 @@ export function ProductDetail() {
     const dispatch = useDispatch();
     const product = useSelector((state) => state.product.product);
     const imgList = useSelector((state) => state.product.imgList);
-    const cartList = useSelector((state)=>state.cart.cartList);
 
     useEffect(()=> {
         if (category && pid) {
@@ -63,7 +62,7 @@ export function ProductDetail() {
     }
 
     return (
-        <div className="product-detail-container">
+        <div className="product-detail-container" style={{paddingTop:'65px'}}>
             <div className='product-detail-top'>
                 <div className='product-detail-image-top'>
                     <img src={product.image} alt={product.name} className="main-image"/>

@@ -6,8 +6,16 @@ import { getRentalPayment } from '../../feature/rental/rentalMarkerAPI.js';
 import { CheckoutPage } from './Tosspayments.jsx';
 import { setPaymentDetails } from '../../feature/rental/rentalMarkerSlice.js';
 
+/*
+    RentalPayment.jsx의 기능 :
+    사용자가 자전거 대여를 원할 시
+    제공 되어질 컴포넌트
+    대여하고자 하는 시간을 선택하면
+    이에 따른 가격과 결제 방식을 제공
+*/
 const RentalPayment = ({ className, onClose }) => {
 
+    // 디스패치 상태 사용을 위해 변수 선언
     const dispatch = useDispatch();
 
     // 렌탈 시간 상태관리 함수
@@ -15,7 +23,6 @@ const RentalPayment = ({ className, onClose }) => {
 
     // 결제 방법 선택 상태 함수
     const [selectedPayment, setSelectdPayment] = useState('');
-
     
     // 결제 금액 전달 상태 함수
     const [paymentJsonData, setPaymentJsonData] = useState([]);
@@ -95,11 +102,14 @@ const RentalPayment = ({ className, onClose }) => {
         }
     }
 
+    // 렌탈 시간과 금액을 timePaymenet 변수에 할당하고
+    // useEffect를 이용해 slice에 상태 저장
     const timePaymenet = {rentalTime, calculatedPrice};
     useEffect(() => {
         dispatch(setPaymentDetails(timePaymenet));
     }, [rentalTime, calculatedPrice, dispatch]);
 
+    
     useEffect(() => {
         const paymentInfoData = async () => {
             const jsonData = await axiosData("/data/rentalPayment.json");

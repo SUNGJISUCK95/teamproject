@@ -1,11 +1,14 @@
 import { loadTossPayments, ANONYMOUS } from "@tosspayments/tosspayments-sdk";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import '../../styles/rental.css'
 
+// 토스 개발자센터에서 제공받은 개발용 토큰
 const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
 const customerKey = "xrW6L3-kxhaOIBX6B_jBV";
 
 export function CheckoutPage({ onClose }) {
+  // 로그인한 회원의 계정 정보
   const orderId = useSelector((state) => state.auth.userId)
   // 선택한 스테이션의 정보
   const rentalSelectData = useSelector((state) => state.rentalData.selectedStation);
@@ -13,7 +16,9 @@ export function CheckoutPage({ onClose }) {
   const {rentalTime, calculatedPrice} = useSelector((state) => state.rentalData.paymentDetails); 
 
 const [amount, setAmount] = useState({
+  // 원화 단위를 사용
   currency: "KRW",
+  // 유저가 입력한 시간에 대한 금액 반영
   value: calculatedPrice,
 });
 const [ready, setReady] = useState(false);
@@ -41,16 +46,16 @@ useEffect(() => {
     if (widgets == null) {
       return;
     }
-    // ------ 주문의 결제 금액 설정 ------
+    // 주문의 결제 금액 설정
     await widgets.setAmount(amount);
 
     await Promise.all([
-      // ------  결제 UI 렌더링 ------
+      // 결제 UI 렌더링
       widgets.renderPaymentMethods({
         selector: "#payment-method",
         variantKey: "DEFAULT",
       }),
-      // ------  이용약관 UI 렌더링 ------
+      // 이용약관 UI 렌더링
       widgets.renderAgreement({
         selector: "#agreement",
         variantKey: "AGREEMENT",
@@ -74,17 +79,7 @@ useEffect(() => {
 
 return (
   <div className="wrapper">
-    <div className="box_section"
-         style={{
-                  width:'95%', 
-                  position:'absolute', 
-                  top:'150px', 
-                  left:'50%', 
-                  transform:'translate(-50%)', 
-                  background:'#fff', 
-                  boxShadow:'rgba(0, 0, 0, 0.5) 0px 5px 50px'
-                }}
-      >
+    <div className="box_section">
       {/* 결제 UI */}
       <div id="payment-method" />
 
@@ -92,20 +87,8 @@ return (
       <div id="agreement" />
 
       {/* 결제하기 버튼 */}
-      <div style={{display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center'}}>
         <button
-          className="otherpay"
-          style={{
-            width:'200px',
-            marginBottom:'20px',
-            padding:'5px 45px',
-            backgroundColor:'#0077cc',
-            color:'#fff',
-            border:'none',
-            borderRadius:'5px',
-            cursor:'pointer',
-            boxShadow:'rgba(0, 0, 0, 0.5) 0px 5px 15px',
-          }}
+          className="otherpay1"
           disabled={!ready}
           onClick={async () => {
             try {
@@ -127,23 +110,12 @@ return (
           결제하기
         </button>
         <button
+          className="otherpay2"
           type="button"
           onClick={onClose}
-          style={{
-            width:'200px',
-            marginBottom:'25px',
-            padding:'5px 45px',
-            backgroundColor:'#0077cc',
-            color:'#fff',
-            border:'none',
-            borderRadius:'5px',
-            cursor:'pointer',
-            boxShadow:'rgba(0, 0, 0, 0.5) 0px 5px 15px',
-          }}
         >
         닫기 
         </button>
-      </div>
     </div>
   </div>
 );

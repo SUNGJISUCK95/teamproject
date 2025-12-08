@@ -9,19 +9,43 @@ import { setSelectedStation } from '../../feature/rental/rentalMarkerSlice.js';
 const imageKey = ["seoulBike"];
 const imagePath = cityBikeImage[imageKey];
 
+/*  RentalInfo.jsx의 기능 :
+    Rental.jsx에서 렌더링된 마커를 클릭 하면,
+    해당 컴포넌트가 오픈되어지고
+    대여하고자 하는 자전거를 보관중인
+    스테이션 정보가 브라우저에 렌더링
+ */
 export function RentalInfo({ data, onClose, onReSearch }) {
+    // 대여하기 버튼의 초기 상태
     const [isPaymentModalOpen, setPaymentModalOpen] = useState(false);
     
-    const windowWidth = useRentalMapResponsive();
+    // 810px 이하의 모바일 환경에서 지도를 렌더링하기 위해 현재 브라우저 너비를 확인
+    const windowWidth = useRentalMapResponsive(); 
+    // 모바일 너비(<= 810px) 여부를 판단하는 boolean 변수
     const isMobile = windowWidth <= 810;
 
+    // dispatch를 사용하기 위해 선언
     const dispatch = useDispatch();
+
+    // 브라우저가 Mobile 크기의 상태에서 필터링된 자전거 스테이션을 store에서 useSelector를 통해 get
     const filteredBikeList = useSelector((state) => state.rentalData.filteredBikeList);
 
+    // 마커가 클릭 되지 않았을 시 데이터의 접근 시도를 차단해 빈 값의 반환을 차단하는 안전장치
     if (!data) return null;
 
+    //props로 get한 위도의 정보를 stationLat에 할당
     const stationLat = data.latitude;
+    //props로 get한 위도의 정보를 stationLng에 할당
     const stationLng = data.longitude;
+
+    //자전거 이미지를 변수에 할당
+    const ImageContent = (
+        <img
+            className='map_marker_data_info_img'
+            src={imagePath}
+            alt="자전거 이미지"
+        />
+    )
 
     // 기본 마커 이미지
     const defaultMarkerImage = {
@@ -34,6 +58,7 @@ export function RentalInfo({ data, onClose, onReSearch }) {
         size: { width: 25, height: 35 }, // 크기를 다르게 하여 시각적으로 강조
     };
 
+    // Mobile 크기에서 렌더링될 지도와 마커의 컴포넌트를 변수에 할당
     const MapContent = (
         <Map
             center={{ lat: stationLat, lng: stationLng }}
@@ -64,14 +89,6 @@ export function RentalInfo({ data, onClose, onReSearch }) {
             })}
         </Map>
     );
-
-    const ImageContent = (
-        <img
-            className='map_marker_data_info_img'
-            src={imagePath}
-            alt="자전거 이미지"
-        />
-    )
 
     return (
         <>

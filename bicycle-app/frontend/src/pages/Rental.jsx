@@ -56,10 +56,13 @@ const Rantal = () => {
     // store에서 필터링된 마커 리스트를 가져 올 변수
     const [filteredMaps, setFilteredMaps] = useState([]);
 
+    // 사용자가 보고있는 지도의 정 중앙의 상태 저장
     const [mapCenter, setMapCenter] = useState(latLon);
 
+    // 새로운 위치의 마커 데이터를 보기위해 버튼을 생성하고 초기값 상태를 정의
     const [showSearchButton, setShowSearchButton] = useState(false);
 
+    // 810px Mobile 크기에서 마커 정보를 사용하기 위해 제작한 훅을 변수에 할당
     const respondiveMap = useRentalMapResponsive();
     const isMapMobile = respondiveMap <= 810;
 
