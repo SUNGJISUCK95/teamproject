@@ -1,0 +1,7 @@
+npm run dev 실행
+
+Local선택 (page.js 읽어서 실행함)
+
+순서
+
+app-> page.js
