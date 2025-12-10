@@ -3,9 +3,19 @@ import { useDispatch } from 'react-redux';
 import RentalBikeList from './RentalBikeList';
 import { axiosData } from '../../utils/dataFetch';
 import { getRentalPayment } from '../../feature/rental/rentalMarkerAPI.js';
+import { CheckoutPage } from './Tosspayments.jsx';
+import { setPaymentDetails } from '../../feature/rental/rentalMarkerSlice.js';
 
-const RentalPayment = ({ className, onClose, }) => {
+/*
+    RentalPayment.jsx의 기능 :
+    사용자가 자전거 대여를 원할 시
+    제공 되어질 컴포넌트
+    대여하고자 하는 시간을 선택하면
+    이에 따른 가격과 결제 방식을 제공
+*/
+const RentalPayment = ({ className, onClose }) => {
 
+    // 디스패치 상태 사용을 위해 변수 선언
     const dispatch = useDispatch();
 
     // 렌탈 시간 상태관리 함수
@@ -13,10 +23,13 @@ const RentalPayment = ({ className, onClose, }) => {
 
     // 결제 방법 선택 상태 함수
     const [selectedPayment, setSelectdPayment] = useState('');
-
+    
     // 결제 금액 전달 상태 함수
     const [paymentJsonData, setPaymentJsonData] = useState([]);
-
+    
+    // 다른 결제수단 컴포넌트 상태 함수
+    const [otherPayment, setOtherPayment] = useState(false); 
+    
     // 시작 금액
     const pricePerHour = 500;
     // 기본 대여시작 시간인 30분 단위를 고정
@@ -24,7 +37,7 @@ const RentalPayment = ({ className, onClose, }) => {
     // 렌탈 금액 초기 값
     let calculatedPrice = 0;
 
-        // 1. rentalTime에 따라 금액을 계산
+    // 1. rentalTime에 따라 금액을 계산
     if (rentalTime >= 300) {
         // 2. 300분(종일권) 이상 선택 시 5,000원으로 고정
         calculatedPrice = 5000;
@@ -32,7 +45,7 @@ const RentalPayment = ({ className, onClose, }) => {
         // 3.30분 단위 증가에 맞춰 500원씩 증가
         calculatedPrice = (rentalTime / timeUnit) * pricePerHour;
     }
-
+    
     // 버튼 클릭 시 시간이 1시간 단위인30분씩 더해지는 클릭 이벤트 함수
     function handleTimeIncrease() {
         // 최대 270분 (4.5시간)까지 증가 허용 (300분 종일권은 별도)
@@ -63,14 +76,14 @@ const RentalPayment = ({ className, onClose, }) => {
         const newPaymentMethod = event.target.value;
 
         // 선택된 결제 수단 상태 업데이트
-        setSelectdPayment(event.target.value);
+        setSelectdPayment(event.target.value); 
         
         // 변수에 담긴 타겟 값을 활용하여 유저에게 확인용 메시지를 alert을 이용해 고지
         if (newPaymentMethod === 'kakaopay'){
             alert("카카오 페이를 선택하셨습니다.")
 
-        } else if (newPaymentMethod === 'naverpay'){
-            alert("네이버 페이를 선택하셨습니다.")
+        } else if (newPaymentMethod === 'otmerpayment'){
+            alert("다른 결제 수단을 선택하셨습니다.")
 
         }
 
@@ -89,13 +102,21 @@ const RentalPayment = ({ className, onClose, }) => {
         }
     }
 
+    // 렌탈 시간과 금액을 timePaymenet 변수에 할당하고
+    // useEffect를 이용해 slice에 상태 저장
+    const timePaymenet = {rentalTime, calculatedPrice};
+    useEffect(() => {
+        dispatch(setPaymentDetails(timePaymenet));
+    }, [rentalTime, calculatedPrice, dispatch]);
+
+    
     useEffect(() => {
         const paymentInfoData = async () => {
             const jsonData = await axiosData("/data/rentalPayment.json");
             setPaymentJsonData(jsonData);
         }
         paymentInfoData()
-    }, [])
+    }, []);
 
     return (
         <>
@@ -150,22 +171,35 @@ const RentalPayment = ({ className, onClose, }) => {
                                     checked={selectedPayment === 'kakaopay'}
                                     />
                             </li>
-                            <li>
-                                <label htmlFor="naverpay">
+                            {/* <li>
+                                <label htmlFor="otmerpayment">
                                     <img src={paymentJsonData[3]?.choice?.naverpay_img} alt={paymentJsonData[3]?.choice?.naver} />
                                 </label>
                                     <input
                                         type="radio"
-                                        id='naverpay'
+                                        id='otmerpayment'
                                         name='paymentCheckd'
-                                        value="naverpay"
+                                        value="otmerpayment"
                                         onChange={handlePaymentChange}
-                                        checked={selectedPayment === 'naverpay'}
+                                        checked={selectedPayment === 'otmerpayment'}
                                     />
+                            </li> */}
+                            <li>
+                                <button
+                                    type='button'
+                                    onClick={() => setOtherPayment(true)}
+                                >다른 결제 수단
+                                </button>                    
                             </li>
                         </ul>
                     </div>
                 </div>
+                    {otherPayment && (
+                        <CheckoutPage 
+                            data={otherPayment}
+                            onClose={() => setOtherPayment(false)}
+                        />
+                    )}
                 <form>
                     
                     <button type='button' onClick={handlePayment}>{paymentJsonData[4]?.price_button?.payment_button}</button>
