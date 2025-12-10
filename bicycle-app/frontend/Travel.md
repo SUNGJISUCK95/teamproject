@@ -1,4 +1,4 @@
-[List]
+#[List]
 1. 대표 여행지 마커 출력 타입별 리스트 및 마커 출력
 ```mermaid
 sequenceDiagram
@@ -38,7 +38,7 @@ sequenceDiagram
 
 
 
-[Detail]
+#[Detail]
 1. 상세페이지 출력
 ```mermaid
 sequenceDiagram
