@@ -7,7 +7,6 @@ import { TravelRepairList } from "../../components/travel/TravelRepairList.jsx";
 import { TravelFoodDetailList } from "../../components/travel/TravelFoodDetailList.jsx";
 import { TravelHotelDetailList } from "../../components/travel/TravelHotelDetailList.jsx";
 import { TravelRepairDetailList } from "../../components/travel/TravelRepairDetailList.jsx";
-import { TravelDetail } from "../../components/travel/TravelFoodDetail.jsx";
 import Map from './Map.jsx';
 
 export function Travel() {
@@ -69,7 +68,7 @@ export function Travel() {
       const detail = document.getElementById("travel_detail");
 
       // 상세 정보창 출력
-      if(detail && type === "food" || type === "hotel" || type === "repair") {
+      if(detail && (type === "food" || type === "hotel" || type === "repair")) {
         if (did) {
           setSelectedDid(did);
         }

@@ -692,10 +692,10 @@ VALUES
  '02-234-5678',
  JSON_ARRAY("비즈니스","조식포함","주차가능"),
  JSON_ARRAY(
-   JSON_OBJECT("hname","스탠다드","image","","mainRoom","70000","lodgment","100000"),
-   JSON_OBJECT("hname","슈페리어","image","","mainRoom","100000","lodgment","150000"),
-   JSON_OBJECT("hname","디럭스","image","","mainRoom","130000","lodgment","200000"),
-   JSON_OBJECT("hname","프리미엄","image","","mainRoom","180000","lodgment","280000")
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","70000","lodgment","100000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","100000","lodgment","150000"),
+   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","130000","lodgment","200000"),
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","180000","lodgment","280000")
  ),
  JSON_ARRAY(
    "https://picsum.photos/seed/saturn1/400/300",
@@ -703,25 +703,25 @@ VALUES
    "https://picsum.photos/seed/saturn3/400/300"
  ),
  JSON_ARRAY(
-   JSON_OBJECT("category","스탠다드","images", JSON_ARRAY(
+   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
       "https://picsum.photos/seed/saturn1/400/300",
       "https://picsum.photos/seed/saturn2/400/300",
       "https://picsum.photos/seed/saturn3/400/300",
       "https://picsum.photos/seed/saturn4/400/300"
    )),
-   JSON_OBJECT("category","슈페리어","images", JSON_ARRAY(
+   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
       "https://picsum.photos/seed/saturn5/400/300",
       "https://picsum.photos/seed/saturn6/400/300",
       "https://picsum.photos/seed/saturn7/400/300",
       "https://picsum.photos/seed/saturn8/400/300"
    )),
-   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
       "https://picsum.photos/seed/saturn9/400/300",
       "https://picsum.photos/seed/saturn10/400/300",
       "https://picsum.photos/seed/saturn11/400/300",
       "https://picsum.photos/seed/saturn12/400/300"
    )),
-   JSON_OBJECT("category","프리미엄","images", JSON_ARRAY(
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
       "https://picsum.photos/seed/saturn13/400/300",
       "https://picsum.photos/seed/saturn14/400/300",
       "https://picsum.photos/seed/saturn15/400/300",
@@ -806,10 +806,10 @@ VALUES
  '02-456-7890',
  JSON_ARRAY("저렴","백패커","도심"),
  JSON_ARRAY(
-   JSON_OBJECT("hname","싱글","image","","mainRoom","30000","lodgment","50000"),
-   JSON_OBJECT("hname","더블","image","","mainRoom","50000","lodgment","80000"),
-   JSON_OBJECT("hname","트리플","image","","mainRoom","70000","lodgment","120000"),
-   JSON_OBJECT("hname","도미토리","image","","mainRoom","15000","lodgment","25000")
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","30000","lodgment","50000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","50000","lodgment","80000"),
+   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","70000","lodgment","120000"),
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","15000","lodgment","25000")
  ),
  JSON_ARRAY(
    "https://picsum.photos/seed/hostel27-1/400/300",
@@ -817,25 +817,25 @@ VALUES
    "https://picsum.photos/seed/hostel27-3/400/300"
  ),
  JSON_ARRAY(
-   JSON_OBJECT("category","싱글","images", JSON_ARRAY(
+   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
       "https://picsum.photos/seed/hostel27-1/400/300",
       "https://picsum.photos/seed/hostel27-2/400/300",
       "https://picsum.photos/seed/hostel27-3/400/300",
       "https://picsum.photos/seed/hostel27-4/400/300"
    )),
-   JSON_OBJECT("category","더블","images", JSON_ARRAY(
+   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
       "https://picsum.photos/seed/hostel27-5/400/300",
       "https://picsum.photos/seed/hostel27-6/400/300",
       "https://picsum.photos/seed/hostel27-7/400/300",
       "https://picsum.photos/seed/hostel27-8/400/300"
    )),
-   JSON_OBJECT("category","트리플","images", JSON_ARRAY(
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
       "https://picsum.photos/seed/hostel27-9/400/300",
       "https://picsum.photos/seed/hostel27-10/400/300",
       "https://picsum.photos/seed/hostel27-11/400/300",
       "https://picsum.photos/seed/hostel27-12/400/300"
    )),
-   JSON_OBJECT("category","도미토리","images", JSON_ARRAY(
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
       "https://picsum.photos/seed/hostel27-13/400/300",
       "https://picsum.photos/seed/hostel27-14/400/300",
       "https://picsum.photos/seed/hostel27-15/400/300",
@@ -863,10 +863,10 @@ VALUES
  '02-567-8901',
  JSON_ARRAY("가성비","편안함","도심"),
  JSON_ARRAY(
-   JSON_OBJECT("hname","싱글","image","","mainRoom","40000","lodgment","70000"),
-   JSON_OBJECT("hname","더블","image","","mainRoom","60000","lodgment","90000"),
-   JSON_OBJECT("hname","트리플","image","","mainRoom","90000","lodgment","140000"),
-   JSON_OBJECT("hname","패밀리","image","","mainRoom","120000","lodgment","180000")
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","40000","lodgment","70000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","60000","lodgment","90000"),
+   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","90000","lodgment","140000"),
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","120000","lodgment","180000")
  ),
  JSON_ARRAY(
    "https://picsum.photos/seed/kgrand1/400/300",
@@ -874,25 +874,25 @@ VALUES
    "https://picsum.photos/seed/kgrand3/400/300"
  ),
  JSON_ARRAY(
-   JSON_OBJECT("category","싱글","images", JSON_ARRAY(
+   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
       "https://picsum.photos/seed/kgrand1/400/300",
       "https://picsum.photos/seed/kgrand2/400/300",
       "https://picsum.photos/seed/kgrand3/400/300",
       "https://picsum.photos/seed/kgrand4/400/300"
    )),
-   JSON_OBJECT("category","더블","images", JSON_ARRAY(
+   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
       "https://picsum.photos/seed/kgrand5/400/300",
       "https://picsum.photos/seed/kgrand6/400/300",
       "https://picsum.photos/seed/kgrand7/400/300",
       "https://picsum.photos/seed/kgrand8/400/300"
    )),
-   JSON_OBJECT("category","트리플","images", JSON_ARRAY(
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
       "https://picsum.photos/seed/kgrand9/400/300",
       "https://picsum.photos/seed/kgrand10/400/300",
       "https://picsum.photos/seed/kgrand11/400/300",
       "https://picsum.photos/seed/kgrand12/400/300"
    )),
-   JSON_OBJECT("category","패밀리","images", JSON_ARRAY(
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
       "https://picsum.photos/seed/kgrand13/400/300",
       "https://picsum.photos/seed/kgrand14/400/300",
       "https://picsum.photos/seed/kgrand15/400/300",
@@ -920,10 +920,10 @@ VALUES
  '02-678-9012',
  JSON_ARRAY("저렴","백패커","도심"),
  JSON_ARRAY(
-   JSON_OBJECT("hname","싱글","image","","mainRoom","35000","lodgment","60000"),
-   JSON_OBJECT("hname","더블","image","","mainRoom","55000","lodgment","90000"),
-   JSON_OBJECT("hname","트리플","image","","mainRoom","75000","lodgment","120000"),
-   JSON_OBJECT("hname","도미토리","image","","mainRoom","15000","lodgment","25000")
+   JSON_OBJECT("hname","디럭스","image","","mainRoom","35000","lodgment","60000"),
+   JSON_OBJECT("hname","스위트","image","","mainRoom","55000","lodgment","90000"),
+   JSON_OBJECT("hname","패밀리 트윈","image","","mainRoom","75000","lodgment","120000"),
+   JSON_OBJECT("hname","로얄 스위트","image","","mainRoom","15000","lodgment","25000")
  ),
  JSON_ARRAY(
    "https://picsum.photos/seed/valueplace1/400/300",
@@ -931,25 +931,25 @@ VALUES
    "https://picsum.photos/seed/valueplace3/400/300"
  ),
  JSON_ARRAY(
-   JSON_OBJECT("category","싱글","images", JSON_ARRAY(
+   JSON_OBJECT("category","디럭스","images", JSON_ARRAY(
       "https://picsum.photos/seed/valueplace1/400/300",
       "https://picsum.photos/seed/valueplace2/400/300",
       "https://picsum.photos/seed/valueplace3/400/300",
       "https://picsum.photos/seed/valueplace4/400/300"
    )),
-   JSON_OBJECT("category","더블","images", JSON_ARRAY(
+   JSON_OBJECT("category","스위트","images", JSON_ARRAY(
       "https://picsum.photos/seed/valueplace5/400/300",
       "https://picsum.photos/seed/valueplace6/400/300",
       "https://picsum.photos/seed/valueplace7/400/300",
       "https://picsum.photos/seed/valueplace8/400/300"
    )),
-   JSON_OBJECT("category","트리플","images", JSON_ARRAY(
+   JSON_OBJECT("category","패밀리 트윈","images", JSON_ARRAY(
       "https://picsum.photos/seed/valueplace9/400/300",
       "https://picsum.photos/seed/valueplace10/400/300",
       "https://picsum.photos/seed/valueplace11/400/300",
       "https://picsum.photos/seed/valueplace12/400/300"
    )),
-   JSON_OBJECT("category","도미토리","images", JSON_ARRAY(
+   JSON_OBJECT("category","로얄 스위트","images", JSON_ARRAY(
       "https://picsum.photos/seed/valueplace13/400/300",
       "https://picsum.photos/seed/valueplace14/400/300",
       "https://picsum.photos/seed/valueplace15/400/300",
