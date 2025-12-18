@@ -1,4 +1,7 @@
-1. Product(상품목록조회, 상품 상세조회)
+# 기술명세서
+
+# 🚴‍♂️ [프로젝트명] 자전거 이커머스 플랫폼 기술 명세서
+4. Product(상품목록조회, 상품 상세조회)
 ```mermaid
 sequenceDiagram
     participant User
