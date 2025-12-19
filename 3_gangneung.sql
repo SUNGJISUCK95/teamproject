@@ -2207,25 +2207,25 @@ VALUES
  '분위기 좋고 서비스도 만족스러웠습니다. 강추!',
  '2025-11-04',
  JSON_ARRAY(
-    '/images/travel_foods/gangnmunga/food/gangmunga_food_1.jfif',
-    '/images/travel_foods/gangnmunga/inside/gangmunga_inside_1.jfif',
-    '/images/travel_foods/gangnmunga/outside/gangmunga_outside_1.jfif'
+    '/images/travel_foods/gangmunga/food/gangmunga_food_1.jfif',
+    '/images/travel_foods/gangmunga/inside/gangmunga_inside_1.jfif',
+    '/images/travel_foods/gangmunga/outside/gangmunga_outside_1.jfif'
  )),
 ('test666', 25, 'https://picsum.photos/seed/user6/100/100', '18', 4.6,
  '맛, 양, 서비스 모두 만족! 특히 해산물이 신선했습니다.',
  '2025-11-05',
  JSON_ARRAY(
-    '/images/travel_foods/gangnmunga/food/gangmunga_food_2.jfif',
-    '/images/travel_foods/gangnmunga/inside/gangmunga_inside_2.jfif',
-    '/images/travel_foods/gangnmunga/outside/gangmunga_outside_2.jfif'
+    '/images/travel_foods/gangmunga/food/gangmunga_food_2.jfif',
+    '/images/travel_foods/gangmunga/inside/gangmunga_inside_2.jfif',
+    '/images/travel_foods/gangmunga/outside/gangmunga_outside_2.jfif'
  )),
 ('test', 25, 'https://picsum.photos/seed/user1/100/100', '12', 4.1,
  '다음에도 친구와 함께 방문하고 싶은 곳이에요.',
  '2025-11-06',
  JSON_ARRAY(
-    '/images/travel_foods/gangnmunga/food/gangmunga_food_3.jfif',
-    '/images/travel_foods/gangnmunga/inside/gangmunga_inside_3.jfif',
-    '/images/travel_foods/gangnmunga/outside/gangmunga_outside_3.jfif'
+    '/images/travel_foods/gangmunga/food/gangmunga_food_3.jfif',
+    '/images/travel_foods/gangmunga/inside/gangmunga_inside_3.jfif',
+    '/images/travel_foods/gangmunga/outside/gangmunga_outside_3.jfif'
  )),
 
 -- fid 26
