@@ -22,6 +22,11 @@ sequenceDiagram
 
 2. 회원가입
 ```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend as Frontend (React)
+    participant Backend as Backend (Spring Boot)
+    participant DB as Database (MySQL)
 %% 2. 회원가입
     User->>Frontend: 회원 가입에 필요한 정보 입력 후 제출버튼 클릭
     Frontend-->>User : <font color="red">필수정보 미기입 또는 소셜 로그인을 하지 않은 상태에서 아이디 중복확인을 안한 경우 경고창 출력</font>
@@ -37,6 +42,11 @@ sequenceDiagram
 
 3-1. 아이디 찾기
 ```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend as Frontend (React)
+    participant Backend as Backend (Spring Boot)
+    participant DB as Database (MySQL)
 %% 3-1. 아이디 찾기
     User->>Frontend: 계정에 등록된 이메일과 이름 입력 후 "아이디 찾기 전 인증하기 클릭"
     Frontend->>Backend: /auth/searchuserinfo로 입력한 정보 전달.
@@ -63,6 +73,11 @@ sequenceDiagram
 
 3-2. 비밀번호 변경하기
 ```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend as Frontend (React)
+    participant Backend as Backend (Spring Boot)
+    participant DB as Database (MySQL)
 %% 3-2. 비밀번호 변경하기
     User->>Frontend: 계정에 등록된 이메일과 이름, 아이디를 입력 후 "비밀번호 찾기 전 인증하기 클릭"
     Frontend->>Backend: /auth/searchuserinfo로 입력한 정보 전달.
@@ -95,6 +110,11 @@ sequenceDiagram
 ```
 4. 내 정보 페이지
 ```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend as Frontend (React)
+    participant Backend as Backend (Spring Boot)
+    participant DB as Database (MySQL)
 %% 4. 내 정보 페이지
     User->>Frontend: 로컬스토리지에 등록된 아이디를 확인하여 백엔드로 전송
     Frontend-->>User: <font color="red">로컬 스토리지에 아이디가 없는 경우, 잘못된 접근으로 판단하고 홈화면으로 돌려보냄</font>
