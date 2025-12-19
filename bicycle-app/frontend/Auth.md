@@ -1,4 +1,4 @@
-1. 로그인 (POST /auth/login)
+1. 로그인
 ```mermaid
 sequenceDiagram
     participant User
@@ -18,8 +18,10 @@ sequenceDiagram
     DB->>Backend: 일치하는 데이터의 계정정보를 백엔드로 전달.
     Backend->>Frontend: 전달받은 데이터 중 UserId, role 값과 login:true 값을 프론트로 전달.
     Frontend->>User : 전달받은 내용을 로컬스토리지에 저장 후 사용자를 홈화면으로 안내. 
-    
-    
+```
+
+2. 회원가입
+```mermaid
 %% 2. 회원가입
     User->>Frontend: 회원 가입에 필요한 정보 입력 후 제출버튼 클릭
     Frontend-->>User : <font color="red">필수정보 미기입 또는 소셜 로그인을 하지 않은 상태에서 아이디 중복확인을 안한 경우 경고창 출력</font>
@@ -31,8 +33,10 @@ sequenceDiagram
     Backend->>DB: 사용자 ID값을 사용자 여행 정보 테이블(travel_save)에 저장
     DB->>Backend: 가입 완료시 int값을 전달
     Frontend->>User : 가입 완료 메세지와 함께 홈으로 이동시킴.
-    
-    
+```
+
+3-1. 아이디 찾기
+```mermaid
 %% 3-1. 아이디 찾기
     User->>Frontend: 계정에 등록된 이메일과 이름 입력 후 "아이디 찾기 전 인증하기 클릭"
     Frontend->>Backend: /auth/searchuserinfo로 입력한 정보 전달.
@@ -55,8 +59,10 @@ sequenceDiagram
     DB->>Backend : 해당 정보를 백엔드로 전달.
     Backend->>Frontend: 전달받은 데이터의 ID값을 추출하여 프론트로 전달
     Frontend->>User: 전달받은 아이디 값을 화면에 출력. 
-    
-    
+```
+
+3-2. 비밀번호 변경하기
+```mermaid
 %% 3-2. 비밀번호 변경하기
     User->>Frontend: 계정에 등록된 이메일과 이름, 아이디를 입력 후 "비밀번호 찾기 전 인증하기 클릭"
     Frontend->>Backend: /auth/searchuserinfo로 입력한 정보 전달.
@@ -86,7 +92,9 @@ sequenceDiagram
     DB->>Backend : 정수값 전달.
     Backend->>Frontend : 정수값 전달.
     Frontend->>User: 홈 화면으로 이동.
-
+```
+4. 내 정보 페이지
+```mermaid
 %% 4. 내 정보 페이지
     User->>Frontend: 로컬스토리지에 등록된 아이디를 확인하여 백엔드로 전송
     Frontend-->>User: <font color="red">로컬 스토리지에 아이디가 없는 경우, 잘못된 접근으로 판단하고 홈화면으로 돌려보냄</font>
