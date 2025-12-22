@@ -2,7 +2,7 @@
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
     
@@ -11,7 +11,7 @@ sequenceDiagram
     Frontend->>Backend: 메인페이지에서 받은 CSRF 토큰 전달.
     Frontend->>Backend: 사용자가 입력한 ID/PW 데이터 전달.
     
-    Backend-->>Frontend: ID와 PW가 다른 경우 login:false값을 전달.
+    Backend-->>Frontend: ID와 PW가 다른 경우, 토큰값이 다른 경우 login:false값을 전달.
     Frontend-->>User : 사용자에게 경보창을 출력하고 입력창을 비움.
     
     Backend->>DB: authenticate를 이용하여 인증 및 DB에서 ID/PW 대조
@@ -24,7 +24,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 %% 2. 회원가입
@@ -37,6 +37,7 @@ sequenceDiagram
     Backend->>DB: 암호화 된 비밀번호와 받은 정보를 사용자 정보 테이블(userinfo)에 저장
     Backend->>DB: 사용자 ID값을 사용자 여행 정보 테이블(travel_save)에 저장
     DB->>Backend: 가입 완료시 int값을 전달
+    Backend->>Frontend: 가입 완료시 int값을 전달
     Frontend->>User : 가입 완료 메세지와 함께 홈으로 이동시킴.
 ```
 
@@ -44,7 +45,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 %% 3-1. 아이디 찾기
@@ -75,7 +76,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 %% 3-2. 비밀번호 변경하기
@@ -112,7 +113,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 %% 4. 내 정보 페이지
