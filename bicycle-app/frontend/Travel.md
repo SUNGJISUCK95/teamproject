@@ -3,7 +3,7 @@
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 
@@ -20,7 +20,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
     
@@ -43,7 +43,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 
@@ -60,7 +60,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 
@@ -79,7 +79,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 
@@ -98,7 +98,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 
@@ -117,7 +117,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
-    participant Frontend as Frontend (React)
+    participant Frontend as Frontend
     participant Backend as Backend (Spring Boot)
     participant DB as Database (MySQL)
 
