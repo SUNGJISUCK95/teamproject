@@ -66,7 +66,7 @@ sequenceDiagram
 
     %% 2. 회원별 찜 정보 가져오기
     User->>Frontend: 리스트(맛집, 숙소, 수리)에서 특정 항목 선택
-    Frontend->>User: 로그인 유무 확인 (비로그인일 경우 API 호출 X)
+    Frontend->>User: localStorage값으로 로그인 유무 확인 (비로그인일 경우 API 호출 X)
     User->>Frontend: 로그인일 경우 API 호출
     Frontend->>Backend: POST /travel/save (API 요청)
     Backend->>DB: 조회: findSave()
@@ -85,8 +85,6 @@ sequenceDiagram
 
     %% 3. 리뷰 리스트 출력
     User->>Frontend: 리스트(맛집, 숙소, 수리)에서 특정 항목 선택
-    Frontend->>User: 로그인 유무 확인 (비로그인일 경우 API 호출 X)
-    User->>Frontend: 로그인일 경우 API 호출
     Frontend->>Backend: POST /travel/foodReview, /travel/hotelReview, /travel/repairReview (API 요청)
     Backend->>DB: 조회: findFoodReview(), findHotelReview(), findRepairReview()
     DB-->>Backend: TravelFoodReview, TravelHotelReview, TravelRepairReview Entity List 반환
@@ -104,7 +102,7 @@ sequenceDiagram
 
     %% 4. 회원별 찜 수정
     User->>Frontend: 상세페이지에서 저장 버튼 클릭
-    Frontend->>User: 로그인 유무 확인 (비로그인일 경우 경고문 및 API 호출 X)
+    Frontend->>User: localStorage값으로 로그인 유무 확인 (비로그인일 경우 API 호출 X)
     User->>Frontend: 로그인일 경우 API 호출
     Frontend->>Backend: POST /travel/foodSaveUpdate, /travel/hotelSaveUpdate, /travel/repairSaveUpdate (API 요청)
     Backend->>DB: 조회: updateFoodSave(), updateHotelSave(), updateRepairSave()
@@ -123,7 +121,7 @@ sequenceDiagram
 
     %% 5. 리뷰 작성
     User->>Frontend: 상세페이지에서 리뷰 작성 후 리뷰등록 버튼 클릭
-    Frontend->>User: 로그인 유무 확인 (비로그인일 경우 경고문 및 API 호출 X)
+    Frontend->>User: localStorage값으로 로그인 유무 확인 (비로그인일 경우 API 호출 X)
     User->>Frontend: 로그인일 경우 API 호출
     Frontend->>Backend: POST /travel/foodReviewInsert, /travel/hotelReviewInsert, /travel/repairReviewInsert (API 요청)
     Backend->>DB: 저장: insertFoodReview(), insertHotelReview(), insertRepairReview()
