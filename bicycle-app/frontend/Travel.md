@@ -29,10 +29,7 @@ sequenceDiagram
     Frontend->>Backend: GET /travel/food, /travel/hotel, /travel/repair (API 요청)
     Backend->>DB: 조회: findFood(), findHotel(), findRepair()
     DB-->>Backend: TravelFood, TravelHotel, TravelRepair Entity List 반환
-    Backend-->>Frontend: TravelFoodDto, TravelHotelDto, TravelRepairDto List (JSON) 반환    
-    
-    Note right of Frontend: [Redux] 성공 응답 수신 후<br/>dispatch(createFood), dispatch(createHotel), dispatch(createRepair)<br/>→ Store에 맛집 리스트 저장
-    
+    Backend-->>Frontend: TravelFoodDto, TravelHotelDto, TravelRepairDto List (JSON) 반환        
     Frontend-->>User: 좌측 리스트창에 타입별 리스트 출력 및 지도에 타입별 마커 출력
 ```
 
